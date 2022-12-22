@@ -53,8 +53,8 @@ Project is: not complete yet_ working on it
 
 ## Contact
 Created by:
-  1. [@KamruzzamanAsif](https://github.com/KamruzzamanAsif) 
-  2. [@ahmedfahad]https://github.com/ahmedfahad04) 
+  1. [Kamruzzaman Asif](https://github.com/KamruzzamanAsif) 
+  2. [Istiaq Ahmed Fahad](https://github.com/ahmedfahad04) 
 - feel free to contact us!
 
 
