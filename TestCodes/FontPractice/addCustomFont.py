@@ -46,7 +46,6 @@ class MainWindow(QMainWindow):
         user_label.move(85, 100)       
         
 
-
 if __name__ == '__main__':
     app = QApplication([])
     window = MainWindow()

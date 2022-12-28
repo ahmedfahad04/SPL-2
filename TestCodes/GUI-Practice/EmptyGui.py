@@ -1,5 +1,5 @@
 import sys
-from PyQt6.QtWidgets import QApplication, QWidget
+from PyQt5.QtWidgets import QApplication, QWidget
 
 app = QApplication(sys.argv)  # 2. Create QApplication object
 window = QWidget()  # 3. Create window from QWidget object
