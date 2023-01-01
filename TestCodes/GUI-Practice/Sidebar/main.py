@@ -4,6 +4,7 @@ from PyQt5.QtWidgets import *
 from sidebar import Ui_MainWindow
 import sys
 
+
 # main sfsf
 
 class MainWindow(QMainWindow):
@@ -17,15 +18,13 @@ class MainWindow(QMainWindow):
         self.ui.icon_with_lbl_widget.hide()
 
 
-
 if __name__ == '__main__':
-
     app = QApplication([])
-    
+
     with open('style.qss', 'r') as f:
         style_sheet = f.read()
-    
-    app.setStyleSheet(style_sheet)                
+
+    app.setStyleSheet(style_sheet)
     window = MainWindow()
     window.show()
     sys.exit(app.exec_())
