@@ -4,7 +4,7 @@ from PyQt5.QtWidgets import *
 from sidebar import Ui_MainWindow
 import sys
 
-# main
+# this is unnecessary
 
 class MainWindow(QMainWindow):
     def __init__(self):
