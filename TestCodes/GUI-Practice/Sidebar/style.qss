@@ -1,0 +1,130 @@
+/*= Style for mainwindow START
+  ==================================================== */
+	#MainWindow {
+		background-color: #FFDFD3;
+	}
+/*= END
+  ==================================================== */
+
+/*= Style for button to change menu style START
+  ==================================================== */
+	#menu_btn {
+		padding: 5px;
+		border: none;
+		width: 30px;
+		height: 30px;
+	}
+
+    #menu_btn:hover {
+        background-color: rgba( 86, 101, 115, 0.5);
+    }
+/*= END
+  ==================================================== */
+
+/*= Style for header widget START
+  ==================================================== */
+	#main_widget {
+		background-color: #FEC8D8;
+	}
+/*= END
+  ==================================================== */
+
+/*= Style for menu with icon only START
+  ==================================================== */
+  	/* style for widget */
+	#icon_only_widget {
+		background-color: #FEC8D8;
+		width:50px;
+	}
+
+    /* style for QPushButton and QLabel */
+	#icon_only_widget QPushButton, QLabel {
+		height:50px;
+		border:none;
+		/* border-bottom: 1px solid #b0b0b0; */
+	}
+
+	#icon_only_widget QPushButton:hover {
+		background-color: rgba( 86, 101, 115, 0.5);
+	}
+
+	/* style for logo image */
+	#logo_label_1 {
+		padding: 5px
+	}
+/*= END
+  ==================================================== */
+
+/*= Style for menu with icon and text START
+  ==================================================== */
+	/* style for widget */
+	#icon_with_lbl_widget {
+		background-color: #FEC8D8;
+	}
+
+	/* style for QPushButton */
+	#icon_with_lbl_widget QPushButton {
+		border:none;
+		border-radius: 3px;
+		text-align: left;
+		padding: 8px 0 8px 15px;
+		color: #957DAD;
+        font-weight: bold;
+	}
+
+	#icon_with_lbl_widget QPushButton:hover {
+		background-color: rgba( 86, 101, 115, 0.5);
+	}
+
+	#icon_with_lbl_widget QPushButton:checked {
+		color: #fff;
+	}
+
+    #sidebar_lbl, #files_large_btn, #home_large_btn, #people_large_btn, #records_large_btn {
+        color: #957DAD;
+    }
+
+	/* style for logo image */
+	#logo_label_2 {
+		padding: 5px;
+		color: #fff;
+	}
+
+	/* style for APP title */
+	#logo_label_3 {
+		padding-right: 10px;
+		color: #fff;
+	}
+/*= END
+  ==================================================== */
+
+/*= Style for search button START
+  ==================================================== */
+	#lesson_linedit, #next_btn, #prev_btn {
+		border: 2px solid #796F8C;
+        border-radius: 10px;
+	}
+/*= END
+  ==================================================== */
+
+/*= Style for search input START
+  ==================================================== */
+	#lesson_linedit {
+		padding: 5px 10px;
+	}
+
+	#lesson_linedit:hover, #next_btn:hover, #prev_btn:hover {
+		background-color: #C7AFC4;
+	}
+
+
+/*= END
+  ==================================================== */
+
+    /* #stackedWidget {
+        background-color: #FFDFD3;
+    } */
+
+    #home_lbl, #files__page_1, #people_page_2, #records_page_3 {
+        background-color: #FFDFD3;
+    }
