@@ -4,7 +4,6 @@ from PyQt5.QtWidgets import *
 from sidebar import Ui_MainWindow
 import sys
 
-# main sfsf
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -15,9 +14,6 @@ class MainWindow(QMainWindow):
 
         self.ui.stackedWidget.setCurrentIndex(0)
         self.ui.icon_with_lbl_widget.hide()
-        
-    def on_people_small_btn_toogled(self):
-        self.ui.stackedWidget.setCurrentIndex(3)
 
 
 

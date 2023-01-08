@@ -29,7 +29,6 @@ class Ui_MainWindow(object):
         self.centralwidget.setObjectName(u"centralwidget")
         self.gridLayout = QGridLayout(self.centralwidget)
         self.gridLayout.setObjectName(u"gridLayout")
-        self.gridLayout.setHorizontalSpacing(0)
         self.icon_with_lbl_widget = QWidget(self.centralwidget)
         self.icon_with_lbl_widget.setObjectName(u"icon_with_lbl_widget")
         self.icon_with_lbl_widget.setMinimumSize(QSize(200, 803))
@@ -110,7 +109,6 @@ class Ui_MainWindow(object):
         self.horizontalLayout_3 = QHBoxLayout(self.main_widget)
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
         self.verticalLayout_5 = QVBoxLayout()
-        self.verticalLayout_5.setSpacing(0)
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setObjectName(u"horizontalLayout")
@@ -131,8 +129,8 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.prev_btn.sizePolicy().hasHeightForWidth())
         self.prev_btn.setSizePolicy(sizePolicy)
-        self.prev_btn.setMinimumSize(QSize(120, 28))
-        self.prev_btn.setMaximumSize(QSize(150, 28))
+        self.prev_btn.setMinimumSize(QSize(50, 28))
+        self.prev_btn.setMaximumSize(QSize(100, 28))
 
         self.horizontalLayout.addWidget(self.prev_btn)
 
@@ -156,8 +154,8 @@ class Ui_MainWindow(object):
 
         self.next_btn = QPushButton(self.main_widget)
         self.next_btn.setObjectName(u"next_btn")
-        self.next_btn.setMinimumSize(QSize(120, 28))
-        self.next_btn.setMaximumSize(QSize(110, 28))
+        self.next_btn.setMinimumSize(QSize(50, 28))
+        self.next_btn.setMaximumSize(QSize(100, 28))
 
         self.horizontalLayout.addWidget(self.next_btn)
 
@@ -170,12 +168,11 @@ class Ui_MainWindow(object):
 
         self.stackedWidget = QStackedWidget(self.main_widget)
         self.stackedWidget.setObjectName(u"stackedWidget")
-        self.stackedWidget.setMinimumSize(QSize(820, 500))
+        self.stackedWidget.setMinimumSize(QSize(820, 800))
         self.stackedWidget.setMaximumSize(QSize(16777215, 16777215))
         self.stackedWidget.setStyleSheet(u"background-color: rgb(230, 230, 230);")
         self.home_page_0 = QWidget()
         self.home_page_0.setObjectName(u"home_page_0")
-        self.home_page_0.setMinimumSize(QSize(820, 500))
         self.gridLayout_2 = QGridLayout(self.home_page_0)
         self.gridLayout_2.setObjectName(u"gridLayout_2")
         self.home_lbl = QLabel(self.home_page_0)
@@ -192,7 +189,6 @@ class Ui_MainWindow(object):
         self.stackedWidget.addWidget(self.home_page_0)
         self.files__page_1 = QWidget()
         self.files__page_1.setObjectName(u"files__page_1")
-        self.files__page_1.setMinimumSize(QSize(820, 500))
         self.gridLayout_3 = QGridLayout(self.files__page_1)
         self.gridLayout_3.setObjectName(u"gridLayout_3")
         self.file_lbl = QLabel(self.files__page_1)
@@ -206,7 +202,6 @@ class Ui_MainWindow(object):
         self.stackedWidget.addWidget(self.files__page_1)
         self.students_page_2 = QWidget()
         self.students_page_2.setObjectName(u"students_page_2")
-        self.students_page_2.setMinimumSize(QSize(820, 500))
         self.gridLayout_4 = QGridLayout(self.students_page_2)
         self.gridLayout_4.setObjectName(u"gridLayout_4")
         self.student_lbl = QLabel(self.students_page_2)
@@ -220,7 +215,6 @@ class Ui_MainWindow(object):
         self.stackedWidget.addWidget(self.students_page_2)
         self.records_page_3 = QWidget()
         self.records_page_3.setObjectName(u"records_page_3")
-        self.records_page_3.setMinimumSize(QSize(820, 500))
         self.gridLayout_5 = QGridLayout(self.records_page_3)
         self.gridLayout_5.setObjectName(u"gridLayout_5")
         self.records_lbl = QLabel(self.records_page_3)
@@ -321,7 +315,7 @@ class Ui_MainWindow(object):
         self.menu_btn.toggled.connect(self.icon_with_lbl_widget.setVisible)
         self.menu_btn.toggled.connect(self.icon_only_widget.setHidden)
 
-        self.stackedWidget.setCurrentIndex(3)
+        self.stackedWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
