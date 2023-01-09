@@ -4,12 +4,6 @@ from PyQt5.QtWidgets import *
 from sidebar import Ui_MainWindow
 import sys
 
-<<<<<<< HEAD
-
-# main sfsf
-=======
->>>>>>> 04eca867367864028e1e6258250232d968429931
-
 class MainWindow(QMainWindow):
     def __init__(self):
         super(QMainWindow, self).__init__()

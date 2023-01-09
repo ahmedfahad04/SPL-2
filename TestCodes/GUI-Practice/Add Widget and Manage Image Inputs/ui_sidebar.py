@@ -13,8 +13,6 @@ from imgWidget import Ui_Form
 
 
 class Ui_MainWindow(object):
-    def __init__(self):
-        self.new_page = None
 
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -277,11 +275,6 @@ class Ui_MainWindow(object):
         self.ui.setupUi(self.form)
        
         print("Working")
-        #
-        # new_page = QtWidgets.QWidget()
-        # new_page.setMinimumSize(400, 300)
-        # new_page.setStyleSheet("background-color: rgb(45, 214, 108);")
-        #
         self.stackedWidget.insertWidget(1, self.form)
         
 

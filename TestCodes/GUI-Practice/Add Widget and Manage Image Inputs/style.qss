@@ -1,7 +1,7 @@
 /*= Style for mainwindow START
   ==================================================== */
 	#MainWindow {
-		background-color: #FFDFD3;
+		background-color: #AACDEF;
 	}
 /*= END
   ==================================================== */
@@ -24,7 +24,7 @@
 /*= Style for header widget START
   ==================================================== */
 	#main_widget {
-		background-color: #FEC8D8;
+		background-color: #AAC518;
 	}
 /*= END
   ==================================================== */
@@ -33,7 +33,7 @@
   ==================================================== */
   	/* style for widget */
 	#icon_only_widget {
-		background-color: #FEC8D8;
+		background-color: #AAC518;
 		width:50px;
 	}
 
