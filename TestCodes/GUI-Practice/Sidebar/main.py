@@ -16,6 +16,9 @@ class MainWindow(QMainWindow):
 
         self.ui.stackedWidget.setCurrentIndex(0)
         self.ui.icon_with_lbl_widget.hide()
+        
+    def on_people_small_btn_toogled(self):
+        self.ui.stackedWidget.setCurrentIndex(3)
 
 
 if __name__ == '__main__':

@@ -15,6 +15,9 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
+    <property name="horizontalSpacing">
+     <number>0</number>
+    </property>
     <item row="0" column="1">
      <widget class="QWidget" name="icon_with_lbl_widget" native="true">
       <property name="minimumSize">
@@ -155,6 +158,9 @@
       <layout class="QHBoxLayout" name="horizontalLayout_3">
        <item>
         <layout class="QVBoxLayout" name="verticalLayout_5">
+         <property name="spacing">
+          <number>0</number>
+         </property>
          <item>
           <layout class="QHBoxLayout" name="horizontalLayout">
            <item>
@@ -184,13 +190,13 @@
              </property>
              <property name="minimumSize">
               <size>
-               <width>50</width>
+               <width>120</width>
                <height>28</height>
               </size>
              </property>
              <property name="maximumSize">
               <size>
-               <width>100</width>
+               <width>150</width>
                <height>28</height>
               </size>
              </property>
@@ -260,13 +266,13 @@
             <widget class="QPushButton" name="next_btn">
              <property name="minimumSize">
               <size>
-               <width>50</width>
+               <width>120</width>
                <height>28</height>
               </size>
              </property>
              <property name="maximumSize">
               <size>
-               <width>100</width>
+               <width>110</width>
                <height>28</height>
               </size>
              </property>
@@ -298,7 +304,7 @@
            <property name="minimumSize">
             <size>
              <width>820</width>
-             <height>800</height>
+             <height>500</height>
             </size>
            </property>
            <property name="maximumSize">
@@ -311,9 +317,15 @@
             <string notr="true">background-color: rgb(230, 230, 230);</string>
            </property>
            <property name="currentIndex">
-            <number>0</number>
+            <number>3</number>
            </property>
            <widget class="QWidget" name="home_page_0">
+            <property name="minimumSize">
+             <size>
+              <width>820</width>
+              <height>500</height>
+             </size>
+            </property>
             <layout class="QGridLayout" name="gridLayout_2">
              <item row="0" column="0">
               <widget class="QLabel" name="home_lbl">
@@ -345,6 +357,12 @@
             </layout>
            </widget>
            <widget class="QWidget" name="files__page_1">
+            <property name="minimumSize">
+             <size>
+              <width>820</width>
+              <height>500</height>
+             </size>
+            </property>
             <layout class="QGridLayout" name="gridLayout_3">
              <item row="0" column="0">
               <widget class="QLabel" name="file_lbl">
@@ -370,6 +388,12 @@
             </layout>
            </widget>
            <widget class="QWidget" name="students_page_2">
+            <property name="minimumSize">
+             <size>
+              <width>820</width>
+              <height>500</height>
+             </size>
+            </property>
             <layout class="QGridLayout" name="gridLayout_4">
              <item row="0" column="0">
               <widget class="QLabel" name="student_lbl">
@@ -395,6 +419,12 @@
             </layout>
            </widget>
            <widget class="QWidget" name="records_page_3">
+            <property name="minimumSize">
+             <size>
+              <width>820</width>
+              <height>500</height>
+             </size>
+            </property>
             <layout class="QGridLayout" name="gridLayout_5">
              <item row="0" column="0">
               <widget class="QLabel" name="records_lbl">
