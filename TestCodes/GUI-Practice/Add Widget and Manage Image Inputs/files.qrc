@@ -1,0 +1,16 @@
+<RCC>
+  <qresource prefix="icons">
+    <file>resources/bookmark.svg</file>
+    <file>resources/close-circle.svg</file>
+    <file>resources/ellipsis-vertical.svg</file>
+    <file>resources/ellipsis-vertical-circle.svg</file>
+    <file>resources/home-outline.svg</file>
+    <file>resources/list.svg</file>
+    <file>resources/people.svg</file>
+    <file>resources/speedometer.svg</file>
+  </qresource>
+  <qresource prefix="newPrefix"/>
+  <qresource prefix="logo">
+    <file>resources/rsz_default.jpg</file>
+  </qresource>
+</RCC>

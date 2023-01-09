@@ -9,15 +9,22 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from imgWidget import Ui_Form
 
 
 class Ui_MainWindow(object):
+    def __init__(self):
+        self.new_page = None
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1281, 825)
+        MainWindow.setMinimumSize(QtCore.QSize(1280, 720))
         self.centralwidget = QtWidgets.QWidget(MainWindow)
+        self.centralwidget.setMinimumSize(QtCore.QSize(1280, 720))
         self.centralwidget.setObjectName("centralwidget")
         self.gridLayout = QtWidgets.QGridLayout(self.centralwidget)
+        self.gridLayout.setHorizontalSpacing(0)
         self.gridLayout.setObjectName("gridLayout")
         self.icon_with_lbl_widget = QtWidgets.QWidget(self.centralwidget)
         self.icon_with_lbl_widget.setMinimumSize(QtCore.QSize(200, 803))
@@ -81,6 +88,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_3 = QtWidgets.QHBoxLayout(self.main_widget)
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
         self.verticalLayout_5 = QtWidgets.QVBoxLayout()
+        self.verticalLayout_5.setSpacing(0)
         self.verticalLayout_5.setObjectName("verticalLayout_5")
         self.horizontalLayout = QtWidgets.QHBoxLayout()
         self.horizontalLayout.setObjectName("horizontalLayout")
@@ -99,8 +107,8 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.prev_btn.sizePolicy().hasHeightForWidth())
         self.prev_btn.setSizePolicy(sizePolicy)
-        self.prev_btn.setMinimumSize(QtCore.QSize(50, 28))
-        self.prev_btn.setMaximumSize(QtCore.QSize(100, 28))
+        self.prev_btn.setMinimumSize(QtCore.QSize(120, 28))
+        self.prev_btn.setMaximumSize(QtCore.QSize(150, 28))
         self.prev_btn.setObjectName("prev_btn")
         self.horizontalLayout.addWidget(self.prev_btn)
         spacerItem1 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
@@ -117,19 +125,20 @@ class Ui_MainWindow(object):
         spacerItem2 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout.addItem(spacerItem2)
         self.next_btn = QtWidgets.QPushButton(self.main_widget)
-        self.next_btn.setMinimumSize(QtCore.QSize(50, 28))
-        self.next_btn.setMaximumSize(QtCore.QSize(100, 28))
+        self.next_btn.setMinimumSize(QtCore.QSize(120, 28))
+        self.next_btn.setMaximumSize(QtCore.QSize(110, 28))
         self.next_btn.setObjectName("next_btn")
         self.horizontalLayout.addWidget(self.next_btn)
         self.verticalLayout_5.addLayout(self.horizontalLayout)
         spacerItem3 = QtWidgets.QSpacerItem(20, 20, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
         self.verticalLayout_5.addItem(spacerItem3)
         self.stackedWidget = QtWidgets.QStackedWidget(self.main_widget)
-        self.stackedWidget.setMinimumSize(QtCore.QSize(820, 800))
+        self.stackedWidget.setMinimumSize(QtCore.QSize(820, 500))
         self.stackedWidget.setMaximumSize(QtCore.QSize(16777215, 16777215))
         self.stackedWidget.setStyleSheet("background-color: rgb(230, 230, 230);")
         self.stackedWidget.setObjectName("stackedWidget")
         self.home_page_0 = QtWidgets.QWidget()
+        self.home_page_0.setMinimumSize(QtCore.QSize(820, 500))
         self.home_page_0.setObjectName("home_page_0")
         self.gridLayout_2 = QtWidgets.QGridLayout(self.home_page_0)
         self.gridLayout_2.setObjectName("gridLayout_2")
@@ -144,6 +153,7 @@ class Ui_MainWindow(object):
         self.gridLayout_2.addWidget(self.home_lbl, 0, 0, 1, 1)
         self.stackedWidget.addWidget(self.home_page_0)
         self.files__page_1 = QtWidgets.QWidget()
+        self.files__page_1.setMinimumSize(QtCore.QSize(820, 500))
         self.files__page_1.setObjectName("files__page_1")
         self.gridLayout_3 = QtWidgets.QGridLayout(self.files__page_1)
         self.gridLayout_3.setObjectName("gridLayout_3")
@@ -157,6 +167,7 @@ class Ui_MainWindow(object):
         self.gridLayout_3.addWidget(self.file_lbl, 0, 0, 1, 1)
         self.stackedWidget.addWidget(self.files__page_1)
         self.students_page_2 = QtWidgets.QWidget()
+        self.students_page_2.setMinimumSize(QtCore.QSize(820, 500))
         self.students_page_2.setObjectName("students_page_2")
         self.gridLayout_4 = QtWidgets.QGridLayout(self.students_page_2)
         self.gridLayout_4.setObjectName("gridLayout_4")
@@ -170,6 +181,7 @@ class Ui_MainWindow(object):
         self.gridLayout_4.addWidget(self.student_lbl, 0, 0, 1, 1)
         self.stackedWidget.addWidget(self.students_page_2)
         self.records_page_3 = QtWidgets.QWidget()
+        self.records_page_3.setMinimumSize(QtCore.QSize(820, 500))
         self.records_page_3.setObjectName("records_page_3")
         self.gridLayout_5 = QtWidgets.QGridLayout(self.records_page_3)
         self.gridLayout_5.setObjectName("gridLayout_5")
@@ -221,13 +233,13 @@ class Ui_MainWindow(object):
         self.people_small_btn.setAutoExclusive(True)
         self.people_small_btn.setObjectName("people_small_btn")
         self.verticalLayout.addWidget(self.people_small_btn)
-        self.record_small_btn = QtWidgets.QPushButton(self.icon_only_widget)
-        self.record_small_btn.setText("")
-        self.record_small_btn.setIcon(icon3)
-        self.record_small_btn.setCheckable(True)
-        self.record_small_btn.setAutoExclusive(True)
-        self.record_small_btn.setObjectName("record_small_btn")
-        self.verticalLayout.addWidget(self.record_small_btn)
+        self.records_small_btn = QtWidgets.QPushButton(self.icon_only_widget)
+        self.records_small_btn.setText("")
+        self.records_small_btn.setIcon(icon3)
+        self.records_small_btn.setCheckable(True)
+        self.records_small_btn.setAutoExclusive(True)
+        self.records_small_btn.setObjectName("records_small_btn")
+        self.verticalLayout.addWidget(self.records_small_btn)
         self.verticalLayout_2.addLayout(self.verticalLayout)
         spacerItem4 = QtWidgets.QSpacerItem(20, 559, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.verticalLayout_2.addItem(spacerItem4)
@@ -249,11 +261,29 @@ class Ui_MainWindow(object):
         self.people_large_btn.toggled['bool'].connect(self.people_small_btn.setChecked)
         self.exit_small_btn.clicked.connect(MainWindow.close)
         self.exit_large_btn.clicked.connect(MainWindow.close)
-        self.record_small_btn.toggled['bool'].connect(self.records_large_btn.setChecked)
-        self.records_large_btn.toggled['bool'].connect(self.record_small_btn.setChecked)
+        self.records_small_btn.toggled['bool'].connect(self.records_large_btn.setChecked)
+        self.records_large_btn.toggled['bool'].connect(self.records_small_btn.setChecked)
         self.menu_btn.toggled['bool'].connect(self.icon_with_lbl_widget.setVisible)
         self.menu_btn.toggled['bool'].connect(self.icon_only_widget.setHidden)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+        self.files_small_btn.clicked.connect(self.files_page)
+
+    # adding new widget in stackedWidget pages
+    def files_page(self):
+
+        self.form = QtWidgets.QWidget()
+        self.ui = Ui_Form()
+        self.ui.setupUi(self.form)
+       
+        print("Working")
+        #
+        # new_page = QtWidgets.QWidget()
+        # new_page.setMinimumSize(400, 300)
+        # new_page.setStyleSheet("background-color: rgb(45, 214, 108);")
+        #
+        self.stackedWidget.insertWidget(1, self.form)
+        
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -271,4 +301,6 @@ class Ui_MainWindow(object):
         self.file_lbl.setText(_translate("MainWindow", "Files"))
         self.student_lbl.setText(_translate("MainWindow", "Students"))
         self.records_lbl.setText(_translate("MainWindow", "Records"))
+
+
 import files_rc
