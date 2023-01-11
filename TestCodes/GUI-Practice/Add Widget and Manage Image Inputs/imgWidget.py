@@ -125,16 +125,26 @@ class Ui_Form(object):
             print("No File Selected")
             return
 
-        # resize image
-        img = fileName
-        with Image.open(img) as im:
-            # Resize the image
-            im_resized = im.resize((600, 500))
-            # Save the resized image
-            im_resized.save(fileName)
+        # check image extension
+        extension = fileName.split('.')[1]
 
-        self.label.setPixmap(QPixmap(fileName))
-        print(fileName)
+        if extension == 'gif':
+            # set qmovie as label
+            self.movie = QMovie(fileName)
+            self.movie.setScaledSize(QSize().scaled(600, 500, Qt.IgnoreAspectRatio))
+            self.label.setMovie(self.movie)
+            self.movie.start()
+        else:
+
+            self.qtimg = QPixmap(fileName)
+
+            # TODO: Currently we're resizing the image to fit the frame
+            # But our plane is to resize the frame so that any image fit according to it's size
+            print(self.qtimg.rect())
+            # self.label.setMinimumSize(QSize(800, 500))
+            self.qtimg = self.qtimg.scaled(600, 500)
+            self.label.setPixmap(self.qtimg)
+            print(fileName)
 
         # my code ends here!
     def retranslateUi(self, Form):
