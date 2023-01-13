@@ -1,0 +1,3 @@
+QMediaPlayer can't play mp4 and mkv files on windows
+so we have to install K-Lite codec first on our windows
+and then it works fine.
