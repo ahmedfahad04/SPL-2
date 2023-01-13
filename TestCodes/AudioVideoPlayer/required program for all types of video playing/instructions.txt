@@ -1,3 +1,7 @@
 QMediaPlayer can't play mp4 and mkv files on windows
 so we have to install K-Lite codec first on our windows
 and then it works fine.
+
+
+for details check this discussion:
+ https://stackoverflow.com/questions/53328979/directshowplayerservicedorender-unresolved-error-code-0x80040266
