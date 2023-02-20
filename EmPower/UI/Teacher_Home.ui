@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1279</width>
+    <width>1280</width>
     <height>800</height>
    </rect>
   </property>
@@ -19,9 +19,21 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QHBoxLayout" name="horizontalLayout">
-    <item>
+   <layout class="QGridLayout" name="gridLayout_2">
+    <item row="0" column="0">
      <widget class="QFrame" name="mainframe">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>16777215</height>
+       </size>
+      </property>
       <property name="styleSheet">
        <string notr="true">background-color: #FEE8E9;</string>
       </property>
@@ -41,7 +53,7 @@
           </size>
          </property>
          <property name="styleSheet">
-          <string notr="true"/>
+          <string notr="true">border: none;</string>
          </property>
          <property name="frameShape">
           <enum>QFrame::StyledPanel</enum>
@@ -52,6 +64,9 @@
          <layout class="QVBoxLayout" name="verticalLayout">
           <item>
            <widget class="QLabel" name="b_picture">
+            <property name="layoutDirection">
+             <enum>Qt::LeftToRight</enum>
+            </property>
             <property name="styleSheet">
              <string notr="true">border: none;</string>
             </property>
@@ -62,7 +77,7 @@
              <string/>
             </property>
             <property name="pixmap">
-             <pixmap resource="home.qrc">:/banner_photo/C:/Users/Fahad/Pictures/FreeImageConvertAndResize/default(2).png</pixmap>
+             <pixmap>final_logo.png</pixmap>
             </property>
             <property name="scaledContents">
              <bool>false</bool>
@@ -113,7 +128,7 @@
          </property>
          <layout class="QHBoxLayout" name="horizontalLayout_3">
           <item>
-           <widget class="QLabel" name="label">
+           <widget class="QLabel" name="lbl_student">
             <property name="maximumSize">
              <size>
               <width>16777215</width>
@@ -122,10 +137,13 @@
             </property>
             <property name="font">
              <font>
-              <pointsize>14</pointsize>
+              <pointsize>16</pointsize>
               <weight>50</weight>
               <bold>false</bold>
              </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(129, 102, 106);</string>
             </property>
             <property name="text">
              <string>শিক্ষার্থী নিবন্ধন</string>
@@ -136,7 +154,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QLabel" name="label_2">
+           <widget class="QLabel" name="lbl_lesson">
             <property name="maximumSize">
              <size>
               <width>16777215</width>
@@ -145,8 +163,11 @@
             </property>
             <property name="font">
              <font>
-              <pointsize>14</pointsize>
+              <pointsize>16</pointsize>
              </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(129, 102, 106);</string>
             </property>
             <property name="text">
              <string>পাঠ্যসূচী</string>
@@ -157,7 +178,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QLabel" name="label_4">
+           <widget class="QLabel" name="lbl_quiz">
             <property name="maximumSize">
              <size>
               <width>16777215</width>
@@ -166,11 +187,14 @@
             </property>
             <property name="font">
              <font>
-              <pointsize>14</pointsize>
+              <pointsize>16</pointsize>
              </font>
             </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(129, 102, 106);</string>
+            </property>
             <property name="text">
-             <string>পাঠমূল্যায়ন</string>
+             <string>পাঠ মূল্যায়ন</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
@@ -178,7 +202,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QLabel" name="label_3">
+           <widget class="QLabel" name="lbl_progress">
             <property name="maximumSize">
              <size>
               <width>16777215</width>
@@ -187,8 +211,11 @@
             </property>
             <property name="font">
              <font>
-              <pointsize>14</pointsize>
+              <pointsize>16</pointsize>
              </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(129, 102, 106);</string>
             </property>
             <property name="text">
              <string>শিক্ষার্থীর পারফরম্যান্স</string>
@@ -199,7 +226,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QLabel" name="label_5">
+           <widget class="QLabel" name="lbl_settings">
             <property name="maximumSize">
              <size>
               <width>16777215</width>
@@ -208,8 +235,11 @@
             </property>
             <property name="font">
              <font>
-              <pointsize>14</pointsize>
+              <pointsize>16</pointsize>
              </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(129, 102, 106);</string>
             </property>
             <property name="text">
              <string>সেটিংস</string>
@@ -337,16 +367,17 @@
 
 QPushButton:hover:!pressed
 {
- 	border: 5px solid rgb(229, 211, 212);
+ 	border: 5px solid  rgb(148, 122, 125);
 	background-color: qlineargradient(spread:pad, x1:1, y1:0.318, x2:0, y2:1, stop:0.313433 rgba(222, 204, 205, 255), stop:1 rgba(255, 255, 255, 255));
-}</string>
+}
+</string>
             </property>
             <property name="text">
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="home.qrc">
-              <normaloff>:/button_icon/icons8_student_male_32.png</normaloff>:/button_icon/icons8_student_male_32.png</iconset>
+             <iconset>
+              <normaloff>icons8_student_male_32.png</normaloff>icons8_student_male_32.png</iconset>
             </property>
             <property name="iconSize">
              <size>
@@ -379,7 +410,7 @@ QPushButton:hover:!pressed
 
 QPushButton:hover:!pressed
 {
- 	border: 5px solid rgb(229, 211, 212);
+ 	border: 5px solid  rgb(148, 122, 125);
 	background-color: qlineargradient(spread:pad, x1:1, y1:0.318, x2:0, y2:1, stop:0.313433 rgba(222, 204, 205, 255), stop:1 rgba(255, 255, 255, 255));
 }</string>
             </property>
@@ -387,8 +418,8 @@ QPushButton:hover:!pressed
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="home.qrc">
-              <normaloff>:/button_icon/lesson.ico</normaloff>:/button_icon/lesson.ico</iconset>
+             <iconset>
+              <normaloff>lesson_64.png</normaloff>lesson_64.png</iconset>
             </property>
             <property name="iconSize">
              <size>
@@ -418,7 +449,7 @@ QPushButton:hover:!pressed
 
 QPushButton:hover:!pressed
 {
- 	border: 5px solid rgb(229, 211, 212);
+ 	border: 5px solid  rgb(148, 122, 125);
 	background-color: qlineargradient(spread:pad, x1:1, y1:0.318, x2:0, y2:1, stop:0.313433 rgba(222, 204, 205, 255), stop:1 rgba(255, 255, 255, 255));
 }</string>
             </property>
@@ -426,8 +457,8 @@ QPushButton:hover:!pressed
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="home.qrc">
-              <normaloff>:/button_icon/list_64px.png</normaloff>:/button_icon/list_64px.png</iconset>
+             <iconset>
+              <normaloff>list_64px.png</normaloff>list_64px.png</iconset>
             </property>
             <property name="iconSize">
              <size>
@@ -457,7 +488,7 @@ QPushButton:hover:!pressed
 
 QPushButton:hover:!pressed
 {
- 	border: 5px solid rgb(229, 211, 212);
+ 	border: 5px solid  rgb(148, 122, 125);
 	background-color: qlineargradient(spread:pad, x1:1, y1:0.318, x2:0, y2:1, stop:0.313433 rgba(222, 204, 205, 255), stop:1 rgba(255, 255, 255, 255));
 }</string>
             </property>
@@ -465,8 +496,8 @@ QPushButton:hover:!pressed
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="home.qrc">
-              <normaloff>:/button_icon/presentation_64px.png</normaloff>:/button_icon/presentation_64px.png</iconset>
+             <iconset>
+              <normaloff>presentation_64px.png</normaloff>presentation_64px.png</iconset>
             </property>
             <property name="iconSize">
              <size>
@@ -496,7 +527,7 @@ QPushButton:hover:!pressed
 
 QPushButton:hover:!pressed
 {
- 	border: 5px solid rgb(229, 211, 212);
+ 	border: 5px solid  rgb(148, 122, 125);
 	background-color: qlineargradient(spread:pad, x1:1, y1:0.318, x2:0, y2:1, stop:0.313433 rgba(222, 204, 205, 255), stop:1 rgba(255, 255, 255, 255));
 }</string>
             </property>
@@ -504,8 +535,8 @@ QPushButton:hover:!pressed
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="home.qrc">
-              <normaloff>:/button_icon/settings_64px.png</normaloff>:/button_icon/settings_64px.png</iconset>
+             <iconset>
+              <normaloff>settings_64px.png</normaloff>settings_64px.png</iconset>
             </property>
             <property name="iconSize">
              <size>
@@ -524,8 +555,6 @@ QPushButton:hover:!pressed
    </layout>
   </widget>
  </widget>
- <resources>
-  <include location="home.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
