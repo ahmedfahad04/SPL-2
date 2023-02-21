@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1200</width>
+    <height>800</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1200</width>
+    <height>800</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QFrame" name="top_frame">
+      <property name="minimumSize">
+       <size>
+        <width>1180</width>
+        <height>81</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(210, 145, 188);</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QPushButton" name="btn_back_to_home">
+         <property name="maximumSize">
+          <size>
+           <width>100</width>
+           <height>80</height>
+          </size>
+         </property>
+         <property name="baseSize">
+          <size>
+           <width>0</width>
+           <height>4</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>11</pointsize>
+          </font>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="mouseTracking">
+          <bool>true</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+	background-color: rgb(210, 145, 188);
+}
+
+QPushButton:hover:!pressed
+{
+	background-color: rgb(191, 132, 171);
+}</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>back_48px.png</normaloff>back_48px.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>150</width>
+           <height>150</height>
+          </size>
+         </property>
+         <property name="autoDefault">
+          <bool>false</bool>
+         </property>
+         <property name="default">
+          <bool>false</bool>
+         </property>
+         <property name="flat">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label">
+         <property name="font">
+          <font>
+           <pointsize>27</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: #04253A</string>
+         </property>
+         <property name="text">
+          <string>শিক্ষার্থীর তথ্যসমূহ </string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QFrame" name="mid_frame">
+      <property name="minimumSize">
+       <size>
+        <width>1180</width>
+        <height>610</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QTableWidget" name="tableWidget">
+         <property name="font">
+          <font>
+           <pointsize>11</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QHeaderView::section {
+	background-color: rgb(149, 125, 173);
+    color: rgb(3, 3, 3);
+}
+
+
+
+QTableWidget {
+	background-color: rgb(255, 220, 243);
+	gridline-color: rgb(85, 0, 0);
+}
+
+</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::NoFrame</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <property name="lineWidth">
+          <number>1</number>
+         </property>
+         <property name="verticalScrollBarPolicy">
+          <enum>Qt::ScrollBarAsNeeded</enum>
+         </property>
+         <property name="sizeAdjustPolicy">
+          <enum>QAbstractScrollArea::AdjustToContentsOnFirstShow</enum>
+         </property>
+         <property name="alternatingRowColors">
+          <bool>true</bool>
+         </property>
+         <property name="textElideMode">
+          <enum>Qt::ElideLeft</enum>
+         </property>
+         <property name="showGrid">
+          <bool>true</bool>
+         </property>
+         <property name="gridStyle">
+          <enum>Qt::SolidLine</enum>
+         </property>
+         <property name="sortingEnabled">
+          <bool>true</bool>
+         </property>
+         <property name="cornerButtonEnabled">
+          <bool>true</bool>
+         </property>
+         <property name="rowCount">
+          <number>3</number>
+         </property>
+         <property name="columnCount">
+          <number>5</number>
+         </property>
+         <attribute name="horizontalHeaderCascadingSectionResizes">
+          <bool>true</bool>
+         </attribute>
+         <attribute name="horizontalHeaderDefaultSectionSize">
+          <number>170</number>
+         </attribute>
+         <attribute name="horizontalHeaderHighlightSections">
+          <bool>true</bool>
+         </attribute>
+         <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+          <bool>true</bool>
+         </attribute>
+         <attribute name="horizontalHeaderStretchLastSection">
+          <bool>true</bool>
+         </attribute>
+         <attribute name="verticalHeaderVisible">
+          <bool>false</bool>
+         </attribute>
+         <attribute name="verticalHeaderCascadingSectionResizes">
+          <bool>false</bool>
+         </attribute>
+         <row/>
+         <row/>
+         <row/>
+         <column>
+          <property name="text">
+           <string>শিক্ষার্থীর আইডি</string>
+          </property>
+          <property name="font">
+           <font>
+            <family>Hind Siliguri Medium</family>
+            <pointsize>13</pointsize>
+           </font>
+          </property>
+          <property name="textAlignment">
+           <set>AlignCenter</set>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>শিক্ষার্থীর নাম</string>
+          </property>
+          <property name="font">
+           <font>
+            <family>Hind Siliguri Medium</family>
+            <pointsize>13</pointsize>
+           </font>
+          </property>
+          <property name="textAlignment">
+           <set>AlignCenter</set>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>শিক্ষার্থীর বয়স </string>
+          </property>
+          <property name="font">
+           <font>
+            <family>Hind Siliguri Medium</family>
+            <pointsize>13</pointsize>
+           </font>
+          </property>
+          <property name="textAlignment">
+           <set>AlignCenter</set>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>অভিভাবকের নাম</string>
+          </property>
+          <property name="font">
+           <font>
+            <family>Hind Siliguri Medium</family>
+            <pointsize>13</pointsize>
+           </font>
+          </property>
+          <property name="textAlignment">
+           <set>AlignCenter</set>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>অভিভাবকের মোবাইল নম্বর</string>
+          </property>
+          <property name="font">
+           <font>
+            <family>Hind Siliguri Medium</family>
+            <pointsize>13</pointsize>
+            <stylestrategy>PreferDefault</stylestrategy>
+            <kerning>true</kerning>
+           </font>
+          </property>
+          <property name="textAlignment">
+           <set>AlignCenter</set>
+          </property>
+         </column>
+         <item row="0" column="0">
+          <property name="text">
+           <string>১</string>
+          </property>
+         </item>
+         <item row="0" column="1">
+          <property name="text">
+           <string>আকাশ </string>
+          </property>
+         </item>
+         <item row="0" column="2">
+          <property name="text">
+           <string>৭ বছর</string>
+          </property>
+         </item>
+         <item row="0" column="3">
+          <property name="text">
+           <string>আব্দুর রফিক </string>
+          </property>
+         </item>
+         <item row="0" column="4">
+          <property name="text">
+           <string>০১৭৬৬৬১০০১৪</string>
+          </property>
+         </item>
+         <item row="1" column="0">
+          <property name="text">
+           <string>৩</string>
+          </property>
+         </item>
+         <item row="1" column="1">
+          <property name="text">
+           <string>আসগর</string>
+          </property>
+         </item>
+         <item row="1" column="2">
+          <property name="text">
+           <string> ৯ বছর </string>
+          </property>
+         </item>
+         <item row="1" column="3">
+          <property name="text">
+           <string>রেহানা</string>
+          </property>
+         </item>
+         <item row="1" column="4">
+          <property name="text">
+           <string>০১৪১৪১৪১২৫৪৮ </string>
+          </property>
+         </item>
+         <item row="2" column="0">
+          <property name="text">
+           <string>২</string>
+          </property>
+         </item>
+         <item row="2" column="1">
+          <property name="text">
+           <string>লতা </string>
+          </property>
+         </item>
+         <item row="2" column="2">
+          <property name="text">
+           <string>৭ বছর </string>
+          </property>
+         </item>
+         <item row="2" column="3">
+          <property name="text">
+           <string>আব্দুর রহমান </string>
+          </property>
+         </item>
+         <item row="2" column="4">
+          <property name="text">
+           <string>০১৭৪৮৫৪৭৮৯৬ </string>
+          </property>
+         </item>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QFrame" name="bottom_frame">
+      <property name="minimumSize">
+       <size>
+        <width>1180</width>
+        <height>70</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(210, 145, 188);</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <item>
+        <widget class="QPushButton" name="btn_add_new_student">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+           <horstretch>230</horstretch>
+           <verstretch>40</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(148, 125, 172);
+color: rgb(255, 255, 255);</string>
+         </property>
+         <property name="text">
+          <string>নতুন শিক্ষার্থী যুক্ত করুন</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btn_remove_student">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+           <horstretch>230</horstretch>
+           <verstretch>40</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(149, 125, 173);
+color: rgb(255, 255, 255);</string>
+         </property>
+         <property name="text">
+          <string>শিক্ষার্থী এন্ট্রি বাতিল করুন</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

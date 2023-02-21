@@ -3,21 +3,15 @@
 ################################################################################
 ## Form generated from reading UI file 'Teacher_Home.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.4.1
+## Created by: Qt User Interface Compiler version 5.15.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
-    QMetaObject, QObject, QPoint, QRect,
-    QSize, QTime, QUrl, Qt)
-from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
-    QFont, QFontDatabase, QGradient, QIcon,
-    QImage, QKeySequence, QLinearGradient, QPainter,
-    QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QFrame, QGridLayout, QHBoxLayout,
-    QLabel, QMainWindow, QPushButton, QSizePolicy,
-    QSpacerItem, QVBoxLayout, QWidget)
+from PySide2.QtCore import *
+from PySide2.QtGui import *
+from PySide2.QtWidgets import *
+
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -31,6 +25,7 @@ class Ui_MainWindow(object):
         self.centralwidget.setObjectName(u"centralwidget")
         self.gridLayout_2 = QGridLayout(self.centralwidget)
         self.gridLayout_2.setObjectName(u"gridLayout_2")
+        self.gridLayout_2.setContentsMargins(0, 0, 0, 0)
         self.mainframe = QFrame(self.centralwidget)
         self.mainframe.setObjectName(u"mainframe")
         sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
@@ -88,6 +83,7 @@ class Ui_MainWindow(object):
         font1 = QFont()
         font1.setPointSize(14)
         font1.setBold(False)
+        font1.setWeight(50)
         self.lbl_student.setFont(font1)
         self.lbl_student.setStyleSheet(u"color: rgb(129, 102, 106);")
         self.lbl_student.setAlignment(Qt.AlignCenter)
@@ -169,6 +165,7 @@ class Ui_MainWindow(object):
         font3 = QFont()
         font3.setPointSize(9)
         font3.setBold(False)
+        font3.setWeight(50)
         font3.setStyleStrategy(QFont.PreferDefault)
         self.btn_student.setFont(font3)
         self.btn_student.setCursor(QCursor(Qt.PointingHandCursor))
