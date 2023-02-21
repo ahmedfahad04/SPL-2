@@ -1,0 +1,9 @@
+Passing python class object is done!
+the problem with json movement is solved!
+**** we use python's builtin package "pickle" in this regard. Pickle use serialization
+which ensures security.
+
+[Note: we can only just pass the objects
+       > and we must have the class skeleton (definition) on the loading python program]
+
+for more see chatGPT answers: https://sharegpt.com/c/y7l8Xql
