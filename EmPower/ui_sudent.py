@@ -231,14 +231,14 @@ class Ui_StudentInfo(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.label.setText(_translate("MainWindow", "শিক্ষার্থীর তথ্যসমূহ "))
+        self.label.setText(_translate("MainWindow", "শিক্ষার্থীর তথ্যসমূহ"))
         self.tableWidget.setSortingEnabled(True)
         item = self.tableWidget.horizontalHeaderItem(0)
         item.setText(_translate("MainWindow", "শিক্ষার্থীর আইডি"))
         item = self.tableWidget.horizontalHeaderItem(1)
         item.setText(_translate("MainWindow", "শিক্ষার্থীর নাম"))
         item = self.tableWidget.horizontalHeaderItem(2)
-        item.setText(_translate("MainWindow", "শিক্ষার্থীর বয়স "))
+        item.setText(_translate("MainWindow", "শিক্ষার্থীর বয়স"))
         item = self.tableWidget.horizontalHeaderItem(3)
         item.setText(_translate("MainWindow", "অভিভাবকের নাম"))
         item = self.tableWidget.horizontalHeaderItem(4)
