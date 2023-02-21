@@ -23,7 +23,7 @@
     <item row="0" column="0">
      <widget class="QFrame" name="mainframe">
       <property name="sizePolicy">
-       <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
         <horstretch>0</horstretch>
         <verstretch>0</verstretch>
        </sizepolicy>
@@ -45,7 +45,7 @@
       </property>
       <layout class="QGridLayout" name="gridLayout">
        <item row="1" column="0">
-        <widget class="QFrame" name="banner_pic_frame">
+        <widget class="QFrame" name="frm_banner_pic">
          <property name="maximumSize">
           <size>
            <width>1200</width>
@@ -107,7 +107,7 @@
         </widget>
        </item>
        <item row="5" column="0">
-        <widget class="QFrame" name="bnt_lbl_frame">
+        <widget class="QFrame" name="frm_btn_lbl">
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -137,7 +137,7 @@
             </property>
             <property name="font">
              <font>
-              <pointsize>16</pointsize>
+              <pointsize>14</pointsize>
               <weight>50</weight>
               <bold>false</bold>
              </font>
@@ -163,7 +163,7 @@
             </property>
             <property name="font">
              <font>
-              <pointsize>16</pointsize>
+              <pointsize>14</pointsize>
              </font>
             </property>
             <property name="styleSheet">
@@ -187,7 +187,7 @@
             </property>
             <property name="font">
              <font>
-              <pointsize>16</pointsize>
+              <pointsize>14</pointsize>
              </font>
             </property>
             <property name="styleSheet">
@@ -211,7 +211,7 @@
             </property>
             <property name="font">
              <font>
-              <pointsize>16</pointsize>
+              <pointsize>14</pointsize>
              </font>
             </property>
             <property name="styleSheet">
@@ -235,7 +235,7 @@
             </property>
             <property name="font">
              <font>
-              <pointsize>16</pointsize>
+              <pointsize>14</pointsize>
              </font>
             </property>
             <property name="styleSheet">
@@ -301,10 +301,10 @@
         </spacer>
        </item>
        <item row="4" column="0">
-        <widget class="QFrame" name="btn_frame">
+        <widget class="QFrame" name="frm_button">
          <property name="minimumSize">
           <size>
-           <width>0</width>
+           <width>1100</width>
            <height>190</height>
           </size>
          </property>
@@ -335,6 +335,18 @@
           </property>
           <item>
            <widget class="QPushButton" name="btn_student">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>150</width>
+              <height>150</height>
+             </size>
+            </property>
             <property name="maximumSize">
              <size>
               <width>200</width>
@@ -363,6 +375,7 @@
 	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(227, 208, 209, 255), stop:1 rgba(255, 255, 255, 255));
 	border: 5px solid rgb(238, 218, 219);
 	border-radius: 15px;
+	margin: 10px;
 }
 
 QPushButton:hover:!pressed
@@ -392,6 +405,18 @@ QPushButton:hover:!pressed
           </item>
           <item>
            <widget class="QPushButton" name="btn_lesson">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>150</width>
+              <height>150</height>
+             </size>
+            </property>
             <property name="maximumSize">
              <size>
               <width>200</width>
@@ -406,6 +431,7 @@ QPushButton:hover:!pressed
 	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(227, 208, 209, 255), stop:1 rgba(255, 255, 255, 255));
 	border: 5px solid rgb(238, 218, 219);
 	border-radius: 15px;
+	margin: 10px;
 }
 
 QPushButton:hover:!pressed
@@ -431,6 +457,18 @@ QPushButton:hover:!pressed
           </item>
           <item>
            <widget class="QPushButton" name="btn_quiz">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>150</width>
+              <height>150</height>
+             </size>
+            </property>
             <property name="maximumSize">
              <size>
               <width>200</width>
@@ -445,6 +483,7 @@ QPushButton:hover:!pressed
 	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(227, 208, 209, 255), stop:1 rgba(255, 255, 255, 255));
 	border: 5px solid rgb(238, 218, 219);
 	border-radius: 15px;
+	margin: 10px;
 }
 
 QPushButton:hover:!pressed
@@ -470,6 +509,18 @@ QPushButton:hover:!pressed
           </item>
           <item>
            <widget class="QPushButton" name="btn_progress">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>150</width>
+              <height>150</height>
+             </size>
+            </property>
             <property name="maximumSize">
              <size>
               <width>200</width>
@@ -484,6 +535,7 @@ QPushButton:hover:!pressed
 	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(227, 208, 209, 255), stop:1 rgba(255, 255, 255, 255));
 	border: 5px solid rgb(238, 218, 219);
 	border-radius: 15px;
+	margin: 10px;
 }
 
 QPushButton:hover:!pressed
@@ -509,6 +561,18 @@ QPushButton:hover:!pressed
           </item>
           <item>
            <widget class="QPushButton" name="btn_settings">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>150</width>
+              <height>150</height>
+             </size>
+            </property>
             <property name="maximumSize">
              <size>
               <width>200</width>
@@ -523,6 +587,7 @@ QPushButton:hover:!pressed
 	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(227, 208, 209, 255), stop:1 rgba(255, 255, 255, 255));
 	border: 5px solid rgb(238, 218, 219);
 	border-radius: 15px;
+	margin: 10px;
 }
 
 QPushButton:hover:!pressed
