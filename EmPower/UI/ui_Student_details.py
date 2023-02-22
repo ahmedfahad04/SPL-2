@@ -264,36 +264,6 @@ class Ui_MainWindow(object):
 
         __sortingEnabled = self.tableWidget.isSortingEnabled()
         self.tableWidget.setSortingEnabled(False)
-        ___qtablewidgetitem5 = self.tableWidget.item(0, 0)
-        ___qtablewidgetitem5.setText(QCoreApplication.translate("MainWindow", u"\u09e7", None));
-        ___qtablewidgetitem6 = self.tableWidget.item(0, 1)
-        ___qtablewidgetitem6.setText(QCoreApplication.translate("MainWindow", u"\u0986\u0995\u09be\u09b6 ", None));
-        ___qtablewidgetitem7 = self.tableWidget.item(0, 2)
-        ___qtablewidgetitem7.setText(QCoreApplication.translate("MainWindow", u"\u09ed \u09ac\u099b\u09b0", None));
-        ___qtablewidgetitem8 = self.tableWidget.item(0, 3)
-        ___qtablewidgetitem8.setText(QCoreApplication.translate("MainWindow", u"\u0986\u09ac\u09cd\u09a6\u09c1\u09b0 \u09b0\u09ab\u09bf\u0995 ", None));
-        ___qtablewidgetitem9 = self.tableWidget.item(0, 4)
-        ___qtablewidgetitem9.setText(QCoreApplication.translate("MainWindow", u"\u09e6\u09e7\u09ed\u09ec\u09ec\u09ec\u09e7\u09e6\u09e6\u09e7\u09ea", None));
-        ___qtablewidgetitem10 = self.tableWidget.item(1, 0)
-        ___qtablewidgetitem10.setText(QCoreApplication.translate("MainWindow", u"\u09e9", None));
-        ___qtablewidgetitem11 = self.tableWidget.item(1, 1)
-        ___qtablewidgetitem11.setText(QCoreApplication.translate("MainWindow", u"\u0986\u09b8\u0997\u09b0", None));
-        ___qtablewidgetitem12 = self.tableWidget.item(1, 2)
-        ___qtablewidgetitem12.setText(QCoreApplication.translate("MainWindow", u" \u09ef \u09ac\u099b\u09b0 ", None));
-        ___qtablewidgetitem13 = self.tableWidget.item(1, 3)
-        ___qtablewidgetitem13.setText(QCoreApplication.translate("MainWindow", u"\u09b0\u09c7\u09b9\u09be\u09a8\u09be", None));
-        ___qtablewidgetitem14 = self.tableWidget.item(1, 4)
-        ___qtablewidgetitem14.setText(QCoreApplication.translate("MainWindow", u"\u09e6\u09e7\u09ea\u09e7\u09ea\u09e7\u09ea\u09e7\u09e8\u09eb\u09ea\u09ee ", None));
-        ___qtablewidgetitem15 = self.tableWidget.item(2, 0)
-        ___qtablewidgetitem15.setText(QCoreApplication.translate("MainWindow", u"\u09e8", None));
-        ___qtablewidgetitem16 = self.tableWidget.item(2, 1)
-        ___qtablewidgetitem16.setText(QCoreApplication.translate("MainWindow", u"\u09b2\u09a4\u09be ", None));
-        ___qtablewidgetitem17 = self.tableWidget.item(2, 2)
-        ___qtablewidgetitem17.setText(QCoreApplication.translate("MainWindow", u"\u09ed \u09ac\u099b\u09b0 ", None));
-        ___qtablewidgetitem18 = self.tableWidget.item(2, 3)
-        ___qtablewidgetitem18.setText(QCoreApplication.translate("MainWindow", u"\u0986\u09ac\u09cd\u09a6\u09c1\u09b0 \u09b0\u09b9\u09ae\u09be\u09a8 ", None));
-        ___qtablewidgetitem19 = self.tableWidget.item(2, 4)
-        ___qtablewidgetitem19.setText(QCoreApplication.translate("MainWindow", u"\u09e6\u09e7\u09ed\u09ea\u09ee\u09eb\u09ea\u09ed\u09ee\u09ef\u09ec ", None));
         self.tableWidget.setSortingEnabled(__sortingEnabled)
 
         self.btn_add_new_student.setText(QCoreApplication.translate("MainWindow", u"\u09a8\u09a4\u09c1\u09a8 \u09b6\u09bf\u0995\u09cd\u09b7\u09be\u09b0\u09cd\u09a5\u09c0 \u09af\u09c1\u0995\u09cd\u09a4 \u0995\u09b0\u09c1\u09a8", None))

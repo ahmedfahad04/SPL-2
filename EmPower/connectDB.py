@@ -22,6 +22,7 @@ class Database_Manager:
             'assessment')
 
         print(self.__student_info_table())
+        print('DB connected!')
 
     def __create_new_database(self, db_name):
         db_object = sqlite3.connect('Database\{}.db'.format(db_name))
@@ -50,12 +51,13 @@ class Database_Manager:
 
     def add_student_entry(self, data) -> bool:
 
+        '''Insert the data to DB using a parameterized query'''
+        
         try:
-            # Insert the data using a parameterized query
             self.student_db_cursor.execute("INSERT INTO student_info VALUES (?, ?, ?, ?, ?)", tuple(data))
 
             self.student_db.commit()
-            
+            print("Data inserted successfully!")
             return True 
         
         except:
@@ -65,13 +67,11 @@ class Database_Manager:
     def load_student_entry(self) -> list:
     
         self.student_db_cursor.execute("SELECT * FROM student_info")
-        all_entries = self.student_db_cursor.fetchall()
-        print(all_entries)
-        return all_entries
+        return self.student_db_cursor.fetchall()
     
     def delete_student_entry(self, student_id) -> bool:
         
-        print(student_id)
+        print("ID: ",student_id)
 
         try:
             res = self.student_db_cursor.execute('''DELETE FROM student_info WHERE Std_ID = ?''', (student_id,))
