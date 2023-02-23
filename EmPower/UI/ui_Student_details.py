@@ -193,9 +193,9 @@ class Ui_MainWindow(object):
         self.bottom_frame.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_3 = QHBoxLayout(self.bottom_frame)
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
-        self.horizontalSpacer_2 = QSpacerItem(248, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalSpacer_4 = QSpacerItem(38, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.horizontalLayout_3.addItem(self.horizontalSpacer_2)
+        self.horizontalLayout_3.addItem(self.horizontalSpacer_4)
 
         self.btn_add_new_student = QPushButton(self.bottom_frame)
         self.btn_add_new_student.setObjectName(u"btn_add_new_student")
@@ -223,12 +223,44 @@ class Ui_MainWindow(object):
 "	color: #2B4865;\n"
 "\n"
 "}")
+        icon1 = QIcon()
+        icon1.addFile(u"plus_60px.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.btn_add_new_student.setIcon(icon1)
 
         self.horizontalLayout_3.addWidget(self.btn_add_new_student)
 
-        self.horizontalSpacer = QSpacerItem(128, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalSpacer = QSpacerItem(78, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.horizontalLayout_3.addItem(self.horizontalSpacer)
+
+        self.btn_update_student_info = QPushButton(self.bottom_frame)
+        self.btn_update_student_info.setObjectName(u"btn_update_student_info")
+        sizePolicy3.setHeightForWidth(self.btn_update_student_info.sizePolicy().hasHeightForWidth())
+        self.btn_update_student_info.setSizePolicy(sizePolicy3)
+        self.btn_update_student_info.setMinimumSize(QSize(250, 40))
+        self.btn_update_student_info.setFont(font4)
+        self.btn_update_student_info.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_update_student_info.setStyleSheet(u"QPushButton {\n"
+"background-color: rgb(160, 253, 230);\n"
+"color:  #256D85 ;\n"
+"border-radius: 15px;\n"
+"}\n"
+"\n"
+"QPushButton::hover {\n"
+"	\n"
+"	background-color: rgb(143, 227, 207);\n"
+"	color: #2B4865;\n"
+"\n"
+"}")
+        icon2 = QIcon()
+        icon2.addFile(u"edit_property_100px.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.btn_update_student_info.setIcon(icon2)
+
+        self.horizontalLayout_3.addWidget(self.btn_update_student_info)
+
+        self.horizontalSpacer_2 = QSpacerItem(78, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_3.addItem(self.horizontalSpacer_2)
 
         self.btn_remove_student = QPushButton(self.bottom_frame)
         self.btn_remove_student.setObjectName(u"btn_remove_student")
@@ -252,10 +284,13 @@ class Ui_MainWindow(object):
 "	color: #2B4865;\n"
 "\n"
 "}")
+        icon3 = QIcon()
+        icon3.addFile(u"trash_can_48px.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.btn_remove_student.setIcon(icon3)
 
         self.horizontalLayout_3.addWidget(self.btn_remove_student)
 
-        self.horizontalSpacer_3 = QSpacerItem(188, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalSpacer_3 = QSpacerItem(38, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.horizontalLayout_3.addItem(self.horizontalSpacer_3)
 
@@ -287,6 +322,7 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem4 = self.tableWidget.horizontalHeaderItem(4)
         ___qtablewidgetitem4.setText(QCoreApplication.translate("MainWindow", u"\u0985\u09ad\u09bf\u09ad\u09be\u09ac\u0995\u09c7\u09b0 \u09ae\u09cb\u09ac\u09be\u0987\u09b2 \u09a8\u09ae\u09cd\u09ac\u09b0", None));
         self.btn_add_new_student.setText(QCoreApplication.translate("MainWindow", u"\u09a8\u09a4\u09c1\u09a8 \u09b6\u09bf\u0995\u09cd\u09b7\u09be\u09b0\u09cd\u09a5\u09c0 \u09af\u09c1\u0995\u09cd\u09a4 \u0995\u09b0\u09c1\u09a8", None))
+        self.btn_update_student_info.setText(QCoreApplication.translate("MainWindow", u"\u09b6\u09bf\u0995\u09cd\u09b7\u09be\u09b0\u09cd\u09a5\u09c0\u09b0 \u09a4\u09a5\u09cd\u09af \u0986\u09aa\u09a1\u09c7\u099f \u0995\u09b0\u09c1\u09a8", None))
         self.btn_remove_student.setText(QCoreApplication.translate("MainWindow", u"\u09b6\u09bf\u0995\u09cd\u09b7\u09be\u09b0\u09cd\u09a5\u09c0 \u098f\u09a8\u09cd\u099f\u09cd\u09b0\u09bf \u09ac\u09be\u09a4\u09bf\u09b2 \u0995\u09b0\u09c1\u09a8", None))
     # retranslateUi
 

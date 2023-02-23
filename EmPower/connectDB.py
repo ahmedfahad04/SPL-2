@@ -22,8 +22,9 @@ class Database_Manager:
             'assessment')
 
         print(self.__student_info_table())
-        print('DB connected!')
 
+    # TODO: Transform to Generic Method of CRUD
+    
     def __create_new_database(self, db_name):
         db_object = sqlite3.connect('Database\{}.db'.format(db_name))
         db_object_cursor = db_object.cursor()
@@ -31,7 +32,6 @@ class Database_Manager:
         return db_object, db_object_cursor
 
     def __student_info_table(self) -> bool:
-
         '''This private method will create Student table that will store all the student information'''
 
         try:
@@ -43,6 +43,7 @@ class Database_Manager:
             Contact_No TEXT)''')
 
             self.student_db.commit()
+            print("[CREATE] Table created successfully!")
             return True
 
         except:
@@ -50,39 +51,61 @@ class Database_Manager:
             return False
 
     def add_student_entry(self, data) -> bool:
-
         '''Insert the data to DB using a parameterized query'''
-        
+
         try:
-            self.student_db_cursor.execute("INSERT INTO student_info VALUES (?, ?, ?, ?, ?)", tuple(data))
+            self.student_db_cursor.execute(
+                "INSERT INTO student_info VALUES (?, ?, ?, ?, ?)", tuple(data))
 
             self.student_db.commit()
-            print("Data inserted successfully!")
-            return True 
-        
+            print("[INSERT] Data inserted successfully!")
+            return True
+
         except:
-            
+
             return False
 
     def load_student_entry(self) -> list:
-    
+
         self.student_db_cursor.execute("SELECT * FROM student_info")
         return self.student_db_cursor.fetchall()
-    
+
     def delete_student_entry(self, student_id) -> bool:
-        
-        print("ID: ",student_id)
+
+        print("ID: ", student_id)
 
         try:
-            res = self.student_db_cursor.execute('''DELETE FROM student_info WHERE Std_ID = ?''', (student_id,))
-            self.student_db.commit()  
-        
-            print("Student info deleted successfully!")
+            res = self.student_db_cursor.execute(
+                '''DELETE FROM student_info WHERE Std_ID = ?''', (student_id,))
+            self.student_db.commit()
+
+            print("[DELETE] Data Deleted successfully!")
             return True
-        
+
         except:
             print("Student info deletion failed!")
             return False
-    
+
+    def update_student_entry(self, data) -> bool:
+
+        try:
+
+            print("GOT the query...")
+
+            query = "UPDATE student_info Set Std_ID=?, Std_Name=?, Std_Age=?, Guardian_Name=?, Contact_No=? Where Std_ID=?;"
+
+            print("Data: ", data)
+
+            self.student_db_cursor.execute(query, tuple(data))
+            self.student_db.commit()
+
+            print("[UPDATE] Data updated successfully!")
+
+            return True
+        except:
+
+            return False
+
+
 if __name__ == '__main__':
     db = Database_Manager()

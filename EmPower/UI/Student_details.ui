@@ -366,13 +366,13 @@ border-radius: 20px;</string>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_3">
        <item>
-        <spacer name="horizontalSpacer_2">
+        <spacer name="horizontalSpacer_4">
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
-           <width>248</width>
+           <width>38</width>
            <height>20</height>
           </size>
          </property>
@@ -420,6 +420,10 @@ QPushButton::hover {
          <property name="text">
           <string>নতুন শিক্ষার্থী যুক্ত করুন</string>
          </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>plus_60px.png</normaloff>plus_60px.png</iconset>
+         </property>
         </widget>
        </item>
        <item>
@@ -429,7 +433,68 @@ QPushButton::hover {
          </property>
          <property name="sizeHint" stdset="0">
           <size>
-           <width>128</width>
+           <width>78</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btn_update_student_info">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+           <horstretch>230</horstretch>
+           <verstretch>40</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>250</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Hind Siliguri Medium</family>
+           <pointsize>12</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+background-color: rgb(160, 253, 230);
+color:  #256D85 ;
+border-radius: 15px;
+}
+
+QPushButton::hover {
+	
+	background-color: rgb(143, 227, 207);
+	color: #2B4865;
+
+}</string>
+         </property>
+         <property name="text">
+          <string>শিক্ষার্থীর তথ্য আপডেট করুন</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>edit_property_100px.png</normaloff>edit_property_100px.png</iconset>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>78</width>
            <height>20</height>
           </size>
          </property>
@@ -475,6 +540,10 @@ QPushButton::hover {
          <property name="text">
           <string>শিক্ষার্থী এন্ট্রি বাতিল করুন</string>
          </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>trash_can_48px.png</normaloff>trash_can_48px.png</iconset>
+         </property>
         </widget>
        </item>
        <item>
@@ -484,7 +553,7 @@ QPushButton::hover {
          </property>
          <property name="sizeHint" stdset="0">
           <size>
-           <width>188</width>
+           <width>38</width>
            <height>20</height>
           </size>
          </property>
