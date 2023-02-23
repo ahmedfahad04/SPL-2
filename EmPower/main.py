@@ -128,11 +128,14 @@ class MainWindow(QMainWindow):  # Home extends QMainWindow
 
     # ==> Helper functions: Reload the table
     def reload_table(self):
+        
+        # reload data from database
         table_data = dm().load_student_entry()
         rows = len(table_data)
         columns = self.std_window.tableWidget.columnCount()
         self.std_window.tableWidget.setRowCount(rows)
 
+        # store the reloaded value into the UI
         for row in range(rows):
             for col in range(columns):
                 self.std_window.tableWidget.setItem(
