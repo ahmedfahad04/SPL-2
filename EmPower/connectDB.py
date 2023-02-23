@@ -77,7 +77,7 @@ class Database_Manager:
             res = self.student_db_cursor.execute('''DELETE FROM student_info WHERE Std_ID = ?''', (student_id,))
             self.student_db.commit()  
         
-            print("Student info deleted successfully!", res)
+            print("Student info deleted successfully!")
             return True
         
         except:

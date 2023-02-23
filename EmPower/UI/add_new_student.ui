@@ -23,7 +23,7 @@
       </size>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(210, 145, 188);</string>
+      <string notr="true">background-color: rgb(43, 72, 101);</string>
      </property>
      <property name="frameShape">
       <enum>QFrame::StyledPanel</enum>
@@ -36,8 +36,14 @@
        <widget class="QLabel" name="lbl_heading">
         <property name="font">
          <font>
-          <pointsize>16</pointsize>
+          <family>Hind Siliguri Medium</family>
+          <pointsize>19</pointsize>
+          <weight>50</weight>
+          <bold>false</bold>
          </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(143, 227, 207);</string>
         </property>
         <property name="text">
          <string>শিক্ষার্থীর তথ্য প্রদান করুন</string>
@@ -59,7 +65,7 @@
       </size>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(219, 189, 209);</string>
+      <string notr="true">background-color: rgb(32, 94, 115);</string>
      </property>
      <property name="frameShape">
       <enum>QFrame::StyledPanel</enum>
@@ -83,10 +89,11 @@
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(249, 215, 238);
-border: 2px solid rgb(195, 150, 179);
+         <string notr="true">background-color: rgb(137, 218, 199);
+border: 2px solid rgb(101, 161, 146);
 padding-left: 15px;
-border-radius: 10px;</string>
+border-radius: 10px;
+color: rgb(43, 72, 101);</string>
         </property>
         <property name="text">
          <string/>
@@ -113,10 +120,11 @@ border-radius: 10px;</string>
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(249, 215, 238);
-border: 2px solid rgb(195, 150, 179);
+         <string notr="true">background-color: rgb(137, 218, 199);
+border: 2px solid rgb(101, 161, 146);
 padding-left: 15px;
-border-radius: 10px;</string>
+border-radius: 10px;
+color: rgb(43, 72, 101);</string>
         </property>
         <property name="placeholderText">
          <string>শিক্ষার্থীর নাম </string>
@@ -138,10 +146,11 @@ border-radius: 10px;</string>
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(249, 215, 238);
-border: 2px solid rgb(195, 150, 179);
+         <string notr="true">background-color: rgb(137, 218, 199);
+border: 2px solid rgb(101, 161, 146);
 padding-left: 15px;
-border-radius: 10px;</string>
+border-radius: 10px;
+color: rgb(43, 72, 101);</string>
         </property>
         <property name="placeholderText">
          <string>শিক্ষার্থীর বয়স  </string>
@@ -163,10 +172,11 @@ border-radius: 10px;</string>
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(249, 215, 238);
-border: 2px solid rgb(195, 150, 179);
+         <string notr="true">background-color: rgb(137, 218, 199);
+border: 2px solid rgb(101, 161, 146);
 padding-left: 15px;
-border-radius: 10px;</string>
+border-radius: 10px;
+color: rgb(43, 72, 101);</string>
         </property>
         <property name="placeholderText">
          <string>অভিভাবকের নাম</string>
@@ -188,10 +198,11 @@ border-radius: 10px;</string>
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(249, 215, 238);
-border: 2px solid rgb(195, 150, 179);
+         <string notr="true">background-color: rgb(137, 218, 199);
+border: 2px solid rgb(101, 161, 146);
 padding-left: 15px;
-border-radius: 10px;</string>
+border-radius: 10px;
+color: rgb(43, 72, 101);</string>
         </property>
         <property name="placeholderText">
          <string>অভিভাবকের মোবাইল নম্বর</string>
@@ -208,6 +219,7 @@ border-radius: 10px;</string>
         </property>
         <property name="font">
          <font>
+          <family>Hind Siliguri Medium</family>
           <pointsize>13</pointsize>
          </font>
         </property>
@@ -216,13 +228,15 @@ border-radius: 10px;</string>
         </property>
         <property name="styleSheet">
          <string notr="true">QPushButton {
-border: 2px solid  rgb(85, 0, 0);
+border: 3px solid rgb(43, 72, 101);
 border-radius: 10px;
-background-color: rgb(210, 145, 188);
+background-color:  #002B5B;
+color: rgb(137, 218, 199)
 }
 
 QPushButton::hover {
-background-color: rgb(213, 161, 193);
+background-color: rgb(43, 72, 101);
+border: 3px solid rgb(0, 43, 91); 
 }</string>
         </property>
         <property name="text">

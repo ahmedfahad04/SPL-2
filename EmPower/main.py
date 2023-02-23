@@ -3,7 +3,7 @@ from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 import sys
 from ui_home import Ui_MainWindow
-from ui_student import Ui_StudentInfo
+import ui_student
 from ui_add_student import Ui_Form
 from connectDB import Database_Manager as dm
 
@@ -45,7 +45,7 @@ class MainWindow(QMainWindow):  # Home extends QMainWindow
         # ==> Student Page Window Modification
 
         # load & set up the Student Info page
-        self.std_window = Ui_StudentInfo()
+        self.std_window = ui_student.Ui_MainWindow()
         self.std_window.setupUi(self)
 
         # set window icon and title
@@ -80,9 +80,9 @@ class MainWindow(QMainWindow):  # Home extends QMainWindow
     def set_drop_shadow(self, ui_object):
         shadow = QGraphicsDropShadowEffect()
         shadow.setBlurRadius(15)
-        shadow.setXOffset(3)
-        shadow.setYOffset(5)
-        shadow.setColor(QColor(0, 0, 0, 100))
+        shadow.setXOffset(5)
+        shadow.setYOffset(7)
+        shadow.setColor(QColor(255, 255, 255, 55))
         ui_object.setGraphicsEffect(shadow)
 
     # ==> Helper functions: Add a new row into the table

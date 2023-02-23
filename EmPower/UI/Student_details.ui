@@ -42,7 +42,7 @@
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(210, 145, 188);
+       <string notr="true">background-color: #2B4865;
 border-radius: 20px;</string>
       </property>
       <property name="frameShape">
@@ -91,13 +91,13 @@ border-radius: 20px;</string>
          </property>
          <property name="styleSheet">
           <string notr="true">QPushButton {
-	background-color: rgb(210, 145, 188);
+	background-color: #2B4865 #256D85;
 	border: none;
 }
 
 QPushButton:hover:!pressed
 {
-	background-color: rgb(191, 132, 171);
+	background-color:  #256D85;
 	border-radius: 30px;
 }</string>
          </property>
@@ -106,7 +106,7 @@ QPushButton:hover:!pressed
          </property>
          <property name="icon">
           <iconset>
-           <normaloff>back_48px.png</normaloff>back_48px.png</iconset>
+           <normaloff>back_48.png</normaloff>back_48.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -134,7 +134,7 @@ QPushButton:hover:!pressed
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">color: #04253A</string>
+          <string notr="true">color: #8FE3CF</string>
          </property>
          <property name="text">
           <string>শিক্ষার্থীর তথ্যসমূহ </string>
@@ -187,17 +187,18 @@ background-color: rgb(255, 220, 243);</string>
          </property>
          <property name="styleSheet">
           <string notr="true">QHeaderView::section {
-	background-color: rgb(149, 125, 173);
-    color: #fff;
+	background-color: #002B5B;
+    color: rgb(143, 227, 207);
 	border-radius: 5px;
 }
 
 
 
 QTableWidget {
-	background-color: rgb(255, 220, 243);
-	gridline-color: rgb(85, 0, 0);
+	background-color: #256D85;
+	gridline-color: rgb(255, 255, 255);
 	border-radius: 20px;
+	color: #fff;
 }
 
 </string>
@@ -218,7 +219,7 @@ QTableWidget {
           <enum>QAbstractScrollArea::AdjustToContentsOnFirstShow</enum>
          </property>
          <property name="alternatingRowColors">
-          <bool>true</bool>
+          <bool>false</bool>
          </property>
          <property name="textElideMode">
           <enum>Qt::ElideLeft</enum>
@@ -354,7 +355,7 @@ QTableWidget {
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(210, 145, 188);
+       <string notr="true">background-color: rgb(42, 70, 98);
 border-radius: 20px;</string>
       </property>
       <property name="frameShape">
@@ -404,15 +405,15 @@ border-radius: 20px;</string>
          </property>
          <property name="styleSheet">
           <string notr="true">QPushButton {
-background-color: rgb(148, 125, 172);
-color: rgb(255, 255, 255);
+background-color: rgb(160, 253, 230);
+color:  #256D85 ;
 border-radius: 15px;
 }
 
 QPushButton::hover {
 	
-	background-color: rgb(162, 137, 188);
-	color: rgb(255, 255, 255);
+	background-color: rgb(143, 227, 207);
+	color: #2B4865;
 
 }</string>
          </property>
@@ -459,15 +460,15 @@ QPushButton::hover {
          </property>
          <property name="styleSheet">
           <string notr="true">QPushButton {
-background-color: rgb(148, 125, 172);
-color: rgb(255, 255, 255);
+background-color: rgb(160, 253, 230);
+color:  #256D85 ;
 border-radius: 15px;
 }
 
 QPushButton::hover {
 	
-	background-color: rgb(162, 137, 188);
-	color: rgb(255, 255, 255);
+	background-color: rgb(143, 227, 207);
+	color: #2B4865;
 
 }</string>
          </property>

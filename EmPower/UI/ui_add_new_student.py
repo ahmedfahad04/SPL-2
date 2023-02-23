@@ -29,7 +29,7 @@ class Ui_Form(object):
         self.top_frame = QFrame(Form)
         self.top_frame.setObjectName(u"top_frame")
         self.top_frame.setMinimumSize(QSize(530, 70))
-        self.top_frame.setStyleSheet(u"background-color: rgb(210, 145, 188);")
+        self.top_frame.setStyleSheet(u"background-color: rgb(43, 72, 101);")
         self.top_frame.setFrameShape(QFrame.StyledPanel)
         self.top_frame.setFrameShadow(QFrame.Raised)
         self.horizontalLayout = QHBoxLayout(self.top_frame)
@@ -37,8 +37,11 @@ class Ui_Form(object):
         self.lbl_heading = QLabel(self.top_frame)
         self.lbl_heading.setObjectName(u"lbl_heading")
         font = QFont()
-        font.setPointSize(16)
+        font.setFamilies([u"Hind Siliguri Medium"])
+        font.setPointSize(19)
+        font.setBold(False)
         self.lbl_heading.setFont(font)
+        self.lbl_heading.setStyleSheet(u"color: rgb(143, 227, 207);")
         self.lbl_heading.setAlignment(Qt.AlignCenter)
 
         self.horizontalLayout.addWidget(self.lbl_heading)
@@ -49,7 +52,7 @@ class Ui_Form(object):
         self.middle_frame = QFrame(Form)
         self.middle_frame.setObjectName(u"middle_frame")
         self.middle_frame.setMinimumSize(QSize(530, 560))
-        self.middle_frame.setStyleSheet(u"background-color: rgb(219, 189, 209);")
+        self.middle_frame.setStyleSheet(u"background-color: rgb(32, 94, 115);")
         self.middle_frame.setFrameShape(QFrame.StyledPanel)
         self.middle_frame.setFrameShadow(QFrame.Raised)
         self.verticalLayout_2 = QVBoxLayout(self.middle_frame)
@@ -61,10 +64,11 @@ class Ui_Form(object):
         font1.setFamilies([u"Hind Siliguri Medium"])
         font1.setPointSize(11)
         self.input_id.setFont(font1)
-        self.input_id.setStyleSheet(u"background-color: rgb(249, 215, 238);\n"
-"border: 2px solid rgb(195, 150, 179);\n"
+        self.input_id.setStyleSheet(u"background-color: rgb(137, 218, 199);\n"
+"border: 2px solid rgb(101, 161, 146);\n"
 "padding-left: 15px;\n"
-"border-radius: 10px;")
+"border-radius: 10px;\n"
+"color: rgb(43, 72, 101);")
 
         self.verticalLayout_2.addWidget(self.input_id)
 
@@ -76,10 +80,11 @@ class Ui_Form(object):
         font2.setPointSize(11)
         font2.setBold(False)
         self.input_name.setFont(font2)
-        self.input_name.setStyleSheet(u"background-color: rgb(249, 215, 238);\n"
-"border: 2px solid rgb(195, 150, 179);\n"
+        self.input_name.setStyleSheet(u"background-color: rgb(137, 218, 199);\n"
+"border: 2px solid rgb(101, 161, 146);\n"
 "padding-left: 15px;\n"
-"border-radius: 10px;")
+"border-radius: 10px;\n"
+"color: rgb(43, 72, 101);")
 
         self.verticalLayout_2.addWidget(self.input_name)
 
@@ -87,10 +92,11 @@ class Ui_Form(object):
         self.input_age.setObjectName(u"input_age")
         self.input_age.setMinimumSize(QSize(330, 50))
         self.input_age.setFont(font1)
-        self.input_age.setStyleSheet(u"background-color: rgb(249, 215, 238);\n"
-"border: 2px solid rgb(195, 150, 179);\n"
+        self.input_age.setStyleSheet(u"background-color: rgb(137, 218, 199);\n"
+"border: 2px solid rgb(101, 161, 146);\n"
 "padding-left: 15px;\n"
-"border-radius: 10px;")
+"border-radius: 10px;\n"
+"color: rgb(43, 72, 101);")
 
         self.verticalLayout_2.addWidget(self.input_age)
 
@@ -98,10 +104,11 @@ class Ui_Form(object):
         self.input_guardian.setObjectName(u"input_guardian")
         self.input_guardian.setMinimumSize(QSize(330, 50))
         self.input_guardian.setFont(font1)
-        self.input_guardian.setStyleSheet(u"background-color: rgb(249, 215, 238);\n"
-"border: 2px solid rgb(195, 150, 179);\n"
+        self.input_guardian.setStyleSheet(u"background-color: rgb(137, 218, 199);\n"
+"border: 2px solid rgb(101, 161, 146);\n"
 "padding-left: 15px;\n"
-"border-radius: 10px;")
+"border-radius: 10px;\n"
+"color: rgb(43, 72, 101);")
 
         self.verticalLayout_2.addWidget(self.input_guardian)
 
@@ -109,10 +116,11 @@ class Ui_Form(object):
         self.input_phone.setObjectName(u"input_phone")
         self.input_phone.setMinimumSize(QSize(330, 50))
         self.input_phone.setFont(font1)
-        self.input_phone.setStyleSheet(u"background-color: rgb(249, 215, 238);\n"
-"border: 2px solid rgb(195, 150, 179);\n"
+        self.input_phone.setStyleSheet(u"background-color: rgb(137, 218, 199);\n"
+"border: 2px solid rgb(101, 161, 146);\n"
 "padding-left: 15px;\n"
-"border-radius: 10px;")
+"border-radius: 10px;\n"
+"color: rgb(43, 72, 101);")
 
         self.verticalLayout_2.addWidget(self.input_phone)
 
@@ -120,17 +128,20 @@ class Ui_Form(object):
         self.btn_submit.setObjectName(u"btn_submit")
         self.btn_submit.setMinimumSize(QSize(100, 50))
         font3 = QFont()
+        font3.setFamilies([u"Hind Siliguri Medium"])
         font3.setPointSize(13)
         self.btn_submit.setFont(font3)
         self.btn_submit.setCursor(QCursor(Qt.PointingHandCursor))
         self.btn_submit.setStyleSheet(u"QPushButton {\n"
-"border: 2px solid  rgb(85, 0, 0);\n"
+"border: 3px solid rgb(43, 72, 101);\n"
 "border-radius: 10px;\n"
-"background-color: rgb(210, 145, 188);\n"
+"background-color:  #002B5B;\n"
+"color: rgb(137, 218, 199)\n"
 "}\n"
 "\n"
 "QPushButton::hover {\n"
-"background-color: rgb(213, 161, 193);\n"
+"background-color: rgb(43, 72, 101);\n"
+"border: 3px solid rgb(0, 43, 91); \n"
 "}")
         self.btn_submit.setFlat(True)
 

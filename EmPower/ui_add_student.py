@@ -19,7 +19,7 @@ class Ui_Form(object):
         self.verticalLayout.setObjectName("verticalLayout")
         self.top_frame = QtWidgets.QFrame(Form)
         self.top_frame.setMinimumSize(QtCore.QSize(530, 70))
-        self.top_frame.setStyleSheet("background-color: rgb(210, 145, 188);")
+        self.top_frame.setStyleSheet("background-color: rgb(43, 72, 101);")
         self.top_frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.top_frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.top_frame.setObjectName("top_frame")
@@ -27,15 +27,19 @@ class Ui_Form(object):
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.lbl_heading = QtWidgets.QLabel(self.top_frame)
         font = QtGui.QFont()
-        font.setPointSize(16)
+        font.setFamily("Hind Siliguri Medium")
+        font.setPointSize(19)
+        font.setBold(False)
+        font.setWeight(50)
         self.lbl_heading.setFont(font)
+        self.lbl_heading.setStyleSheet("color: rgb(143, 227, 207);")
         self.lbl_heading.setAlignment(QtCore.Qt.AlignCenter)
         self.lbl_heading.setObjectName("lbl_heading")
         self.horizontalLayout.addWidget(self.lbl_heading)
         self.verticalLayout.addWidget(self.top_frame)
         self.middle_frame = QtWidgets.QFrame(Form)
         self.middle_frame.setMinimumSize(QtCore.QSize(530, 560))
-        self.middle_frame.setStyleSheet("background-color: rgb(219, 189, 209);")
+        self.middle_frame.setStyleSheet("background-color: rgb(32, 94, 115);")
         self.middle_frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.middle_frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.middle_frame.setObjectName("middle_frame")
@@ -47,10 +51,11 @@ class Ui_Form(object):
         font.setFamily("Hind Siliguri Medium")
         font.setPointSize(11)
         self.input_id.setFont(font)
-        self.input_id.setStyleSheet("background-color: rgb(249, 215, 238);\n"
-"border: 2px solid rgb(195, 150, 179);\n"
+        self.input_id.setStyleSheet("background-color: rgb(137, 218, 199);\n"
+"border: 2px solid rgb(101, 161, 146);\n"
 "padding-left: 15px;\n"
-"border-radius: 10px;")
+"border-radius: 10px;\n"
+"color: rgb(43, 72, 101);")
         self.input_id.setText("")
         self.input_id.setObjectName("input_id")
         self.verticalLayout_2.addWidget(self.input_id)
@@ -62,10 +67,11 @@ class Ui_Form(object):
         font.setBold(False)
         font.setWeight(50)
         self.input_name.setFont(font)
-        self.input_name.setStyleSheet("background-color: rgb(249, 215, 238);\n"
-"border: 2px solid rgb(195, 150, 179);\n"
+        self.input_name.setStyleSheet("background-color: rgb(137, 218, 199);\n"
+"border: 2px solid rgb(101, 161, 146);\n"
 "padding-left: 15px;\n"
-"border-radius: 10px;")
+"border-radius: 10px;\n"
+"color: rgb(43, 72, 101);")
         self.input_name.setObjectName("input_name")
         self.verticalLayout_2.addWidget(self.input_name)
         self.input_age = QtWidgets.QLineEdit(self.middle_frame)
@@ -74,10 +80,11 @@ class Ui_Form(object):
         font.setFamily("Hind Siliguri Medium")
         font.setPointSize(11)
         self.input_age.setFont(font)
-        self.input_age.setStyleSheet("background-color: rgb(249, 215, 238);\n"
-"border: 2px solid rgb(195, 150, 179);\n"
+        self.input_age.setStyleSheet("background-color: rgb(137, 218, 199);\n"
+"border: 2px solid rgb(101, 161, 146);\n"
 "padding-left: 15px;\n"
-"border-radius: 10px;")
+"border-radius: 10px;\n"
+"color: rgb(43, 72, 101);")
         self.input_age.setObjectName("input_age")
         self.verticalLayout_2.addWidget(self.input_age)
         self.input_guardian = QtWidgets.QLineEdit(self.middle_frame)
@@ -86,10 +93,11 @@ class Ui_Form(object):
         font.setFamily("Hind Siliguri Medium")
         font.setPointSize(11)
         self.input_guardian.setFont(font)
-        self.input_guardian.setStyleSheet("background-color: rgb(249, 215, 238);\n"
-"border: 2px solid rgb(195, 150, 179);\n"
+        self.input_guardian.setStyleSheet("background-color: rgb(137, 218, 199);\n"
+"border: 2px solid rgb(101, 161, 146);\n"
 "padding-left: 15px;\n"
-"border-radius: 10px;")
+"border-radius: 10px;\n"
+"color: rgb(43, 72, 101);")
         self.input_guardian.setObjectName("input_guardian")
         self.verticalLayout_2.addWidget(self.input_guardian)
         self.input_phone = QtWidgets.QLineEdit(self.middle_frame)
@@ -98,27 +106,30 @@ class Ui_Form(object):
         font.setFamily("Hind Siliguri Medium")
         font.setPointSize(11)
         self.input_phone.setFont(font)
-        self.input_phone.setStyleSheet("background-color: rgb(249, 215, 238);\n"
-"border: 2px solid rgb(195, 150, 179);\n"
+        self.input_phone.setStyleSheet("background-color: rgb(137, 218, 199);\n"
+"border: 2px solid rgb(101, 161, 146);\n"
 "padding-left: 15px;\n"
-"border-radius: 10px;")
+"border-radius: 10px;\n"
+"color: rgb(43, 72, 101);")
         self.input_phone.setObjectName("input_phone")
         self.verticalLayout_2.addWidget(self.input_phone)
         self.btn_submit = QtWidgets.QPushButton(self.middle_frame)
         self.btn_submit.setMinimumSize(QtCore.QSize(100, 50))
-        self.btn_submit.setDefault(True)
         font = QtGui.QFont()
+        font.setFamily("Hind Siliguri Medium")
         font.setPointSize(13)
         self.btn_submit.setFont(font)
         self.btn_submit.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.btn_submit.setStyleSheet("QPushButton {\n"
-"border: 2px solid  rgb(85, 0, 0);\n"
+"border: 3px solid rgb(43, 72, 101);\n"
 "border-radius: 10px;\n"
-"background-color: rgb(210, 145, 188);\n"
+"background-color:  #002B5B;\n"
+"color: rgb(137, 218, 199)\n"
 "}\n"
 "\n"
 "QPushButton::hover {\n"
-"background-color: rgb(213, 161, 193);\n"
+"background-color: rgb(43, 72, 101);\n"
+"border: 3px solid rgb(0, 43, 91); \n"
 "}")
         self.btn_submit.setFlat(True)
         self.btn_submit.setObjectName("btn_submit")
@@ -138,13 +149,4 @@ class Ui_Form(object):
         self.input_guardian.setPlaceholderText(_translate("Form", "অভিভাবকের নাম"))
         self.input_phone.setPlaceholderText(_translate("Form", "অভিভাবকের মোবাইল নম্বর"))
         self.btn_submit.setText(_translate("Form", "এন্ট্রি যুক্ত করুন "))
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    Form = QtWidgets.QWidget()
-    ui = Ui_Form()
-    ui.setupUi(Form)
-    Form.show()
-    sys.exit(app.exec_())
+        self.btn_submit.setShortcut(_translate("Form", "Return"))

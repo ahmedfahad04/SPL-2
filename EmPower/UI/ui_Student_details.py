@@ -43,7 +43,7 @@ class Ui_MainWindow(object):
         self.top_frame = QFrame(self.centralwidget)
         self.top_frame.setObjectName(u"top_frame")
         self.top_frame.setMinimumSize(QSize(1180, 80))
-        self.top_frame.setStyleSheet(u"background-color: rgb(210, 145, 188);\n"
+        self.top_frame.setStyleSheet(u"background-color: #2B4865;\n"
 "border-radius: 20px;")
         self.top_frame.setFrameShape(QFrame.StyledPanel)
         self.top_frame.setFrameShadow(QFrame.Raised)
@@ -65,17 +65,17 @@ class Ui_MainWindow(object):
         self.btn_back_to_home.setCursor(QCursor(Qt.PointingHandCursor))
         self.btn_back_to_home.setMouseTracking(True)
         self.btn_back_to_home.setStyleSheet(u"QPushButton {\n"
-"	background-color: rgb(210, 145, 188);\n"
+"	background-color: #2B4865 #256D85;\n"
 "	border: none;\n"
 "}\n"
 "\n"
 "QPushButton:hover:!pressed\n"
 "{\n"
-"	background-color: rgb(191, 132, 171);\n"
+"	background-color:  #256D85;\n"
 "	border-radius: 30px;\n"
 "}")
         icon = QIcon()
-        icon.addFile(u"back_48px.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon.addFile(u"back_48.png", QSize(), QIcon.Normal, QIcon.Off)
         self.btn_back_to_home.setIcon(icon)
         self.btn_back_to_home.setIconSize(QSize(200, 200))
         self.btn_back_to_home.setAutoDefault(False)
@@ -89,7 +89,7 @@ class Ui_MainWindow(object):
         font1.setFamilies([u"Hind Siliguri Medium"])
         font1.setPointSize(27)
         self.label.setFont(font1)
-        self.label.setStyleSheet(u"color: #04253A")
+        self.label.setStyleSheet(u"color: #8FE3CF")
         self.label.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
 
         self.horizontalLayout.addWidget(self.label)
@@ -141,17 +141,18 @@ class Ui_MainWindow(object):
         self.tableWidget.setObjectName(u"tableWidget")
         self.tableWidget.setFont(font)
         self.tableWidget.setStyleSheet(u"QHeaderView::section {\n"
-"	background-color: rgb(149, 125, 173);\n"
-"    color: #fff;\n"
+"	background-color: #002B5B;\n"
+"    color: rgb(143, 227, 207);\n"
 "	border-radius: 5px;\n"
 "}\n"
 "\n"
 "\n"
 "\n"
 "QTableWidget {\n"
-"	background-color: rgb(255, 220, 243);\n"
-"	gridline-color: rgb(85, 0, 0);\n"
+"	background-color: #256D85;\n"
+"	gridline-color: rgb(255, 255, 255);\n"
 "	border-radius: 20px;\n"
+"	color: #fff;\n"
 "}\n"
 "\n"
 "")
@@ -160,7 +161,7 @@ class Ui_MainWindow(object):
         self.tableWidget.setLineWidth(1)
         self.tableWidget.setVerticalScrollBarPolicy(Qt.ScrollBarAsNeeded)
         self.tableWidget.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContentsOnFirstShow)
-        self.tableWidget.setAlternatingRowColors(True)
+        self.tableWidget.setAlternatingRowColors(False)
         self.tableWidget.setTextElideMode(Qt.ElideLeft)
         self.tableWidget.setShowGrid(True)
         self.tableWidget.setGridStyle(Qt.SolidLine)
@@ -186,7 +187,7 @@ class Ui_MainWindow(object):
         self.bottom_frame = QFrame(self.centralwidget)
         self.bottom_frame.setObjectName(u"bottom_frame")
         self.bottom_frame.setMinimumSize(QSize(1180, 70))
-        self.bottom_frame.setStyleSheet(u"background-color: rgb(210, 145, 188);\n"
+        self.bottom_frame.setStyleSheet(u"background-color: rgb(42, 70, 98);\n"
 "border-radius: 20px;")
         self.bottom_frame.setFrameShape(QFrame.StyledPanel)
         self.bottom_frame.setFrameShadow(QFrame.Raised)
@@ -211,15 +212,15 @@ class Ui_MainWindow(object):
         self.btn_add_new_student.setFont(font4)
         self.btn_add_new_student.setCursor(QCursor(Qt.PointingHandCursor))
         self.btn_add_new_student.setStyleSheet(u"QPushButton {\n"
-"background-color: rgb(148, 125, 172);\n"
-"color: rgb(255, 255, 255);\n"
+"background-color: rgb(160, 253, 230);\n"
+"color:  #256D85 ;\n"
 "border-radius: 15px;\n"
 "}\n"
 "\n"
 "QPushButton::hover {\n"
 "	\n"
-"	background-color: rgb(162, 137, 188);\n"
-"	color: rgb(255, 255, 255);\n"
+"	background-color: rgb(143, 227, 207);\n"
+"	color: #2B4865;\n"
 "\n"
 "}")
 
@@ -240,15 +241,15 @@ class Ui_MainWindow(object):
         self.btn_remove_student.setFont(font5)
         self.btn_remove_student.setCursor(QCursor(Qt.PointingHandCursor))
         self.btn_remove_student.setStyleSheet(u"QPushButton {\n"
-"background-color: rgb(148, 125, 172);\n"
-"color: rgb(255, 255, 255);\n"
+"background-color: rgb(160, 253, 230);\n"
+"color:  #256D85 ;\n"
 "border-radius: 15px;\n"
 "}\n"
 "\n"
 "QPushButton::hover {\n"
 "	\n"
-"	background-color: rgb(162, 137, 188);\n"
-"	color: rgb(255, 255, 255);\n"
+"	background-color: rgb(143, 227, 207);\n"
+"	color: #2B4865;\n"
 "\n"
 "}")
 
