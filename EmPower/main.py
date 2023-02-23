@@ -100,23 +100,22 @@ class MainWindow(QMainWindow):  # Home extends QMainWindow
                 
         # connect the buttons
         self.form.btn_submit.clicked.connect(lambda: self.get_form_data(self.custom_form, self.form)) 
-
+        
     # ==> Helper functions: Remove a row from the table
     def remove_rows(self, ui_object):
-                
-        # remove from pyqt table
-        current_row_no = ui_object.tableWidget.currentRow()
-        ui_object.tableWidget.removeRow(current_row_no)
-        print("current: ",current_row_no)
-        
-        # remove from database
+  
         try:
-            std_id = ui_object.tableWidget.item(current_row_no, 0).text()            
+            current_row = self.std_window.tableWidget.currentRow()
+            
+            # remove from database
+            std_id = self.std_window.tableWidget.item(current_row, 0).text()
             dm().delete_student_entry(std_id)
-        
+            
+            # remove from pyqt table
+            self.std_window.tableWidget.removeRow(current_row)
+            
         except Exception as e:
             print("Error: ", e)
-            pass
 
     # ==> Helper functions: Reload the table
     def reload_table(self):
@@ -155,6 +154,9 @@ class MainWindow(QMainWindow):  # Home extends QMainWindow
             
         # insert the data into the database
         dm().add_student_entry(data)
+        
+        # align the elements after inserting new row
+        self.align_elements()
         
         parent_obj.close()
         
