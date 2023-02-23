@@ -47,7 +47,7 @@
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: #FEE8E9;</string>
+       <string notr="true">background-color: rgb(0, 43, 91)</string>
       </property>
       <property name="frameShape">
        <enum>QFrame::StyledPanel</enum>
@@ -89,7 +89,7 @@
              <string/>
             </property>
             <property name="pixmap">
-             <pixmap>final_logo.png</pixmap>
+             <pixmap>logo3.png</pixmap>
             </property>
             <property name="scaledContents">
              <bool>false</bool>
@@ -155,7 +155,7 @@
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">color: rgb(129, 102, 106);</string>
+             <string notr="true">color: rgb(26, 181, 219);</string>
             </property>
             <property name="text">
              <string>শিক্ষার্থী নিবন্ধন</string>
@@ -179,7 +179,7 @@
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">color: rgb(129, 102, 106);</string>
+             <string notr="true">color: rgb(26, 181, 219);</string>
             </property>
             <property name="text">
              <string>পাঠ্যসূচী</string>
@@ -203,7 +203,7 @@
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">color: rgb(129, 102, 106);</string>
+             <string notr="true">color: rgb(26, 181, 219);</string>
             </property>
             <property name="text">
              <string>পাঠ মূল্যায়ন</string>
@@ -227,7 +227,7 @@
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">color: rgb(129, 102, 106);</string>
+             <string notr="true">color: rgb(26, 181, 219);</string>
             </property>
             <property name="text">
              <string>শিক্ষার্থীর পারফরম্যান্স</string>
@@ -251,7 +251,7 @@
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">color: rgb(129, 102, 106);</string>
+             <string notr="true">color: rgb(26, 181, 219);</string>
             </property>
             <property name="text">
              <string>সেটিংস</string>
@@ -384,16 +384,16 @@
             </property>
             <property name="styleSheet">
              <string notr="true">QPushButton {
-	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(227, 208, 209, 255), stop:1 rgba(255, 255, 255, 255));
-	border: 5px solid rgb(238, 218, 219);
+	background-color: qlineargradient(spread:pad, x1:0.383, y1:0.727, x2:1, y2:0, stop:0 rgba(49, 181, 148, 255), stop:1 rgba(255, 255, 255, 255));
+	border: 4px solid qlineargradient(spread:pad, x1:0.716905, y1:0.347, x2:0, y2:1, stop:0 rgba(26, 181, 219, 255), stop:1 rgba(255, 255, 255, 255)) ;
 	border-radius: 15px;
 	margin: 10px;
 }
 
 QPushButton:hover:!pressed
 {
- 	border: 5px solid  rgb(148, 122, 125);
-	background-color: qlineargradient(spread:pad, x1:1, y1:0.318, x2:0, y2:1, stop:0.313433 rgba(222, 204, 205, 255), stop:1 rgba(255, 255, 255, 255));
+ 	border: 4px solid qlineargradient(spread:pad, x1:0.338, y1:0.602273, x2:1, y2:0, stop:0 rgba(26, 181, 219, 255), stop:1 rgba(255, 255, 255, 255));
+	background-color: qlineargradient(spread:pad, x1:0.606965, y1:0.409, x2:0, y2:1, stop:0 rgba(81, 181, 159, 255), stop:1 rgba(255, 255, 255, 255));
 }
 </string>
             </property>
@@ -402,12 +402,12 @@ QPushButton:hover:!pressed
             </property>
             <property name="icon">
              <iconset>
-              <normaloff>icons8_student_male_32.png</normaloff>icons8_student_male_32.png</iconset>
+              <normaloff>student_registration_60px.png</normaloff>student_registration_60px.png</iconset>
             </property>
             <property name="iconSize">
              <size>
-              <width>500</width>
-              <height>500</height>
+              <width>80</width>
+              <height>70</height>
              </size>
             </property>
             <property name="flat">
@@ -440,29 +440,30 @@ QPushButton:hover:!pressed
             </property>
             <property name="styleSheet">
              <string notr="true">QPushButton {
-	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(227, 208, 209, 255), stop:1 rgba(255, 255, 255, 255));
-	border: 5px solid rgb(238, 218, 219);
+	background-color: qlineargradient(spread:pad, x1:0.383, y1:0.727, x2:1, y2:0, stop:0 rgba(49, 181, 148, 255), stop:1 rgba(255, 255, 255, 255));
+	border: 4px solid qlineargradient(spread:pad, x1:0.716905, y1:0.347, x2:0, y2:1, stop:0 rgba(26, 181, 219, 255), stop:1 rgba(255, 255, 255, 255)) ;
 	border-radius: 15px;
 	margin: 10px;
 }
 
 QPushButton:hover:!pressed
 {
- 	border: 5px solid  rgb(148, 122, 125);
-	background-color: qlineargradient(spread:pad, x1:1, y1:0.318, x2:0, y2:1, stop:0.313433 rgba(222, 204, 205, 255), stop:1 rgba(255, 255, 255, 255));
-}</string>
+ 	border: 4px solid qlineargradient(spread:pad, x1:0.338, y1:0.602273, x2:1, y2:0, stop:0 rgba(26, 181, 219, 255), stop:1 rgba(255, 255, 255, 255));
+	background-color: qlineargradient(spread:pad, x1:0.606965, y1:0.409, x2:0, y2:1, stop:0 rgba(81, 181, 159, 255), stop:1 rgba(255, 255, 255, 255));
+}
+</string>
             </property>
             <property name="text">
              <string/>
             </property>
             <property name="icon">
              <iconset>
-              <normaloff>lesson_64.png</normaloff>lesson_64.png</iconset>
+              <normaloff>n_training_100px.png</normaloff>n_training_100px.png</iconset>
             </property>
             <property name="iconSize">
              <size>
-              <width>150</width>
-              <height>150</height>
+              <width>70</width>
+              <height>90</height>
              </size>
             </property>
            </widget>
@@ -492,29 +493,30 @@ QPushButton:hover:!pressed
             </property>
             <property name="styleSheet">
              <string notr="true">QPushButton {
-	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(227, 208, 209, 255), stop:1 rgba(255, 255, 255, 255));
-	border: 5px solid rgb(238, 218, 219);
+	background-color: qlineargradient(spread:pad, x1:0.383, y1:0.727, x2:1, y2:0, stop:0 rgba(49, 181, 148, 255), stop:1 rgba(255, 255, 255, 255));
+	border: 4px solid qlineargradient(spread:pad, x1:0.716905, y1:0.347, x2:0, y2:1, stop:0 rgba(26, 181, 219, 255), stop:1 rgba(255, 255, 255, 255)) ;
 	border-radius: 15px;
 	margin: 10px;
 }
 
 QPushButton:hover:!pressed
 {
- 	border: 5px solid  rgb(148, 122, 125);
-	background-color: qlineargradient(spread:pad, x1:1, y1:0.318, x2:0, y2:1, stop:0.313433 rgba(222, 204, 205, 255), stop:1 rgba(255, 255, 255, 255));
-}</string>
+ 	border: 4px solid qlineargradient(spread:pad, x1:0.338, y1:0.602273, x2:1, y2:0, stop:0 rgba(26, 181, 219, 255), stop:1 rgba(255, 255, 255, 255));
+	background-color: qlineargradient(spread:pad, x1:0.606965, y1:0.409, x2:0, y2:1, stop:0 rgba(81, 181, 159, 255), stop:1 rgba(255, 255, 255, 255));
+}
+</string>
             </property>
             <property name="text">
              <string/>
             </property>
             <property name="icon">
              <iconset>
-              <normaloff>list_64px.png</normaloff>list_64px.png</iconset>
+              <normaloff>n_test_passed_64px.png</normaloff>n_test_passed_64px.png</iconset>
             </property>
             <property name="iconSize">
              <size>
-              <width>150</width>
-              <height>150</height>
+              <width>70</width>
+              <height>90</height>
              </size>
             </property>
            </widget>
@@ -544,24 +546,25 @@ QPushButton:hover:!pressed
             </property>
             <property name="styleSheet">
              <string notr="true">QPushButton {
-	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(227, 208, 209, 255), stop:1 rgba(255, 255, 255, 255));
-	border: 5px solid rgb(238, 218, 219);
+	background-color: qlineargradient(spread:pad, x1:0.383, y1:0.727, x2:1, y2:0, stop:0 rgba(49, 181, 148, 255), stop:1 rgba(255, 255, 255, 255));
+	border: 4px solid qlineargradient(spread:pad, x1:0.716905, y1:0.347, x2:0, y2:1, stop:0 rgba(26, 181, 219, 255), stop:1 rgba(255, 255, 255, 255)) ;
 	border-radius: 15px;
 	margin: 10px;
 }
 
 QPushButton:hover:!pressed
 {
- 	border: 5px solid  rgb(148, 122, 125);
-	background-color: qlineargradient(spread:pad, x1:1, y1:0.318, x2:0, y2:1, stop:0.313433 rgba(222, 204, 205, 255), stop:1 rgba(255, 255, 255, 255));
-}</string>
+ 	border: 4px solid qlineargradient(spread:pad, x1:0.338, y1:0.602273, x2:1, y2:0, stop:0 rgba(26, 181, 219, 255), stop:1 rgba(255, 255, 255, 255));
+	background-color: qlineargradient(spread:pad, x1:0.606965, y1:0.409, x2:0, y2:1, stop:0 rgba(81, 181, 159, 255), stop:1 rgba(255, 255, 255, 255));
+}
+</string>
             </property>
             <property name="text">
              <string/>
             </property>
             <property name="icon">
              <iconset>
-              <normaloff>presentation_64px.png</normaloff>presentation_64px.png</iconset>
+              <normaloff>presentation_128px.png</normaloff>presentation_128px.png</iconset>
             </property>
             <property name="iconSize">
              <size>
@@ -596,29 +599,30 @@ QPushButton:hover:!pressed
             </property>
             <property name="styleSheet">
              <string notr="true">QPushButton {
-	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(227, 208, 209, 255), stop:1 rgba(255, 255, 255, 255));
-	border: 5px solid rgb(238, 218, 219);
+	background-color: qlineargradient(spread:pad, x1:0.383, y1:0.727, x2:1, y2:0, stop:0 rgba(49, 181, 148, 255), stop:1 rgba(255, 255, 255, 255));
+	border: 4px solid qlineargradient(spread:pad, x1:0.716905, y1:0.347, x2:0, y2:1, stop:0 rgba(26, 181, 219, 255), stop:1 rgba(255, 255, 255, 255)) ;
 	border-radius: 15px;
 	margin: 10px;
 }
 
 QPushButton:hover:!pressed
 {
- 	border: 5px solid  rgb(148, 122, 125);
-	background-color: qlineargradient(spread:pad, x1:1, y1:0.318, x2:0, y2:1, stop:0.313433 rgba(222, 204, 205, 255), stop:1 rgba(255, 255, 255, 255));
-}</string>
+ 	border: 4px solid qlineargradient(spread:pad, x1:0.338, y1:0.602273, x2:1, y2:0, stop:0 rgba(26, 181, 219, 255), stop:1 rgba(255, 255, 255, 255));
+	background-color: qlineargradient(spread:pad, x1:0.606965, y1:0.409, x2:0, y2:1, stop:0 rgba(81, 181, 159, 255), stop:1 rgba(255, 255, 255, 255));
+}
+</string>
             </property>
             <property name="text">
              <string/>
             </property>
             <property name="icon">
              <iconset>
-              <normaloff>settings_64px.png</normaloff>settings_64px.png</iconset>
+              <normaloff>settings.png</normaloff>settings.png</iconset>
             </property>
             <property name="iconSize">
              <size>
-              <width>150</width>
-              <height>150</height>
+              <width>70</width>
+              <height>70</height>
              </size>
             </property>
            </widget>

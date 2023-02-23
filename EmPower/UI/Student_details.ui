@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="sizePolicy">
-   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+   <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
     <horstretch>0</horstretch>
     <verstretch>0</verstretch>
    </sizepolicy>
@@ -26,17 +26,24 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
      <widget class="QFrame" name="top_frame">
       <property name="minimumSize">
        <size>
         <width>1180</width>
-        <height>81</height>
+        <height>80</height>
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(210, 145, 188);</string>
+       <string notr="true">background-color: rgb(210, 145, 188);
+border-radius: 20px;</string>
       </property>
       <property name="frameShape">
        <enum>QFrame::StyledPanel</enum>
@@ -45,24 +52,24 @@
        <enum>QFrame::Raised</enum>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout">
-       <property name="leftMargin">
-        <number>0</number>
-       </property>
-       <property name="topMargin">
-        <number>0</number>
-       </property>
-       <property name="rightMargin">
-        <number>0</number>
-       </property>
-       <property name="bottomMargin">
-        <number>0</number>
-       </property>
        <item>
         <widget class="QPushButton" name="btn_back_to_home">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>60</height>
+          </size>
+         </property>
          <property name="maximumSize">
           <size>
-           <width>100</width>
-           <height>80</height>
+           <width>60</width>
+           <height>60</height>
           </size>
          </property>
          <property name="baseSize">
@@ -85,11 +92,13 @@
          <property name="styleSheet">
           <string notr="true">QPushButton {
 	background-color: rgb(210, 145, 188);
+	border: none;
 }
 
 QPushButton:hover:!pressed
 {
 	background-color: rgb(191, 132, 171);
+	border-radius: 30px;
 }</string>
          </property>
          <property name="text">
@@ -101,8 +110,8 @@ QPushButton:hover:!pressed
          </property>
          <property name="iconSize">
           <size>
-           <width>150</width>
-           <height>150</height>
+           <width>200</width>
+           <height>200</height>
           </size>
          </property>
          <property name="autoDefault">
@@ -120,6 +129,7 @@ QPushButton:hover:!pressed
         <widget class="QLabel" name="label">
          <property name="font">
           <font>
+           <family>Hind Siliguri Medium</family>
            <pointsize>27</pointsize>
           </font>
          </property>
@@ -146,7 +156,8 @@ QPushButton:hover:!pressed
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true"/>
+       <string notr="true">border-radius: 20px;
+background-color: rgb(255, 220, 243);</string>
       </property>
       <property name="frameShape">
        <enum>QFrame::StyledPanel</enum>
@@ -177,7 +188,8 @@ QPushButton:hover:!pressed
          <property name="styleSheet">
           <string notr="true">QHeaderView::section {
 	background-color: rgb(149, 125, 173);
-    color: rgb(3, 3, 3);
+    color: #fff;
+	border-radius: 5px;
 }
 
 
@@ -185,6 +197,7 @@ QPushButton:hover:!pressed
 QTableWidget {
 	background-color: rgb(255, 220, 243);
 	gridline-color: rgb(85, 0, 0);
+	border-radius: 20px;
 }
 
 </string>
@@ -223,7 +236,7 @@ QTableWidget {
           <bool>true</bool>
          </property>
          <property name="rowCount">
-          <number>3</number>
+          <number>0</number>
          </property>
          <property name="columnCount">
           <number>5</number>
@@ -249,9 +262,12 @@ QTableWidget {
          <attribute name="verticalHeaderCascadingSectionResizes">
           <bool>false</bool>
          </attribute>
-         <row/>
-         <row/>
-         <row/>
+         <attribute name="verticalHeaderDefaultSectionSize">
+          <number>35</number>
+         </attribute>
+         <attribute name="verticalHeaderMinimumSectionSize">
+          <number>29</number>
+         </attribute>
          <column>
           <property name="text">
            <string>শিক্ষার্থীর আইডি</string>
@@ -324,81 +340,6 @@ QTableWidget {
            <set>AlignCenter</set>
           </property>
          </column>
-         <item row="0" column="0">
-          <property name="text">
-           <string/>
-          </property>
-         </item>
-         <item row="0" column="1">
-          <property name="text">
-           <string/>
-          </property>
-         </item>
-         <item row="0" column="2">
-          <property name="text">
-           <string/>
-          </property>
-         </item>
-         <item row="0" column="3">
-          <property name="text">
-           <string/>
-          </property>
-         </item>
-         <item row="0" column="4">
-          <property name="text">
-           <string/>
-          </property>
-         </item>
-         <item row="1" column="0">
-          <property name="text">
-           <string/>
-          </property>
-         </item>
-         <item row="1" column="1">
-          <property name="text">
-           <string/>
-          </property>
-         </item>
-         <item row="1" column="2">
-          <property name="text">
-           <string/>
-          </property>
-         </item>
-         <item row="1" column="3">
-          <property name="text">
-           <string/>
-          </property>
-         </item>
-         <item row="1" column="4">
-          <property name="text">
-           <string/>
-          </property>
-         </item>
-         <item row="2" column="0">
-          <property name="text">
-           <string/>
-          </property>
-         </item>
-         <item row="2" column="1">
-          <property name="text">
-           <string/>
-          </property>
-         </item>
-         <item row="2" column="2">
-          <property name="text">
-           <string/>
-          </property>
-         </item>
-         <item row="2" column="3">
-          <property name="text">
-           <string/>
-          </property>
-         </item>
-         <item row="2" column="4">
-          <property name="text">
-           <string/>
-          </property>
-         </item>
         </widget>
        </item>
       </layout>
@@ -413,7 +354,8 @@ QTableWidget {
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(210, 145, 188);</string>
+       <string notr="true">background-color: rgb(210, 145, 188);
+border-radius: 20px;</string>
       </property>
       <property name="frameShape">
        <enum>QFrame::StyledPanel</enum>
@@ -423,15 +365,35 @@ QTableWidget {
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_3">
        <item>
+        <spacer name="horizontalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>248</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
         <widget class="QPushButton" name="btn_add_new_student">
          <property name="sizePolicy">
-          <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+          <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
            <horstretch>230</horstretch>
            <verstretch>40</verstretch>
           </sizepolicy>
          </property>
+         <property name="minimumSize">
+          <size>
+           <width>250</width>
+           <height>40</height>
+          </size>
+         </property>
          <property name="font">
           <font>
+           <family>Hind Siliguri Medium</family>
            <pointsize>12</pointsize>
            <weight>50</weight>
            <bold>false</bold>
@@ -441,8 +403,18 @@ QTableWidget {
           <cursorShape>PointingHandCursor</cursorShape>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(148, 125, 172);
-color: rgb(255, 255, 255);</string>
+          <string notr="true">QPushButton {
+background-color: rgb(148, 125, 172);
+color: rgb(255, 255, 255);
+border-radius: 15px;
+}
+
+QPushButton::hover {
+	
+	background-color: rgb(162, 137, 188);
+	color: rgb(255, 255, 255);
+
+}</string>
          </property>
          <property name="text">
           <string>নতুন শিক্ষার্থী যুক্ত করুন</string>
@@ -450,15 +422,35 @@ color: rgb(255, 255, 255);</string>
         </widget>
        </item>
        <item>
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>128</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
         <widget class="QPushButton" name="btn_remove_student">
          <property name="sizePolicy">
-          <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+          <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
            <horstretch>230</horstretch>
            <verstretch>40</verstretch>
           </sizepolicy>
          </property>
+         <property name="minimumSize">
+          <size>
+           <width>250</width>
+           <height>40</height>
+          </size>
+         </property>
          <property name="font">
           <font>
+           <family>Hind Siliguri Medium</family>
            <pointsize>12</pointsize>
           </font>
          </property>
@@ -466,13 +458,36 @@ color: rgb(255, 255, 255);</string>
           <cursorShape>PointingHandCursor</cursorShape>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(149, 125, 173);
-color: rgb(255, 255, 255);</string>
+          <string notr="true">QPushButton {
+background-color: rgb(148, 125, 172);
+color: rgb(255, 255, 255);
+border-radius: 15px;
+}
+
+QPushButton::hover {
+	
+	background-color: rgb(162, 137, 188);
+	color: rgb(255, 255, 255);
+
+}</string>
          </property>
          <property name="text">
           <string>শিক্ষার্থী এন্ট্রি বাতিল করুন</string>
          </property>
         </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_3">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>188</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
        </item>
       </layout>
      </widget>

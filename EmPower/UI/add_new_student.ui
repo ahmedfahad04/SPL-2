@@ -228,6 +228,9 @@ background-color: rgb(213, 161, 193);
         <property name="text">
          <string>এন্ট্রি যুক্ত করুন </string>
         </property>
+        <property name="shortcut">
+         <string>Return</string>
+        </property>
         <property name="flat">
          <bool>true</bool>
         </property>

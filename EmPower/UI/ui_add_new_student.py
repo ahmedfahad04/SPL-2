@@ -155,13 +155,8 @@ class Ui_Form(object):
         self.input_guardian.setPlaceholderText(QCoreApplication.translate("Form", u"\u0985\u09ad\u09bf\u09ad\u09be\u09ac\u0995\u09c7\u09b0 \u09a8\u09be\u09ae", None))
         self.input_phone.setPlaceholderText(QCoreApplication.translate("Form", u"\u0985\u09ad\u09bf\u09ad\u09be\u09ac\u0995\u09c7\u09b0 \u09ae\u09cb\u09ac\u09be\u0987\u09b2 \u09a8\u09ae\u09cd\u09ac\u09b0", None))
         self.btn_submit.setText(QCoreApplication.translate("Form", u"\u098f\u09a8\u09cd\u099f\u09cd\u09b0\u09bf \u09af\u09c1\u0995\u09cd\u09a4 \u0995\u09b0\u09c1\u09a8 ", None))
+#if QT_CONFIG(shortcut)
+        self.btn_submit.setShortcut(QCoreApplication.translate("Form", u"Return", None))
+#endif // QT_CONFIG(shortcut)
     # retranslateUi
 
-if __name__ == "__main__":
-    import sys
-    app = QApplication(sys.argv)
-    MainWindow = QWidget()
-    ui = Ui_Form()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
-    sys.exit(app.exec_())
