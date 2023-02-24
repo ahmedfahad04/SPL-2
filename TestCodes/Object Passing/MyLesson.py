@@ -33,6 +33,8 @@ if __name__ == "__main__":
     lesson.show()
     print(type(lesson))
 
-    pg.QtGui.QApplication.pickle(lesson)
+    # Save the object to a file
+    with open('myLesson_object.txt', 'w') as f:
+        f.write(str(lesson))
 
     sys.exit(app.exec_())

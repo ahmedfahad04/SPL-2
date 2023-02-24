@@ -3,15 +3,21 @@
 ################################################################################
 ## Form generated from reading UI file 'Teacher_Home.ui'
 ##
-## Created by: Qt User Interface Compiler version 5.15.2
+## Created by: Qt User Interface Compiler version 6.4.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide2.QtCore import *
-from PySide2.QtGui import *
-from PySide2.QtWidgets import *
-
+from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
+    QMetaObject, QObject, QPoint, QRect,
+    QSize, QTime, QUrl, Qt)
+from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
+    QFont, QFontDatabase, QGradient, QIcon,
+    QImage, QKeySequence, QLinearGradient, QPainter,
+    QPalette, QPixmap, QRadialGradient, QTransform)
+from PySide6.QtWidgets import (QApplication, QFrame, QGridLayout, QHBoxLayout,
+    QLabel, QMainWindow, QPushButton, QSizePolicy,
+    QSpacerItem, QVBoxLayout, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -34,7 +40,7 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.mainframe.sizePolicy().hasHeightForWidth())
         self.mainframe.setSizePolicy(sizePolicy)
         self.mainframe.setMaximumSize(QSize(16777215, 16777215))
-        self.mainframe.setStyleSheet(u"background-color: #FEE8E9;")
+        self.mainframe.setStyleSheet(u"background-color: rgb(0, 43, 91)")
         self.mainframe.setFrameShape(QFrame.StyledPanel)
         self.mainframe.setFrameShadow(QFrame.Raised)
         self.gridLayout = QGridLayout(self.mainframe)
@@ -52,7 +58,7 @@ class Ui_MainWindow(object):
         self.b_picture.setLayoutDirection(Qt.LeftToRight)
         self.b_picture.setStyleSheet(u"border: none;")
         self.b_picture.setFrameShape(QFrame.StyledPanel)
-        self.b_picture.setPixmap(QPixmap(u"final_logo.png"))
+        self.b_picture.setPixmap(QPixmap(u"logo3.png"))
         self.b_picture.setScaledContents(False)
         self.b_picture.setAlignment(Qt.AlignCenter)
 
@@ -83,9 +89,8 @@ class Ui_MainWindow(object):
         font1 = QFont()
         font1.setPointSize(14)
         font1.setBold(False)
-        font1.setWeight(50)
         self.lbl_student.setFont(font1)
-        self.lbl_student.setStyleSheet(u"color: rgb(129, 102, 106);")
+        self.lbl_student.setStyleSheet(u"color: rgb(26, 181, 219);")
         self.lbl_student.setAlignment(Qt.AlignCenter)
 
         self.horizontalLayout_3.addWidget(self.lbl_student)
@@ -96,7 +101,7 @@ class Ui_MainWindow(object):
         font2 = QFont()
         font2.setPointSize(14)
         self.lbl_lesson.setFont(font2)
-        self.lbl_lesson.setStyleSheet(u"color: rgb(129, 102, 106);")
+        self.lbl_lesson.setStyleSheet(u"color: rgb(26, 181, 219);")
         self.lbl_lesson.setAlignment(Qt.AlignCenter)
 
         self.horizontalLayout_3.addWidget(self.lbl_lesson)
@@ -105,7 +110,7 @@ class Ui_MainWindow(object):
         self.lbl_quiz.setObjectName(u"lbl_quiz")
         self.lbl_quiz.setMaximumSize(QSize(16777215, 50))
         self.lbl_quiz.setFont(font2)
-        self.lbl_quiz.setStyleSheet(u"color: rgb(129, 102, 106);")
+        self.lbl_quiz.setStyleSheet(u"color: rgb(26, 181, 219);")
         self.lbl_quiz.setAlignment(Qt.AlignCenter)
 
         self.horizontalLayout_3.addWidget(self.lbl_quiz)
@@ -114,7 +119,7 @@ class Ui_MainWindow(object):
         self.lbl_progress.setObjectName(u"lbl_progress")
         self.lbl_progress.setMaximumSize(QSize(16777215, 50))
         self.lbl_progress.setFont(font2)
-        self.lbl_progress.setStyleSheet(u"color: rgb(129, 102, 106);")
+        self.lbl_progress.setStyleSheet(u"color: rgb(26, 181, 219);")
         self.lbl_progress.setAlignment(Qt.AlignCenter)
 
         self.horizontalLayout_3.addWidget(self.lbl_progress)
@@ -123,7 +128,7 @@ class Ui_MainWindow(object):
         self.lbl_settings.setObjectName(u"lbl_settings")
         self.lbl_settings.setMaximumSize(QSize(16777215, 50))
         self.lbl_settings.setFont(font2)
-        self.lbl_settings.setStyleSheet(u"color: rgb(129, 102, 106);")
+        self.lbl_settings.setStyleSheet(u"color: rgb(26, 181, 219);")
         self.lbl_settings.setAlignment(Qt.AlignCenter)
 
         self.horizontalLayout_3.addWidget(self.lbl_settings)
@@ -165,29 +170,28 @@ class Ui_MainWindow(object):
         font3 = QFont()
         font3.setPointSize(9)
         font3.setBold(False)
-        font3.setWeight(50)
         font3.setStyleStrategy(QFont.PreferDefault)
         self.btn_student.setFont(font3)
         self.btn_student.setCursor(QCursor(Qt.PointingHandCursor))
         self.btn_student.setMouseTracking(True)
         self.btn_student.setAcceptDrops(True)
         self.btn_student.setStyleSheet(u"QPushButton {\n"
-"	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(227, 208, 209, 255), stop:1 rgba(255, 255, 255, 255));\n"
-"	border: 5px solid rgb(238, 218, 219);\n"
+"	background-color: qlineargradient(spread:pad, x1:0.383, y1:0.727, x2:1, y2:0, stop:0 rgba(49, 181, 148, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"	border: 4px solid qlineargradient(spread:pad, x1:0.716905, y1:0.347, x2:0, y2:1, stop:0 rgba(26, 181, 219, 255), stop:1 rgba(255, 255, 255, 255)) ;\n"
 "	border-radius: 15px;\n"
 "	margin: 10px;\n"
 "}\n"
 "\n"
 "QPushButton:hover:!pressed\n"
 "{\n"
-" 	border: 5px solid  rgb(148, 122, 125);\n"
-"	background-color: qlineargradient(spread:pad, x1:1, y1:0.318, x2:0, y2:1, stop:0.313433 rgba(222, 204, 205, 255), stop:1 rgba(255, 255, 255, 255));\n"
+" 	border: 4px solid qlineargradient(spread:pad, x1:0.338, y1:0.602273, x2:1, y2:0, stop:0 rgba(26, 181, 219, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"	background-color: qlineargradient(spread:pad, x1:0.606965, y1:0.409, x2:0, y2:1, stop:0 rgba(81, 181, 159, 255), stop:1 rgba(255, 255, 255, 255));\n"
 "}\n"
 "")
         icon = QIcon()
-        icon.addFile(u"icons8_student_male_32.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon.addFile(u"student_registration_60px.png", QSize(), QIcon.Normal, QIcon.Off)
         self.btn_student.setIcon(icon)
-        self.btn_student.setIconSize(QSize(500, 500))
+        self.btn_student.setIconSize(QSize(80, 70))
         self.btn_student.setFlat(False)
 
         self.horizontalLayout_2.addWidget(self.btn_student)
@@ -200,21 +204,22 @@ class Ui_MainWindow(object):
         self.btn_lesson.setMaximumSize(QSize(200, 200))
         self.btn_lesson.setCursor(QCursor(Qt.PointingHandCursor))
         self.btn_lesson.setStyleSheet(u"QPushButton {\n"
-"	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(227, 208, 209, 255), stop:1 rgba(255, 255, 255, 255));\n"
-"	border: 5px solid rgb(238, 218, 219);\n"
+"	background-color: qlineargradient(spread:pad, x1:0.383, y1:0.727, x2:1, y2:0, stop:0 rgba(49, 181, 148, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"	border: 4px solid qlineargradient(spread:pad, x1:0.716905, y1:0.347, x2:0, y2:1, stop:0 rgba(26, 181, 219, 255), stop:1 rgba(255, 255, 255, 255)) ;\n"
 "	border-radius: 15px;\n"
 "	margin: 10px;\n"
 "}\n"
 "\n"
 "QPushButton:hover:!pressed\n"
 "{\n"
-" 	border: 5px solid  rgb(148, 122, 125);\n"
-"	background-color: qlineargradient(spread:pad, x1:1, y1:0.318, x2:0, y2:1, stop:0.313433 rgba(222, 204, 205, 255), stop:1 rgba(255, 255, 255, 255));\n"
-"}")
+" 	border: 4px solid qlineargradient(spread:pad, x1:0.338, y1:0.602273, x2:1, y2:0, stop:0 rgba(26, 181, 219, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"	background-color: qlineargradient(spread:pad, x1:0.606965, y1:0.409, x2:0, y2:1, stop:0 rgba(81, 181, 159, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"}\n"
+"")
         icon1 = QIcon()
-        icon1.addFile(u"lesson_64.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon1.addFile(u"n_training_100px.png", QSize(), QIcon.Normal, QIcon.Off)
         self.btn_lesson.setIcon(icon1)
-        self.btn_lesson.setIconSize(QSize(150, 150))
+        self.btn_lesson.setIconSize(QSize(70, 90))
 
         self.horizontalLayout_2.addWidget(self.btn_lesson)
 
@@ -226,21 +231,22 @@ class Ui_MainWindow(object):
         self.btn_quiz.setMaximumSize(QSize(200, 200))
         self.btn_quiz.setCursor(QCursor(Qt.PointingHandCursor))
         self.btn_quiz.setStyleSheet(u"QPushButton {\n"
-"	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(227, 208, 209, 255), stop:1 rgba(255, 255, 255, 255));\n"
-"	border: 5px solid rgb(238, 218, 219);\n"
+"	background-color: qlineargradient(spread:pad, x1:0.383, y1:0.727, x2:1, y2:0, stop:0 rgba(49, 181, 148, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"	border: 4px solid qlineargradient(spread:pad, x1:0.716905, y1:0.347, x2:0, y2:1, stop:0 rgba(26, 181, 219, 255), stop:1 rgba(255, 255, 255, 255)) ;\n"
 "	border-radius: 15px;\n"
 "	margin: 10px;\n"
 "}\n"
 "\n"
 "QPushButton:hover:!pressed\n"
 "{\n"
-" 	border: 5px solid  rgb(148, 122, 125);\n"
-"	background-color: qlineargradient(spread:pad, x1:1, y1:0.318, x2:0, y2:1, stop:0.313433 rgba(222, 204, 205, 255), stop:1 rgba(255, 255, 255, 255));\n"
-"}")
+" 	border: 4px solid qlineargradient(spread:pad, x1:0.338, y1:0.602273, x2:1, y2:0, stop:0 rgba(26, 181, 219, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"	background-color: qlineargradient(spread:pad, x1:0.606965, y1:0.409, x2:0, y2:1, stop:0 rgba(81, 181, 159, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"}\n"
+"")
         icon2 = QIcon()
-        icon2.addFile(u"list_64px.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon2.addFile(u"n_test_passed_64px.png", QSize(), QIcon.Normal, QIcon.Off)
         self.btn_quiz.setIcon(icon2)
-        self.btn_quiz.setIconSize(QSize(150, 150))
+        self.btn_quiz.setIconSize(QSize(70, 90))
 
         self.horizontalLayout_2.addWidget(self.btn_quiz)
 
@@ -252,19 +258,20 @@ class Ui_MainWindow(object):
         self.btn_progress.setMaximumSize(QSize(200, 200))
         self.btn_progress.setCursor(QCursor(Qt.PointingHandCursor))
         self.btn_progress.setStyleSheet(u"QPushButton {\n"
-"	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(227, 208, 209, 255), stop:1 rgba(255, 255, 255, 255));\n"
-"	border: 5px solid rgb(238, 218, 219);\n"
+"	background-color: qlineargradient(spread:pad, x1:0.383, y1:0.727, x2:1, y2:0, stop:0 rgba(49, 181, 148, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"	border: 4px solid qlineargradient(spread:pad, x1:0.716905, y1:0.347, x2:0, y2:1, stop:0 rgba(26, 181, 219, 255), stop:1 rgba(255, 255, 255, 255)) ;\n"
 "	border-radius: 15px;\n"
 "	margin: 10px;\n"
 "}\n"
 "\n"
 "QPushButton:hover:!pressed\n"
 "{\n"
-" 	border: 5px solid  rgb(148, 122, 125);\n"
-"	background-color: qlineargradient(spread:pad, x1:1, y1:0.318, x2:0, y2:1, stop:0.313433 rgba(222, 204, 205, 255), stop:1 rgba(255, 255, 255, 255));\n"
-"}")
+" 	border: 4px solid qlineargradient(spread:pad, x1:0.338, y1:0.602273, x2:1, y2:0, stop:0 rgba(26, 181, 219, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"	background-color: qlineargradient(spread:pad, x1:0.606965, y1:0.409, x2:0, y2:1, stop:0 rgba(81, 181, 159, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"}\n"
+"")
         icon3 = QIcon()
-        icon3.addFile(u"presentation_64px.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon3.addFile(u"presentation_128px.png", QSize(), QIcon.Normal, QIcon.Off)
         self.btn_progress.setIcon(icon3)
         self.btn_progress.setIconSize(QSize(150, 150))
 
@@ -278,21 +285,22 @@ class Ui_MainWindow(object):
         self.btn_settings.setMaximumSize(QSize(200, 200))
         self.btn_settings.setCursor(QCursor(Qt.PointingHandCursor))
         self.btn_settings.setStyleSheet(u"QPushButton {\n"
-"	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(227, 208, 209, 255), stop:1 rgba(255, 255, 255, 255));\n"
-"	border: 5px solid rgb(238, 218, 219);\n"
+"	background-color: qlineargradient(spread:pad, x1:0.383, y1:0.727, x2:1, y2:0, stop:0 rgba(49, 181, 148, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"	border: 4px solid qlineargradient(spread:pad, x1:0.716905, y1:0.347, x2:0, y2:1, stop:0 rgba(26, 181, 219, 255), stop:1 rgba(255, 255, 255, 255)) ;\n"
 "	border-radius: 15px;\n"
 "	margin: 10px;\n"
 "}\n"
 "\n"
 "QPushButton:hover:!pressed\n"
 "{\n"
-" 	border: 5px solid  rgb(148, 122, 125);\n"
-"	background-color: qlineargradient(spread:pad, x1:1, y1:0.318, x2:0, y2:1, stop:0.313433 rgba(222, 204, 205, 255), stop:1 rgba(255, 255, 255, 255));\n"
-"}")
+" 	border: 4px solid qlineargradient(spread:pad, x1:0.338, y1:0.602273, x2:1, y2:0, stop:0 rgba(26, 181, 219, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"	background-color: qlineargradient(spread:pad, x1:0.606965, y1:0.409, x2:0, y2:1, stop:0 rgba(81, 181, 159, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"}\n"
+"")
         icon4 = QIcon()
-        icon4.addFile(u"settings_64px.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon4.addFile(u"settings.png", QSize(), QIcon.Normal, QIcon.Off)
         self.btn_settings.setIcon(icon4)
-        self.btn_settings.setIconSize(QSize(150, 150))
+        self.btn_settings.setIconSize(QSize(70, 70))
 
         self.horizontalLayout_2.addWidget(self.btn_settings)
 
