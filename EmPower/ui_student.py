@@ -183,7 +183,7 @@ class Ui_MainWindow(object):
         self.bottom_frame.setObjectName("bottom_frame")
         self.horizontalLayout_3 = QtWidgets.QHBoxLayout(self.bottom_frame)
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
-        spacerItem = QtWidgets.QSpacerItem(248, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        spacerItem = QtWidgets.QSpacerItem(38, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_3.addItem(spacerItem)
         self.btn_add_new_student = QtWidgets.QPushButton(self.bottom_frame)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
@@ -211,10 +211,46 @@ class Ui_MainWindow(object):
 "    color: #2B4865;\n"
 "\n"
 "}")
+        icon1 = QtGui.QIcon()
+        icon1.addPixmap(QtGui.QPixmap(".\\UI\\plus_60px.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.btn_add_new_student.setIcon(icon1)
         self.btn_add_new_student.setObjectName("btn_add_new_student")
         self.horizontalLayout_3.addWidget(self.btn_add_new_student)
-        spacerItem1 = QtWidgets.QSpacerItem(128, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        spacerItem1 = QtWidgets.QSpacerItem(78, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_3.addItem(spacerItem1)
+        self.btn_update_student_info = QtWidgets.QPushButton(self.bottom_frame)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
+        sizePolicy.setHorizontalStretch(230)
+        sizePolicy.setVerticalStretch(40)
+        sizePolicy.setHeightForWidth(self.btn_update_student_info.sizePolicy().hasHeightForWidth())
+        self.btn_update_student_info.setSizePolicy(sizePolicy)
+        self.btn_update_student_info.setMinimumSize(QtCore.QSize(250, 40))
+        font = QtGui.QFont()
+        font.setFamily("Hind Siliguri Medium")
+        font.setPointSize(12)
+        font.setBold(False)
+        font.setWeight(50)
+        self.btn_update_student_info.setFont(font)
+        self.btn_update_student_info.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.btn_update_student_info.setStyleSheet("QPushButton {\n"
+"background-color: rgb(160, 253, 230);\n"
+"color:  #256D85 ;\n"
+"border-radius: 15px;\n"
+"}\n"
+"\n"
+"QPushButton::hover {\n"
+"    \n"
+"    background-color: rgb(143, 227, 207);\n"
+"    color: #2B4865;\n"
+"\n"
+"}")
+        icon2 = QtGui.QIcon()
+        icon2.addPixmap(QtGui.QPixmap(".\\UI\\edit_property_100px.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.btn_update_student_info.setIcon(icon2)
+        self.btn_update_student_info.setObjectName("btn_update_student_info")
+        self.horizontalLayout_3.addWidget(self.btn_update_student_info)
+        spacerItem2 = QtWidgets.QSpacerItem(78, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_3.addItem(spacerItem2)
         self.btn_remove_student = QtWidgets.QPushButton(self.bottom_frame)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
         sizePolicy.setHorizontalStretch(230)
@@ -239,10 +275,13 @@ class Ui_MainWindow(object):
 "    color: #2B4865;\n"
 "\n"
 "}")
+        icon3 = QtGui.QIcon()
+        icon3.addPixmap(QtGui.QPixmap(".\\UI\\trash_can_48px.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.btn_remove_student.setIcon(icon3)
         self.btn_remove_student.setObjectName("btn_remove_student")
         self.horizontalLayout_3.addWidget(self.btn_remove_student)
-        spacerItem2 = QtWidgets.QSpacerItem(188, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_3.addItem(spacerItem2)
+        spacerItem3 = QtWidgets.QSpacerItem(38, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_3.addItem(spacerItem3)
         self.verticalLayout.addWidget(self.bottom_frame)
         MainWindow.setCentralWidget(self.centralwidget)
 
@@ -265,4 +304,5 @@ class Ui_MainWindow(object):
         item = self.tableWidget.horizontalHeaderItem(4)
         item.setText(_translate("MainWindow", "অভিভাবকের মোবাইল নম্বর"))
         self.btn_add_new_student.setText(_translate("MainWindow", "নতুন শিক্ষার্থী যুক্ত করুন"))
+        self.btn_update_student_info.setText(_translate("MainWindow", "শিক্ষার্থীর তথ্য আপডেট করুন"))
         self.btn_remove_student.setText(_translate("MainWindow", "শিক্ষার্থী এন্ট্রি বাতিল করুন"))
