@@ -23,7 +23,8 @@
       </size>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(43, 72, 101);</string>
+      <string notr="true">background-color: rgb(43, 72, 101);
+border-radius: 20px;</string>
      </property>
      <property name="frameShape">
       <enum>QFrame::StyledPanel</enum>
@@ -65,7 +66,8 @@
       </size>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(32, 94, 115);</string>
+      <string notr="true">background-color: rgb(32, 94, 115);
+border-radius: 20px;</string>
      </property>
      <property name="frameShape">
       <enum>QFrame::StyledPanel</enum>
@@ -240,7 +242,7 @@ border: 3px solid rgb(0, 43, 91);
 }</string>
         </property>
         <property name="text">
-         <string>এন্ট্রি যুক্ত করুন </string>
+         <string>তথ্য যুক্ত করুন </string>
         </property>
         <property name="shortcut">
          <string>Return</string>

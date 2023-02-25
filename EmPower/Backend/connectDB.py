@@ -7,8 +7,8 @@ class Database_Manager:
     def __init__(self) -> None:
 
         # check if the database folder exists
-        if not os.path.exists('Database'):
-            os.mkdir('Database')
+        if not os.path.exists('Backend/Database'):
+            os.mkdir('Backend/Database')
             print("Database folder created successfully!")
 
         # create database for student info
@@ -21,12 +21,15 @@ class Database_Manager:
         self.assessment_db, self.assessment_db_cursor = self.__create_new_database(
             'assessment')
 
-        print(self.__student_info_table())
+        if os.path.exists('Backend/Database/student.db'):
+            print("Student database found!")
+        else:
+            self.__student_info_table()
 
     # TODO: Transform to Generic Method of CRUD
-    
+
     def __create_new_database(self, db_name):
-        db_object = sqlite3.connect('Database\{}.db'.format(db_name))
+        db_object = sqlite3.connect('Backend\Database\{}.db'.format(db_name))
         db_object_cursor = db_object.cursor()
 
         return db_object, db_object_cursor
