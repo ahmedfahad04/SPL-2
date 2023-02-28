@@ -15,9 +15,9 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLabel,
-    QMainWindow, QPushButton, QSizePolicy, QSpacerItem,
-    QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QApplication, QFrame, QGridLayout, QHBoxLayout,
+    QLabel, QMainWindow, QPushButton, QSizePolicy,
+    QSpacerItem, QVBoxLayout, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -40,7 +40,7 @@ class Ui_MainWindow(object):
         self.left_menu_frame.setObjectName(u"left_menu_frame")
         self.left_menu_frame.setMinimumSize(QSize(275, 780))
         self.left_menu_frame.setMaximumSize(QSize(275, 16777215))
-        self.left_menu_frame.setStyleSheet(u"background-color: rgb(36, 105, 127)")
+        self.left_menu_frame.setStyleSheet(u"")
         self.left_menu_frame.setFrameShape(QFrame.StyledPanel)
         self.left_menu_frame.setFrameShadow(QFrame.Raised)
         self.verticalLayout = QVBoxLayout(self.left_menu_frame)
@@ -56,9 +56,25 @@ class Ui_MainWindow(object):
         self.frame_4.setSizePolicy(sizePolicy)
         self.frame_4.setMinimumSize(QSize(275, 70))
         self.frame_4.setMaximumSize(QSize(275, 70))
-        self.frame_4.setStyleSheet(u"background-color: rgb(137, 218, 199);")
+        self.frame_4.setStyleSheet(u"background-color: rgb(137, 218, 199);\n"
+"border-top-left-radius: 15px;\n"
+"border-top-right-radius: 15px;")
         self.frame_4.setFrameShape(QFrame.StyledPanel)
         self.frame_4.setFrameShadow(QFrame.Raised)
+        self.gridLayout = QGridLayout(self.frame_4)
+        self.gridLayout.setObjectName(u"gridLayout")
+        self.label_3 = QLabel(self.frame_4)
+        self.label_3.setObjectName(u"label_3")
+        font = QFont()
+        font.setFamilies([u"Hind Siliguri Medium"])
+        font.setPointSize(23)
+        font.setBold(False)
+        self.label_3.setFont(font)
+        self.label_3.setStyleSheet(u"color: rgb(0, 43, 91);")
+        self.label_3.setAlignment(Qt.AlignCenter)
+
+        self.gridLayout.addWidget(self.label_3, 0, 0, 1, 1)
+
 
         self.verticalLayout.addWidget(self.frame_4)
 
@@ -76,7 +92,9 @@ class Ui_MainWindow(object):
         self.frame_6.setObjectName(u"frame_6")
         self.frame_6.setMinimumSize(QSize(275, 100))
         self.frame_6.setMaximumSize(QSize(275, 100))
-        self.frame_6.setStyleSheet(u"background-color: rgb(143, 227, 207)")
+        self.frame_6.setStyleSheet(u"background-color: rgb(143, 227, 207);\n"
+"border-bottom-left-radius: 15px;\n"
+"border-bottom-right-radius: 15px;")
         self.frame_6.setFrameShape(QFrame.StyledPanel)
         self.frame_6.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_3 = QHBoxLayout(self.frame_6)
@@ -107,7 +125,8 @@ class Ui_MainWindow(object):
         self.frame_3 = QFrame(self.frame)
         self.frame_3.setObjectName(u"frame_3")
         self.frame_3.setMinimumSize(QSize(950, 780))
-        self.frame_3.setStyleSheet(u"background-color: rgb(36, 105, 127);")
+        self.frame_3.setStyleSheet(u"background-color: rgb(36, 105, 127);\n"
+"border-radius: 20px;")
         self.frame_3.setFrameShape(QFrame.StyledPanel)
         self.frame_3.setFrameShadow(QFrame.Raised)
         self.verticalLayout_2 = QVBoxLayout(self.frame_3)
@@ -132,7 +151,7 @@ class Ui_MainWindow(object):
 "\n"
 "QPushButton:hover:!pressed\n"
 "{\n"
-"	background-color:  #256D85;\n"
+"	background-color: rgb(46, 137, 165);\n"
 "	border-top-left-radius: 15px;\n"
 "	border-bottom-left-radius: 15px;\n"
 "}")
@@ -147,8 +166,13 @@ class Ui_MainWindow(object):
         self.label_2.setObjectName(u"label_2")
         self.label_2.setMinimumSize(QSize(660, 0))
         self.label_2.setMaximumSize(QSize(16777215, 70))
+        font1 = QFont()
+        font1.setFamilies([u"Hind Siliguri"])
+        font1.setPointSize(23)
+        self.label_2.setFont(font1)
         self.label_2.setStyleSheet(u"background-color: rgb(137, 218, 199);\n"
 "border-radius: 15px;")
+        self.label_2.setAlignment(Qt.AlignCenter)
 
         self.horizontalLayout_4.addWidget(self.label_2)
 
@@ -163,7 +187,7 @@ class Ui_MainWindow(object):
 "\n"
 "QPushButton:hover:!pressed\n"
 "{\n"
-"	background-color:  #256D85;\n"
+"	background-color:  rgb(46, 137, 165);\n"
 "	border-top-right-radius: 15px;\n"
 "	border-bottom-right-radius: 15px;\n"
 "}")
@@ -201,9 +225,10 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
+        self.label_3.setText(QCoreApplication.translate("MainWindow", u"\u09aa\u09be\u09a0\u09b8\u09ae\u09c2\u09b9 ", None))
         self.label.setText("")
         self.pushButton.setText("")
-        self.label_2.setText("")
+        self.label_2.setText(QCoreApplication.translate("MainWindow", u"\u09aa\u09be\u09a0 \u09e7", None))
         self.pushButton_2.setText("")
     # retranslateUi
 
