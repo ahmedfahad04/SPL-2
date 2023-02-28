@@ -106,7 +106,7 @@ QPushButton:hover:!pressed
          </property>
          <property name="icon">
           <iconset>
-           <normaloff>back_48.png</normaloff>back_48.png</iconset>
+           <normaloff>../Images/back_icon.png</normaloff>../Images/back_icon.png</iconset>
          </property>
          <property name="iconSize">
           <size>

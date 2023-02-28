@@ -29,7 +29,7 @@ class Student_Window(QMainWindow):  # Home extends QMainWindow
         custom_form.show()
 
         # set window icon and title
-        custom_form.setWindowIcon(QIcon("PyQt_UI\only_logo_2.png"))
+        custom_form.setWindowIcon(QIcon("Frontend/Images/primary_logo.png"))
         custom_form.setWindowTitle("তথ্য যুক্তকরণ উইন্ডো")
 
         # connect the buttons
@@ -80,7 +80,7 @@ class Student_Window(QMainWindow):  # Home extends QMainWindow
         form.setupUi(custom_form)
 
         # set window icon and title
-        custom_form.setWindowIcon(QIcon("PyQt_UI\only_logo_2.png"))
+        custom_form.setWindowIcon(QIcon("Frontend/Images/primary_logo.png"))
         custom_form.setWindowTitle("তথ্য পরিবর্তনের উইন্ডো")
 
         # change the heading and submit button text
