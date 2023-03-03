@@ -56,20 +56,20 @@ class Ui_Form(object):
         self.frame.setObjectName("frame")
         self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.frame)
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
-        self.btn_submit_2 = QtWidgets.QPushButton(self.frame)
+        self.btn_select_photo = QtWidgets.QPushButton(self.frame)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.btn_submit_2.sizePolicy().hasHeightForWidth())
-        self.btn_submit_2.setSizePolicy(sizePolicy)
-        self.btn_submit_2.setMinimumSize(QtCore.QSize(171, 50))
-        self.btn_submit_2.setMaximumSize(QtCore.QSize(171, 51))
+        sizePolicy.setHeightForWidth(self.btn_select_photo.sizePolicy().hasHeightForWidth())
+        self.btn_select_photo.setSizePolicy(sizePolicy)
+        self.btn_select_photo.setMinimumSize(QtCore.QSize(171, 50))
+        self.btn_select_photo.setMaximumSize(QtCore.QSize(171, 51))
         font = QtGui.QFont()
         font.setFamily("Hind Siliguri Medium")
         font.setPointSize(12)
-        self.btn_submit_2.setFont(font)
-        self.btn_submit_2.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.btn_submit_2.setStyleSheet("QPushButton {\n"
+        self.btn_select_photo.setFont(font)
+        self.btn_select_photo.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.btn_select_photo.setStyleSheet("QPushButton {\n"
 "border: 3px solid rgb(43, 72, 101);\n"
 "border-radius: 10px;\n"
 "background-color:  #002B5B;\n"
@@ -80,21 +80,21 @@ class Ui_Form(object):
 "background-color: rgb(43, 72, 101);\n"
 "border: 3px solid rgb(0, 43, 91); \n"
 "}")
-        self.btn_submit_2.setFlat(True)
-        self.btn_submit_2.setObjectName("btn_submit_2")
-        self.horizontalLayout_2.addWidget(self.btn_submit_2)
-        self.label = QtWidgets.QLabel(self.frame)
+        self.btn_select_photo.setFlat(True)
+        self.btn_select_photo.setObjectName("btn_select_photo")
+        self.horizontalLayout_2.addWidget(self.btn_select_photo)
+        self.lbl_photo_name = QtWidgets.QLabel(self.frame)
         font = QtGui.QFont()
         font.setFamily("Hind Siliguri Medium")
         font.setPointSize(13)
         font.setBold(False)
         font.setWeight(50)
-        self.label.setFont(font)
-        self.label.setStyleSheet("color: rgb(137, 218, 199);\n"
+        self.lbl_photo_name.setFont(font)
+        self.lbl_photo_name.setStyleSheet("color: rgb(137, 218, 199);\n"
 "padding-left: 10px;\n"
 "border: 3px solid rgb(43, 72, 101);")
-        self.label.setObjectName("label")
-        self.horizontalLayout_2.addWidget(self.label)
+        self.lbl_photo_name.setObjectName("lbl_photo_name")
+        self.horizontalLayout_2.addWidget(self.lbl_photo_name)
         self.verticalLayout_2.addWidget(self.frame)
         self.frame_2 = QtWidgets.QFrame(self.middle_frame)
         self.frame_2.setMinimumSize(QtCore.QSize(491, 71))
@@ -104,19 +104,19 @@ class Ui_Form(object):
         self.frame_2.setObjectName("frame_2")
         self.horizontalLayout_3 = QtWidgets.QHBoxLayout(self.frame_2)
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
-        self.input_age = QtWidgets.QLineEdit(self.frame_2)
-        self.input_age.setMinimumSize(QtCore.QSize(330, 50))
+        self.edit_lesson_tag = QtWidgets.QLineEdit(self.frame_2)
+        self.edit_lesson_tag.setMinimumSize(QtCore.QSize(330, 50))
         font = QtGui.QFont()
         font.setFamily("Hind Siliguri Medium")
         font.setPointSize(11)
-        self.input_age.setFont(font)
-        self.input_age.setStyleSheet("background-color: rgb(137, 218, 199);\n"
+        self.edit_lesson_tag.setFont(font)
+        self.edit_lesson_tag.setStyleSheet("background-color: rgb(137, 218, 199);\n"
 "border: 2px solid rgb(101, 161, 146);\n"
 "padding-left: 15px;\n"
 "border-radius: 10px;\n"
 "color: rgb(43, 72, 101);")
-        self.input_age.setObjectName("input_age")
-        self.horizontalLayout_3.addWidget(self.input_age)
+        self.edit_lesson_tag.setObjectName("edit_lesson_tag")
+        self.horizontalLayout_3.addWidget(self.edit_lesson_tag)
         self.verticalLayout_2.addWidget(self.frame_2)
         self.frame_3 = QtWidgets.QFrame(self.middle_frame)
         self.frame_3.setMinimumSize(QtCore.QSize(493, 180))
@@ -124,22 +124,22 @@ class Ui_Form(object):
         self.frame_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_3.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_3.setObjectName("frame_3")
-        self.input_guardian = QtWidgets.QLineEdit(self.frame_3)
-        self.input_guardian.setGeometry(QtCore.QRect(11, 35, 471, 141))
-        self.input_guardian.setMinimumSize(QtCore.QSize(471, 141))
-        self.input_guardian.setMaximumSize(QtCore.QSize(471, 141))
+        self.edit_lesson_description = QtWidgets.QLineEdit(self.frame_3)
+        self.edit_lesson_description.setGeometry(QtCore.QRect(11, 35, 471, 141))
+        self.edit_lesson_description.setMinimumSize(QtCore.QSize(471, 141))
+        self.edit_lesson_description.setMaximumSize(QtCore.QSize(471, 141))
         font = QtGui.QFont()
         font.setFamily("Hind Siliguri Medium")
         font.setPointSize(11)
-        self.input_guardian.setFont(font)
-        self.input_guardian.setStyleSheet("background-color: rgb(137, 218, 199);\n"
+        self.edit_lesson_description.setFont(font)
+        self.edit_lesson_description.setStyleSheet("background-color: rgb(137, 218, 199);\n"
 "border: 2px solid rgb(101, 161, 146);\n"
 "padding-left: 15px;\n"
 "padding-top: 11px;\n"
 "border-radius: 10px;\n"
 "color: rgb(43, 72, 101);")
-        self.input_guardian.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignTop)
-        self.input_guardian.setObjectName("input_guardian")
+        self.edit_lesson_description.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignTop)
+        self.edit_lesson_description.setObjectName("edit_lesson_description")
         self.verticalLayout_2.addWidget(self.frame_3)
         self.frame_5 = QtWidgets.QFrame(self.middle_frame)
         self.frame_5.setMinimumSize(QtCore.QSize(491, 142))
@@ -168,15 +168,15 @@ class Ui_Form(object):
         self.horizontalLayout_4 = QtWidgets.QHBoxLayout(self.frame_4)
         self.horizontalLayout_4.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout_4.setObjectName("horizontalLayout_4")
-        self.btn_submit_3 = QtWidgets.QPushButton(self.frame_4)
-        self.btn_submit_3.setMinimumSize(QtCore.QSize(161, 50))
-        self.btn_submit_3.setMaximumSize(QtCore.QSize(161, 50))
+        self.btn_select_audio = QtWidgets.QPushButton(self.frame_4)
+        self.btn_select_audio.setMinimumSize(QtCore.QSize(161, 50))
+        self.btn_select_audio.setMaximumSize(QtCore.QSize(161, 50))
         font = QtGui.QFont()
         font.setFamily("Hind Siliguri Medium")
         font.setPointSize(10)
-        self.btn_submit_3.setFont(font)
-        self.btn_submit_3.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.btn_submit_3.setStyleSheet("QPushButton {\n"
+        self.btn_select_audio.setFont(font)
+        self.btn_select_audio.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.btn_select_audio.setStyleSheet("QPushButton {\n"
 "border: 3px solid rgb(43, 72, 101);\n"
 "border-radius: 10px;\n"
 "background-color:  #002B5B;\n"
@@ -187,9 +187,9 @@ class Ui_Form(object):
 "background-color: rgb(43, 72, 101);\n"
 "border: 3px solid rgb(0, 43, 91); \n"
 "}")
-        self.btn_submit_3.setFlat(True)
-        self.btn_submit_3.setObjectName("btn_submit_3")
-        self.horizontalLayout_4.addWidget(self.btn_submit_3)
+        self.btn_select_audio.setFlat(True)
+        self.btn_select_audio.setObjectName("btn_select_audio")
+        self.horizontalLayout_4.addWidget(self.btn_select_audio)
         self.label_5 = QtWidgets.QLabel(self.frame_4)
         self.label_5.setMinimumSize(QtCore.QSize(81, 45))
         self.label_5.setMaximumSize(QtCore.QSize(81, 45))
@@ -200,20 +200,20 @@ class Ui_Form(object):
         self.label_5.setAlignment(QtCore.Qt.AlignCenter)
         self.label_5.setObjectName("label_5")
         self.horizontalLayout_4.addWidget(self.label_5)
-        self.btn_submit_4 = QtWidgets.QPushButton(self.frame_4)
+        self.btn_record_audio = QtWidgets.QPushButton(self.frame_4)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.btn_submit_4.sizePolicy().hasHeightForWidth())
-        self.btn_submit_4.setSizePolicy(sizePolicy)
-        self.btn_submit_4.setMinimumSize(QtCore.QSize(100, 50))
-        self.btn_submit_4.setMaximumSize(QtCore.QSize(161, 50))
+        sizePolicy.setHeightForWidth(self.btn_record_audio.sizePolicy().hasHeightForWidth())
+        self.btn_record_audio.setSizePolicy(sizePolicy)
+        self.btn_record_audio.setMinimumSize(QtCore.QSize(100, 50))
+        self.btn_record_audio.setMaximumSize(QtCore.QSize(161, 50))
         font = QtGui.QFont()
         font.setFamily("Hind Siliguri Medium")
         font.setPointSize(10)
-        self.btn_submit_4.setFont(font)
-        self.btn_submit_4.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.btn_submit_4.setStyleSheet("QPushButton {\n"
+        self.btn_record_audio.setFont(font)
+        self.btn_record_audio.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.btn_record_audio.setStyleSheet("QPushButton {\n"
 "border: 3px solid rgb(43, 72, 101);\n"
 "border-radius: 10px;\n"
 "background-color:  #002B5B;\n"
@@ -224,9 +224,9 @@ class Ui_Form(object):
 "background-color: rgb(43, 72, 101);\n"
 "border: 3px solid rgb(0, 43, 91); \n"
 "}")
-        self.btn_submit_4.setFlat(True)
-        self.btn_submit_4.setObjectName("btn_submit_4")
-        self.horizontalLayout_4.addWidget(self.btn_submit_4)
+        self.btn_record_audio.setFlat(True)
+        self.btn_record_audio.setObjectName("btn_record_audio")
+        self.horizontalLayout_4.addWidget(self.btn_record_audio)
         self.verticalLayout_3.addWidget(self.frame_4)
         self.verticalLayout_2.addWidget(self.frame_5)
         self.btn_submit = QtWidgets.QPushButton(self.middle_frame)
@@ -259,17 +259,17 @@ class Ui_Form(object):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
         self.lbl_heading.setText(_translate("Form", "লেসনের কন্টেন্ট যুক্ত করুন"))
-        self.btn_submit_2.setText(_translate("Form", "ছবি নির্বাচন করুন"))
-        self.btn_submit_2.setShortcut(_translate("Form", "Return"))
-        self.label.setText(_translate("Form", "ছবির নাম"))
-        self.input_age.setPlaceholderText(_translate("Form", "পাঠ্যের বিষয় "))
-        self.input_guardian.setPlaceholderText(_translate("Form", "পাঠ বিবরণী"))
+        self.btn_select_photo.setText(_translate("Form", "ছবি নির্বাচন করুন"))
+        self.btn_select_photo.setShortcut(_translate("Form", "Return"))
+        self.lbl_photo_name.setText(_translate("Form", "ছবির নাম"))
+        self.edit_lesson_tag.setPlaceholderText(_translate("Form", "পাঠ্যের বিষয় "))
+        self.edit_lesson_description.setPlaceholderText(_translate("Form", "পাঠ বিবরণী"))
         self.label_4.setText(_translate("Form", "অডিও যুক্ত করুন"))
-        self.btn_submit_3.setText(_translate("Form", "অডিও নির্বাচন করুন"))
-        self.btn_submit_3.setShortcut(_translate("Form", "Return"))
+        self.btn_select_audio.setText(_translate("Form", "অডিও নির্বাচন করুন"))
+        self.btn_select_audio.setShortcut(_translate("Form", "Return"))
         self.label_5.setText(_translate("Form", "অথবা"))
-        self.btn_submit_4.setText(_translate("Form", "অডিও রেকর্ড করুন"))
-        self.btn_submit_4.setShortcut(_translate("Form", "Return"))
+        self.btn_record_audio.setText(_translate("Form", "অডিও রেকর্ড করুন"))
+        self.btn_record_audio.setShortcut(_translate("Form", "Return"))
         self.btn_submit.setText(_translate("Form", "লেসন তৈরি করুন "))
         self.btn_submit.setShortcut(_translate("Form", "Return"))
 

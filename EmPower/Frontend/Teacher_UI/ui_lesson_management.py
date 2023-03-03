@@ -151,10 +151,10 @@ class Ui_MainWindow(object):
         self.right_head_frame.setObjectName("right_head_frame")
         self.horizontalLayout_4 = QtWidgets.QHBoxLayout(self.right_head_frame)
         self.horizontalLayout_4.setObjectName("horizontalLayout_4")
-        self.pushButton = QtWidgets.QPushButton(self.right_head_frame)
-        self.pushButton.setMaximumSize(QtCore.QSize(90, 80))
-        self.pushButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.pushButton.setStyleSheet("QPushButton {\n"
+        self.btn_prev_lesson = QtWidgets.QPushButton(self.right_head_frame)
+        self.btn_prev_lesson.setMaximumSize(QtCore.QSize(90, 80))
+        self.btn_prev_lesson.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.btn_prev_lesson.setStyleSheet("QPushButton {\n"
 "    background-color: #2B4865 #256D85;\n"
 "    border: none;\n"
 "}\n"
@@ -165,13 +165,13 @@ class Ui_MainWindow(object):
 "    border-top-left-radius: 15px;\n"
 "    border-bottom-left-radius: 15px;\n"
 "}")
-        self.pushButton.setText("")
+        self.btn_prev_lesson.setText("")
         icon1 = QtGui.QIcon()
         icon1.addPixmap(QtGui.QPixmap(".\\../Images/backward.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButton.setIcon(icon1)
-        self.pushButton.setIconSize(QtCore.QSize(150, 150))
-        self.pushButton.setObjectName("pushButton")
-        self.horizontalLayout_4.addWidget(self.pushButton)
+        self.btn_prev_lesson.setIcon(icon1)
+        self.btn_prev_lesson.setIconSize(QtCore.QSize(150, 150))
+        self.btn_prev_lesson.setObjectName("btn_prev_lesson")
+        self.horizontalLayout_4.addWidget(self.btn_prev_lesson)
         self.lbl_lesson_heading = QtWidgets.QLabel(self.right_head_frame)
         self.lbl_lesson_heading.setMinimumSize(QtCore.QSize(660, 0))
         self.lbl_lesson_heading.setMaximumSize(QtCore.QSize(16777215, 70))
@@ -184,10 +184,10 @@ class Ui_MainWindow(object):
         self.lbl_lesson_heading.setAlignment(QtCore.Qt.AlignCenter)
         self.lbl_lesson_heading.setObjectName("lbl_lesson_heading")
         self.horizontalLayout_4.addWidget(self.lbl_lesson_heading)
-        self.pushButton_2 = QtWidgets.QPushButton(self.right_head_frame)
-        self.pushButton_2.setMaximumSize(QtCore.QSize(90, 80))
-        self.pushButton_2.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.pushButton_2.setStyleSheet("QPushButton {\n"
+        self.btn_next_lesson = QtWidgets.QPushButton(self.right_head_frame)
+        self.btn_next_lesson.setMaximumSize(QtCore.QSize(90, 80))
+        self.btn_next_lesson.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.btn_next_lesson.setStyleSheet("QPushButton {\n"
 "    background-color: #2B4865 #256D85;\n"
 "    border: none;\n"
 "}\n"
@@ -198,13 +198,13 @@ class Ui_MainWindow(object):
 "    border-top-right-radius: 15px;\n"
 "    border-bottom-right-radius: 15px;\n"
 "}")
-        self.pushButton_2.setText("")
+        self.btn_next_lesson.setText("")
         icon2 = QtGui.QIcon()
         icon2.addPixmap(QtGui.QPixmap(".\\../Images/forward.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButton_2.setIcon(icon2)
-        self.pushButton_2.setIconSize(QtCore.QSize(150, 150))
-        self.pushButton_2.setObjectName("pushButton_2")
-        self.horizontalLayout_4.addWidget(self.pushButton_2)
+        self.btn_next_lesson.setIcon(icon2)
+        self.btn_next_lesson.setIconSize(QtCore.QSize(150, 150))
+        self.btn_next_lesson.setObjectName("btn_next_lesson")
+        self.horizontalLayout_4.addWidget(self.btn_next_lesson)
         self.verticalLayout_2.addWidget(self.right_head_frame)
         self.right_body_frame = QtWidgets.QFrame(self.right_menu_frame)
         self.right_body_frame.setMinimumSize(QtCore.QSize(1031, 610))

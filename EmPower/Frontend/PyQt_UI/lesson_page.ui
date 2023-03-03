@@ -7,14 +7,20 @@
     <x>0</x>
     <y>0</y>
     <width>1309</width>
-    <height>842</height>
+    <height>845</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QHBoxLayout" name="horizontalLayout">
+   <property name="minimumSize">
+    <size>
+     <width>1305</width>
+     <height>0</height>
+    </size>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_7">
     <property name="leftMargin">
      <number>0</number>
     </property>
@@ -63,9 +69,6 @@
           <enum>QFrame::Raised</enum>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout">
-          <property name="spacing">
-           <number>2</number>
-          </property>
           <property name="leftMargin">
            <number>0</number>
           </property>
@@ -89,13 +92,13 @@
             <property name="minimumSize">
              <size>
               <width>225</width>
-              <height>70</height>
+              <height>75</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
               <width>275</width>
-              <height>70</height>
+              <height>75</height>
              </size>
             </property>
             <property name="styleSheet">
@@ -109,9 +112,82 @@ border-top-right-radius: 15px;</string>
             <property name="frameShadow">
              <enum>QFrame::Raised</enum>
             </property>
-            <layout class="QGridLayout" name="gridLayout">
-             <item row="0" column="0">
-              <widget class="QLabel" name="label_3">
+            <layout class="QHBoxLayout" name="horizontalLayout">
+             <item>
+              <widget class="QPushButton" name="btn_back_to_home">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>60</width>
+                 <height>60</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>60</width>
+                 <height>60</height>
+                </size>
+               </property>
+               <property name="baseSize">
+                <size>
+                 <width>0</width>
+                 <height>4</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>11</pointsize>
+                </font>
+               </property>
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
+               <property name="mouseTracking">
+                <bool>true</bool>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton {
+	background-color: rgb(36, 105, 127) ;
+	border-radius: 15px;
+}
+
+QPushButton:hover:!pressed
+{
+	background-color: rgb(49, 146, 175);
+	border-radius: 15px;
+}</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset>
+                 <normaloff>../Images/back_icon.png</normaloff>../Images/back_icon.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>200</width>
+                 <height>200</height>
+                </size>
+               </property>
+               <property name="autoDefault">
+                <bool>false</bool>
+               </property>
+               <property name="default">
+                <bool>false</bool>
+               </property>
+               <property name="flat">
+                <bool>false</bool>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="lbl_left_heading">
                <property name="font">
                 <font>
                  <family>Hind Siliguri Medium</family>
@@ -199,7 +275,7 @@ border-bottom-right-radius: 15px;</string>
               </spacer>
              </item>
              <item>
-              <widget class="QLabel" name="label">
+              <widget class="QLabel" name="bottom_logo">
                <property name="minimumSize">
                 <size>
                  <width>127</width>
@@ -286,7 +362,7 @@ border-radius: 20px;</string>
             </property>
             <layout class="QHBoxLayout" name="horizontalLayout_4">
              <item>
-              <widget class="QPushButton" name="pushButton">
+              <widget class="QPushButton" name="btn_prev_lesson">
                <property name="maximumSize">
                 <size>
                  <width>90</width>
@@ -325,7 +401,7 @@ QPushButton:hover:!pressed
               </widget>
              </item>
              <item>
-              <widget class="QLabel" name="label_2">
+              <widget class="QLabel" name="lbl_lesson_heading">
                <property name="minimumSize">
                 <size>
                  <width>660</width>
@@ -357,7 +433,7 @@ border-radius: 15px;</string>
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="pushButton_2">
+              <widget class="QPushButton" name="btn_next_lesson">
                <property name="maximumSize">
                 <size>
                  <width>90</width>
@@ -407,7 +483,7 @@ QPushButton:hover:!pressed
              </size>
             </property>
             <property name="styleSheet">
-             <string notr="true">border: 2px solid rgb(0, 43, 91);</string>
+             <string notr="true"/>
             </property>
             <property name="frameShape">
              <enum>QFrame::StyledPanel</enum>
@@ -416,8 +492,23 @@ QPushButton:hover:!pressed
              <enum>QFrame::Raised</enum>
             </property>
             <layout class="QHBoxLayout" name="horizontalLayout_5">
+             <property name="spacing">
+              <number>5</number>
+             </property>
+             <property name="leftMargin">
+              <number>2</number>
+             </property>
+             <property name="topMargin">
+              <number>2</number>
+             </property>
+             <property name="rightMargin">
+              <number>2</number>
+             </property>
+             <property name="bottomMargin">
+              <number>2</number>
+             </property>
              <item>
-              <widget class="QLabel" name="label_4">
+              <widget class="QLabel" name="lbl_add_picture">
                <property name="styleSheet">
                 <string notr="true">border: 3px solid  rgb(137, 218, 199);</string>
                </property>
@@ -427,7 +518,13 @@ QPushButton:hover:!pressed
               </widget>
              </item>
              <item>
-              <widget class="QFrame" name="frame">
+              <widget class="QLabel" name="lbl_photo_description">
+               <property name="minimumSize">
+                <size>
+                 <width>300</width>
+                 <height>606</height>
+                </size>
+               </property>
                <property name="maximumSize">
                 <size>
                  <width>350</width>
@@ -435,13 +532,10 @@ QPushButton:hover:!pressed
                 </size>
                </property>
                <property name="styleSheet">
-                <string notr="true">border-color: rgb(137, 218, 199);</string>
+                <string notr="true">border: 3px solid rgb(137, 218, 199)</string>
                </property>
-               <property name="frameShape">
-                <enum>QFrame::StyledPanel</enum>
-               </property>
-               <property name="frameShadow">
-                <enum>QFrame::Raised</enum>
+               <property name="text">
+                <string/>
                </property>
               </widget>
              </item>
@@ -449,15 +543,15 @@ QPushButton:hover:!pressed
            </widget>
           </item>
           <item>
-           <widget class="QFrame" name="frame_2">
+           <widget class="QFrame" name="right_bottom_frame">
             <property name="maximumSize">
              <size>
               <width>16777215</width>
-              <height>77</height>
+              <height>80</height>
              </size>
             </property>
             <property name="styleSheet">
-             <string notr="true">border: 2px solid rgb(0, 43, 91);</string>
+             <string notr="true"/>
             </property>
             <property name="frameShape">
              <enum>QFrame::StyledPanel</enum>
@@ -465,6 +559,64 @@ QPushButton:hover:!pressed
             <property name="frameShadow">
              <enum>QFrame::Raised</enum>
             </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_6">
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <item>
+              <widget class="QPushButton" name="btn_create_new_lesson">
+               <property name="minimumSize">
+                <size>
+                 <width>300</width>
+                 <height>65</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>65</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Hind Siliguri Medium</family>
+                 <pointsize>12</pointsize>
+                 <weight>50</weight>
+                 <bold>false</bold>
+                </font>
+               </property>
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton {
+background-color: rgb(160, 253, 230);
+color:  #256D85 ;
+border-radius: 15px;
+}
+
+QPushButton::hover {
+	
+	background-color: rgb(143, 227, 207);
+	color: #2B4865;
+
+}</string>
+               </property>
+               <property name="text">
+                <string>নতুন লেসন তৈরি করুন</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </widget>
           </item>
          </layout>

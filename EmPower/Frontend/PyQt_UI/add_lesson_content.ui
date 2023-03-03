@@ -104,7 +104,7 @@ border-radius: 20px;</string>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_2">
          <item>
-          <widget class="QPushButton" name="btn_submit_2">
+          <widget class="QPushButton" name="btn_select_photo">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
              <horstretch>0</horstretch>
@@ -157,7 +157,7 @@ border: 3px solid rgb(0, 43, 91);
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="label">
+          <widget class="QLabel" name="lbl_photo_name">
            <property name="font">
             <font>
              <family>Hind Siliguri Medium</family>
@@ -201,7 +201,7 @@ border: 3px solid rgb(43, 72, 101);</string>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_3">
          <item>
-          <widget class="QLineEdit" name="input_age">
+          <widget class="QLineEdit" name="edit_lesson_tag">
            <property name="minimumSize">
             <size>
              <width>330</width>
@@ -249,48 +249,44 @@ color: rgb(43, 72, 101);</string>
         <property name="frameShadow">
          <enum>QFrame::Raised</enum>
         </property>
-        <widget class="QLineEdit" name="input_guardian">
-         <property name="geometry">
-          <rect>
-           <x>11</x>
-           <y>35</y>
-           <width>471</width>
-           <height>141</height>
-          </rect>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>471</width>
-           <height>141</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>471</width>
-           <height>141</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>Hind Siliguri Medium</family>
-           <pointsize>11</pointsize>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">background-color: rgb(137, 218, 199);
+        <layout class="QVBoxLayout" name="verticalLayout_4">
+         <item>
+          <widget class="QLineEdit" name="edit_lesson_description">
+           <property name="minimumSize">
+            <size>
+             <width>471</width>
+             <height>141</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>471</width>
+             <height>141</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Hind Siliguri Medium</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(137, 218, 199);
 border: 2px solid rgb(101, 161, 146);
 padding-left: 15px;
 padding-top: 11px;
 border-radius: 10px;
 color: rgb(43, 72, 101);</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-         </property>
-         <property name="placeholderText">
-          <string>পাঠ বিবরণী</string>
-         </property>
-        </widget>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+           </property>
+           <property name="placeholderText">
+            <string>পাঠ বিবরণী</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </widget>
       </item>
       <item>
@@ -366,7 +362,7 @@ color: rgb(43, 72, 101);</string>
              <number>0</number>
             </property>
             <item>
-             <widget class="QPushButton" name="btn_submit_3">
+             <widget class="QPushButton" name="btn_select_audio">
               <property name="minimumSize">
                <size>
                 <width>161</width>
@@ -443,7 +439,7 @@ border: 3px solid rgb(0, 43, 91);
              </widget>
             </item>
             <item>
-             <widget class="QPushButton" name="btn_submit_4">
+             <widget class="QPushButton" name="btn_record_audio">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                 <horstretch>0</horstretch>
