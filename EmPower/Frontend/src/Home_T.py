@@ -70,7 +70,7 @@ class Teacher_Home(QMainWindow):  # Home extends QMainWindow
         # ==> Lesson Page Modification
 
         # load & set up the Student Info page
-        self.lesson_window = ui_lesson_management.Ui_MainWindow()
+        self.lesson_window = ui_lesson_manager.Ui_MainWindow()
         self.lesson_window.setupUi(self)
         lesson_methods = Lesson_Manager(self.lesson_window)
         
@@ -80,6 +80,6 @@ class Teacher_Home(QMainWindow):  # Home extends QMainWindow
         
         # ==> Connect the buttons
         self.lesson_window.btn_back_to_home.clicked.connect(self.home_page)
-        self.lesson_window.btn_create_new_lesson.clicked.connect(lambda: lesson_methods.create_lesson(self))
+        self.lesson_window.btn_add_new_lessons.clicked.connect(lambda: lesson_methods.create_lesson(self))
         
     
