@@ -2,7 +2,7 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 import sys
-from Frontend.Teacher_UI import ui_add_lesson, ui_lesson_management
+from Frontend.Teacher_UI import ui_add_lesson, ui_lesson_manager
 from Backend.connectDB import Database_Manager as dm
 from document_formatter import *
 

@@ -11,7 +11,7 @@
 import sys
 from Frontend.src.Student_info_T import Student_Window
 from Frontend.src.Lesson_manager_T import Lesson_Manager
-from Frontend.Teacher_UI import ui_student, ui_home, ui_lesson_management, ui_add_lesson, ui_add_student
+from Frontend.Teacher_UI import ui_student, ui_home, ui_lesson_manager, ui_add_lesson, ui_add_student
 from document_formatter import *
 
 
