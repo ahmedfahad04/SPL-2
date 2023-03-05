@@ -3,7 +3,8 @@ from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 import sys
 from Frontend.Teacher_UI import ui_add_student, ui_student
-from Backend.connectDB import Database_Manager as dm
+# from Backend.connectDB import Database_Manager as dm
+from Backend.student_db import student_data as dm
 from document_formatter import *
 
 
@@ -26,7 +27,7 @@ class Student_Window(QMainWindow):  # Home extends QMainWindow
         custom_form = QWidget()
         form = ui_add_student.Ui_Form()
         form.setupUi(custom_form)
-        custom_form.show()
+        custom_form.showMaximized()
 
         # set window icon and title
         custom_form.setWindowIcon(QIcon("Frontend/Images/primary_logo.png"))
@@ -48,7 +49,7 @@ class Student_Window(QMainWindow):  # Home extends QMainWindow
 
             # remove from database
             student_id = ui_object.tableWidget.item(current_row, 0).text()
-            dm().delete_student_entry(student_id)
+            dm().delete_entry(student_id)
 
             # remove from pyqt table
             ui_object.tableWidget.removeRow(current_row)
@@ -60,7 +61,7 @@ class Student_Window(QMainWindow):  # Home extends QMainWindow
     def reload_table(self):
 
         # reload data from database
-        table_data = dm().load_student_entry()
+        table_data = dm().load_table()
         rows = len(table_data)
         columns = self.std_window.tableWidget.columnCount()
         self.std_window.tableWidget.setRowCount(rows)
@@ -112,7 +113,7 @@ class Student_Window(QMainWindow):  # Home extends QMainWindow
                     form.input_phone.setText(value)
 
             # show the update Form
-            custom_form.show()
+            custom_form.showMaximized()
 
             # edit the data & press update button
             form.btn_submit.clicked.connect(lambda: self.get_form_data(
@@ -153,7 +154,7 @@ class Student_Window(QMainWindow):  # Home extends QMainWindow
                     total_rows, i, QTableWidgetItem(data[i]))
 
             # insert the data into the database
-            dm().add_student_entry(data)
+            dm().add_entry(data)
 
         else:
 
@@ -169,7 +170,7 @@ class Student_Window(QMainWindow):  # Home extends QMainWindow
                 self.std_window.tableWidget.setItem(
                     total_rows, i, QTableWidgetItem(data[i]))
 
-            dm().update_student_entry(data)
+            dm().update_entry(data)
 
         # align the elements after inserting new row
         align_elements(self.std_window)

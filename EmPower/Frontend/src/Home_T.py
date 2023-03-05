@@ -35,6 +35,8 @@ class Teacher_Home(QMainWindow):  # Home extends QMainWindow
         self.home.setupUi(self) 
 
         # set window icon and title
+        # TODO: Show the window at the middle of the screen
+        # self.setGeometry(480, 270, 0, 0)
         self.setWindowIcon(QIcon("Frontend/Images/primary_logo.png"))
         self.setWindowTitle("শিখবে সবাই")
 
@@ -73,7 +75,7 @@ class Teacher_Home(QMainWindow):  # Home extends QMainWindow
         self.lesson_window = ui_lesson_manager.Ui_MainWindow()
         self.lesson_window.setupUi(self)
         lesson_methods = Lesson_Manager(self.lesson_window)
-        
+
         # set window icon and title
         self.setWindowIcon(QIcon("../EmPower/Frontend/Images/primary_logo.png"))
         self.setWindowTitle("শিক্ষার্থীর পাঠসমূহ")
@@ -81,5 +83,7 @@ class Teacher_Home(QMainWindow):  # Home extends QMainWindow
         # ==> Connect the buttons
         self.lesson_window.btn_back_to_home.clicked.connect(self.home_page)
         self.lesson_window.btn_add_new_lessons.clicked.connect(lambda: lesson_methods.create_lesson(self))
+        # self.lesson_window.btn_update_lessons.clicked.connect()
+        self.lesson_window.cmb_category.currentIndexChanged.connect(lesson_methods.on_category_changed)
+        self.lesson_window.cmb_lessons.currentIndexChanged.connect(lesson_methods.on_lesson_changed)    
         
-    

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '.\Lesson_manager.ui'
+# Form implementation generated from reading ui file '.\Frontend\PyQt_UI\Lesson_manager.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.4
 #
@@ -14,13 +14,13 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1278, 871)
+        MainWindow.resize(1278, 882)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Maximum)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(MainWindow.sizePolicy().hasHeightForWidth())
         MainWindow.setSizePolicy(sizePolicy)
-        MainWindow.setMinimumSize(QtCore.QSize(1200, 870))
+        MainWindow.setMinimumSize(QtCore.QSize(1200, 882))
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
@@ -69,7 +69,7 @@ class Ui_MainWindow(object):
 "}")
         self.btn_back_to_home.setText("")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(".\\../Images/back_icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(".\\Frontend\\PyQt_UI\\../Images/back_icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_back_to_home.setIcon(icon)
         self.btn_back_to_home.setIconSize(QtCore.QSize(200, 200))
         self.btn_back_to_home.setAutoDefault(False)
@@ -117,13 +117,23 @@ class Ui_MainWindow(object):
         self.lbl_category.setObjectName("lbl_category")
         self.horizontalLayout_2.addWidget(self.lbl_category)
         self.cmb_category = QtWidgets.QComboBox(self.bottom_top_frame)
-        self.cmb_category.setMinimumSize(QtCore.QSize(280, 30))
+        self.cmb_category.setMinimumSize(QtCore.QSize(280, 40))
+        font = QtGui.QFont()
+        font.setFamily("Hind Siliguri")
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setWeight(50)
+        self.cmb_category.setFont(font)
         self.cmb_category.setStyleSheet("background-color: rgb(137, 218, 199);\n"
-"border-radius: 12px;\n"
-"color: rgb(0, 43, 91);")
+"padding-left: 15px;\n"
+"border-radius: 10px;\n"
+"color: rgb(43, 72, 101);")
         self.cmb_category.setObjectName("cmb_category")
         self.cmb_category.addItem("")
-        self.cmb_category.setItemText(0, "")
+        self.cmb_category.addItem("")
+        self.cmb_category.addItem("")
+        self.cmb_category.addItem("")
+        self.cmb_category.addItem("")
         self.horizontalLayout_2.addWidget(self.cmb_category)
         spacerItem1 = QtWidgets.QSpacerItem(143, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_2.addItem(spacerItem1)
@@ -135,11 +145,18 @@ class Ui_MainWindow(object):
         self.lbl_lessons.setObjectName("lbl_lessons")
         self.horizontalLayout_2.addWidget(self.lbl_lessons)
         self.cmb_lessons = QtWidgets.QComboBox(self.bottom_top_frame)
-        self.cmb_lessons.setMinimumSize(QtCore.QSize(280, 30))
+        self.cmb_lessons.setMinimumSize(QtCore.QSize(280, 40))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setWeight(50)
+        self.cmb_lessons.setFont(font)
         self.cmb_lessons.setStyleSheet("background-color: rgb(137, 218, 199);\n"
 "border-radius: 12px;\n"
-"color: rgb(0, 43, 91);")
+"color: rgb(0, 43, 91);\n"
+"padding-left: 10px;")
         self.cmb_lessons.setObjectName("cmb_lessons")
+        self.cmb_lessons.addItem("")
         self.horizontalLayout_2.addWidget(self.cmb_lessons)
         spacerItem2 = QtWidgets.QSpacerItem(141, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_2.addItem(spacerItem2)
@@ -166,7 +183,7 @@ class Ui_MainWindow(object):
 "")
         self.btn_left.setText("")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap(".\\../Images/left.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap(".\\Frontend\\PyQt_UI\\../Images/left.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_left.setIcon(icon1)
         self.btn_left.setIconSize(QtCore.QSize(100, 100))
         self.btn_left.setObjectName("btn_left")
@@ -194,11 +211,12 @@ class Ui_MainWindow(object):
         self.lbl_image_text.setMinimumSize(QtCore.QSize(390, 300))
         self.lbl_image_text.setMaximumSize(QtCore.QSize(500, 16777215))
         font = QtGui.QFont()
-        font.setPointSize(30)
+        font.setPointSize(25)
         self.lbl_image_text.setFont(font)
         self.lbl_image_text.setStyleSheet("border: 3px dotted  rgb(137, 218, 199);\n"
 "color: rgb(137, 218, 199);")
         self.lbl_image_text.setAlignment(QtCore.Qt.AlignCenter)
+        self.lbl_image_text.setWordWrap(True)
         self.lbl_image_text.setObjectName("lbl_image_text")
         self.horizontalLayout_7.addWidget(self.lbl_image_text)
         self.gridLayout.addWidget(self.middle_content_frame, 1, 1, 1, 1)
@@ -224,7 +242,7 @@ class Ui_MainWindow(object):
 "")
         self.btn_right.setText("")
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap(".\\../Images/right.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(QtGui.QPixmap(".\\Frontend\\PyQt_UI\\../Images/right.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_right.setIcon(icon2)
         self.btn_right.setIconSize(QtCore.QSize(100, 100))
         self.btn_right.setObjectName("btn_right")
@@ -271,7 +289,7 @@ class Ui_MainWindow(object):
 "\n"
 "}")
         icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap(".\\../Images/add_icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon3.addPixmap(QtGui.QPixmap(".\\Frontend\\PyQt_UI\\../Images/add_icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_add_new_lessons.setIcon(icon3)
         self.btn_add_new_lessons.setObjectName("btn_add_new_lessons")
         self.horizontalLayout_3.addWidget(self.btn_add_new_lessons)
@@ -304,7 +322,7 @@ class Ui_MainWindow(object):
 "\n"
 "}")
         icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap(".\\../Images/edit_icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon4.addPixmap(QtGui.QPixmap(".\\Frontend\\PyQt_UI\\../Images/edit_icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_update_lessons.setIcon(icon4)
         self.btn_update_lessons.setObjectName("btn_update_lessons")
         self.horizontalLayout_3.addWidget(self.btn_update_lessons)
@@ -321,7 +339,14 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.lbl_headline.setText(_translate("MainWindow", "পাঠসূচি"))
         self.lbl_category.setText(_translate("MainWindow", "ক্যাটাগরি"))
+        self.cmb_category.setCurrentText(_translate("MainWindow", "ক্যাটাগরি নির্বাচন করুন"))
+        self.cmb_category.setItemText(0, _translate("MainWindow", "ক্যাটাগরি নির্বাচন করুন"))
+        self.cmb_category.setItemText(1, _translate("MainWindow", "নাম শিখন (Noun)"))
+        self.cmb_category.setItemText(2, _translate("MainWindow", "ক্রিয়া শিখন (Verb)"))
+        self.cmb_category.setItemText(3, _translate("MainWindow", "সম্পর্ক শিখন (Association)"))
+        self.cmb_category.setItemText(4, _translate("MainWindow", "কর্মধারা শিখন (Activity)"))
         self.lbl_lessons.setText(_translate("MainWindow", "পাঠসমূহ"))
+        self.cmb_lessons.setItemText(0, _translate("MainWindow", "পাঠ ক্রম নির্বাচন করুন"))
         self.lbl_image.setText(_translate("MainWindow", "ছবি"))
         self.lbl_image_text.setText(_translate("MainWindow", "পরিচয়"))
         self.btn_add_new_lessons.setText(_translate("MainWindow", "নতুন পাঠ যুক্ত করুন"))

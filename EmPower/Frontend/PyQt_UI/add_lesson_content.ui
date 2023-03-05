@@ -6,19 +6,25 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>559</width>
-    <height>679</height>
+    <width>659</width>
+    <height>804</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>542</width>
+    <height>662</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QFormLayout" name="formLayout">
+  <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
     <widget class="QFrame" name="top_frame">
      <property name="minimumSize">
       <size>
-       <width>530</width>
+       <width>641</width>
        <height>90</height>
       </size>
      </property>
@@ -30,7 +36,8 @@
      </property>
      <property name="styleSheet">
       <string notr="true">background-color: rgb(43, 72, 101);
-border-radius: 20px;</string>
+border-top-left-radius: 20px;
+border-top-right-radius: 20px;</string>
      </property>
      <property name="frameShape">
       <enum>QFrame::StyledPanel</enum>
@@ -67,13 +74,15 @@ border-radius: 20px;</string>
     <widget class="QFrame" name="middle_frame">
      <property name="minimumSize">
       <size>
-       <width>530</width>
-       <height>560</height>
+       <width>641</width>
+       <height>690</height>
       </size>
      </property>
      <property name="styleSheet">
       <string notr="true">background-color: rgb(32, 94, 115);
-border-radius: 20px;</string>
+border-bottom-left-radius: 20px;
+border-bottom-right-radius: 20px;
+color: rgb(137, 218, 199);</string>
      </property>
      <property name="frameShape">
       <enum>QFrame::StyledPanel</enum>
@@ -81,12 +90,12 @@ border-radius: 20px;</string>
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
-     <layout class="QVBoxLayout" name="verticalLayout_2">
+     <layout class="QVBoxLayout" name="verticalLayout">
       <item>
        <widget class="QFrame" name="frame_3">
         <property name="minimumSize">
          <size>
-          <width>493</width>
+          <width>600</width>
           <height>80</height>
          </size>
         </property>
@@ -103,6 +112,9 @@ border-radius: 20px;</string>
          <enum>QFrame::Raised</enum>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_5">
+         <property name="rightMargin">
+          <number>15</number>
+         </property>
          <item>
           <widget class="QLabel" name="lbl_category">
            <property name="minimumSize">
@@ -134,18 +146,134 @@ border-radius: 20px;</string>
           </widget>
          </item>
          <item>
-          <widget class="QComboBox" name="comboBox">
+          <widget class="QComboBox" name="cmb_category">
            <property name="minimumSize">
             <size>
              <width>300</width>
              <height>50</height>
             </size>
            </property>
+           <property name="font">
+            <font>
+             <family>Hind Siliguri Medium</family>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
            <property name="styleSheet">
             <string notr="true">background-color: rgb(137, 218, 199);
 padding-left: 15px;
 border-radius: 10px;
 color: rgb(43, 72, 101);</string>
+           </property>
+           <item>
+            <property name="text">
+             <string>ক্যাটাগরি নির্বাচন করুন</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>নাম শিখন (Noun)</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>ক্রিয়া শিখন (Verb)</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>সম্পর্ক শিখন (Association)</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>কর্মধারা শিখন (Activity)</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QFrame" name="frame_6">
+        <property name="minimumSize">
+         <size>
+          <width>491</width>
+          <height>71</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>600</width>
+          <height>72</height>
+         </size>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_3">
+         <item>
+          <widget class="QLabel" name="lbl_lesson_id">
+           <property name="minimumSize">
+            <size>
+             <width>151</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>200</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Hind Siliguri Medium</family>
+             <pointsize>15</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(137, 218, 199);</string>
+           </property>
+           <property name="text">
+            <string>পাঠ্যক্রম</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="edit_lesson_id">
+           <property name="minimumSize">
+            <size>
+             <width>325</width>
+             <height>50</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Hind Siliguri</family>
+             <pointsize>12</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(137, 218, 199);
+border: 2px solid rgb(101, 161, 146);
+padding-left: 15px;
+border-radius: 10px;
+color: rgb(43, 72, 101);</string>
+           </property>
+           <property name="cursorPosition">
+            <number>0</number>
+           </property>
+           <property name="placeholderText">
+            <string>যেমনঃ ১</string>
            </property>
           </widget>
          </item>
@@ -162,7 +290,7 @@ color: rgb(43, 72, 101);</string>
         </property>
         <property name="maximumSize">
          <size>
-          <width>491</width>
+          <width>600</width>
           <height>72</height>
          </size>
         </property>
@@ -172,9 +300,39 @@ color: rgb(43, 72, 101);</string>
         <property name="frameShadow">
          <enum>QFrame::Raised</enum>
         </property>
-        <layout class="QHBoxLayout" name="horizontalLayout_3">
+        <layout class="QHBoxLayout" name="horizontalLayout_6">
          <item>
-          <widget class="QLineEdit" name="edit_lesson_tag">
+          <widget class="QLabel" name="lbl_lesson_topic">
+           <property name="minimumSize">
+            <size>
+             <width>151</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>150</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Hind Siliguri Medium</family>
+             <pointsize>13</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(137, 218, 199);</string>
+           </property>
+           <property name="text">
+            <string>পাঠ্যের বিষয়</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="edit_lesson_topic">
            <property name="minimumSize">
             <size>
              <width>330</width>
@@ -195,7 +353,7 @@ border-radius: 10px;
 color: rgb(43, 72, 101);</string>
            </property>
            <property name="placeholderText">
-            <string>পাঠ্যের বিষয় </string>
+            <string>যেমনঃ আম </string>
            </property>
           </widget>
          </item>
@@ -206,7 +364,7 @@ color: rgb(43, 72, 101);</string>
        <widget class="QFrame" name="frame">
         <property name="minimumSize">
          <size>
-          <width>491</width>
+          <width>600</width>
           <height>71</height>
          </size>
         </property>
@@ -233,20 +391,20 @@ color: rgb(43, 72, 101);</string>
            </property>
            <property name="minimumSize">
             <size>
-             <width>171</width>
+             <width>150</width>
              <height>50</height>
             </size>
            </property>
            <property name="maximumSize">
             <size>
-             <width>171</width>
+             <width>150</width>
              <height>51</height>
             </size>
            </property>
            <property name="font">
             <font>
              <family>Hind Siliguri Medium</family>
-             <pointsize>12</pointsize>
+             <pointsize>11</pointsize>
             </font>
            </property>
            <property name="cursor">
@@ -289,10 +447,17 @@ border: 3px solid rgb(0, 43, 91);
            <property name="styleSheet">
             <string notr="true">color: rgb(137, 218, 199);
 padding-left: 10px;
-border: 3px solid rgb(43, 72, 101);</string>
+border: 3px solid rgb(43, 72, 101);
+border-top-left-radius: 10px;
+border-top-right-radius: 10px;
+border-bottom-left-radius: 10px;
+border-bottom-right-radius: 10px;</string>
            </property>
            <property name="text">
             <string>ছবির নাম</string>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
            </property>
           </widget>
          </item>
@@ -303,7 +468,7 @@ border: 3px solid rgb(43, 72, 101);</string>
        <widget class="QFrame" name="frame_5">
         <property name="minimumSize">
          <size>
-          <width>491</width>
+          <width>600</width>
           <height>142</height>
          </size>
         </property>
@@ -321,7 +486,7 @@ border: 3px solid rgb(43, 72, 101);</string>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_3">
          <item>
-          <widget class="QLabel" name="label_4">
+          <widget class="QLabel" name="lbl_add_audio">
            <property name="font">
             <font>
              <family>Hind Siliguri Medium</family>
@@ -342,7 +507,7 @@ border: 3px solid rgb(43, 72, 101);</string>
           <widget class="QFrame" name="frame_4">
            <property name="minimumSize">
             <size>
-             <width>469</width>
+             <width>600</width>
              <height>72</height>
             </size>
            </property>
@@ -381,7 +546,7 @@ border: 3px solid rgb(43, 72, 101);</string>
               </property>
               <property name="maximumSize">
                <size>
-                <width>161</width>
+                <width>200</width>
                 <height>50</height>
                </size>
               </property>
@@ -419,7 +584,7 @@ border: 3px solid rgb(0, 43, 91);
              </widget>
             </item>
             <item>
-             <widget class="QLabel" name="label_5">
+             <widget class="QLabel" name="lbl_or">
               <property name="minimumSize">
                <size>
                 <width>81</width>
@@ -464,7 +629,7 @@ border: 3px solid rgb(0, 43, 91);
               </property>
               <property name="maximumSize">
                <size>
-                <width>161</width>
+                <width>200</width>
                 <height>50</height>
                </size>
               </property>

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1278</width>
-    <height>871</height>
+    <height>882</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -19,7 +19,7 @@
   <property name="minimumSize">
    <size>
     <width>1200</width>
-    <height>870</height>
+    <height>882</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -247,17 +247,49 @@ border-radius: 20px;</string>
             <property name="minimumSize">
              <size>
               <width>280</width>
-              <height>30</height>
+              <height>40</height>
              </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Hind Siliguri</family>
+              <pointsize>10</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
             </property>
             <property name="styleSheet">
              <string notr="true">background-color: rgb(137, 218, 199);
-border-radius: 12px;
-color: rgb(0, 43, 91);</string>
+padding-left: 15px;
+border-radius: 10px;
+color: rgb(43, 72, 101);</string>
+            </property>
+            <property name="currentText">
+             <string>ক্যাটাগরি নির্বাচন করুন</string>
             </property>
             <item>
              <property name="text">
-              <string/>
+              <string>ক্যাটাগরি নির্বাচন করুন</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>নাম শিখন (Noun)</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>ক্রিয়া শিখন (Verb)</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>সম্পর্ক শিখন (Association)</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>কর্মধারা শিখন (Activity)</string>
              </property>
             </item>
            </widget>
@@ -295,14 +327,27 @@ color: rgb(0, 43, 91);</string>
             <property name="minimumSize">
              <size>
               <width>280</width>
-              <height>30</height>
+              <height>40</height>
              </size>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
             </property>
             <property name="styleSheet">
              <string notr="true">background-color: rgb(137, 218, 199);
 border-radius: 12px;
-color: rgb(0, 43, 91);</string>
+color: rgb(0, 43, 91);
+padding-left: 10px;</string>
             </property>
+            <item>
+             <property name="text">
+              <string>পাঠ ক্রম নির্বাচন করুন</string>
+             </property>
+            </item>
            </widget>
           </item>
           <item>
@@ -454,7 +499,7 @@ color: rgb(137, 218, 199);</string>
             </property>
             <property name="font">
              <font>
-              <pointsize>30</pointsize>
+              <pointsize>25</pointsize>
              </font>
             </property>
             <property name="styleSheet">
@@ -466,6 +511,9 @@ color: rgb(137, 218, 199);</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
             </property>
            </widget>
           </item>

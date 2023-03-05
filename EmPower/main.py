@@ -8,4 +8,3 @@ window = Teacher_Home()
 window.show()
 
 sys.exit(app.exec_()) 
-    
