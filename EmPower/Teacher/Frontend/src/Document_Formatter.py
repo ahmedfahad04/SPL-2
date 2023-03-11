@@ -5,12 +5,12 @@ from PyQt5.QtGui import *
 
 # ==> Helper functions: Align the elements in the table
 def align_elements(ui_object):
-    rows = ui_object.tableWidget.rowCount()
-    columns = ui_object.tableWidget.columnCount()
+    rows = ui_object.rowCount()
+    columns = ui_object.columnCount()
 
     for row in range(rows):
         for column in range(columns):
-            item = ui_object.tableWidget.item(row, column)
+            item = ui_object.item(row, column)
             if item is not None:
                 item.setTextAlignment(Qt.AlignCenter)
 

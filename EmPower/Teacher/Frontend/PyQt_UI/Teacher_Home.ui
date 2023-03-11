@@ -49,12 +49,6 @@
       <property name="styleSheet">
        <string notr="true">background-color: rgb(0, 43, 91)</string>
       </property>
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
       <layout class="QGridLayout" name="gridLayout">
        <item row="1" column="0">
         <widget class="QFrame" name="frm_banner_pic">

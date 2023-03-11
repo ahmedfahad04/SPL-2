@@ -29,6 +29,7 @@ class student_data(Database_Manager, ABC):
         '''Insert the data to DB using a parameterized query'''
 
         try:
+            # TODO: if data is empty, then show a warning box
             self.controller_db_cursor.execute(
                 "INSERT INTO student_info VALUES (?, ?, ?, ?, ?)", tuple(data))
 

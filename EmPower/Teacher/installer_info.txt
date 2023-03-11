@@ -1,0 +1,7 @@
+pyinstaller --noconfirm --onedir --console --icon "E:/Cache_Empower/V3/Teacher/icon.png" --add-data "E:/Cache_Empower/V3/Teacher/Backend;Backend/" --add-data "E:/Cache_Empower/V3/Teacher/Frontend;Frontend/" --hidden-import "sqlite3" --hidden-import "json"  "E:/Cache_Empower/V3/Teacher/main.pyw"
+
+Issues:
+
+1. Relative path like '../Teacher/Lessons/' is creating error for exe file generation
+thats why we just uesd 'Lessons' instead of it.
+
