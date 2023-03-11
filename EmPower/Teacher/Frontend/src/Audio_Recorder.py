@@ -1,6 +1,6 @@
 from PyQt5.QtWidgets import QWidget
 
-from Teacher.Frontend.Teacher_UI import ui_sound_recorder
+from Frontend.Teacher_UI import ui_sound_recorder
 
 custom_widget = QWidget()
 audio_recorder_widget = ui_sound_recorder.Ui_audioRecorderWidget()

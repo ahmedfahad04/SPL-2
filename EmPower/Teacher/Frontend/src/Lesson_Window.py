@@ -2,6 +2,8 @@ import json
 from Frontend.Teacher_UI import ui_add_lesson, ui_sound_recorder
 from Frontend.src.Document_Formatter import *
 from Backend.lesson_db import lesson_data as ld
+from Backend.MediaRecorder import audioRecorder
+from PyQt5.QtCore import QTimer, QTime, Qt
 import os, shutil
 
 
@@ -50,7 +52,7 @@ class Lesson_Window(QMainWindow):  # Home extends QMainWindow
         custom_form = QWidget()
         self.form = ui_add_lesson.Ui_Form()
         self.form.setupUi(custom_form)
-        custom_form.setWindowModality(Qt.ApplicationModal)
+        # custom_form.setWindowModality(Qt.ApplicationModal)
         custom_form.show()
 
         # set window icon and title
@@ -98,17 +100,75 @@ class Lesson_Window(QMainWindow):  # Home extends QMainWindow
             return
 
     def record_audio(self):
-        
+    
         # load & set up the Add Lesson Page
         custom_form = QWidget()
-        self.form = ui_sound_recorder.Ui_audioRecorderWidget()
-        self.form.setupUi(custom_form)
-        self.hide()
+        self.audio_form = ui_sound_recorder.Ui_audioRecorderWidget()
+        self.audio_form.setupUi(custom_form)
+
         custom_form.show()
-        
+
         # set window icon and title
         custom_form.setWindowIcon(QIcon("../Teacher/Frontend/Images/primary_logo.png"))
         custom_form.setWindowTitle("অডিও রেকর্ড করুন")
+
+        # before start recording
+        self.audio_form.stopButton.setEnabled(False)
+        self.audio_form.soundingButton.setEnabled(False)
+        self.audio_form.recordingTime.setText("00:00:00")
+        self.audio_form.recordingTime.setAlignment(Qt.AlignCenter)
+        # Set the initial time to 0
+        self.time = QTime(0, 0, 0)
+        # Create a timer that updates every second
+        self.timer = QTimer()
+        self.timer.setInterval(1000)
+        self.timer.timeout.connect(self.update_timer)
+
+        # now record the audio
+        recorder = audioRecorder.AudioRecorder()
+        self.audio_form.startButton.clicked.connect(lambda: self.start_recording(recorder))
+        self.audio_form.stopButton.clicked.connect(lambda: self.stop_recording(recorder))
+
+        # close the audio form
+        self.audio_form.saveButton.clicked.connect(lambda: self.save_audio(custom_form))
+
+    def start_recording(self, recorder):
+        # start recording
+        self.audio_form.stopButton.setEnabled(True)
+        self.audio_form.soundingButton.setEnabled(True)
+        self.audio_form.startButton.setStyleSheet("background-color:  rgb(255, 131, 139); border-radius: 50px;")
+        recorder.start_recording()
+        # Start the timer
+        self.time = QTime(0, 0, 0)
+        self.timer.start()
+
+    def stop_recording(self, recorder):
+        # stop recording
+        self.audio_form.stopButton.setEnabled(False)
+        self.audio_form.soundingButton.setEnabled(False)
+        self.audio_form.startButton.setStyleSheet("border-radius: 50px; border: 3px solid rgb(206, 95, 95)")
+        recorder.stop_recording()
+        # Stop the timer
+        self.timer.stop()
+
+    def update_timer(self):
+        # Increment the time by one second
+        self.time = self.time.addSecs(1)
+
+        # Update the label with the new time
+        self.audio_form.recordingTime.setText(self.time.toString("hh:mm:ss"))
+
+    def save_audio(self, form):
+        audio_fileName = self.audio_form.fileName.text()
+        
+        print(audio_fileName)
+        ## TODO: audio file backend er location a save ache
+        ## eitake ekhn kothay save kore rakhbi korte paros
+        ## backend er folder theke copy kore niye lesson er folder a o rakhte paros
+        self.audio_location = 'Backend/MediaRecorder/audio.wav'
+        self.audio_name = self.audio_location.split('/')[-1]
+        
+        form.close()
         
     def save_lesson_content(self, childObj):
         """
