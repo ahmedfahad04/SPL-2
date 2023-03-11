@@ -2,6 +2,8 @@ import json
 from Frontend.Teacher_UI import ui_add_lesson, ui_sound_recorder
 from document_formatter import *
 from Backend.lesson_db import lesson_data as ld
+from Backend.MediaRecorder import audioRecorder
+from PyQt5.QtCore import QTimer, QTime, Qt
 import os, shutil
 
 
@@ -9,10 +11,13 @@ class Lesson_Manager(QMainWindow):  # Home extends QMainWindow
 
     def __init__(self, ui_object):
         super(QMainWindow, self).__init__()
-        
+
         # TODO: Video should be added flawlessly
 
         # window
+        self.timer = None
+        self.time = None
+        self.audio_form = None
         self.lesson_window = ui_object
         self.form = None
 
@@ -27,7 +32,7 @@ class Lesson_Manager(QMainWindow):  # Home extends QMainWindow
         self.folder_name = None
         self.content = None
         self.lesson_elements = ld().load_table()
-        self.current_category = None 
+        self.current_category = None
 
         # dictionary
         self.categories = {
@@ -39,11 +44,11 @@ class Lesson_Manager(QMainWindow):  # Home extends QMainWindow
 
         if os.path.exists('../Teacher/Lessons/') == False:
             os.mkdir('../Teacher/Lessons/')
-            
+
         self.load_lessons()
 
     def create_lesson(self, parentObj):
-        
+
         # load & set up the Add Lesson Page
         parentObj.custom_form = QWidget()
         self.form = ui_add_lesson.Ui_Form()
@@ -96,17 +101,72 @@ class Lesson_Manager(QMainWindow):  # Home extends QMainWindow
             return
 
     def record_audio(self, parentObj):
-        
+
         # load & set up the Add Lesson Page
         parentObj.custom_form = QWidget()
-        self.form = ui_sound_recorder.Ui_audioRecorderWidget()
-        self.form.setupUi(parentObj.custom_form)
-        parentObj.custom_form.show()    
-        
+        self.audio_form = ui_sound_recorder.Ui_audioRecorderWidget()
+        self.audio_form.setupUi(parentObj.custom_form)
+
+        parentObj.custom_form.show()
+
         # set window icon and title
         parentObj.custom_form.setWindowIcon(QIcon("../Teacher/Frontend/Images/primary_logo.png"))
         parentObj.custom_form.setWindowTitle("অডিও রেকর্ড করুন")
-        
+
+        # before start recording
+        self.audio_form.stopButton.setEnabled(False)
+        self.audio_form.soundingButton.setEnabled(False)
+        self.audio_form.recordingTime.setText("00:00:00")
+        self.audio_form.recordingTime.setAlignment(Qt.AlignCenter)
+        # Set the initial time to 0
+        self.time = QTime(0, 0, 0)
+        # Create a timer that updates every second
+        self.timer = QTimer()
+        self.timer.setInterval(1000)
+        self.timer.timeout.connect(self.update_timer)
+
+        # now record the audio
+        recorder = audioRecorder.AudioRecorder()
+        self.audio_form.startButton.clicked.connect(lambda: self.start_recording(recorder))
+        self.audio_form.stopButton.clicked.connect(lambda: self.stop_recording(recorder))
+
+        # close the audio form
+        self.audio_form.saveButton.clicked.connect(lambda: self.save_audio(parentObj.custom_form))
+
+    def start_recording(self, recorder):
+        # start recording
+        self.audio_form.stopButton.setEnabled(True)
+        self.audio_form.soundingButton.setEnabled(True)
+        self.audio_form.startButton.setStyleSheet("background-color:  rgb(255, 131, 139); border-radius: 50px;")
+        recorder.start_recording()
+        # Start the timer
+        self.time = QTime(0, 0, 0)
+        self.timer.start()
+
+    def stop_recording(self, recorder):
+        # stop recording
+        self.audio_form.stopButton.setEnabled(False)
+        self.audio_form.soundingButton.setEnabled(False)
+        self.audio_form.startButton.setStyleSheet("border-radius: 50px; border: 3px solid rgb(206, 95, 95)")
+        recorder.stop_recording()
+        # Stop the timer
+        self.timer.stop()
+
+    def update_timer(self):
+        # Increment the time by one second
+        self.time = self.time.addSecs(1)
+
+        # Update the label with the new time
+        self.audio_form.recordingTime.setText(self.time.toString("hh:mm:ss"))
+
+    def save_audio(self, form):
+        audio_fileName = self.audio_form.fileName.text()
+        print(audio_fileName)
+        ## TODO: audio file backend er location a save ache
+        ## eitake ekhn kothay save kore rakhbi korte paros
+        ## backend er folder theke copy kore niye lesson er folder a o rakhte paros
+        form.close()
+
     def save_lesson_content(self, childObj):
         """
             This function saves the lesson content to the database.
@@ -153,56 +213,54 @@ class Lesson_Manager(QMainWindow):  # Home extends QMainWindow
         data = [self.category_id, self.lesson_id, self.lesson_topic, self.image_location, self.audio_location]
         ld().add_entry(data)
 
-        childObj.hide()        
+        childObj.hide()
 
     def load_lessons(self):
-        
+
         tmp_lsn_id = set()
-               
+
         # add the lessons to the lesson window
         for element in self.lesson_elements:
-            
             print(element)
-            
+
             # extract the content
-            cat_id, lsn_id, lsn_topic, img_loc, aud_loc = element 
+            cat_id, lsn_id, lsn_topic, img_loc, aud_loc = element
             tmp_lsn_id.add(str(lsn_id))
-            
+
         self.lesson_window.cmb_lessons.addItems(sorted(tmp_lsn_id))
-            
+
     def on_category_changed(self, index):
-        
+
         self.current_category = str(index)
         print("Current Category: ", self.current_category)
-        
+
         self.lesson_window.cmb_lessons.setCurrentIndex(0)
-        
+
     def on_lesson_changed(self, index):
-        
+
         current_lesson = self.lesson_window.cmb_lessons.itemText(index)
         print("Current Lesson: ", current_lesson)
-        
+
         # add the lessons to the lesson window
         for element in self.lesson_elements:
-            
+
             print(element)
-            
+
             # extract the content
             cat_id, db_lesson, lsn_topic, img_loc, aud_loc = element
-            
+
             print(db_lesson, 'Type: ', type(db_lesson))
-            
+
             if current_lesson == str(db_lesson) and self.current_category == str(cat_id):
-                
                 print("inside")
-                
+
                 # add the content to the lesson window
                 self.lesson_window.cmb_lessons.setCurrentText(str(db_lesson))
                 self.lesson_window.cmb_category.setCurrentText(str(cat_id))
                 self.lesson_window.lbl_image_text.setText(lsn_topic)
-                
+
                 self.qtimg = QPixmap(img_loc)
                 self.qtimg = self.qtimg.scaledToHeight(700, Qt.SmoothTransformation)
                 self.lesson_window.lbl_image.setPixmap(self.qtimg)
-                
+
                 # lesson topic to be added
