@@ -40,16 +40,16 @@ class VideoPlayer(QWidget):
             self.ui.playBtn.setEnabled(True)    
 
         # # function call
-        self.ui.openfile.clicked.connect(self.openfile)
-        self.ui.playBtn.clicked.connect(self.play_video)
+        # self.ui.openfile.clicked.connect(self.openfile)
+        # self.ui.playBtn.clicked.connect(self.play_video)
 
-        self.mediaPlayer.positionChanged.connect(self.position_changed)
-        self.mediaPlayer.durationChanged.connect(self.duration_changed)
-        self.mediaPlayer.volumeChanged.connect(self.volume_changed)
-        self.mediaPlayer.setVolume(50)
+        # self.mediaPlayer.positionChanged.connect(self.position_changed)
+        # self.mediaPlayer.durationChanged.connect(self.duration_changed)
+        # self.mediaPlayer.volumeChanged.connect(self.volume_changed)
+        # self.mediaPlayer.setVolume(50)
 
-        self.ui.volume_Slider.sliderMoved.connect(self.set_volume)
-        self.ui.horizontalSlider.sliderMoved.connect(self.set_position)
+        # self.ui.volume_Slider.sliderMoved.connect(self.set_volume)
+        # self.ui.horizontalSlider.sliderMoved.connect(self.set_position)
 
     def openfile(self):
 

@@ -297,7 +297,6 @@ class Lesson_Window(QMainWindow):  # Home extends QMainWindow
                 self.lesson_window.lsn_lbl_lesson_topic.setText(lsn_topic)
                 
                 file_extension = media_loc.split('.')[-1]
-                
                 if file_extension in self.videoFormat:
                     
                     vp = VideoPlayer(self.lesson_window, self.media_file_name)
@@ -311,7 +310,7 @@ class Lesson_Window(QMainWindow):  # Home extends QMainWindow
                     self.mediaPlayer.setMedia(QMediaContent(QUrl(media_loc)))
                     self.lesson_window.playBtn.setEnabled(True)
                         
-                    # self.lesson_window.playBtn.clicked.connect(lambda: self.play_video(self.mediaPlayer))
+                    self.lesson_window.playBtn.clicked.connect(lambda: self.play_video(self.mediaPlayer))
 
                     # self.mediaPlayer.positionChanged.connect(vp.position_changed)
                     # self.mediaPlayer.durationChanged.connect(vp.duration_changed)

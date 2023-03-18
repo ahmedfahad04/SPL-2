@@ -25,22 +25,24 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1320, 921)
-        MainWindow.setMinimumSize(QSize(1320, 912))
+        MainWindow.resize(1280, 720)
+        MainWindow.setMinimumSize(QSize(1280, 720))
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
-        self.centralwidget.setMinimumSize(QSize(1300, 900))
-        self.horizontalLayout_11 = QHBoxLayout(self.centralwidget)
-        self.horizontalLayout_11.setObjectName(u"horizontalLayout_11")
+        self.centralwidget.setMinimumSize(QSize(1280, 720))
+        self.verticalLayout_3 = QVBoxLayout(self.centralwidget)
+        self.verticalLayout_3.setSpacing(0)
+        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
+        self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
         self.stackedWidget = QStackedWidget(self.centralwidget)
         self.stackedWidget.setObjectName(u"stackedWidget")
-        self.stackedWidget.setMinimumSize(QSize(1300, 900))
+        self.stackedWidget.setMinimumSize(QSize(1280, 720))
         self.home_page = QWidget()
         self.home_page.setObjectName(u"home_page")
-        self.horizontalLayout = QHBoxLayout(self.home_page)
-        self.horizontalLayout.setSpacing(0)
-        self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
+        self.home_page.setMinimumSize(QSize(0, 680))
+        self.horizontalLayout_3 = QHBoxLayout(self.home_page)
+        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
+        self.horizontalLayout_3.setContentsMargins(0, 0, 0, 0)
         self.home_frame = QFrame(self.home_page)
         self.home_frame.setObjectName(u"home_frame")
         sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
@@ -48,10 +50,9 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.home_frame.sizePolicy().hasHeightForWidth())
         self.home_frame.setSizePolicy(sizePolicy)
-        self.home_frame.setMinimumSize(QSize(1300, 900))
+        self.home_frame.setMinimumSize(QSize(1280, 720))
         self.home_frame.setMaximumSize(QSize(16777215, 16777215))
-        self.home_frame.setStyleSheet(u"background-color: rgb(0, 43, 91);\n"
-"border-radius: 20px;")
+        self.home_frame.setStyleSheet(u"background-color: rgb(0, 43, 91);")
         self.gridLayout = QGridLayout(self.home_frame)
         self.gridLayout.setObjectName(u"gridLayout")
         self.gridLayout.setContentsMargins(0, 0, 0, 0)
@@ -63,13 +64,9 @@ class Ui_MainWindow(object):
 
         self.gridLayout.addItem(self.verticalSpacer_2, 2, 0, 1, 1)
 
-        self.verticalSpacer_3 = QSpacerItem(20, 80, QSizePolicy.Minimum, QSizePolicy.Fixed)
-
-        self.gridLayout.addItem(self.verticalSpacer_3, 6, 0, 1, 1)
-
         self.frm_banner_pic = QFrame(self.home_frame)
         self.frm_banner_pic.setObjectName(u"frm_banner_pic")
-        self.frm_banner_pic.setMaximumSize(QSize(1200, 300))
+        self.frm_banner_pic.setMaximumSize(QSize(1200, 200))
         self.frm_banner_pic.setStyleSheet(u"border: none;")
         self.frm_banner_pic.setFrameShape(QFrame.StyledPanel)
         self.frm_banner_pic.setFrameShadow(QFrame.Raised)
@@ -89,32 +86,20 @@ class Ui_MainWindow(object):
 
         self.gridLayout.addWidget(self.frm_banner_pic, 1, 0, 1, 1)
 
-        self.space_frame = QFrame(self.home_frame)
-        self.space_frame.setObjectName(u"space_frame")
-        self.space_frame.setMaximumSize(QSize(16777215, 100))
-        self.space_frame.setFrameShape(QFrame.StyledPanel)
-        self.space_frame.setFrameShadow(QFrame.Raised)
-
-        self.gridLayout.addWidget(self.space_frame, 3, 0, 1, 1)
-
         self.frm_button = QFrame(self.home_frame)
         self.frm_button.setObjectName(u"frm_button")
-        self.frm_button.setMinimumSize(QSize(1100, 190))
+        self.frm_button.setMinimumSize(QSize(1080, 190))
         self.frm_button.setMaximumSize(QSize(1270, 190))
         self.frm_button.setStyleSheet(u"")
         self.frm_button.setFrameShape(QFrame.StyledPanel)
         self.frm_button.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_2 = QHBoxLayout(self.frm_button)
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
-        self.horizontalLayout_2.setContentsMargins(0, 0, -1, 0)
         self.home_btn_student = QPushButton(self.frm_button)
         self.home_btn_student.setObjectName(u"home_btn_student")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
-        sizePolicy1.setHorizontalStretch(0)
-        sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.home_btn_student.sizePolicy().hasHeightForWidth())
-        self.home_btn_student.setSizePolicy(sizePolicy1)
-        self.home_btn_student.setMinimumSize(QSize(150, 150))
+        sizePolicy.setHeightForWidth(self.home_btn_student.sizePolicy().hasHeightForWidth())
+        self.home_btn_student.setSizePolicy(sizePolicy)
+        self.home_btn_student.setMinimumSize(QSize(160, 150))
         self.home_btn_student.setMaximumSize(QSize(200, 200))
         font = QFont()
         font.setPointSize(9)
@@ -138,18 +123,18 @@ class Ui_MainWindow(object):
 "}\n"
 "")
         icon = QIcon()
-        icon.addFile(u"../Images/student_icon.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon.addFile(u"../Images/reg_icon.png", QSize(), QIcon.Normal, QIcon.Off)
         self.home_btn_student.setIcon(icon)
-        self.home_btn_student.setIconSize(QSize(80, 70))
+        self.home_btn_student.setIconSize(QSize(250, 300))
         self.home_btn_student.setFlat(False)
 
         self.horizontalLayout_2.addWidget(self.home_btn_student)
 
         self.home_btn_lesson = QPushButton(self.frm_button)
         self.home_btn_lesson.setObjectName(u"home_btn_lesson")
-        sizePolicy1.setHeightForWidth(self.home_btn_lesson.sizePolicy().hasHeightForWidth())
-        self.home_btn_lesson.setSizePolicy(sizePolicy1)
-        self.home_btn_lesson.setMinimumSize(QSize(150, 150))
+        sizePolicy.setHeightForWidth(self.home_btn_lesson.sizePolicy().hasHeightForWidth())
+        self.home_btn_lesson.setSizePolicy(sizePolicy)
+        self.home_btn_lesson.setMinimumSize(QSize(160, 150))
         self.home_btn_lesson.setMaximumSize(QSize(200, 200))
         self.home_btn_lesson.setCursor(QCursor(Qt.PointingHandCursor))
         self.home_btn_lesson.setStyleSheet(u"QPushButton {\n"
@@ -166,17 +151,17 @@ class Ui_MainWindow(object):
 "}\n"
 "")
         icon1 = QIcon()
-        icon1.addFile(u"../Images/lesson_icon.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon1.addFile(u"../Images/std_lsn.png", QSize(), QIcon.Normal, QIcon.Off)
         self.home_btn_lesson.setIcon(icon1)
-        self.home_btn_lesson.setIconSize(QSize(70, 90))
+        self.home_btn_lesson.setIconSize(QSize(250, 300))
 
         self.horizontalLayout_2.addWidget(self.home_btn_lesson)
 
         self.home_btn_quiz = QPushButton(self.frm_button)
         self.home_btn_quiz.setObjectName(u"home_btn_quiz")
-        sizePolicy1.setHeightForWidth(self.home_btn_quiz.sizePolicy().hasHeightForWidth())
-        self.home_btn_quiz.setSizePolicy(sizePolicy1)
-        self.home_btn_quiz.setMinimumSize(QSize(150, 150))
+        sizePolicy.setHeightForWidth(self.home_btn_quiz.sizePolicy().hasHeightForWidth())
+        self.home_btn_quiz.setSizePolicy(sizePolicy)
+        self.home_btn_quiz.setMinimumSize(QSize(160, 150))
         self.home_btn_quiz.setMaximumSize(QSize(200, 200))
         self.home_btn_quiz.setCursor(QCursor(Qt.PointingHandCursor))
         self.home_btn_quiz.setStyleSheet(u"QPushButton {\n"
@@ -193,17 +178,17 @@ class Ui_MainWindow(object):
 "}\n"
 "")
         icon2 = QIcon()
-        icon2.addFile(u"../Images/assessment_icon.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon2.addFile(u"../Images/std_assessment.png", QSize(), QIcon.Normal, QIcon.Off)
         self.home_btn_quiz.setIcon(icon2)
-        self.home_btn_quiz.setIconSize(QSize(70, 90))
+        self.home_btn_quiz.setIconSize(QSize(250, 300))
 
         self.horizontalLayout_2.addWidget(self.home_btn_quiz)
 
         self.home_btn_progress = QPushButton(self.frm_button)
         self.home_btn_progress.setObjectName(u"home_btn_progress")
-        sizePolicy1.setHeightForWidth(self.home_btn_progress.sizePolicy().hasHeightForWidth())
-        self.home_btn_progress.setSizePolicy(sizePolicy1)
-        self.home_btn_progress.setMinimumSize(QSize(150, 150))
+        sizePolicy.setHeightForWidth(self.home_btn_progress.sizePolicy().hasHeightForWidth())
+        self.home_btn_progress.setSizePolicy(sizePolicy)
+        self.home_btn_progress.setMinimumSize(QSize(160, 150))
         self.home_btn_progress.setMaximumSize(QSize(200, 200))
         self.home_btn_progress.setCursor(QCursor(Qt.PointingHandCursor))
         self.home_btn_progress.setStyleSheet(u"QPushButton {\n"
@@ -220,17 +205,17 @@ class Ui_MainWindow(object):
 "}\n"
 "")
         icon3 = QIcon()
-        icon3.addFile(u"../Images/performance_icon.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon3.addFile(u"../Images/std_perfor.png", QSize(), QIcon.Normal, QIcon.Off)
         self.home_btn_progress.setIcon(icon3)
-        self.home_btn_progress.setIconSize(QSize(150, 150))
+        self.home_btn_progress.setIconSize(QSize(250, 300))
 
         self.horizontalLayout_2.addWidget(self.home_btn_progress)
 
         self.home_btn_settings = QPushButton(self.frm_button)
         self.home_btn_settings.setObjectName(u"home_btn_settings")
-        sizePolicy1.setHeightForWidth(self.home_btn_settings.sizePolicy().hasHeightForWidth())
-        self.home_btn_settings.setSizePolicy(sizePolicy1)
-        self.home_btn_settings.setMinimumSize(QSize(150, 150))
+        sizePolicy.setHeightForWidth(self.home_btn_settings.sizePolicy().hasHeightForWidth())
+        self.home_btn_settings.setSizePolicy(sizePolicy)
+        self.home_btn_settings.setMinimumSize(QSize(160, 150))
         self.home_btn_settings.setMaximumSize(QSize(200, 200))
         self.home_btn_settings.setCursor(QCursor(Qt.PointingHandCursor))
         self.home_btn_settings.setStyleSheet(u"QPushButton {\n"
@@ -247,91 +232,29 @@ class Ui_MainWindow(object):
 "}\n"
 "")
         icon4 = QIcon()
-        icon4.addFile(u"../Images/settings_icon.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon4.addFile(u"../Images/setting_icon.png", QSize(), QIcon.Normal, QIcon.Off)
         self.home_btn_settings.setIcon(icon4)
-        self.home_btn_settings.setIconSize(QSize(70, 70))
+        self.home_btn_settings.setIconSize(QSize(250, 300))
 
         self.horizontalLayout_2.addWidget(self.home_btn_settings)
 
 
-        self.gridLayout.addWidget(self.frm_button, 4, 0, 1, 1)
-
-        self.frm_btn_lbl = QFrame(self.home_frame)
-        self.frm_btn_lbl.setObjectName(u"frm_btn_lbl")
-        self.frm_btn_lbl.setMinimumSize(QSize(0, 50))
-        self.frm_btn_lbl.setMaximumSize(QSize(16777215, 80))
-        self.frm_btn_lbl.setFrameShape(QFrame.StyledPanel)
-        self.frm_btn_lbl.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_3 = QHBoxLayout(self.frm_btn_lbl)
-        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
-        self.home_lbl_student = QLabel(self.frm_btn_lbl)
-        self.home_lbl_student.setObjectName(u"home_lbl_student")
-        self.home_lbl_student.setMaximumSize(QSize(16777215, 60))
-        font1 = QFont()
-        font1.setPointSize(14)
-        font1.setBold(False)
-        self.home_lbl_student.setFont(font1)
-        self.home_lbl_student.setStyleSheet(u"color: rgb(26, 181, 219);")
-        self.home_lbl_student.setAlignment(Qt.AlignCenter)
-
-        self.horizontalLayout_3.addWidget(self.home_lbl_student)
-
-        self.home_lbl_lesson = QLabel(self.frm_btn_lbl)
-        self.home_lbl_lesson.setObjectName(u"home_lbl_lesson")
-        self.home_lbl_lesson.setMaximumSize(QSize(16777215, 50))
-        font2 = QFont()
-        font2.setPointSize(14)
-        self.home_lbl_lesson.setFont(font2)
-        self.home_lbl_lesson.setStyleSheet(u"color: rgb(26, 181, 219);")
-        self.home_lbl_lesson.setAlignment(Qt.AlignCenter)
-
-        self.horizontalLayout_3.addWidget(self.home_lbl_lesson)
-
-        self.home_lbl_quiz = QLabel(self.frm_btn_lbl)
-        self.home_lbl_quiz.setObjectName(u"home_lbl_quiz")
-        self.home_lbl_quiz.setMaximumSize(QSize(16777215, 50))
-        self.home_lbl_quiz.setFont(font2)
-        self.home_lbl_quiz.setStyleSheet(u"color: rgb(26, 181, 219);")
-        self.home_lbl_quiz.setAlignment(Qt.AlignCenter)
-
-        self.horizontalLayout_3.addWidget(self.home_lbl_quiz)
-
-        self.home_lbl_progress = QLabel(self.frm_btn_lbl)
-        self.home_lbl_progress.setObjectName(u"home_lbl_progress")
-        self.home_lbl_progress.setMaximumSize(QSize(16777215, 50))
-        self.home_lbl_progress.setFont(font2)
-        self.home_lbl_progress.setStyleSheet(u"color: rgb(26, 181, 219);")
-        self.home_lbl_progress.setAlignment(Qt.AlignCenter)
-
-        self.horizontalLayout_3.addWidget(self.home_lbl_progress)
-
-        self.home_lbl_settings = QLabel(self.frm_btn_lbl)
-        self.home_lbl_settings.setObjectName(u"home_lbl_settings")
-        self.home_lbl_settings.setMaximumSize(QSize(16777215, 50))
-        self.home_lbl_settings.setFont(font2)
-        self.home_lbl_settings.setStyleSheet(u"color: rgb(26, 181, 219);")
-        self.home_lbl_settings.setAlignment(Qt.AlignCenter)
-
-        self.horizontalLayout_3.addWidget(self.home_lbl_settings)
+        self.gridLayout.addWidget(self.frm_button, 3, 0, 1, 1)
 
 
-        self.gridLayout.addWidget(self.frm_btn_lbl, 5, 0, 1, 1)
-
-
-        self.horizontalLayout.addWidget(self.home_frame)
+        self.horizontalLayout_3.addWidget(self.home_frame)
 
         self.stackedWidget.addWidget(self.home_page)
         self.student_page = QWidget()
         self.student_page.setObjectName(u"student_page")
-        self.student_page.setMinimumSize(QSize(1300, 900))
-        self.verticalLayout_4 = QVBoxLayout(self.student_page)
-        self.verticalLayout_4.setSpacing(0)
-        self.verticalLayout_4.setObjectName(u"verticalLayout_4")
-        self.verticalLayout_4.setContentsMargins(0, 0, 0, 0)
+        self.student_page.setMinimumSize(QSize(1280, 720))
+        self.horizontalLayout = QHBoxLayout(self.student_page)
+        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
         self.student_frame = QFrame(self.student_page)
         self.student_frame.setObjectName(u"student_frame")
-        self.student_frame.setMinimumSize(QSize(1250, 850))
-        self.student_frame.setStyleSheet(u"")
+        self.student_frame.setMinimumSize(QSize(1280, 720))
+        self.student_frame.setStyleSheet(u"border-radius: 0;")
         self.student_frame.setFrameShape(QFrame.StyledPanel)
         self.student_frame.setFrameShadow(QFrame.Raised)
         self.verticalLayout = QVBoxLayout(self.student_frame)
@@ -341,9 +264,7 @@ class Ui_MainWindow(object):
         self.top_frame = QFrame(self.student_frame)
         self.top_frame.setObjectName(u"top_frame")
         self.top_frame.setMinimumSize(QSize(1251, 91))
-        self.top_frame.setStyleSheet(u"background-color: #2B4865;\n"
-"border-top-left-radius: 20px;\n"
-"border-top-right-radius: 20px;")
+        self.top_frame.setStyleSheet(u"background-color: #2B4865;")
         self.top_frame.setFrameShape(QFrame.StyledPanel)
         self.top_frame.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_4 = QHBoxLayout(self.top_frame)
@@ -355,9 +276,9 @@ class Ui_MainWindow(object):
         self.std_btn_back_to_home.setMinimumSize(QSize(0, 60))
         self.std_btn_back_to_home.setMaximumSize(QSize(60, 60))
         self.std_btn_back_to_home.setBaseSize(QSize(0, 4))
-        font3 = QFont()
-        font3.setPointSize(11)
-        self.std_btn_back_to_home.setFont(font3)
+        font1 = QFont()
+        font1.setPointSize(11)
+        self.std_btn_back_to_home.setFont(font1)
         self.std_btn_back_to_home.setCursor(QCursor(Qt.PointingHandCursor))
         self.std_btn_back_to_home.setMouseTracking(True)
         self.std_btn_back_to_home.setStyleSheet(u"QPushButton {\n"
@@ -381,10 +302,10 @@ class Ui_MainWindow(object):
 
         self.std_lbl_headline = QLabel(self.top_frame)
         self.std_lbl_headline.setObjectName(u"std_lbl_headline")
-        font4 = QFont()
-        font4.setFamilies([u"Hind Siliguri Medium"])
-        font4.setPointSize(27)
-        self.std_lbl_headline.setFont(font4)
+        font2 = QFont()
+        font2.setFamilies([u"Hind Siliguri Medium"])
+        font2.setPointSize(27)
+        self.std_lbl_headline.setFont(font2)
         self.std_lbl_headline.setStyleSheet(u"color: #8FE3CF")
         self.std_lbl_headline.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
 
@@ -405,36 +326,36 @@ class Ui_MainWindow(object):
         self.std_tableWidget = QTableWidget(self.mid_frame)
         if (self.std_tableWidget.columnCount() < 5):
             self.std_tableWidget.setColumnCount(5)
-        font5 = QFont()
-        font5.setFamilies([u"Hind Siliguri Medium"])
-        font5.setPointSize(13)
+        font3 = QFont()
+        font3.setFamilies([u"Hind Siliguri Medium"])
+        font3.setPointSize(13)
         __qtablewidgetitem = QTableWidgetItem()
         __qtablewidgetitem.setTextAlignment(Qt.AlignCenter);
-        __qtablewidgetitem.setFont(font5);
+        __qtablewidgetitem.setFont(font3);
         self.std_tableWidget.setHorizontalHeaderItem(0, __qtablewidgetitem)
         __qtablewidgetitem1 = QTableWidgetItem()
         __qtablewidgetitem1.setTextAlignment(Qt.AlignCenter);
-        __qtablewidgetitem1.setFont(font5);
+        __qtablewidgetitem1.setFont(font3);
         self.std_tableWidget.setHorizontalHeaderItem(1, __qtablewidgetitem1)
         __qtablewidgetitem2 = QTableWidgetItem()
         __qtablewidgetitem2.setTextAlignment(Qt.AlignCenter);
-        __qtablewidgetitem2.setFont(font5);
+        __qtablewidgetitem2.setFont(font3);
         self.std_tableWidget.setHorizontalHeaderItem(2, __qtablewidgetitem2)
         __qtablewidgetitem3 = QTableWidgetItem()
         __qtablewidgetitem3.setTextAlignment(Qt.AlignCenter);
-        __qtablewidgetitem3.setFont(font5);
+        __qtablewidgetitem3.setFont(font3);
         self.std_tableWidget.setHorizontalHeaderItem(3, __qtablewidgetitem3)
-        font6 = QFont()
-        font6.setFamilies([u"Hind Siliguri Medium"])
-        font6.setPointSize(13)
-        font6.setKerning(True)
-        font6.setStyleStrategy(QFont.PreferDefault)
+        font4 = QFont()
+        font4.setFamilies([u"Hind Siliguri Medium"])
+        font4.setPointSize(13)
+        font4.setKerning(True)
+        font4.setStyleStrategy(QFont.PreferDefault)
         __qtablewidgetitem4 = QTableWidgetItem()
         __qtablewidgetitem4.setTextAlignment(Qt.AlignCenter);
-        __qtablewidgetitem4.setFont(font6);
+        __qtablewidgetitem4.setFont(font4);
         self.std_tableWidget.setHorizontalHeaderItem(4, __qtablewidgetitem4)
         self.std_tableWidget.setObjectName(u"std_tableWidget")
-        self.std_tableWidget.setFont(font3)
+        self.std_tableWidget.setFont(font1)
         self.std_tableWidget.setStyleSheet(u"QHeaderView::section {\n"
 "	background-color: #002B5B;\n"
 "    color: rgb(143, 227, 207);\n"
@@ -480,9 +401,7 @@ class Ui_MainWindow(object):
         self.bottom_frame = QFrame(self.student_frame)
         self.bottom_frame.setObjectName(u"bottom_frame")
         self.bottom_frame.setMinimumSize(QSize(1251, 83))
-        self.bottom_frame.setStyleSheet(u"background-color: rgb(42, 70, 98);\n"
-"border-bottom-left-radius: 20px;\n"
-"border-bottom-right-radius: 20px;")
+        self.bottom_frame.setStyleSheet(u"background-color: rgb(42, 70, 98);")
         self.bottom_frame.setFrameShape(QFrame.StyledPanel)
         self.bottom_frame.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_6 = QHBoxLayout(self.bottom_frame)
@@ -493,22 +412,22 @@ class Ui_MainWindow(object):
 
         self.std_btn_add_student = QPushButton(self.bottom_frame)
         self.std_btn_add_student.setObjectName(u"std_btn_add_student")
-        sizePolicy2 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
-        sizePolicy2.setHorizontalStretch(230)
-        sizePolicy2.setVerticalStretch(40)
-        sizePolicy2.setHeightForWidth(self.std_btn_add_student.sizePolicy().hasHeightForWidth())
-        self.std_btn_add_student.setSizePolicy(sizePolicy2)
-        self.std_btn_add_student.setMinimumSize(QSize(250, 40))
-        font7 = QFont()
-        font7.setFamilies([u"Hind Siliguri Medium"])
-        font7.setPointSize(12)
-        font7.setBold(False)
-        self.std_btn_add_student.setFont(font7)
+        sizePolicy1 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
+        sizePolicy1.setHorizontalStretch(230)
+        sizePolicy1.setVerticalStretch(40)
+        sizePolicy1.setHeightForWidth(self.std_btn_add_student.sizePolicy().hasHeightForWidth())
+        self.std_btn_add_student.setSizePolicy(sizePolicy1)
+        self.std_btn_add_student.setMinimumSize(QSize(251, 41))
+        font5 = QFont()
+        font5.setFamilies([u"Hind Siliguri Medium"])
+        font5.setPointSize(12)
+        font5.setBold(False)
+        self.std_btn_add_student.setFont(font5)
         self.std_btn_add_student.setCursor(QCursor(Qt.PointingHandCursor))
         self.std_btn_add_student.setStyleSheet(u"QPushButton {\n"
 "background-color: rgb(160, 253, 230);\n"
 "color:  #256D85 ;\n"
-"border-radius: 15px;\n"
+"border-radius: 10px;\n"
 "}\n"
 "\n"
 "QPushButton::hover {\n"
@@ -530,15 +449,15 @@ class Ui_MainWindow(object):
 
         self.std_btn_update_info = QPushButton(self.bottom_frame)
         self.std_btn_update_info.setObjectName(u"std_btn_update_info")
-        sizePolicy2.setHeightForWidth(self.std_btn_update_info.sizePolicy().hasHeightForWidth())
-        self.std_btn_update_info.setSizePolicy(sizePolicy2)
-        self.std_btn_update_info.setMinimumSize(QSize(250, 40))
-        self.std_btn_update_info.setFont(font7)
+        sizePolicy1.setHeightForWidth(self.std_btn_update_info.sizePolicy().hasHeightForWidth())
+        self.std_btn_update_info.setSizePolicy(sizePolicy1)
+        self.std_btn_update_info.setMinimumSize(QSize(290, 40))
+        self.std_btn_update_info.setFont(font5)
         self.std_btn_update_info.setCursor(QCursor(Qt.PointingHandCursor))
         self.std_btn_update_info.setStyleSheet(u"QPushButton {\n"
 "background-color: rgb(160, 253, 230);\n"
 "color:  #256D85 ;\n"
-"border-radius: 15px;\n"
+"border-radius: 10px;\n"
 "}\n"
 "\n"
 "QPushButton::hover {\n"
@@ -560,18 +479,21 @@ class Ui_MainWindow(object):
 
         self.std_btn_remove_student = QPushButton(self.bottom_frame)
         self.std_btn_remove_student.setObjectName(u"std_btn_remove_student")
+        sizePolicy2 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
+        sizePolicy2.setHorizontalStretch(230)
+        sizePolicy2.setVerticalStretch(40)
         sizePolicy2.setHeightForWidth(self.std_btn_remove_student.sizePolicy().hasHeightForWidth())
         self.std_btn_remove_student.setSizePolicy(sizePolicy2)
-        self.std_btn_remove_student.setMinimumSize(QSize(250, 40))
-        font8 = QFont()
-        font8.setFamilies([u"Hind Siliguri Medium"])
-        font8.setPointSize(12)
-        self.std_btn_remove_student.setFont(font8)
+        self.std_btn_remove_student.setMinimumSize(QSize(260, 40))
+        font6 = QFont()
+        font6.setFamilies([u"Hind Siliguri Medium"])
+        font6.setPointSize(12)
+        self.std_btn_remove_student.setFont(font6)
         self.std_btn_remove_student.setCursor(QCursor(Qt.PointingHandCursor))
         self.std_btn_remove_student.setStyleSheet(u"QPushButton {\n"
 "background-color: rgb(160, 253, 230);\n"
 "color:  #256D85 ;\n"
-"border-radius: 15px;\n"
+"border-radius: 10px;\n"
 "}\n"
 "\n"
 "QPushButton::hover {\n"
@@ -594,35 +516,35 @@ class Ui_MainWindow(object):
         self.verticalLayout.addWidget(self.bottom_frame)
 
 
-        self.verticalLayout_4.addWidget(self.student_frame)
+        self.horizontalLayout.addWidget(self.student_frame)
 
         self.stackedWidget.addWidget(self.student_page)
         self.lesson_page = QWidget()
         self.lesson_page.setObjectName(u"lesson_page")
-        self.verticalLayout_8 = QVBoxLayout(self.lesson_page)
-        self.verticalLayout_8.setObjectName(u"verticalLayout_8")
-        self.verticalLayout_8.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_11 = QHBoxLayout(self.lesson_page)
+        self.horizontalLayout_11.setSpacing(0)
+        self.horizontalLayout_11.setObjectName(u"horizontalLayout_11")
+        self.horizontalLayout_11.setContentsMargins(0, 0, 0, 0)
         self.lesson_frame = QFrame(self.lesson_page)
         self.lesson_frame.setObjectName(u"lesson_frame")
-        self.lesson_frame.setMinimumSize(QSize(1250, 890))
+        self.lesson_frame.setMinimumSize(QSize(1280, 720))
         self.lesson_frame.setStyleSheet(u"")
         self.lesson_frame.setFrameShape(QFrame.StyledPanel)
         self.lesson_frame.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_7 = QVBoxLayout(self.lesson_frame)
-        self.verticalLayout_7.setSpacing(0)
-        self.verticalLayout_7.setObjectName(u"verticalLayout_7")
-        self.verticalLayout_7.setContentsMargins(0, 0, 0, 0)
+        self.gridLayout_2 = QGridLayout(self.lesson_frame)
+        self.gridLayout_2.setSpacing(0)
+        self.gridLayout_2.setObjectName(u"gridLayout_2")
+        self.gridLayout_2.setContentsMargins(0, 0, 0, 0)
         self.top_frame_2 = QFrame(self.lesson_frame)
         self.top_frame_2.setObjectName(u"top_frame_2")
         self.top_frame_2.setMinimumSize(QSize(1180, 80))
         self.top_frame_2.setMaximumSize(QSize(16777215, 80))
-        self.top_frame_2.setStyleSheet(u"background-color: #2B4865;\n"
-"border-top-left-radius: 20px;\n"
-"border-top-right-radius: 20px;")
+        self.top_frame_2.setStyleSheet(u"background-color: #2B4865;")
         self.top_frame_2.setFrameShape(QFrame.StyledPanel)
         self.top_frame_2.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_7 = QHBoxLayout(self.top_frame_2)
         self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
+        self.horizontalLayout_7.setContentsMargins(0, 0, 0, 0)
         self.lsn_btn_back_to_home = QPushButton(self.top_frame_2)
         self.lsn_btn_back_to_home.setObjectName(u"lsn_btn_back_to_home")
         sizePolicy.setHeightForWidth(self.lsn_btn_back_to_home.sizePolicy().hasHeightForWidth())
@@ -630,7 +552,7 @@ class Ui_MainWindow(object):
         self.lsn_btn_back_to_home.setMinimumSize(QSize(0, 60))
         self.lsn_btn_back_to_home.setMaximumSize(QSize(60, 60))
         self.lsn_btn_back_to_home.setBaseSize(QSize(0, 4))
-        self.lsn_btn_back_to_home.setFont(font3)
+        self.lsn_btn_back_to_home.setFont(font1)
         self.lsn_btn_back_to_home.setCursor(QCursor(Qt.PointingHandCursor))
         self.lsn_btn_back_to_home.setMouseTracking(True)
         self.lsn_btn_back_to_home.setStyleSheet(u"QPushButton {\n"
@@ -652,31 +574,31 @@ class Ui_MainWindow(object):
 
         self.lsn_lbl_headline = QLabel(self.top_frame_2)
         self.lsn_lbl_headline.setObjectName(u"lsn_lbl_headline")
-        self.lsn_lbl_headline.setFont(font4)
+        self.lsn_lbl_headline.setFont(font2)
         self.lsn_lbl_headline.setStyleSheet(u"color: #8FE3CF")
         self.lsn_lbl_headline.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
 
         self.horizontalLayout_7.addWidget(self.lsn_lbl_headline)
 
 
-        self.verticalLayout_7.addWidget(self.top_frame_2)
+        self.gridLayout_2.addWidget(self.top_frame_2, 0, 0, 1, 1)
 
         self.mid_frame_2 = QFrame(self.lesson_frame)
         self.mid_frame_2.setObjectName(u"mid_frame_2")
-        self.mid_frame_2.setMinimumSize(QSize(1180, 604))
-        self.mid_frame_2.setStyleSheet(u"\n"
-"background-color:rgb(36, 105, 127);")
+        self.mid_frame_2.setMinimumSize(QSize(1180, 520))
+        self.mid_frame_2.setStyleSheet(u"background-color:rgb(36, 105, 127);")
         self.mid_frame_2.setFrameShape(QFrame.StyledPanel)
         self.mid_frame_2.setFrameShadow(QFrame.Raised)
-        self.gridLayout_2 = QGridLayout(self.mid_frame_2)
-        self.gridLayout_2.setObjectName(u"gridLayout_2")
+        self.verticalLayout_4 = QVBoxLayout(self.mid_frame_2)
+        self.verticalLayout_4.setObjectName(u"verticalLayout_4")
+        self.verticalLayout_4.setContentsMargins(0, 0, 0, 0)
         self.bottom_top_frame = QFrame(self.mid_frame_2)
         self.bottom_top_frame.setObjectName(u"bottom_top_frame")
         self.bottom_top_frame.setMinimumSize(QSize(0, 60))
         self.bottom_top_frame.setMaximumSize(QSize(16777215, 60))
         self.bottom_top_frame.setStyleSheet(u"background-color: rgb(29, 88, 105);\n"
 "color: rgb(137, 218, 199);\n"
-"border-radius: 20px;")
+"")
         self.bottom_top_frame.setFrameShape(QFrame.StyledPanel)
         self.bottom_top_frame.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_8 = QHBoxLayout(self.bottom_top_frame)
@@ -687,9 +609,9 @@ class Ui_MainWindow(object):
 
         self.lsn_lbl_category = QLabel(self.bottom_top_frame)
         self.lsn_lbl_category.setObjectName(u"lsn_lbl_category")
-        font9 = QFont()
-        font9.setPointSize(16)
-        self.lsn_lbl_category.setFont(font9)
+        font7 = QFont()
+        font7.setPointSize(16)
+        self.lsn_lbl_category.setFont(font7)
         self.lsn_lbl_category.setAlignment(Qt.AlignCenter)
 
         self.horizontalLayout_8.addWidget(self.lsn_lbl_category)
@@ -702,11 +624,11 @@ class Ui_MainWindow(object):
         self.lsn_cmb_category.addItem("")
         self.lsn_cmb_category.setObjectName(u"lsn_cmb_category")
         self.lsn_cmb_category.setMinimumSize(QSize(280, 40))
-        font10 = QFont()
-        font10.setFamilies([u"Hind Siliguri"])
-        font10.setPointSize(10)
-        font10.setBold(False)
-        self.lsn_cmb_category.setFont(font10)
+        font8 = QFont()
+        font8.setFamilies([u"Hind Siliguri"])
+        font8.setPointSize(10)
+        font8.setBold(False)
+        self.lsn_cmb_category.setFont(font8)
         self.lsn_cmb_category.setStyleSheet(u"background-color: rgb(137, 218, 199);\n"
 "padding-left: 15px;\n"
 "border-radius: 10px;\n"
@@ -720,7 +642,7 @@ class Ui_MainWindow(object):
 
         self.lsn_lbl_lessons = QLabel(self.bottom_top_frame)
         self.lsn_lbl_lessons.setObjectName(u"lsn_lbl_lessons")
-        self.lsn_lbl_lessons.setFont(font9)
+        self.lsn_lbl_lessons.setFont(font7)
         self.lsn_lbl_lessons.setAlignment(Qt.AlignCenter)
 
         self.horizontalLayout_8.addWidget(self.lsn_lbl_lessons)
@@ -729,10 +651,10 @@ class Ui_MainWindow(object):
         self.lsn_cmb_lessons.addItem("")
         self.lsn_cmb_lessons.setObjectName(u"lsn_cmb_lessons")
         self.lsn_cmb_lessons.setMinimumSize(QSize(280, 40))
-        font11 = QFont()
-        font11.setPointSize(10)
-        font11.setBold(False)
-        self.lsn_cmb_lessons.setFont(font11)
+        font9 = QFont()
+        font9.setPointSize(10)
+        font9.setBold(False)
+        self.lsn_cmb_lessons.setFont(font9)
         self.lsn_cmb_lessons.setStyleSheet(u"background-color: rgb(137, 218, 199);\n"
 "border-radius: 12px;\n"
 "color: rgb(0, 43, 91);\n"
@@ -745,50 +667,19 @@ class Ui_MainWindow(object):
         self.horizontalLayout_8.addItem(self.horizontalSpacer_7)
 
 
-        self.gridLayout_2.addWidget(self.bottom_top_frame, 0, 0, 1, 3)
-
-        self.left_btn_frame = QFrame(self.mid_frame_2)
-        self.left_btn_frame.setObjectName(u"left_btn_frame")
-        self.left_btn_frame.setMinimumSize(QSize(60, 629))
-        self.left_btn_frame.setMaximumSize(QSize(60, 16777215))
-        self.left_btn_frame.setStyleSheet(u"")
-        self.left_btn_frame.setFrameShape(QFrame.StyledPanel)
-        self.left_btn_frame.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_5 = QVBoxLayout(self.left_btn_frame)
-        self.verticalLayout_5.setObjectName(u"verticalLayout_5")
-        self.verticalLayout_5.setContentsMargins(0, 0, 0, 0)
-        self.lsn_btn_left = QPushButton(self.left_btn_frame)
-        self.lsn_btn_left.setObjectName(u"lsn_btn_left")
-        self.lsn_btn_left.setMinimumSize(QSize(60, 629))
-        self.lsn_btn_left.setMaximumSize(QSize(60, 16777215))
-        self.lsn_btn_left.setCursor(QCursor(Qt.PointingHandCursor))
-        self.lsn_btn_left.setStyleSheet(u"QPushButton {background-color: rgb(30, 90, 108); border-radius: 20px;}\n"
-"\n"
-"QPushButton::hover  {\n"
-"	background-color: rgb(20, 62, 74);\n"
-"}\n"
-"")
-        icon9 = QIcon()
-        icon9.addFile(u"../Images/left.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.lsn_btn_left.setIcon(icon9)
-        self.lsn_btn_left.setIconSize(QSize(100, 100))
-
-        self.verticalLayout_5.addWidget(self.lsn_btn_left)
-
-
-        self.gridLayout_2.addWidget(self.left_btn_frame, 1, 0, 1, 1)
+        self.verticalLayout_4.addWidget(self.bottom_top_frame)
 
         self.middle_content_frame = QFrame(self.mid_frame_2)
         self.middle_content_frame.setObjectName(u"middle_content_frame")
-        self.middle_content_frame.setStyleSheet(u"background-color: rgb(30, 90, 108);\n"
-"border-radius: 20px;")
+        self.middle_content_frame.setMinimumSize(QSize(1241, 400))
+        self.middle_content_frame.setStyleSheet(u"background-color: rgb(30, 90, 108);")
         self.middle_content_frame.setFrameShape(QFrame.StyledPanel)
         self.middle_content_frame.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_13 = QHBoxLayout(self.middle_content_frame)
-        self.horizontalLayout_13.setObjectName(u"horizontalLayout_13")
+        self.horizontalLayout_12 = QHBoxLayout(self.middle_content_frame)
+        self.horizontalLayout_12.setObjectName(u"horizontalLayout_12")
         self.mediaStackWidget = QStackedWidget(self.middle_content_frame)
         self.mediaStackWidget.setObjectName(u"mediaStackWidget")
-        self.mediaStackWidget.setMinimumSize(QSize(671, 600))
+        self.mediaStackWidget.setMinimumSize(QSize(690, 400))
         self.image_page = QWidget()
         self.image_page.setObjectName(u"image_page")
         self.horizontalLayout_9 = QHBoxLayout(self.image_page)
@@ -796,10 +687,10 @@ class Ui_MainWindow(object):
         self.horizontalLayout_9.setContentsMargins(0, 0, 0, 0)
         self.lsn_lbl_lesson_image = QLabel(self.image_page)
         self.lsn_lbl_lesson_image.setObjectName(u"lsn_lbl_lesson_image")
-        self.lsn_lbl_lesson_image.setMinimumSize(QSize(600, 571))
-        font12 = QFont()
-        font12.setPointSize(30)
-        self.lsn_lbl_lesson_image.setFont(font12)
+        self.lsn_lbl_lesson_image.setMinimumSize(QSize(690, 380))
+        font10 = QFont()
+        font10.setPointSize(30)
+        self.lsn_lbl_lesson_image.setFont(font10)
         self.lsn_lbl_lesson_image.setStyleSheet(u"border: 3px dotted  rgb(137, 218, 199);\n"
 "color: rgb(137, 218, 199);")
         self.lsn_lbl_lesson_image.setAlignment(Qt.AlignCenter)
@@ -809,23 +700,23 @@ class Ui_MainWindow(object):
         self.mediaStackWidget.addWidget(self.image_page)
         self.video_page = QWidget()
         self.video_page.setObjectName(u"video_page")
-        self.verticalLayout_3 = QVBoxLayout(self.video_page)
-        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
-        self.verticalLayout_3.setContentsMargins(0, 0, 5, 5)
-        self.video_window = QFrame(self.video_page)
-        self.video_window.setObjectName(u"video_window")
-        self.video_window.setMinimumSize(QSize(600, 500))
-        self.video_window.setStyleSheet(u"border: 2px solid rgb(137, 218, 199);")
-
-        self.verticalLayout_3.addWidget(self.video_window)
-
+        self.verticalLayout_5 = QVBoxLayout(self.video_page)
+        self.verticalLayout_5.setObjectName(u"verticalLayout_5")
+        self.verticalLayout_5.setContentsMargins(0, 0, 5, 5)
         self.frame = QFrame(self.video_page)
         self.frame.setObjectName(u"frame")
-        self.frame.setMinimumSize(QSize(671, 81))
+        self.frame.setMinimumSize(QSize(690, 81))
         self.frame.setFrameShape(QFrame.StyledPanel)
         self.frame.setFrameShadow(QFrame.Raised)
         self.gridLayout_3 = QGridLayout(self.frame)
         self.gridLayout_3.setObjectName(u"gridLayout_3")
+        self.video_window = QFrame(self.frame)
+        self.video_window.setObjectName(u"video_window")
+        self.video_window.setMinimumSize(QSize(600, 300))
+        self.video_window.setStyleSheet(u"border: 2px solid rgb(137, 218, 199);")
+
+        self.gridLayout_3.addWidget(self.video_window, 0, 0, 1, 4)
+
         self.horizontalSlider = QSlider(self.frame)
         self.horizontalSlider.setObjectName(u"horizontalSlider")
         self.horizontalSlider.setMinimumSize(QSize(350, 0))
@@ -854,7 +745,7 @@ class Ui_MainWindow(object):
 "}")
         self.horizontalSlider.setOrientation(Qt.Horizontal)
 
-        self.gridLayout_3.addWidget(self.horizontalSlider, 0, 0, 1, 5)
+        self.gridLayout_3.addWidget(self.horizontalSlider, 1, 0, 1, 4)
 
         self.playBtn = QPushButton(self.frame)
         self.playBtn.setObjectName(u"playBtn")
@@ -875,30 +766,11 @@ class Ui_MainWindow(object):
 "}")
         self.playBtn.setFlat(False)
 
-        self.gridLayout_3.addWidget(self.playBtn, 1, 0, 1, 1)
-
-        self.openfile = QPushButton(self.frame)
-        self.openfile.setObjectName(u"openfile")
-        self.openfile.setMinimumSize(QSize(171, 41))
-        self.openfile.setCursor(QCursor(Qt.PointingHandCursor))
-        self.openfile.setStyleSheet(u"QPushButton {\n"
-"background-color: rgb(160, 253, 230);\n"
-"color:  #256D85 ;\n"
-"border-radius: 15px;\n"
-"}\n"
-"\n"
-"QPushButton::hover {\n"
-"	\n"
-"	background-color: rgb(143, 227, 207);\n"
-"	color: #2B4865;\n"
-"\n"
-"}")
-
-        self.gridLayout_3.addWidget(self.openfile, 1, 1, 1, 1)
+        self.gridLayout_3.addWidget(self.playBtn, 2, 0, 1, 1)
 
         self.horizontalSpacer_8 = QSpacerItem(198, 20, QSizePolicy.Maximum, QSizePolicy.Minimum)
 
-        self.gridLayout_3.addItem(self.horizontalSpacer_8, 1, 2, 1, 1)
+        self.gridLayout_3.addItem(self.horizontalSpacer_8, 2, 1, 1, 1)
 
         self.label = QLabel(self.frame)
         self.label.setObjectName(u"label")
@@ -909,7 +781,7 @@ class Ui_MainWindow(object):
 "border-radius: 15px;")
         self.label.setAlignment(Qt.AlignCenter)
 
-        self.gridLayout_3.addWidget(self.label, 1, 3, 1, 1)
+        self.gridLayout_3.addWidget(self.label, 2, 2, 1, 1)
 
         self.volume_Slider = QSlider(self.frame)
         self.volume_Slider.setObjectName(u"volume_Slider")
@@ -940,75 +812,41 @@ class Ui_MainWindow(object):
 "}")
         self.volume_Slider.setOrientation(Qt.Horizontal)
 
-        self.gridLayout_3.addWidget(self.volume_Slider, 1, 4, 1, 1)
+        self.gridLayout_3.addWidget(self.volume_Slider, 2, 3, 1, 1)
 
 
-        self.verticalLayout_3.addWidget(self.frame)
+        self.verticalLayout_5.addWidget(self.frame)
 
         self.mediaStackWidget.addWidget(self.video_page)
-        self.frame.raise_()
-        self.video_window.raise_()
 
-        self.horizontalLayout_13.addWidget(self.mediaStackWidget)
+        self.horizontalLayout_12.addWidget(self.mediaStackWidget)
 
         self.lsn_lbl_lesson_topic = QLabel(self.middle_content_frame)
         self.lsn_lbl_lesson_topic.setObjectName(u"lsn_lbl_lesson_topic")
-        self.lsn_lbl_lesson_topic.setMinimumSize(QSize(431, 591))
+        self.lsn_lbl_lesson_topic.setMinimumSize(QSize(520, 400))
         self.lsn_lbl_lesson_topic.setMaximumSize(QSize(500, 16777215))
-        font13 = QFont()
-        font13.setPointSize(25)
-        self.lsn_lbl_lesson_topic.setFont(font13)
+        font11 = QFont()
+        font11.setPointSize(25)
+        self.lsn_lbl_lesson_topic.setFont(font11)
         self.lsn_lbl_lesson_topic.setStyleSheet(u"border: 3px dotted  rgb(137, 218, 199);\n"
 "color: rgb(137, 218, 199);")
         self.lsn_lbl_lesson_topic.setAlignment(Qt.AlignCenter)
         self.lsn_lbl_lesson_topic.setWordWrap(True)
 
-        self.horizontalLayout_13.addWidget(self.lsn_lbl_lesson_topic)
+        self.horizontalLayout_12.addWidget(self.lsn_lbl_lesson_topic)
 
 
-        self.gridLayout_2.addWidget(self.middle_content_frame, 1, 1, 1, 1)
-
-        self.right_btn_frame = QFrame(self.mid_frame_2)
-        self.right_btn_frame.setObjectName(u"right_btn_frame")
-        self.right_btn_frame.setMinimumSize(QSize(60, 629))
-        self.right_btn_frame.setMaximumSize(QSize(60, 16777215))
-        self.right_btn_frame.setStyleSheet(u"")
-        self.right_btn_frame.setFrameShape(QFrame.StyledPanel)
-        self.right_btn_frame.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_6 = QVBoxLayout(self.right_btn_frame)
-        self.verticalLayout_6.setObjectName(u"verticalLayout_6")
-        self.verticalLayout_6.setContentsMargins(0, 0, 0, 0)
-        self.lsn_btn_right = QPushButton(self.right_btn_frame)
-        self.lsn_btn_right.setObjectName(u"lsn_btn_right")
-        self.lsn_btn_right.setMinimumSize(QSize(60, 629))
-        self.lsn_btn_right.setMaximumSize(QSize(60, 16777215))
-        self.lsn_btn_right.setCursor(QCursor(Qt.PointingHandCursor))
-        self.lsn_btn_right.setStyleSheet(u"QPushButton {background-color: rgb(30, 90, 108); border-radius: 20px;}\n"
-"\n"
-"QPushButton::hover  {\n"
-"	background-color: rgb(20, 62, 74);\n"
-"}\n"
-"")
-        icon10 = QIcon()
-        icon10.addFile(u"../Images/right.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.lsn_btn_right.setIcon(icon10)
-        self.lsn_btn_right.setIconSize(QSize(100, 100))
-
-        self.verticalLayout_6.addWidget(self.lsn_btn_right)
+        self.verticalLayout_4.addWidget(self.middle_content_frame)
 
 
-        self.gridLayout_2.addWidget(self.right_btn_frame, 1, 2, 1, 1)
-
-
-        self.verticalLayout_7.addWidget(self.mid_frame_2)
+        self.gridLayout_2.addWidget(self.mid_frame_2, 1, 0, 1, 1)
 
         self.bottom_frame_2 = QFrame(self.lesson_frame)
         self.bottom_frame_2.setObjectName(u"bottom_frame_2")
         self.bottom_frame_2.setMinimumSize(QSize(1180, 71))
         self.bottom_frame_2.setMaximumSize(QSize(16777215, 70))
         self.bottom_frame_2.setStyleSheet(u"background-color: rgb(42, 70, 98);\n"
-"border-bottom-left-radius: 20px;\n"
-"border-bottom-right-radius: 20px;")
+"")
         self.bottom_frame_2.setFrameShape(QFrame.StyledPanel)
         self.bottom_frame_2.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_10 = QHBoxLayout(self.bottom_frame_2)
@@ -1019,11 +857,11 @@ class Ui_MainWindow(object):
         self.lsn_btn_add_lessons.setSizePolicy(sizePolicy2)
         self.lsn_btn_add_lessons.setMinimumSize(QSize(250, 50))
         self.lsn_btn_add_lessons.setMaximumSize(QSize(16777215, 50))
-        font14 = QFont()
-        font14.setFamilies([u"Hind Siliguri Medium"])
-        font14.setPointSize(15)
-        font14.setBold(False)
-        self.lsn_btn_add_lessons.setFont(font14)
+        font12 = QFont()
+        font12.setFamilies([u"Hind Siliguri Medium"])
+        font12.setPointSize(15)
+        font12.setBold(False)
+        self.lsn_btn_add_lessons.setFont(font12)
         self.lsn_btn_add_lessons.setCursor(QCursor(Qt.PointingHandCursor))
         self.lsn_btn_add_lessons.setStyleSheet(u"QPushButton {\n"
 "background-color: rgb(160, 253, 230);\n"
@@ -1043,14 +881,14 @@ class Ui_MainWindow(object):
         self.horizontalLayout_10.addWidget(self.lsn_btn_add_lessons)
 
 
-        self.verticalLayout_7.addWidget(self.bottom_frame_2)
+        self.gridLayout_2.addWidget(self.bottom_frame_2, 2, 0, 1, 1)
 
 
-        self.verticalLayout_8.addWidget(self.lesson_frame)
+        self.horizontalLayout_11.addWidget(self.lesson_frame)
 
         self.stackedWidget.addWidget(self.lesson_page)
 
-        self.horizontalLayout_11.addWidget(self.stackedWidget)
+        self.verticalLayout_3.addWidget(self.stackedWidget)
 
         MainWindow.setCentralWidget(self.centralwidget)
 
@@ -1059,7 +897,7 @@ class Ui_MainWindow(object):
         self.stackedWidget.setCurrentIndex(2)
         self.std_btn_back_to_home.setDefault(False)
         self.lsn_btn_back_to_home.setDefault(False)
-        self.mediaStackWidget.setCurrentIndex(1)
+        self.mediaStackWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1073,11 +911,6 @@ class Ui_MainWindow(object):
         self.home_btn_quiz.setText("")
         self.home_btn_progress.setText("")
         self.home_btn_settings.setText("")
-        self.home_lbl_student.setText(QCoreApplication.translate("MainWindow", u"\u09b6\u09bf\u0995\u09cd\u09b7\u09be\u09b0\u09cd\u09a5\u09c0 \u09a8\u09bf\u09ac\u09a8\u09cd\u09a7\u09a8", None))
-        self.home_lbl_lesson.setText(QCoreApplication.translate("MainWindow", u"\u09aa\u09be\u09a0\u09cd\u09af\u09b8\u09c2\u099a\u09c0", None))
-        self.home_lbl_quiz.setText(QCoreApplication.translate("MainWindow", u"\u09aa\u09be\u09a0 \u09ae\u09c2\u09b2\u09cd\u09af\u09be\u09df\u09a8", None))
-        self.home_lbl_progress.setText(QCoreApplication.translate("MainWindow", u"\u09b6\u09bf\u0995\u09cd\u09b7\u09be\u09b0\u09cd\u09a5\u09c0\u09b0 \u09aa\u09be\u09b0\u09ab\u09b0\u09ae\u09cd\u09af\u09be\u09a8\u09cd\u09b8", None))
-        self.home_lbl_settings.setText(QCoreApplication.translate("MainWindow", u"\u09b8\u09c7\u099f\u09bf\u0982\u09b8", None))
         self.std_btn_back_to_home.setText("")
         self.std_lbl_headline.setText(QCoreApplication.translate("MainWindow", u"\u09b6\u09bf\u0995\u09cd\u09b7\u09be\u09b0\u09cd\u09a5\u09c0\u09b0 \u09a4\u09a5\u09cd\u09af\u09b8\u09ae\u09c2\u09b9 ", None))
         ___qtablewidgetitem = self.std_tableWidget.horizontalHeaderItem(0)
@@ -1106,13 +939,10 @@ class Ui_MainWindow(object):
         self.lsn_lbl_lessons.setText(QCoreApplication.translate("MainWindow", u"\u09aa\u09be\u09a0\u09b8\u09ae\u09c2\u09b9", None))
         self.lsn_cmb_lessons.setItemText(0, QCoreApplication.translate("MainWindow", u"\u09aa\u09be\u09a0 \u0995\u09cd\u09b0\u09ae \u09a8\u09bf\u09b0\u09cd\u09ac\u09be\u099a\u09a8 \u0995\u09b0\u09c1\u09a8", None))
 
-        self.lsn_btn_left.setText("")
         self.lsn_lbl_lesson_image.setText(QCoreApplication.translate("MainWindow", u"\u099b\u09ac\u09bf", None))
         self.playBtn.setText(QCoreApplication.translate("MainWindow", u"Play", None))
-        self.openfile.setText(QCoreApplication.translate("MainWindow", u"\u09ad\u09bf\u09a1\u09bf\u0993 \u09a8\u09bf\u09b0\u09cd\u09ac\u09be\u099a\u09a8 \u0995\u09b0\u09c1\u09a8", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"\u09ad\u09b2\u09bf\u0989\u09ae", None))
         self.lsn_lbl_lesson_topic.setText(QCoreApplication.translate("MainWindow", u"\u09aa\u09b0\u09bf\u099a\u09df", None))
-        self.lsn_btn_right.setText("")
         self.lsn_btn_add_lessons.setText(QCoreApplication.translate("MainWindow", u"\u09a8\u09a4\u09c1\u09a8 \u09aa\u09be\u09a0 \u09af\u09c1\u0995\u09cd\u09a4 \u0995\u09b0\u09c1\u09a8", None))
     # retranslateUi
 

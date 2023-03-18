@@ -6,14 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1320</width>
-    <height>921</height>
+    <width>1280</width>
+    <height>720</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>1320</width>
-    <height>912</height>
+    <width>1280</width>
+    <height>720</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -22,27 +22,45 @@
   <widget class="QWidget" name="centralwidget">
    <property name="minimumSize">
     <size>
-     <width>1300</width>
-     <height>900</height>
+     <width>1280</width>
+     <height>720</height>
     </size>
    </property>
-   <layout class="QHBoxLayout" name="horizontalLayout_11">
+   <layout class="QVBoxLayout" name="verticalLayout_3">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="minimumSize">
        <size>
-        <width>1300</width>
-        <height>900</height>
+        <width>1280</width>
+        <height>720</height>
        </size>
       </property>
       <property name="currentIndex">
        <number>2</number>
       </property>
       <widget class="QWidget" name="home_page">
-       <layout class="QHBoxLayout" name="horizontalLayout">
-        <property name="spacing">
-         <number>0</number>
-        </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>680</height>
+        </size>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_3">
         <property name="leftMargin">
          <number>0</number>
         </property>
@@ -65,8 +83,8 @@
           </property>
           <property name="minimumSize">
            <size>
-            <width>1300</width>
-            <height>900</height>
+            <width>1280</width>
+            <height>720</height>
            </size>
           </property>
           <property name="maximumSize">
@@ -76,8 +94,7 @@
            </size>
           </property>
           <property name="styleSheet">
-           <string notr="true">background-color: rgb(0, 43, 91);
-border-radius: 20px;</string>
+           <string notr="true">background-color: rgb(0, 43, 91);</string>
           </property>
           <layout class="QGridLayout" name="gridLayout">
            <property name="leftMargin">
@@ -124,28 +141,12 @@ border-radius: 20px;</string>
              </property>
             </spacer>
            </item>
-           <item row="6" column="0">
-            <spacer name="verticalSpacer_3">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeType">
-              <enum>QSizePolicy::Fixed</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>80</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
            <item row="1" column="0">
             <widget class="QFrame" name="frm_banner_pic">
              <property name="maximumSize">
               <size>
                <width>1200</width>
-               <height>300</height>
+               <height>200</height>
               </size>
              </property>
              <property name="styleSheet">
@@ -187,26 +188,10 @@ border-radius: 20px;</string>
             </widget>
            </item>
            <item row="3" column="0">
-            <widget class="QFrame" name="space_frame">
-             <property name="maximumSize">
-              <size>
-               <width>16777215</width>
-               <height>100</height>
-              </size>
-             </property>
-             <property name="frameShape">
-              <enum>QFrame::StyledPanel</enum>
-             </property>
-             <property name="frameShadow">
-              <enum>QFrame::Raised</enum>
-             </property>
-            </widget>
-           </item>
-           <item row="4" column="0">
             <widget class="QFrame" name="frm_button">
              <property name="minimumSize">
               <size>
-               <width>1100</width>
+               <width>1080</width>
                <height>190</height>
               </size>
              </property>
@@ -226,26 +211,17 @@ border-radius: 20px;</string>
               <enum>QFrame::Raised</enum>
              </property>
              <layout class="QHBoxLayout" name="horizontalLayout_2">
-              <property name="leftMargin">
-               <number>0</number>
-              </property>
-              <property name="topMargin">
-               <number>0</number>
-              </property>
-              <property name="bottomMargin">
-               <number>0</number>
-              </property>
               <item>
                <widget class="QPushButton" name="home_btn_student">
                 <property name="sizePolicy">
-                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
                 </property>
                 <property name="minimumSize">
                  <size>
-                  <width>150</width>
+                  <width>160</width>
                   <height>150</height>
                  </size>
                 </property>
@@ -292,12 +268,12 @@ QPushButton:hover:!pressed
                 </property>
                 <property name="icon">
                  <iconset>
-                  <normaloff>../Images/student_icon.png</normaloff>../Images/student_icon.png</iconset>
+                  <normaloff>../Images/reg_icon.png</normaloff>../Images/reg_icon.png</iconset>
                 </property>
                 <property name="iconSize">
                  <size>
-                  <width>80</width>
-                  <height>70</height>
+                  <width>250</width>
+                  <height>300</height>
                  </size>
                 </property>
                 <property name="flat">
@@ -308,14 +284,14 @@ QPushButton:hover:!pressed
               <item>
                <widget class="QPushButton" name="home_btn_lesson">
                 <property name="sizePolicy">
-                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
                 </property>
                 <property name="minimumSize">
                  <size>
-                  <width>150</width>
+                  <width>160</width>
                   <height>150</height>
                  </size>
                 </property>
@@ -348,12 +324,12 @@ QPushButton:hover:!pressed
                 </property>
                 <property name="icon">
                  <iconset>
-                  <normaloff>../Images/lesson_icon.png</normaloff>../Images/lesson_icon.png</iconset>
+                  <normaloff>../Images/std_lsn.png</normaloff>../Images/std_lsn.png</iconset>
                 </property>
                 <property name="iconSize">
                  <size>
-                  <width>70</width>
-                  <height>90</height>
+                  <width>250</width>
+                  <height>300</height>
                  </size>
                 </property>
                </widget>
@@ -361,14 +337,14 @@ QPushButton:hover:!pressed
               <item>
                <widget class="QPushButton" name="home_btn_quiz">
                 <property name="sizePolicy">
-                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
                 </property>
                 <property name="minimumSize">
                  <size>
-                  <width>150</width>
+                  <width>160</width>
                   <height>150</height>
                  </size>
                 </property>
@@ -401,12 +377,12 @@ QPushButton:hover:!pressed
                 </property>
                 <property name="icon">
                  <iconset>
-                  <normaloff>../Images/assessment_icon.png</normaloff>../Images/assessment_icon.png</iconset>
+                  <normaloff>../Images/std_assessment.png</normaloff>../Images/std_assessment.png</iconset>
                 </property>
                 <property name="iconSize">
                  <size>
-                  <width>70</width>
-                  <height>90</height>
+                  <width>250</width>
+                  <height>300</height>
                  </size>
                 </property>
                </widget>
@@ -414,14 +390,14 @@ QPushButton:hover:!pressed
               <item>
                <widget class="QPushButton" name="home_btn_progress">
                 <property name="sizePolicy">
-                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
                 </property>
                 <property name="minimumSize">
                  <size>
-                  <width>150</width>
+                  <width>160</width>
                   <height>150</height>
                  </size>
                 </property>
@@ -454,12 +430,12 @@ QPushButton:hover:!pressed
                 </property>
                 <property name="icon">
                  <iconset>
-                  <normaloff>../Images/performance_icon.png</normaloff>../Images/performance_icon.png</iconset>
+                  <normaloff>../Images/std_perfor.png</normaloff>../Images/std_perfor.png</iconset>
                 </property>
                 <property name="iconSize">
                  <size>
-                  <width>150</width>
-                  <height>150</height>
+                  <width>250</width>
+                  <height>300</height>
                  </size>
                 </property>
                </widget>
@@ -467,14 +443,14 @@ QPushButton:hover:!pressed
               <item>
                <widget class="QPushButton" name="home_btn_settings">
                 <property name="sizePolicy">
-                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
                 </property>
                 <property name="minimumSize">
                  <size>
-                  <width>150</width>
+                  <width>160</width>
                   <height>150</height>
                  </size>
                 </property>
@@ -507,159 +483,13 @@ QPushButton:hover:!pressed
                 </property>
                 <property name="icon">
                  <iconset>
-                  <normaloff>../Images/settings_icon.png</normaloff>../Images/settings_icon.png</iconset>
+                  <normaloff>../Images/setting_icon.png</normaloff>../Images/setting_icon.png</iconset>
                 </property>
                 <property name="iconSize">
                  <size>
-                  <width>70</width>
-                  <height>70</height>
+                  <width>250</width>
+                  <height>300</height>
                  </size>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item row="5" column="0">
-            <widget class="QFrame" name="frm_btn_lbl">
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>50</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>16777215</width>
-               <height>80</height>
-              </size>
-             </property>
-             <property name="frameShape">
-              <enum>QFrame::StyledPanel</enum>
-             </property>
-             <property name="frameShadow">
-              <enum>QFrame::Raised</enum>
-             </property>
-             <layout class="QHBoxLayout" name="horizontalLayout_3">
-              <item>
-               <widget class="QLabel" name="home_lbl_student">
-                <property name="maximumSize">
-                 <size>
-                  <width>16777215</width>
-                  <height>60</height>
-                 </size>
-                </property>
-                <property name="font">
-                 <font>
-                  <pointsize>14</pointsize>
-                  <weight>50</weight>
-                  <bold>false</bold>
-                 </font>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">color: rgb(26, 181, 219);</string>
-                </property>
-                <property name="text">
-                 <string>শিক্ষার্থী নিবন্ধন</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignCenter</set>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QLabel" name="home_lbl_lesson">
-                <property name="maximumSize">
-                 <size>
-                  <width>16777215</width>
-                  <height>50</height>
-                 </size>
-                </property>
-                <property name="font">
-                 <font>
-                  <pointsize>14</pointsize>
-                 </font>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">color: rgb(26, 181, 219);</string>
-                </property>
-                <property name="text">
-                 <string>পাঠ্যসূচী</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignCenter</set>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QLabel" name="home_lbl_quiz">
-                <property name="maximumSize">
-                 <size>
-                  <width>16777215</width>
-                  <height>50</height>
-                 </size>
-                </property>
-                <property name="font">
-                 <font>
-                  <pointsize>14</pointsize>
-                 </font>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">color: rgb(26, 181, 219);</string>
-                </property>
-                <property name="text">
-                 <string>পাঠ মূল্যায়ন</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignCenter</set>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QLabel" name="home_lbl_progress">
-                <property name="maximumSize">
-                 <size>
-                  <width>16777215</width>
-                  <height>50</height>
-                 </size>
-                </property>
-                <property name="font">
-                 <font>
-                  <pointsize>14</pointsize>
-                 </font>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">color: rgb(26, 181, 219);</string>
-                </property>
-                <property name="text">
-                 <string>শিক্ষার্থীর পারফরম্যান্স</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignCenter</set>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QLabel" name="home_lbl_settings">
-                <property name="maximumSize">
-                 <size>
-                  <width>16777215</width>
-                  <height>50</height>
-                 </size>
-                </property>
-                <property name="font">
-                 <font>
-                  <pointsize>14</pointsize>
-                 </font>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">color: rgb(26, 181, 219);</string>
-                </property>
-                <property name="text">
-                 <string>সেটিংস</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignCenter</set>
                 </property>
                </widget>
               </item>
@@ -674,14 +504,11 @@ QPushButton:hover:!pressed
       <widget class="QWidget" name="student_page">
        <property name="minimumSize">
         <size>
-         <width>1300</width>
-         <height>900</height>
+         <width>1280</width>
+         <height>720</height>
         </size>
        </property>
-       <layout class="QVBoxLayout" name="verticalLayout_4">
-        <property name="spacing">
-         <number>0</number>
-        </property>
+       <layout class="QHBoxLayout" name="horizontalLayout">
         <property name="leftMargin">
          <number>0</number>
         </property>
@@ -698,12 +525,12 @@ QPushButton:hover:!pressed
          <widget class="QFrame" name="student_frame">
           <property name="minimumSize">
            <size>
-            <width>1250</width>
-            <height>850</height>
+            <width>1280</width>
+            <height>720</height>
            </size>
           </property>
           <property name="styleSheet">
-           <string notr="true"/>
+           <string notr="true">border-radius: 0;</string>
           </property>
           <property name="frameShape">
            <enum>QFrame::StyledPanel</enum>
@@ -736,9 +563,7 @@ QPushButton:hover:!pressed
               </size>
              </property>
              <property name="styleSheet">
-              <string notr="true">background-color: #2B4865;
-border-top-left-radius: 20px;
-border-top-right-radius: 20px;</string>
+              <string notr="true">background-color: #2B4865;</string>
              </property>
              <property name="frameShape">
               <enum>QFrame::StyledPanel</enum>
@@ -1047,9 +872,7 @@ QTableWidget {
               </size>
              </property>
              <property name="styleSheet">
-              <string notr="true">background-color: rgb(42, 70, 98);
-border-bottom-left-radius: 20px;
-border-bottom-right-radius: 20px;</string>
+              <string notr="true">background-color: rgb(42, 70, 98);</string>
              </property>
              <property name="frameShape">
               <enum>QFrame::StyledPanel</enum>
@@ -1074,15 +897,15 @@ border-bottom-right-radius: 20px;</string>
               <item>
                <widget class="QPushButton" name="std_btn_add_student">
                 <property name="sizePolicy">
-                 <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                   <horstretch>230</horstretch>
                   <verstretch>40</verstretch>
                  </sizepolicy>
                 </property>
                 <property name="minimumSize">
                  <size>
-                  <width>250</width>
-                  <height>40</height>
+                  <width>251</width>
+                  <height>41</height>
                  </size>
                 </property>
                 <property name="font">
@@ -1100,7 +923,7 @@ border-bottom-right-radius: 20px;</string>
                  <string notr="true">QPushButton {
 background-color: rgb(160, 253, 230);
 color:  #256D85 ;
-border-radius: 15px;
+border-radius: 10px;
 }
 
 QPushButton::hover {
@@ -1141,14 +964,14 @@ QPushButton::hover {
               <item>
                <widget class="QPushButton" name="std_btn_update_info">
                 <property name="sizePolicy">
-                 <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                   <horstretch>230</horstretch>
                   <verstretch>40</verstretch>
                  </sizepolicy>
                 </property>
                 <property name="minimumSize">
                  <size>
-                  <width>250</width>
+                  <width>290</width>
                   <height>40</height>
                  </size>
                 </property>
@@ -1167,7 +990,7 @@ QPushButton::hover {
                  <string notr="true">QPushButton {
 background-color: rgb(160, 253, 230);
 color:  #256D85 ;
-border-radius: 15px;
+border-radius: 10px;
 }
 
 QPushButton::hover {
@@ -1215,7 +1038,7 @@ QPushButton::hover {
                 </property>
                 <property name="minimumSize">
                  <size>
-                  <width>250</width>
+                  <width>260</width>
                   <height>40</height>
                  </size>
                 </property>
@@ -1232,7 +1055,7 @@ QPushButton::hover {
                  <string notr="true">QPushButton {
 background-color: rgb(160, 253, 230);
 color:  #256D85 ;
-border-radius: 15px;
+border-radius: 10px;
 }
 
 QPushButton::hover {
@@ -1273,7 +1096,10 @@ QPushButton::hover {
        </layout>
       </widget>
       <widget class="QWidget" name="lesson_page">
-       <layout class="QVBoxLayout" name="verticalLayout_8">
+       <layout class="QHBoxLayout" name="horizontalLayout_11">
+        <property name="spacing">
+         <number>0</number>
+        </property>
         <property name="leftMargin">
          <number>0</number>
         </property>
@@ -1290,8 +1116,8 @@ QPushButton::hover {
          <widget class="QFrame" name="lesson_frame">
           <property name="minimumSize">
            <size>
-            <width>1250</width>
-            <height>890</height>
+            <width>1280</width>
+            <height>720</height>
            </size>
           </property>
           <property name="styleSheet">
@@ -1303,10 +1129,7 @@ QPushButton::hover {
           <property name="frameShadow">
            <enum>QFrame::Raised</enum>
           </property>
-          <layout class="QVBoxLayout" name="verticalLayout_7">
-           <property name="spacing">
-            <number>0</number>
-           </property>
+          <layout class="QGridLayout" name="gridLayout_2">
            <property name="leftMargin">
             <number>0</number>
            </property>
@@ -1319,7 +1142,10 @@ QPushButton::hover {
            <property name="bottomMargin">
             <number>0</number>
            </property>
-           <item>
+           <property name="spacing">
+            <number>0</number>
+           </property>
+           <item row="0" column="0">
             <widget class="QFrame" name="top_frame_2">
              <property name="minimumSize">
               <size>
@@ -1334,9 +1160,7 @@ QPushButton::hover {
               </size>
              </property>
              <property name="styleSheet">
-              <string notr="true">background-color: #2B4865;
-border-top-left-radius: 20px;
-border-top-right-radius: 20px;</string>
+              <string notr="true">background-color: #2B4865;</string>
              </property>
              <property name="frameShape">
               <enum>QFrame::StyledPanel</enum>
@@ -1345,6 +1169,18 @@ border-top-right-radius: 20px;</string>
               <enum>QFrame::Raised</enum>
              </property>
              <layout class="QHBoxLayout" name="horizontalLayout_7">
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
               <item>
                <widget class="QPushButton" name="lsn_btn_back_to_home">
                 <property name="sizePolicy">
@@ -1440,17 +1276,16 @@ QPushButton:hover:!pressed
              </layout>
             </widget>
            </item>
-           <item>
+           <item row="1" column="0">
             <widget class="QFrame" name="mid_frame_2">
              <property name="minimumSize">
               <size>
                <width>1180</width>
-               <height>604</height>
+               <height>520</height>
               </size>
              </property>
              <property name="styleSheet">
-              <string notr="true">
-background-color:rgb(36, 105, 127);</string>
+              <string notr="true">background-color:rgb(36, 105, 127);</string>
              </property>
              <property name="frameShape">
               <enum>QFrame::StyledPanel</enum>
@@ -1458,8 +1293,20 @@ background-color:rgb(36, 105, 127);</string>
              <property name="frameShadow">
               <enum>QFrame::Raised</enum>
              </property>
-             <layout class="QGridLayout" name="gridLayout_2">
-              <item row="0" column="0" colspan="3">
+             <layout class="QVBoxLayout" name="verticalLayout_4">
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item>
                <widget class="QFrame" name="bottom_top_frame">
                 <property name="minimumSize">
                  <size>
@@ -1476,7 +1323,7 @@ background-color:rgb(36, 105, 127);</string>
                 <property name="styleSheet">
                  <string notr="true">background-color: rgb(29, 88, 105);
 color: rgb(137, 218, 199);
-border-radius: 20px;</string>
+</string>
                 </property>
                 <property name="frameShape">
                  <enum>QFrame::StyledPanel</enum>
@@ -1637,22 +1484,16 @@ padding-left: 10px;</string>
                 </layout>
                </widget>
               </item>
-              <item row="1" column="0">
-               <widget class="QFrame" name="left_btn_frame">
+              <item>
+               <widget class="QFrame" name="middle_content_frame">
                 <property name="minimumSize">
                  <size>
-                  <width>60</width>
-                  <height>629</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>60</width>
-                  <height>16777215</height>
+                  <width>1241</width>
+                  <height>400</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true"/>
+                 <string notr="true">background-color: rgb(30, 90, 108);</string>
                 </property>
                 <property name="frameShape">
                  <enum>QFrame::StyledPanel</enum>
@@ -1660,85 +1501,17 @@ padding-left: 10px;</string>
                 <property name="frameShadow">
                  <enum>QFrame::Raised</enum>
                 </property>
-                <layout class="QVBoxLayout" name="verticalLayout_5">
-                 <property name="leftMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="topMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="rightMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="bottomMargin">
-                  <number>0</number>
-                 </property>
-                 <item>
-                  <widget class="QPushButton" name="lsn_btn_left">
-                   <property name="minimumSize">
-                    <size>
-                     <width>60</width>
-                     <height>629</height>
-                    </size>
-                   </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>60</width>
-                     <height>16777215</height>
-                    </size>
-                   </property>
-                   <property name="cursor">
-                    <cursorShape>PointingHandCursor</cursorShape>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">QPushButton {background-color: rgb(30, 90, 108); border-radius: 20px;}
-
-QPushButton::hover  {
-	background-color: rgb(20, 62, 74);
-}
-</string>
-                   </property>
-                   <property name="text">
-                    <string/>
-                   </property>
-                   <property name="icon">
-                    <iconset>
-                     <normaloff>../Images/left.png</normaloff>../Images/left.png</iconset>
-                   </property>
-                   <property name="iconSize">
-                    <size>
-                     <width>100</width>
-                     <height>100</height>
-                    </size>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </widget>
-              </item>
-              <item row="1" column="1">
-               <widget class="QFrame" name="middle_content_frame">
-                <property name="styleSheet">
-                 <string notr="true">background-color: rgb(30, 90, 108);
-border-radius: 20px;</string>
-                </property>
-                <property name="frameShape">
-                 <enum>QFrame::StyledPanel</enum>
-                </property>
-                <property name="frameShadow">
-                 <enum>QFrame::Raised</enum>
-                </property>
-                <layout class="QHBoxLayout" name="horizontalLayout_13">
+                <layout class="QHBoxLayout" name="horizontalLayout_12">
                  <item>
                   <widget class="QStackedWidget" name="mediaStackWidget">
                    <property name="minimumSize">
                     <size>
-                     <width>671</width>
-                     <height>600</height>
+                     <width>690</width>
+                     <height>400</height>
                     </size>
                    </property>
                    <property name="currentIndex">
-                    <number>1</number>
+                    <number>0</number>
                    </property>
                    <widget class="QWidget" name="image_page">
                     <layout class="QHBoxLayout" name="horizontalLayout_9">
@@ -1758,8 +1531,8 @@ border-radius: 20px;</string>
                       <widget class="QLabel" name="lsn_lbl_lesson_image">
                        <property name="minimumSize">
                         <size>
-                         <width>600</width>
-                         <height>571</height>
+                         <width>690</width>
+                         <height>380</height>
                         </size>
                        </property>
                        <property name="font">
@@ -1782,7 +1555,7 @@ color: rgb(137, 218, 199);</string>
                     </layout>
                    </widget>
                    <widget class="QWidget" name="video_page">
-                    <layout class="QVBoxLayout" name="verticalLayout_3">
+                    <layout class="QVBoxLayout" name="verticalLayout_5">
                      <property name="leftMargin">
                       <number>0</number>
                      </property>
@@ -1796,23 +1569,10 @@ color: rgb(137, 218, 199);</string>
                       <number>5</number>
                      </property>
                      <item>
-                      <widget class="QFrame" name="video_window">
-                       <property name="minimumSize">
-                        <size>
-                         <width>600</width>
-                         <height>500</height>
-                        </size>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">border: 2px solid rgb(137, 218, 199);</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
                       <widget class="QFrame" name="frame">
                        <property name="minimumSize">
                         <size>
-                         <width>671</width>
+                         <width>690</width>
                          <height>81</height>
                         </size>
                        </property>
@@ -1823,7 +1583,20 @@ color: rgb(137, 218, 199);</string>
                         <enum>QFrame::Raised</enum>
                        </property>
                        <layout class="QGridLayout" name="gridLayout_3">
-                        <item row="0" column="0" colspan="5">
+                        <item row="0" column="0" colspan="4">
+                         <widget class="QFrame" name="video_window">
+                          <property name="minimumSize">
+                           <size>
+                            <width>600</width>
+                            <height>300</height>
+                           </size>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true">border: 2px solid rgb(137, 218, 199);</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="1" column="0" colspan="4">
                          <widget class="QSlider" name="horizontalSlider">
                           <property name="minimumSize">
                            <size>
@@ -1863,7 +1636,7 @@ QSlider::handle:horizontal:hover {
                           </property>
                          </widget>
                         </item>
-                        <item row="1" column="0">
+                        <item row="2" column="0">
                          <widget class="QPushButton" name="playBtn">
                           <property name="enabled">
                            <bool>false</bool>
@@ -1899,37 +1672,7 @@ QPushButton::hover {
                           </property>
                          </widget>
                         </item>
-                        <item row="1" column="1">
-                         <widget class="QPushButton" name="openfile">
-                          <property name="minimumSize">
-                           <size>
-                            <width>171</width>
-                            <height>41</height>
-                           </size>
-                          </property>
-                          <property name="cursor">
-                           <cursorShape>PointingHandCursor</cursorShape>
-                          </property>
-                          <property name="styleSheet">
-                           <string notr="true">QPushButton {
-background-color: rgb(160, 253, 230);
-color:  #256D85 ;
-border-radius: 15px;
-}
-
-QPushButton::hover {
-	
-	background-color: rgb(143, 227, 207);
-	color: #2B4865;
-
-}</string>
-                          </property>
-                          <property name="text">
-                           <string>ভিডিও নির্বাচন করুন</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item row="1" column="2">
+                        <item row="2" column="1">
                          <spacer name="horizontalSpacer_8">
                           <property name="orientation">
                            <enum>Qt::Horizontal</enum>
@@ -1945,7 +1688,7 @@ QPushButton::hover {
                           </property>
                          </spacer>
                         </item>
-                        <item row="1" column="3">
+                        <item row="2" column="2">
                          <widget class="QLabel" name="label">
                           <property name="minimumSize">
                            <size>
@@ -1972,7 +1715,7 @@ border-radius: 15px;</string>
                           </property>
                          </widget>
                         </item>
-                        <item row="1" column="4">
+                        <item row="2" column="3">
                          <widget class="QSlider" name="volume_Slider">
                           <property name="minimumSize">
                            <size>
@@ -2022,8 +1765,6 @@ QSlider::handle:horizontal:hover {
                       </widget>
                      </item>
                     </layout>
-                    <zorder>frame</zorder>
-                    <zorder>video_window</zorder>
                    </widget>
                   </widget>
                  </item>
@@ -2031,8 +1772,8 @@ QSlider::handle:horizontal:hover {
                   <widget class="QLabel" name="lsn_lbl_lesson_topic">
                    <property name="minimumSize">
                     <size>
-                     <width>431</width>
-                     <height>591</height>
+                     <width>520</width>
+                     <height>400</height>
                     </size>
                    </property>
                    <property name="maximumSize">
@@ -2064,89 +1805,10 @@ color: rgb(137, 218, 199);</string>
                 </layout>
                </widget>
               </item>
-              <item row="1" column="2">
-               <widget class="QFrame" name="right_btn_frame">
-                <property name="minimumSize">
-                 <size>
-                  <width>60</width>
-                  <height>629</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>60</width>
-                  <height>16777215</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true"/>
-                </property>
-                <property name="frameShape">
-                 <enum>QFrame::StyledPanel</enum>
-                </property>
-                <property name="frameShadow">
-                 <enum>QFrame::Raised</enum>
-                </property>
-                <layout class="QVBoxLayout" name="verticalLayout_6">
-                 <property name="leftMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="topMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="rightMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="bottomMargin">
-                  <number>0</number>
-                 </property>
-                 <item>
-                  <widget class="QPushButton" name="lsn_btn_right">
-                   <property name="minimumSize">
-                    <size>
-                     <width>60</width>
-                     <height>629</height>
-                    </size>
-                   </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>60</width>
-                     <height>16777215</height>
-                    </size>
-                   </property>
-                   <property name="cursor">
-                    <cursorShape>PointingHandCursor</cursorShape>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">QPushButton {background-color: rgb(30, 90, 108); border-radius: 20px;}
-
-QPushButton::hover  {
-	background-color: rgb(20, 62, 74);
-}
-</string>
-                   </property>
-                   <property name="text">
-                    <string/>
-                   </property>
-                   <property name="icon">
-                    <iconset>
-                     <normaloff>../Images/right.png</normaloff>../Images/right.png</iconset>
-                   </property>
-                   <property name="iconSize">
-                    <size>
-                     <width>100</width>
-                     <height>100</height>
-                    </size>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </widget>
-              </item>
              </layout>
             </widget>
            </item>
-           <item>
+           <item row="2" column="0">
             <widget class="QFrame" name="bottom_frame_2">
              <property name="minimumSize">
               <size>
@@ -2162,8 +1824,7 @@ QPushButton::hover  {
              </property>
              <property name="styleSheet">
               <string notr="true">background-color: rgb(42, 70, 98);
-border-bottom-left-radius: 20px;
-border-bottom-right-radius: 20px;</string>
+</string>
              </property>
              <property name="frameShape">
               <enum>QFrame::StyledPanel</enum>
