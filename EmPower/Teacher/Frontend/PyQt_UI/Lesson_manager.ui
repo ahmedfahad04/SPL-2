@@ -159,7 +159,7 @@ QPushButton:hover:!pressed
           <string notr="true">color: #8FE3CF</string>
          </property>
          <property name="text">
-          <string>পাঠসূচি</string>
+          <string>পাঠসমূহ </string>
          </property>
          <property name="alignment">
           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>

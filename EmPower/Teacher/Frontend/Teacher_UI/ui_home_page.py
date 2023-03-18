@@ -19,8 +19,8 @@ class Ui_MainWindow(object):
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setMinimumSize(QtCore.QSize(1300, 900))
         self.centralwidget.setObjectName("centralwidget")
-        self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.centralwidget)
-        self.verticalLayout_3.setObjectName("verticalLayout_3")
+        self.horizontalLayout_11 = QtWidgets.QHBoxLayout(self.centralwidget)
+        self.horizontalLayout_11.setObjectName("horizontalLayout_11")
         self.stackedWidget = QtWidgets.QStackedWidget(self.centralwidget)
         self.stackedWidget.setMinimumSize(QtCore.QSize(1300, 900))
         self.stackedWidget.setObjectName("stackedWidget")
@@ -747,9 +747,17 @@ class Ui_MainWindow(object):
         self.middle_content_frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.middle_content_frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.middle_content_frame.setObjectName("middle_content_frame")
-        self.horizontalLayout_9 = QtWidgets.QHBoxLayout(self.middle_content_frame)
+        self.horizontalLayout_13 = QtWidgets.QHBoxLayout(self.middle_content_frame)
+        self.horizontalLayout_13.setObjectName("horizontalLayout_13")
+        self.mediaStackWidget = QtWidgets.QStackedWidget(self.middle_content_frame)
+        self.mediaStackWidget.setMinimumSize(QtCore.QSize(671, 600))
+        self.mediaStackWidget.setObjectName("mediaStackWidget")
+        self.image_page = QtWidgets.QWidget()
+        self.image_page.setObjectName("image_page")
+        self.horizontalLayout_9 = QtWidgets.QHBoxLayout(self.image_page)
+        self.horizontalLayout_9.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout_9.setObjectName("horizontalLayout_9")
-        self.lsn_lbl_lesson_image = QtWidgets.QLabel(self.middle_content_frame)
+        self.lsn_lbl_lesson_image = QtWidgets.QLabel(self.image_page)
         self.lsn_lbl_lesson_image.setMinimumSize(QtCore.QSize(600, 571))
         font = QtGui.QFont()
         font.setPointSize(30)
@@ -759,8 +767,135 @@ class Ui_MainWindow(object):
         self.lsn_lbl_lesson_image.setAlignment(QtCore.Qt.AlignCenter)
         self.lsn_lbl_lesson_image.setObjectName("lsn_lbl_lesson_image")
         self.horizontalLayout_9.addWidget(self.lsn_lbl_lesson_image)
+        self.mediaStackWidget.addWidget(self.image_page)
+        self.video_page = QtWidgets.QWidget()
+        self.video_page.setObjectName("video_page")
+        self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.video_page)
+        self.verticalLayout_3.setContentsMargins(0, 0, 5, 5)
+        self.verticalLayout_3.setObjectName("verticalLayout_3")
+        self.video_window = QtWidgets.QFrame(self.video_page)
+        self.video_window.setMinimumSize(QtCore.QSize(600, 500))
+        self.video_window.setStyleSheet("border: 2px solid rgb(137, 218, 199);")
+        self.video_window.setObjectName("video_window")
+        self.verticalLayout_3.addWidget(self.video_window)
+        self.frame = QtWidgets.QFrame(self.video_page)
+        self.frame.setMinimumSize(QtCore.QSize(671, 81))
+        self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame.setObjectName("frame")
+        self.gridLayout_3 = QtWidgets.QGridLayout(self.frame)
+        self.gridLayout_3.setObjectName("gridLayout_3")
+        self.horizontalSlider = QtWidgets.QSlider(self.frame)
+        self.horizontalSlider.setMinimumSize(QtCore.QSize(350, 0))
+        self.horizontalSlider.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.horizontalSlider.setStyleSheet("\n"
+"\n"
+"QSlider::groove:horizontal {\n"
+"    \n"
+"    background-color: rgb(43, 72, 101);\n"
+"    border: 1px solid rgb(43, 72, 101);\n"
+"    height: 5px;\n"
+"    margin: 0px;\n"
+"    }\n"
+"QSlider::handle:horizontal {\n"
+"    background-color: rgb(160, 253, 230) ;\n"
+"    color: rgb(137, 218, 199);\n"
+"    border: 1px solid;\n"
+"    height: 10px;\n"
+"    width: 20px;\n"
+"    margin: -8px 0px;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
+"QSlider::handle:horizontal:hover {\n"
+"    background-color: rgb(143, 227, 207);\n"
+"}")
+        self.horizontalSlider.setOrientation(QtCore.Qt.Horizontal)
+        self.horizontalSlider.setObjectName("horizontalSlider")
+        self.gridLayout_3.addWidget(self.horizontalSlider, 0, 0, 1, 5)
+        self.playBtn = QtWidgets.QPushButton(self.frame)
+        self.playBtn.setEnabled(False)
+        self.playBtn.setMinimumSize(QtCore.QSize(41, 31))
+        self.playBtn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.playBtn.setStyleSheet("QPushButton {\n"
+"background-color: rgb(160, 253, 230);\n"
+"color:  #256D85 ;\n"
+"border-radius: 15px;\n"
+"}\n"
+"\n"
+"QPushButton::hover {\n"
+"    \n"
+"    background-color: rgb(143, 227, 207);\n"
+"    color: #2B4865;\n"
+"\n"
+"}")
+        self.playBtn.setFlat(False)
+        self.playBtn.setObjectName("playBtn")
+        self.gridLayout_3.addWidget(self.playBtn, 1, 0, 1, 1)
+        self.openfile = QtWidgets.QPushButton(self.frame)
+        self.openfile.setMinimumSize(QtCore.QSize(171, 41))
+        self.openfile.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.openfile.setStyleSheet("QPushButton {\n"
+"background-color: rgb(160, 253, 230);\n"
+"color:  #256D85 ;\n"
+"border-radius: 15px;\n"
+"}\n"
+"\n"
+"QPushButton::hover {\n"
+"    \n"
+"    background-color: rgb(143, 227, 207);\n"
+"    color: #2B4865;\n"
+"\n"
+"}")
+        self.openfile.setObjectName("openfile")
+        self.gridLayout_3.addWidget(self.openfile, 1, 1, 1, 1)
+        spacerItem10 = QtWidgets.QSpacerItem(198, 20, QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_3.addItem(spacerItem10, 1, 2, 1, 1)
+        self.label = QtWidgets.QLabel(self.frame)
+        self.label.setMinimumSize(QtCore.QSize(81, 31))
+        self.label.setMaximumSize(QtCore.QSize(61, 31))
+        self.label.setStyleSheet("background-color: #2B4865;\n"
+"color:  rgb(160, 253, 230) ;\n"
+"border-radius: 15px;")
+        self.label.setAlignment(QtCore.Qt.AlignCenter)
+        self.label.setObjectName("label")
+        self.gridLayout_3.addWidget(self.label, 1, 3, 1, 1)
+        self.volume_Slider = QtWidgets.QSlider(self.frame)
+        self.volume_Slider.setMinimumSize(QtCore.QSize(109, 25))
+        self.volume_Slider.setMaximumSize(QtCore.QSize(109, 25))
+        self.volume_Slider.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.volume_Slider.setStyleSheet("\n"
+"\n"
+"QSlider::groove:horizontal {\n"
+"    \n"
+"    background-color: rgb(43, 72, 101);\n"
+"    border: 1px solid rgb(43, 72, 101);\n"
+"    height: 5px;\n"
+"    margin: 0px;\n"
+"    }\n"
+"QSlider::handle:horizontal {\n"
+"    background-color: rgb(160, 253, 230) ;\n"
+"    color: rgb(137, 218, 199);\n"
+"    border: 1px solid;\n"
+"    height: 10px;\n"
+"    width: 20px;\n"
+"    margin: -8px 0px;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
+"QSlider::handle:horizontal:hover {\n"
+"    background-color: rgb(143, 227, 207);\n"
+"}")
+        self.volume_Slider.setOrientation(QtCore.Qt.Horizontal)
+        self.volume_Slider.setObjectName("volume_Slider")
+        self.gridLayout_3.addWidget(self.volume_Slider, 1, 4, 1, 1)
+        self.verticalLayout_3.addWidget(self.frame)
+        self.frame.raise_()
+        self.video_window.raise_()
+        self.mediaStackWidget.addWidget(self.video_page)
+        self.horizontalLayout_13.addWidget(self.mediaStackWidget)
         self.lsn_lbl_lesson_topic = QtWidgets.QLabel(self.middle_content_frame)
-        self.lsn_lbl_lesson_topic.setMinimumSize(QtCore.QSize(390, 300))
+        self.lsn_lbl_lesson_topic.setMinimumSize(QtCore.QSize(431, 591))
         self.lsn_lbl_lesson_topic.setMaximumSize(QtCore.QSize(500, 16777215))
         font = QtGui.QFont()
         font.setPointSize(25)
@@ -770,7 +905,7 @@ class Ui_MainWindow(object):
         self.lsn_lbl_lesson_topic.setAlignment(QtCore.Qt.AlignCenter)
         self.lsn_lbl_lesson_topic.setWordWrap(True)
         self.lsn_lbl_lesson_topic.setObjectName("lsn_lbl_lesson_topic")
-        self.horizontalLayout_9.addWidget(self.lsn_lbl_lesson_topic)
+        self.horizontalLayout_13.addWidget(self.lsn_lbl_lesson_topic)
         self.gridLayout_2.addWidget(self.middle_content_frame, 1, 1, 1, 1)
         self.right_btn_frame = QtWidgets.QFrame(self.mid_frame_2)
         self.right_btn_frame.setMinimumSize(QtCore.QSize(60, 629))
@@ -846,11 +981,12 @@ class Ui_MainWindow(object):
         self.verticalLayout_7.addWidget(self.bottom_frame_2)
         self.verticalLayout_8.addWidget(self.lesson_frame)
         self.stackedWidget.addWidget(self.lesson_page)
-        self.verticalLayout_3.addWidget(self.stackedWidget)
+        self.horizontalLayout_11.addWidget(self.stackedWidget)
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(2)
+        self.mediaStackWidget.setCurrentIndex(1)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -887,6 +1023,9 @@ class Ui_MainWindow(object):
         self.lsn_lbl_lessons.setText(_translate("MainWindow", "পাঠসমূহ"))
         self.lsn_cmb_lessons.setItemText(0, _translate("MainWindow", "পাঠ ক্রম নির্বাচন করুন"))
         self.lsn_lbl_lesson_image.setText(_translate("MainWindow", "ছবি"))
+        self.playBtn.setText(_translate("MainWindow", "Play"))
+        self.openfile.setText(_translate("MainWindow", "ভিডিও নির্বাচন করুন"))
+        self.label.setText(_translate("MainWindow", "ভলিউম"))
         self.lsn_lbl_lesson_topic.setText(_translate("MainWindow", "পরিচয়"))
         self.lsn_btn_add_lessons.setText(_translate("MainWindow", "নতুন পাঠ যুক্ত করুন"))
 

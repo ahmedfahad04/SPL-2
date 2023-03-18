@@ -73,6 +73,7 @@ class Home(QMainWindow):  # Home extends QMainWindow
         self.setWindowTitle("শিক্ষার্থীর পাঠসমূহ")
         
         # Navigate between windows
+        self.home.mediaStackWidget.setCurrentWidget(self.home.image_page)
         self.home.stackedWidget.setCurrentWidget(self.home.lesson_page)
         self.home.lsn_btn_back_to_home.clicked.connect(self.home_page)
         
