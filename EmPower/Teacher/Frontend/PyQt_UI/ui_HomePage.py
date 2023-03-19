@@ -17,9 +17,9 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QAbstractScrollArea, QApplication, QComboBox, QFrame,
     QGridLayout, QHBoxLayout, QHeaderView, QLabel,
-    QMainWindow, QPushButton, QSizePolicy, QSlider,
-    QSpacerItem, QStackedWidget, QTableWidget, QTableWidgetItem,
-    QVBoxLayout, QWidget)
+    QMainWindow, QPushButton, QSizePolicy, QSpacerItem,
+    QStackedWidget, QTableWidget, QTableWidgetItem, QVBoxLayout,
+    QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -324,8 +324,8 @@ class Ui_MainWindow(object):
         self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
         self.horizontalLayout_5.setContentsMargins(0, 0, 0, 0)
         self.std_tableWidget = QTableWidget(self.mid_frame)
-        if (self.std_tableWidget.columnCount() < 5):
-            self.std_tableWidget.setColumnCount(5)
+        if (self.std_tableWidget.columnCount() < 6):
+            self.std_tableWidget.setColumnCount(6)
         font3 = QFont()
         font3.setFamilies([u"Hind Siliguri Medium"])
         font3.setPointSize(13)
@@ -345,15 +345,19 @@ class Ui_MainWindow(object):
         __qtablewidgetitem3.setTextAlignment(Qt.AlignCenter);
         __qtablewidgetitem3.setFont(font3);
         self.std_tableWidget.setHorizontalHeaderItem(3, __qtablewidgetitem3)
+        __qtablewidgetitem4 = QTableWidgetItem()
+        __qtablewidgetitem4.setTextAlignment(Qt.AlignCenter);
+        __qtablewidgetitem4.setFont(font3);
+        self.std_tableWidget.setHorizontalHeaderItem(4, __qtablewidgetitem4)
         font4 = QFont()
         font4.setFamilies([u"Hind Siliguri Medium"])
         font4.setPointSize(13)
         font4.setKerning(True)
         font4.setStyleStrategy(QFont.PreferDefault)
-        __qtablewidgetitem4 = QTableWidgetItem()
-        __qtablewidgetitem4.setTextAlignment(Qt.AlignCenter);
-        __qtablewidgetitem4.setFont(font4);
-        self.std_tableWidget.setHorizontalHeaderItem(4, __qtablewidgetitem4)
+        __qtablewidgetitem5 = QTableWidgetItem()
+        __qtablewidgetitem5.setTextAlignment(Qt.AlignCenter);
+        __qtablewidgetitem5.setFont(font4);
+        self.std_tableWidget.setHorizontalHeaderItem(5, __qtablewidgetitem5)
         self.std_tableWidget.setObjectName(u"std_tableWidget")
         self.std_tableWidget.setFont(font1)
         self.std_tableWidget.setStyleSheet(u"QHeaderView::section {\n"
@@ -382,7 +386,7 @@ class Ui_MainWindow(object):
         self.std_tableWidget.setSortingEnabled(True)
         self.std_tableWidget.setCornerButtonEnabled(True)
         self.std_tableWidget.setRowCount(0)
-        self.std_tableWidget.setColumnCount(5)
+        self.std_tableWidget.setColumnCount(6)
         self.std_tableWidget.horizontalHeader().setCascadingSectionResizes(True)
         self.std_tableWidget.horizontalHeader().setDefaultSectionSize(170)
         self.std_tableWidget.horizontalHeader().setHighlightSections(True)
@@ -703,117 +707,10 @@ class Ui_MainWindow(object):
         self.verticalLayout_5 = QVBoxLayout(self.video_page)
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
         self.verticalLayout_5.setContentsMargins(0, 0, 5, 5)
-        self.video_player_widget = QWidget(self.video_page)
+        self.video_player_widget = QHBoxLayout()
         self.video_player_widget.setObjectName(u"video_player_widget")
-        self.video_player_widget.setMinimumSize(QSize(690, 81))
-        self.gridLayout_3 = QGridLayout(self.video_player_widget)
-        self.gridLayout_3.setObjectName(u"gridLayout_3")
-        self.video_label = QLabel(self.video_player_widget)
-        self.video_label.setObjectName(u"video_label")
-        self.video_label.setMinimumSize(QSize(681, 371))
-        self.video_label.setStyleSheet(u"border: 2px solid blue;")
 
-        self.gridLayout_3.addWidget(self.video_label, 0, 0, 1, 4)
-
-        self.horizontalSlider = QSlider(self.video_player_widget)
-        self.horizontalSlider.setObjectName(u"horizontalSlider")
-        self.horizontalSlider.setMinimumSize(QSize(350, 0))
-        self.horizontalSlider.setCursor(QCursor(Qt.PointingHandCursor))
-        self.horizontalSlider.setStyleSheet(u"\n"
-"\n"
-"QSlider::groove:horizontal {\n"
-"	\n"
-"	background-color: rgb(43, 72, 101);\n"
-"    border: 1px solid rgb(43, 72, 101);\n"
-"    height: 5px;\n"
-"    margin: 0px;\n"
-"    }\n"
-"QSlider::handle:horizontal {\n"
-"    background-color: rgb(160, 253, 230) ;\n"
-"	color: rgb(137, 218, 199);\n"
-"    border: 1px solid;\n"
-"    height: 10px;\n"
-"    width: 20px;\n"
-"    margin: -8px 0px;\n"
-"	border-radius: 10px;\n"
-"}\n"
-"\n"
-"QSlider::handle:horizontal:hover {\n"
-"	background-color: rgb(143, 227, 207);\n"
-"}")
-        self.horizontalSlider.setOrientation(Qt.Horizontal)
-
-        self.gridLayout_3.addWidget(self.horizontalSlider, 1, 0, 1, 2)
-
-        self.playBtn = QPushButton(self.video_player_widget)
-        self.playBtn.setObjectName(u"playBtn")
-        self.playBtn.setEnabled(False)
-        self.playBtn.setMinimumSize(QSize(41, 31))
-        self.playBtn.setCursor(QCursor(Qt.PointingHandCursor))
-        self.playBtn.setStyleSheet(u"QPushButton {\n"
-"background-color: rgb(160, 253, 230);\n"
-"color:  #256D85 ;\n"
-"border-radius: 15px;\n"
-"}\n"
-"\n"
-"QPushButton::hover {\n"
-"	\n"
-"	background-color: rgb(143, 227, 207);\n"
-"	color: #2B4865;\n"
-"\n"
-"}")
-        self.playBtn.setFlat(False)
-
-        self.gridLayout_3.addWidget(self.playBtn, 2, 0, 1, 1)
-
-        self.horizontalSpacer_8 = QSpacerItem(198, 20, QSizePolicy.Maximum, QSizePolicy.Minimum)
-
-        self.gridLayout_3.addItem(self.horizontalSpacer_8, 2, 1, 1, 1)
-
-        self.label = QLabel(self.video_player_widget)
-        self.label.setObjectName(u"label")
-        self.label.setMinimumSize(QSize(81, 31))
-        self.label.setMaximumSize(QSize(61, 31))
-        self.label.setStyleSheet(u"background-color: #2B4865;\n"
-"color:  rgb(160, 253, 230) ;\n"
-"border-radius: 15px;")
-        self.label.setAlignment(Qt.AlignCenter)
-
-        self.gridLayout_3.addWidget(self.label, 2, 2, 1, 1)
-
-        self.volume_Slider = QSlider(self.video_player_widget)
-        self.volume_Slider.setObjectName(u"volume_Slider")
-        self.volume_Slider.setMinimumSize(QSize(109, 25))
-        self.volume_Slider.setMaximumSize(QSize(109, 25))
-        self.volume_Slider.setCursor(QCursor(Qt.PointingHandCursor))
-        self.volume_Slider.setStyleSheet(u"\n"
-"\n"
-"QSlider::groove:horizontal {\n"
-"	\n"
-"	background-color: rgb(43, 72, 101);\n"
-"    border: 1px solid rgb(43, 72, 101);\n"
-"    height: 5px;\n"
-"    margin: 0px;\n"
-"    }\n"
-"QSlider::handle:horizontal {\n"
-"    background-color: rgb(160, 253, 230) ;\n"
-"	color: rgb(137, 218, 199);\n"
-"    border: 1px solid;\n"
-"    height: 10px;\n"
-"    width: 20px;\n"
-"    margin: -8px 0px;\n"
-"	border-radius: 10px;\n"
-"}\n"
-"\n"
-"QSlider::handle:horizontal:hover {\n"
-"	background-color: rgb(143, 227, 207);\n"
-"}")
-        self.volume_Slider.setOrientation(Qt.Horizontal)
-
-        self.gridLayout_3.addWidget(self.volume_Slider, 2, 3, 1, 1)
-
-
-        self.verticalLayout_5.addWidget(self.video_player_widget)
+        self.verticalLayout_5.addLayout(self.video_player_widget)
 
         self.mediaStackWidget.addWidget(self.video_page)
 
@@ -918,9 +815,11 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem2 = self.std_tableWidget.horizontalHeaderItem(2)
         ___qtablewidgetitem2.setText(QCoreApplication.translate("MainWindow", u"\u09b6\u09bf\u0995\u09cd\u09b7\u09be\u09b0\u09cd\u09a5\u09c0\u09b0 \u09ac\u09df\u09b8 ", None));
         ___qtablewidgetitem3 = self.std_tableWidget.horizontalHeaderItem(3)
-        ___qtablewidgetitem3.setText(QCoreApplication.translate("MainWindow", u"\u0985\u09ad\u09bf\u09ad\u09be\u09ac\u0995\u09c7\u09b0 \u09a8\u09be\u09ae", None));
+        ___qtablewidgetitem3.setText(QCoreApplication.translate("MainWindow", u"\u09a0\u09bf\u0995\u09be\u09a8\u09be", None));
         ___qtablewidgetitem4 = self.std_tableWidget.horizontalHeaderItem(4)
-        ___qtablewidgetitem4.setText(QCoreApplication.translate("MainWindow", u"\u0985\u09ad\u09bf\u09ad\u09be\u09ac\u0995\u09c7\u09b0 \u09ae\u09cb\u09ac\u09be\u0987\u09b2 \u09a8\u09ae\u09cd\u09ac\u09b0", None));
+        ___qtablewidgetitem4.setText(QCoreApplication.translate("MainWindow", u"\u0985\u09ad\u09bf\u09ad\u09be\u09ac\u0995\u09c7\u09b0 \u09a8\u09be\u09ae", None));
+        ___qtablewidgetitem5 = self.std_tableWidget.horizontalHeaderItem(5)
+        ___qtablewidgetitem5.setText(QCoreApplication.translate("MainWindow", u"\u0985\u09ad\u09bf\u09ad\u09be\u09ac\u0995\u09c7\u09b0 \u09ae\u09cb\u09ac\u09be\u0987\u09b2 \u09a8\u09ae\u09cd\u09ac\u09b0", None));
         self.std_btn_add_student.setText(QCoreApplication.translate("MainWindow", u"\u09a8\u09a4\u09c1\u09a8 \u09b6\u09bf\u0995\u09cd\u09b7\u09be\u09b0\u09cd\u09a5\u09c0 \u09af\u09c1\u0995\u09cd\u09a4 \u0995\u09b0\u09c1\u09a8", None))
         self.std_btn_update_info.setText(QCoreApplication.translate("MainWindow", u"\u09b6\u09bf\u0995\u09cd\u09b7\u09be\u09b0\u09cd\u09a5\u09c0\u09b0 \u09a4\u09a5\u09cd\u09af \u0986\u09aa\u09a1\u09c7\u099f \u0995\u09b0\u09c1\u09a8", None))
         self.std_btn_remove_student.setText(QCoreApplication.translate("MainWindow", u"\u09b6\u09bf\u0995\u09cd\u09b7\u09be\u09b0\u09cd\u09a5\u09c0 \u098f\u09a8\u09cd\u099f\u09cd\u09b0\u09bf \u09ac\u09be\u09a4\u09bf\u09b2 \u0995\u09b0\u09c1\u09a8", None))
@@ -938,9 +837,6 @@ class Ui_MainWindow(object):
         self.lsn_cmb_lessons.setItemText(0, QCoreApplication.translate("MainWindow", u"\u09aa\u09be\u09a0 \u0995\u09cd\u09b0\u09ae \u09a8\u09bf\u09b0\u09cd\u09ac\u09be\u099a\u09a8 \u0995\u09b0\u09c1\u09a8", None))
 
         self.lsn_lbl_lesson_image.setText(QCoreApplication.translate("MainWindow", u"\u099b\u09ac\u09bf", None))
-        self.video_label.setText("")
-        self.playBtn.setText(QCoreApplication.translate("MainWindow", u"Play", None))
-        self.label.setText(QCoreApplication.translate("MainWindow", u"\u09ad\u09b2\u09bf\u0989\u09ae", None))
         self.lsn_lbl_lesson_topic.setText(QCoreApplication.translate("MainWindow", u"\u09aa\u09b0\u09bf\u099a\u09df", None))
         self.lsn_btn_add_lessons.setText(QCoreApplication.translate("MainWindow", u"\u09a8\u09a4\u09c1\u09a8 \u09aa\u09be\u09a0 \u09af\u09c1\u0995\u09cd\u09a4 \u0995\u09b0\u09c1\u09a8", None))
     # retranslateUi

@@ -1,5 +1,5 @@
-from Frontend.Teacher_UI import ui_add_student, ui_student
-from Backend.student_db import student_data as dm
+from Frontend.Teacher_UI import ui_add_student
+from Backend.Database.student_db import student_data as dm
 from Frontend.src.Document_Formatter import *
 
 
@@ -101,8 +101,10 @@ class Student_Window(QWidget):  # Home extends QMainWindow
                 elif cell == 2:
                     form.input_age.setText(value)
                 elif cell == 3:
-                    form.input_guardian.setText(value)
+                    form.input_address.setText(value)
                 elif cell == 4:
+                    form.input_guardian.setText(value)
+                elif cell == 5:
                     form.input_phone.setText(value)
 
             # show the update Form
@@ -113,7 +115,6 @@ class Student_Window(QWidget):  # Home extends QMainWindow
                 custom_form, form, current_row, previous_id))
 
         except Exception as e:
-
             print("[Error] Student Info table UPDATE Failed - ", e)
             return
 
@@ -128,6 +129,7 @@ class Student_Window(QWidget):  # Home extends QMainWindow
         self.std_id = obj.input_id.text()
         self.name = obj.input_name.text()
         self.age = obj.input_age.text()
+        self.address = obj.input_address.text()
         self.guardian = obj.input_guardian.text()
         self.phone = obj.input_phone.text()
 
@@ -139,7 +141,7 @@ class Student_Window(QWidget):  # Home extends QMainWindow
 
             # add new row
             self.std_window.std_tableWidget.insertRow(total_rows)
-            data = [self.std_id, self.name, self.age, self.guardian, self.phone]
+            data = [self.std_id, self.name, self.age, self.address,self.guardian, self.phone]
 
             # set the values into the new row
             for i in range(total_cols):
@@ -156,7 +158,7 @@ class Student_Window(QWidget):  # Home extends QMainWindow
 
             # update row
             total_rows = row_id
-            data = [self.std_id, self.name, self.age, self.guardian, self.phone, old_id]
+            data = [self.std_id, self.name, self.age, self.address,self.guardian, self.phone, old_id]
 
             # set the values into the new row
             for i in range(total_cols):

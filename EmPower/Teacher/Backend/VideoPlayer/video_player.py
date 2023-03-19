@@ -37,7 +37,7 @@ class Window(QWidget):
 
         #create videowidget object
         videowidget = QVideoWidget()
-
+        videowidget.setStyleSheet("border: 2px solid rgb(0, 43, 91)")
 
         #create open button
         openBtn = QPushButton('ফাইল ওপেন করুন')
@@ -71,7 +71,7 @@ class Window(QWidget):
         self.volume_lbl = QLabel("ভলিউম")
         self.volume_lbl.setStyleSheet("color: white")
         self.volume_lbl.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
-        self.volume_lbl.setMinimumSize(250,0)
+        self.volume_lbl.setMinimumSize(350,0)
         self.volume_lbl.setSizePolicy(QSizePolicy.Preferred, QSizePolicy.Maximum)
 
         #create hbox layout
@@ -83,7 +83,7 @@ class Window(QWidget):
         
         
         hbox2 = QHBoxLayout()
-        hbox2.addWidget(openBtn)
+        # hbox2.addWidget(openBtn)
         hbox2.addWidget(self.playBtn)
         hbox2.addWidget(self.volume_lbl)
         hbox2.addWidget(self.volume_slider)

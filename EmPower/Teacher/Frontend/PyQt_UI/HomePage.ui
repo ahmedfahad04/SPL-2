@@ -757,7 +757,7 @@ QTableWidget {
                  <number>0</number>
                 </property>
                 <property name="columnCount">
-                 <number>5</number>
+                 <number>6</number>
                 </property>
                 <attribute name="horizontalHeaderCascadingSectionResizes">
                  <bool>true</bool>
@@ -817,6 +817,20 @@ QTableWidget {
                 <column>
                  <property name="text">
                   <string>শিক্ষার্থীর বয়স </string>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <family>Hind Siliguri Medium</family>
+                   <pointsize>13</pointsize>
+                  </font>
+                 </property>
+                 <property name="textAlignment">
+                  <set>AlignCenter</set>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>ঠিকানা</string>
                  </property>
                  <property name="font">
                   <font>

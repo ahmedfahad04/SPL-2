@@ -1,20 +1,17 @@
-import json
 from Frontend.Teacher_UI import ui_add_lesson, ui_sound_recorder
 from Backend.VideoPlayer.video_player import Window
 from Frontend.src.Document_Formatter import *
-from Backend.lesson_db import lesson_data as ld
+from Backend.Database.lesson_db import lesson_data as ld
 from Backend.MediaRecorder import audioRecorder
 from PyQt5.QtCore import QTimer, QTime, Qt
-from PyQt5.QtMultimedia import *
-from PyQt5.QtMultimediaWidgets import *
-from moviepy.editor import VideoFileClip
-import os, shutil
+import os, shutil, glob, json, datetime
+
 
 class Lesson_Window(QMainWindow):  # Home extends QMainWindow
 
     def __init__(self, ui_object):
         super(QMainWindow, self).__init__()
-        
+
         # TODO: Video should be added flawlessly
 
         # window
@@ -32,7 +29,7 @@ class Lesson_Window(QMainWindow):  # Home extends QMainWindow
         self.folder_name = None
         self.content = None
         self.lesson_elements = ld().load_table()
-        self.current_category = None 
+        self.current_category = None
 
         # dictionary
         self.categories = {
@@ -44,14 +41,13 @@ class Lesson_Window(QMainWindow):  # Home extends QMainWindow
 
         os.path.exists('Lessons') or os.mkdir('Lessons')
         self.videoFormat = ['mp4', 'avi', 'mkv', 'flv', 'wmv', 'mov', '3gp', 'webm']
-        
-        
+
         self.load_lessons()
 
     def create_lesson(self):
-        
+
         print("lesson creation")
-        
+
         # load & set up the Add Lesson Page
         # TODO: Audio file name should be shown in the sub window
         custom_form = QWidget()
@@ -71,7 +67,7 @@ class Lesson_Window(QMainWindow):  # Home extends QMainWindow
         self.form.btn_submit.clicked.connect(lambda: self.save_lesson_content(custom_form))
 
     def manage_media(self):
-           
+
         # open file dialog box
         self.media_file_location = QFileDialog.getOpenFileName(self, "Open File")[0]
 
@@ -80,20 +76,19 @@ class Lesson_Window(QMainWindow):  # Home extends QMainWindow
             # TODO: Show warning box
             print("No Image Selected")
             return
-        
+
         # check file format
         file_format = self.media_file_location.split('.')[-1]
-        
+
         if file_format in self.videoFormat:
-            
+
             # navigate to video page
             self.lesson_window.mediaStackWidget.setCurrentWidget(self.lesson_window.video_page)
 
             # get and set image name
             self.media_file_name = self.media_file_location.split('/')[-1]
             self.form.lbl_photo_name.setText(self.media_file_name)
-                    
-            
+
         else:
             self.lesson_window.mediaStackWidget.setCurrentWidget(self.lesson_window.image_page)
 
@@ -102,7 +97,7 @@ class Lesson_Window(QMainWindow):  # Home extends QMainWindow
             self.qtimg = QPixmap(self.media_file_location)
             self.qtimg = self.qtimg.scaledToHeight(700, Qt.SmoothTransformation)
             self.lesson_window.lsn_lbl_lesson_image.setPixmap(self.qtimg)
-            
+
             # get and set image name
             self.media_file_name = self.media_file_location.split('/')[-1]
             self.form.lbl_photo_name.setText(self.media_file_name)
@@ -113,6 +108,7 @@ class Lesson_Window(QMainWindow):  # Home extends QMainWindow
         openFile = QFileDialog()
         self.audio_location = openFile.getOpenFileName()[0]
         self.audio_name = self.audio_location.split('/')[-1]
+        self.form.lbl_audio.setText(self.audio_name)
 
         # check file is correctly located or not
         if self.audio_location is None:
@@ -121,7 +117,7 @@ class Lesson_Window(QMainWindow):  # Home extends QMainWindow
             return
 
     def record_audio(self):
-    
+
         # load & set up the Add Lesson Page
         custom_form = QWidget()
         self.audio_form = ui_sound_recorder.Ui_audioRecorderWidget()
@@ -181,16 +177,16 @@ class Lesson_Window(QMainWindow):  # Home extends QMainWindow
 
     def save_audio(self, form):
         audio_fileName = self.audio_form.fileName.text()
-        
+
         print(audio_fileName)
         ## TODO: audio file backend er location a save ache
         ## eitake ekhn kothay save kore rakhbi korte paros
         ## backend er folder theke copy kore niye lesson er folder a o rakhte paros
         self.audio_location = 'Backend/MediaRecorder/audio.wav'
         self.audio_name = self.audio_location.split('/')[-1]
-        
+
         form.close()
-        
+
     def save_lesson_content(self, childObj):
         """
             This function saves the lesson content to the database.
@@ -209,8 +205,9 @@ class Lesson_Window(QMainWindow):  # Home extends QMainWindow
         self.lesson_id = self.form.edit_lesson_id.text()
         self.lesson_window.lsn_cmb_lessons.addItem(self.lesson_id)
 
+        # TODO: category must be selected
         # make a folder
-        self.folder_name = self.categories[self.category_id] + '_পাঠ_' + self.lesson_id
+        self.folder_name = self.categories[self.category_id] + '_পাঠ_' + self.lesson_id + '_' + datetime.datetime.now().strftime("%Y-%m-%d")
         self.folder_location = 'Lessons/' + self.folder_name
         if os.path.exists(self.folder_location) == False:
             os.mkdir(self.folder_location)
@@ -226,82 +223,80 @@ class Lesson_Window(QMainWindow):  # Home extends QMainWindow
 
         # copy the image
         # TODO: Show warning if any box of add lesson window is empty
-        shutil.copy2(self.media_file_location, self.folder_location + '/' + 'media.' + self.media_file_name.split('.')[1])
+        shutil.copy2(self.media_file_location,
+                     self.folder_location + '/' + 'media.' + self.media_file_name.split('.')[1])
         shutil.copy2(self.audio_location, self.folder_location + '/' + 'audio.' + self.audio_name.split('.')[1])
-        self.media_file_location = self.folder_location + '/' + 'media.' + self.media_file_name.split('.')[1]
-        self.audio_location = self.folder_location + '/' + 'audio.' + self.audio_name.split('.')[1]
 
         # save the data to the database
         # TODO: Show warning while adding duplicate data
-        data = [self.category_id, self.lesson_id, self.lesson_topic, self.media_file_location, self.audio_location]
+        data = [self.category_id, self.lesson_id, self.lesson_topic, self.folder_location]
         ld().add_entry(data)
 
-        childObj.hide()        
+        childObj.hide()
 
     def load_lessons(self):
-        
+
         tmp_lsn_id = set()
-               
+
         # add the lessons to the lesson window
         for element in self.lesson_elements:
-            
             print(element)
-            
+
             # extract the content
-            cat_id, lsn_id, lsn_topic, media_loc, aud_loc = element 
+            cat_id, lsn_id, lsn_topic, media_loc = element
             tmp_lsn_id.add(str(lsn_id))
-            
+
         self.lesson_window.lsn_cmb_lessons.addItems(sorted(tmp_lsn_id))
-            
+
     def on_category_changed(self, index):
-        
+
         self.current_category = str(index)
         print("Current Category: ", self.current_category)
-        
+
         self.lesson_window.lsn_cmb_lessons.setCurrentIndex(0)
-        
+
     def on_lesson_changed(self, index):
-        
+
         current_lesson = self.lesson_window.lsn_cmb_lessons.itemText(index)
         print("Current Lesson: ", current_lesson)
-        
+
         # add the lessons to the lesson window
         for element in self.lesson_elements:
-            
+
             print(element)
-            
+
             # extract the content
-            cat_id, db_lesson, lsn_topic, media_loc, aud_loc = element
-            
+            cat_id, db_lesson, lsn_topic, media_loc = element
+
             print(db_lesson, 'Type: ', type(db_lesson))
-            
+
             if current_lesson == str(db_lesson) and self.current_category == str(cat_id):
-                
-                print("inside")
-                
+
+
                 # add the content to the lesson window
                 self.lesson_window.lsn_cmb_lessons.setCurrentText(str(db_lesson))
                 self.lesson_window.lsn_cmb_category.setCurrentText(str(cat_id))
                 self.lesson_window.lsn_lbl_lesson_topic.setText(lsn_topic)
-                
+
+                media_loc = glob.glob(media_loc+'/media.*')[0]
                 file_extension = media_loc.split('.')[-1]
                 
+
                 if file_extension in self.videoFormat:
-                    
+
                     if self.lesson_window.video_player_widget.count() != 0:
                         self.lesson_window.video_player_widget.itemAt(0).widget().setParent(None)
-                                        
+
                     self.lesson_window.mediaStackWidget.setCurrentWidget(self.lesson_window.video_page)
-                    
+
                     video_player = Window(media_loc)
-                    self.lesson_window.video_player_widget.addWidget(video_player)                    
-                
+                    self.lesson_window.video_player_widget.addWidget(video_player)
+
                 else:
                     self.lesson_window.mediaStackWidget.setCurrentWidget(self.lesson_window.image_page)
                     
                     print('IMG LOC: ', media_loc)
+                    
                     self.qtimg = QPixmap(media_loc)
                     self.qtimg = self.qtimg.scaledToHeight(700, Qt.SmoothTransformation)
                     self.lesson_window.lsn_lbl_lesson_image.setPixmap(self.qtimg)
-                
-  
