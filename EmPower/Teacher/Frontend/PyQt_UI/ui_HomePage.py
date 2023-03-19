@@ -703,21 +703,19 @@ class Ui_MainWindow(object):
         self.verticalLayout_5 = QVBoxLayout(self.video_page)
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
         self.verticalLayout_5.setContentsMargins(0, 0, 5, 5)
-        self.frame = QFrame(self.video_page)
-        self.frame.setObjectName(u"frame")
-        self.frame.setMinimumSize(QSize(690, 81))
-        self.frame.setFrameShape(QFrame.StyledPanel)
-        self.frame.setFrameShadow(QFrame.Raised)
-        self.gridLayout_3 = QGridLayout(self.frame)
+        self.video_player_widget = QWidget(self.video_page)
+        self.video_player_widget.setObjectName(u"video_player_widget")
+        self.video_player_widget.setMinimumSize(QSize(690, 81))
+        self.gridLayout_3 = QGridLayout(self.video_player_widget)
         self.gridLayout_3.setObjectName(u"gridLayout_3")
-        self.video_window = QFrame(self.frame)
-        self.video_window.setObjectName(u"video_window")
-        self.video_window.setMinimumSize(QSize(600, 300))
-        self.video_window.setStyleSheet(u"border: 2px solid rgb(137, 218, 199);")
+        self.video_label = QLabel(self.video_player_widget)
+        self.video_label.setObjectName(u"video_label")
+        self.video_label.setMinimumSize(QSize(681, 371))
+        self.video_label.setStyleSheet(u"border: 2px solid blue;")
 
-        self.gridLayout_3.addWidget(self.video_window, 0, 0, 1, 4)
+        self.gridLayout_3.addWidget(self.video_label, 0, 0, 1, 4)
 
-        self.horizontalSlider = QSlider(self.frame)
+        self.horizontalSlider = QSlider(self.video_player_widget)
         self.horizontalSlider.setObjectName(u"horizontalSlider")
         self.horizontalSlider.setMinimumSize(QSize(350, 0))
         self.horizontalSlider.setCursor(QCursor(Qt.PointingHandCursor))
@@ -745,9 +743,9 @@ class Ui_MainWindow(object):
 "}")
         self.horizontalSlider.setOrientation(Qt.Horizontal)
 
-        self.gridLayout_3.addWidget(self.horizontalSlider, 1, 0, 1, 4)
+        self.gridLayout_3.addWidget(self.horizontalSlider, 1, 0, 1, 2)
 
-        self.playBtn = QPushButton(self.frame)
+        self.playBtn = QPushButton(self.video_player_widget)
         self.playBtn.setObjectName(u"playBtn")
         self.playBtn.setEnabled(False)
         self.playBtn.setMinimumSize(QSize(41, 31))
@@ -772,7 +770,7 @@ class Ui_MainWindow(object):
 
         self.gridLayout_3.addItem(self.horizontalSpacer_8, 2, 1, 1, 1)
 
-        self.label = QLabel(self.frame)
+        self.label = QLabel(self.video_player_widget)
         self.label.setObjectName(u"label")
         self.label.setMinimumSize(QSize(81, 31))
         self.label.setMaximumSize(QSize(61, 31))
@@ -783,7 +781,7 @@ class Ui_MainWindow(object):
 
         self.gridLayout_3.addWidget(self.label, 2, 2, 1, 1)
 
-        self.volume_Slider = QSlider(self.frame)
+        self.volume_Slider = QSlider(self.video_player_widget)
         self.volume_Slider.setObjectName(u"volume_Slider")
         self.volume_Slider.setMinimumSize(QSize(109, 25))
         self.volume_Slider.setMaximumSize(QSize(109, 25))
@@ -815,7 +813,7 @@ class Ui_MainWindow(object):
         self.gridLayout_3.addWidget(self.volume_Slider, 2, 3, 1, 1)
 
 
-        self.verticalLayout_5.addWidget(self.frame)
+        self.verticalLayout_5.addWidget(self.video_player_widget)
 
         self.mediaStackWidget.addWidget(self.video_page)
 
@@ -897,7 +895,7 @@ class Ui_MainWindow(object):
         self.stackedWidget.setCurrentIndex(2)
         self.std_btn_back_to_home.setDefault(False)
         self.lsn_btn_back_to_home.setDefault(False)
-        self.mediaStackWidget.setCurrentIndex(0)
+        self.mediaStackWidget.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -940,6 +938,7 @@ class Ui_MainWindow(object):
         self.lsn_cmb_lessons.setItemText(0, QCoreApplication.translate("MainWindow", u"\u09aa\u09be\u09a0 \u0995\u09cd\u09b0\u09ae \u09a8\u09bf\u09b0\u09cd\u09ac\u09be\u099a\u09a8 \u0995\u09b0\u09c1\u09a8", None))
 
         self.lsn_lbl_lesson_image.setText(QCoreApplication.translate("MainWindow", u"\u099b\u09ac\u09bf", None))
+        self.video_label.setText("")
         self.playBtn.setText(QCoreApplication.translate("MainWindow", u"Play", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"\u09ad\u09b2\u09bf\u0989\u09ae", None))
         self.lsn_lbl_lesson_topic.setText(QCoreApplication.translate("MainWindow", u"\u09aa\u09b0\u09bf\u099a\u09df", None))

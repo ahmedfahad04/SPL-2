@@ -11,7 +11,7 @@ class Form(QtWidgets.QDialog):
         self.setWindowTitle("Demo Media Player")
         self.ui = uic.loadUi(os.path.join(os.path.dirname(__file__), "form.ui"), self)
         self.player = QtMultimedia.QMediaPlayer(None, QtMultimedia.QMediaPlayer.VideoSurface)
-        file = os.path.join(os.path.dirname(__file__), "VideoPlayer/small.mp4")
+        file = os.path.join(os.path.dirname(__file__), "AudioVideoPlayer\sampleVideo.mp4")
         self.player.setMedia(QtMultimedia.QMediaContent(QtCore.QUrl.fromLocalFile(file)))
         self.player.setVideoOutput(self.ui.widget)
         self.player.play()

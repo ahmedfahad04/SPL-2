@@ -1,6 +1,6 @@
 import json
 from Frontend.Teacher_UI import ui_add_lesson, ui_sound_recorder
-from Backend.VideoPlayer.videoPlayer import VideoPlayer
+from Backend.VideoPlayer.video_player import Window
 from Frontend.src.Document_Formatter import *
 from Backend.lesson_db import lesson_data as ld
 from Backend.MediaRecorder import audioRecorder
@@ -9,7 +9,6 @@ from PyQt5.QtMultimedia import *
 from PyQt5.QtMultimediaWidgets import *
 from moviepy.editor import VideoFileClip
 import os, shutil
-
 
 class Lesson_Window(QMainWindow):  # Home extends QMainWindow
 
@@ -89,22 +88,11 @@ class Lesson_Window(QMainWindow):  # Home extends QMainWindow
             
             # navigate to video page
             self.lesson_window.mediaStackWidget.setCurrentWidget(self.lesson_window.video_page)
-            self.lesson_window.playBtn.setIcon(self.style().standardIcon(QStyle.SP_MediaPlay))
 
             # get and set image name
             self.media_file_name = self.media_file_location.split('/')[-1]
             self.form.lbl_photo_name.setText(self.media_file_name)
-            
-            # TODO: VIDEO PLAYER
-            self.mediaPlayer = QMediaPlayer(None, QMediaPlayer.VideoSurface)                    
-            self.lesson_window.video_window = QVideoWidget()                    
-            self.mediaPlayer.setVideoOutput(self.lesson_window.video_window) 
-                
-            self.mediaPlayer.setMedia(QMediaContent(QUrl(self.media_file_location)))
-            self.lesson_window.playBtn.setEnabled(True)
-                
-            self.lesson_window.playBtn.clicked.connect(lambda: self.play_video(self.mediaPlayer))
-            
+                    
             
         else:
             self.lesson_window.mediaStackWidget.setCurrentWidget(self.lesson_window.image_page)
@@ -297,48 +285,23 @@ class Lesson_Window(QMainWindow):  # Home extends QMainWindow
                 self.lesson_window.lsn_lbl_lesson_topic.setText(lsn_topic)
                 
                 file_extension = media_loc.split('.')[-1]
+                
                 if file_extension in self.videoFormat:
                     
-                    vp = VideoPlayer(self.lesson_window, self.media_file_name)
-                    
+                    if self.lesson_window.video_player_widget.count() != 0:
+                        self.lesson_window.video_player_widget.itemAt(0).widget().setParent(None)
+                                        
                     self.lesson_window.mediaStackWidget.setCurrentWidget(self.lesson_window.video_page)
                     
-                    self.mediaPlayer = QMediaPlayer()                    
-                    self.lesson_window.video_window = QVideoWidget()                    
-                    self.mediaPlayer.setVideoOutput(self.lesson_window.video_window) 
-                     
-                    self.mediaPlayer.setMedia(QMediaContent(QUrl(media_loc)))
-                    self.lesson_window.playBtn.setEnabled(True)
-                        
-                    self.lesson_window.playBtn.clicked.connect(lambda: self.play_video(self.mediaPlayer))
-
-                    # self.mediaPlayer.positionChanged.connect(vp.position_changed)
-                    # self.mediaPlayer.durationChanged.connect(vp.duration_changed)
-                    # self.mediaPlayer.volumeChanged.connect(vp.volume_changed)
-                    # self.mediaPlayer.setVolume(50)
-
-                    # self.lesson_window.volume_Slider.sliderMoved.connect(vp.set_volume)
-                    # self.lesson_window.horizontalSlider.sliderMoved.connect(vp.set_position)
+                    video_player = Window(media_loc)
+                    self.lesson_window.video_player_widget.addWidget(video_player)                    
                 
                 else:
                     self.lesson_window.mediaStackWidget.setCurrentWidget(self.lesson_window.image_page)
                     
-                    print('IMG LOC: ', media_loc	)
+                    print('IMG LOC: ', media_loc)
                     self.qtimg = QPixmap(media_loc)
                     self.qtimg = self.qtimg.scaledToHeight(700, Qt.SmoothTransformation)
                     self.lesson_window.lsn_lbl_lesson_image.setPixmap(self.qtimg)
                 
-    def play_video(self, media_player):
-        
-        print("play video")
-        
-        if media_player.state() == QMediaPlayer.PlayingState:
-            media_player.pause()
-            self.lesson_window.playBtn.setIcon(self.style().standardIcon(QStyle.SP_MediaPlay))
-            self.lesson_window.playBtn.setText("Pause")
-
-        else:
-            media_player.play()
-            self.lesson_window.playBtn.setIcon(self.style().standardIcon(QStyle.SP_MediaPause))
-            self.lesson_window.playBtn.setText("Play")
-                    
+  

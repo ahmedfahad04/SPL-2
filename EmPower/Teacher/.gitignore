@@ -1,0 +1,8 @@
+# ignore all pychache file
+__pycache__/
+
+# ignore all .vscode files
+.vscode/
+
+# ignore all .idea files
+.idea/

@@ -19,7 +19,7 @@ class Home(QMainWindow):  # Home extends QMainWindow
         super(QMainWindow, self).__init__()
 
         self.home_page()
-
+        
     def home_page(self):
         
         # load & set up the HOME page
@@ -76,7 +76,7 @@ class Home(QMainWindow):  # Home extends QMainWindow
         self.home.mediaStackWidget.setCurrentWidget(self.home.image_page)
         self.home.stackedWidget.setCurrentWidget(self.home.lesson_page)
         self.home.lsn_btn_back_to_home.clicked.connect(self.home_page)
-        
+                
         # Connecting Lesson window buttons
         self.home.lsn_btn_add_lessons.clicked.connect(self.lesson_window.create_lesson)
         self.home.lsn_cmb_category.currentIndexChanged.connect(self.lesson_window.on_category_changed)

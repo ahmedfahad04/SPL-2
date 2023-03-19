@@ -676,106 +676,9 @@ class Ui_MainWindow(object):
         self.verticalLayout_5 = QtWidgets.QVBoxLayout(self.video_page)
         self.verticalLayout_5.setContentsMargins(0, 0, 5, 5)
         self.verticalLayout_5.setObjectName("verticalLayout_5")
-        self.frame = QtWidgets.QFrame(self.video_page)
-        self.frame.setMinimumSize(QtCore.QSize(690, 81))
-        self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame.setObjectName("frame")
-        self.gridLayout_3 = QtWidgets.QGridLayout(self.frame)
-        self.gridLayout_3.setObjectName("gridLayout_3")
-        self.video_window = QtWidgets.QFrame(self.frame)
-        self.video_window.setMinimumSize(QtCore.QSize(600, 300))
-        self.video_window.setStyleSheet("border: 2px solid rgb(137, 218, 199);")
-        self.video_window.setObjectName("video_window")
-        self.gridLayout_3.addWidget(self.video_window, 0, 0, 1, 4)
-        self.horizontalSlider = QtWidgets.QSlider(self.frame)
-        self.horizontalSlider.setMinimumSize(QtCore.QSize(350, 0))
-        self.horizontalSlider.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.horizontalSlider.setStyleSheet("\n"
-"\n"
-"QSlider::groove:horizontal {\n"
-"    \n"
-"    background-color: rgb(43, 72, 101);\n"
-"    border: 1px solid rgb(43, 72, 101);\n"
-"    height: 5px;\n"
-"    margin: 0px;\n"
-"    }\n"
-"QSlider::handle:horizontal {\n"
-"    background-color: rgb(160, 253, 230) ;\n"
-"    color: rgb(137, 218, 199);\n"
-"    border: 1px solid;\n"
-"    height: 10px;\n"
-"    width: 20px;\n"
-"    margin: -8px 0px;\n"
-"    border-radius: 10px;\n"
-"}\n"
-"\n"
-"QSlider::handle:horizontal:hover {\n"
-"    background-color: rgb(143, 227, 207);\n"
-"}")
-        self.horizontalSlider.setOrientation(QtCore.Qt.Horizontal)
-        self.horizontalSlider.setObjectName("horizontalSlider")
-        self.gridLayout_3.addWidget(self.horizontalSlider, 1, 0, 1, 4)
-        self.playBtn = QtWidgets.QPushButton(self.frame)
-        self.playBtn.setEnabled(False)
-        self.playBtn.setMinimumSize(QtCore.QSize(41, 31))
-        self.playBtn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.playBtn.setStyleSheet("QPushButton {\n"
-"background-color: rgb(160, 253, 230);\n"
-"color:  #256D85 ;\n"
-"border-radius: 15px;\n"
-"}\n"
-"\n"
-"QPushButton::hover {\n"
-"    \n"
-"    background-color: rgb(143, 227, 207);\n"
-"    color: #2B4865;\n"
-"\n"
-"}")
-        self.playBtn.setFlat(False)
-        self.playBtn.setObjectName("playBtn")
-        self.gridLayout_3.addWidget(self.playBtn, 2, 0, 1, 1)
-        spacerItem9 = QtWidgets.QSpacerItem(198, 20, QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout_3.addItem(spacerItem9, 2, 1, 1, 1)
-        self.label = QtWidgets.QLabel(self.frame)
-        self.label.setMinimumSize(QtCore.QSize(81, 31))
-        self.label.setMaximumSize(QtCore.QSize(61, 31))
-        self.label.setStyleSheet("background-color: #2B4865;\n"
-"color:  rgb(160, 253, 230) ;\n"
-"border-radius: 15px;")
-        self.label.setAlignment(QtCore.Qt.AlignCenter)
-        self.label.setObjectName("label")
-        self.gridLayout_3.addWidget(self.label, 2, 2, 1, 1)
-        self.volume_Slider = QtWidgets.QSlider(self.frame)
-        self.volume_Slider.setMinimumSize(QtCore.QSize(109, 25))
-        self.volume_Slider.setMaximumSize(QtCore.QSize(109, 25))
-        self.volume_Slider.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.volume_Slider.setStyleSheet("\n"
-"\n"
-"QSlider::groove:horizontal {\n"
-"    \n"
-"    background-color: rgb(43, 72, 101);\n"
-"    border: 1px solid rgb(43, 72, 101);\n"
-"    height: 5px;\n"
-"    margin: 0px;\n"
-"    }\n"
-"QSlider::handle:horizontal {\n"
-"    background-color: rgb(160, 253, 230) ;\n"
-"    color: rgb(137, 218, 199);\n"
-"    border: 1px solid;\n"
-"    height: 10px;\n"
-"    width: 20px;\n"
-"    margin: -8px 0px;\n"
-"    border-radius: 10px;\n"
-"}\n"
-"\n"
-"QSlider::handle:horizontal:hover {\n"
-"    background-color: rgb(143, 227, 207);\n"
-"}")
-        self.volume_Slider.setOrientation(QtCore.Qt.Horizontal)
-        self.volume_Slider.setObjectName("volume_Slider")
-        self.gridLayout_3.addWidget(self.volume_Slider, 2, 3, 1, 1)
-        self.verticalLayout_5.addWidget(self.frame)
+        self.video_player_widget = QtWidgets.QHBoxLayout()
+        self.video_player_widget.setObjectName("video_player_widget")
+        self.verticalLayout_5.addLayout(self.video_player_widget)
         self.mediaStackWidget.addWidget(self.video_page)
         self.horizontalLayout_12.addWidget(self.mediaStackWidget)
         self.lsn_lbl_lesson_topic = QtWidgets.QLabel(self.middle_content_frame)
@@ -841,7 +744,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
         self.stackedWidget.setCurrentIndex(2)
-        self.mediaStackWidget.setCurrentIndex(0)
+        self.mediaStackWidget.setCurrentIndex(1)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -873,8 +776,6 @@ class Ui_MainWindow(object):
         self.lsn_lbl_lessons.setText(_translate("MainWindow", "পাঠসমূহ"))
         self.lsn_cmb_lessons.setItemText(0, _translate("MainWindow", "পাঠ ক্রম নির্বাচন করুন"))
         self.lsn_lbl_lesson_image.setText(_translate("MainWindow", "ছবি"))
-        self.playBtn.setText(_translate("MainWindow", "Play"))
-        self.label.setText(_translate("MainWindow", "ভলিউম"))
         self.lsn_lbl_lesson_topic.setText(_translate("MainWindow", "পরিচয়"))
         self.lsn_btn_add_lessons.setText(_translate("MainWindow", "নতুন পাঠ যুক্ত করুন"))
 

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '.\player.ui'
+# Form implementation generated from reading ui file '.\v_player.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.4
 #
@@ -9,8 +9,6 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtMultimedia import *
-from PyQt5.QtMultimediaWidgets import *
 
 
 class Ui_Form(object):
@@ -23,9 +21,11 @@ class Ui_Form(object):
         self.verticalLayout_2.setObjectName("verticalLayout_2")
         self.verticalLayout = QtWidgets.QVBoxLayout()
         self.verticalLayout.setObjectName("verticalLayout")
-        self.video_window = QVideoWidget(Form)
+        self.video_window = QtWidgets.QFrame(Form)
         self.video_window.setMinimumSize(QtCore.QSize(600, 500))
         self.video_window.setStyleSheet("border: 2px solid blue;")
+        self.video_window.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.video_window.setFrameShadow(QtWidgets.QFrame.Raised)
         self.video_window.setObjectName("video_window")
         self.verticalLayout.addWidget(self.video_window)
         self.horizontalLayout = QtWidgets.QHBoxLayout()
@@ -59,6 +59,7 @@ class Ui_Form(object):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
         self.openfile.setText(_translate("Form", "Open File"))
+        self.playBtn.setText(_translate("Form", "Play"))
 
 
 if __name__ == "__main__":

@@ -30,6 +30,8 @@ class Home(QMainWindow):  # Home extends QMainWindow
         
     def upload_lesson_page(self):
         
+        # TODO: should view from unfinished lesson
+        
         self.home.btn_select_folder.clicked.connect(self.upload_lesson)
         
         # Navigate between pages
