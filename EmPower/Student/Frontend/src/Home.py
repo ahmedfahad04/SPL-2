@@ -68,4 +68,9 @@ class Home(QMainWindow):  # Home extends QMainWindow
         # set the description of the image
         self.home.lbl_image_text.setText(json_data["lesson_topic"])
 
+    def closeEvent(self, event):
+        # stop the player
+        self.music_player.stop()
 
+        # exit the application
+        # app.quit()
