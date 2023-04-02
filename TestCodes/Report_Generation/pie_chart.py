@@ -1,7 +1,7 @@
 import sys
 import matplotlib.pyplot as plt
 from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout
-from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
+from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas, NavigationToolbar2QT as NavigationToolbar
 
 
 class PieChartWidget(QWidget):
@@ -26,6 +26,10 @@ class PieChartWidget(QWidget):
 
         # create a pie chart
         ax.pie(self.values, labels=self.labels, autopct='%1.1f%%')
+
+        # add the navigation toolbar
+        toolbar = NavigationToolbar(canvas, self)
+        layout.addWidget(toolbar)
 
         # add the canvas to the layout
         layout.addWidget(canvas)

@@ -1,7 +1,7 @@
 import sys
 import matplotlib.pyplot as plt
 from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout
-from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
+from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas, NavigationToolbar2QT as NavigationToolbar
 
 
 class LineGraphWidget(QWidget):
@@ -30,6 +30,10 @@ class LineGraphWidget(QWidget):
         # set x-label and y-label
         ax.set_ylabel('Total Attempt')
         ax.set_xlabel('Content ID')
+
+        # add the navigation toolbar
+        toolbar = NavigationToolbar(canvas, self)
+        layout.addWidget(toolbar)
 
         # add the canvas to the layout
         layout.addWidget(canvas)
