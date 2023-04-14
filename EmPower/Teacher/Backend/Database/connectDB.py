@@ -23,7 +23,7 @@ class Database_Manager:
         else:
             self.create_table()
 
-    # TODO: Transform to Generic Method of CRUD
+    # ?Generic Method of CRUD
 
     def __create_new_database(self, db_name):
         db_object = sqlite3.connect('Backend\Database\{}.db'.format(db_name))

@@ -7,13 +7,13 @@
     <x>0</x>
     <y>0</y>
     <width>1280</width>
-    <height>720</height>
+    <height>700</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>1280</width>
-    <height>720</height>
+    <height>700</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -23,16 +23,28 @@
    <property name="minimumSize">
     <size>
      <width>1280</width>
-     <height>720</height>
+     <height>700</height>
     </size>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout_2">
-    <item>
+   <layout class="QGridLayout" name="gridLayout_2">
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item row="0" column="0">
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="minimumSize">
        <size>
         <width>1280</width>
-        <height>720</height>
+        <height>700</height>
        </size>
       </property>
       <property name="styleSheet">
@@ -66,7 +78,7 @@
           <property name="minimumSize">
            <size>
             <width>1300</width>
-            <height>440</height>
+            <height>344</height>
            </size>
           </property>
           <property name="styleSheet">
@@ -191,10 +203,10 @@ color: #E07A5F;
        <property name="minimumSize">
         <size>
          <width>1280</width>
-         <height>720</height>
+         <height>700</height>
         </size>
        </property>
-       <layout class="QVBoxLayout" name="verticalLayout">
+       <layout class="QGridLayout" name="gridLayout_3">
         <property name="leftMargin">
          <number>0</number>
         </property>
@@ -207,12 +219,12 @@ color: #E07A5F;
         <property name="bottomMargin">
          <number>0</number>
         </property>
-        <item>
+        <item row="0" column="0">
          <widget class="QFrame" name="top_frame_2">
           <property name="minimumSize">
            <size>
             <width>1280</width>
-            <height>70</height>
+            <height>84</height>
            </size>
           </property>
           <property name="maximumSize">
@@ -233,7 +245,7 @@ color: #3D405B; </string>
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_4">
            <item>
-            <widget class="QPushButton" name="btn_back_to_home_2">
+            <widget class="QPushButton" name="btn_back_to_home">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                <horstretch>0</horstretch>
@@ -307,6 +319,12 @@ QPushButton:hover:!pressed
            </item>
            <item>
             <widget class="QLabel" name="lbl_lesson_headline">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>67</height>
+              </size>
+             </property>
              <property name="font">
               <font>
                <family>Kalpurush</family>
@@ -332,17 +350,16 @@ font: 30pt &quot;Kalpurush&quot;;</string>
           </layout>
          </widget>
         </item>
-        <item>
-         <widget class="QFrame" name="bottom_frame_2">
+        <item row="1" column="0">
+         <widget class="QFrame" name="frame">
           <property name="minimumSize">
            <size>
-            <width>0</width>
+            <width>1280</width>
             <height>550</height>
            </size>
           </property>
           <property name="styleSheet">
-           <string notr="true">background-color: rgb(244, 241, 222);
-border: none;</string>
+           <string notr="true"/>
           </property>
           <property name="frameShape">
            <enum>QFrame::StyledPanel</enum>
@@ -350,13 +367,19 @@ border: none;</string>
           <property name="frameShadow">
            <enum>QFrame::Raised</enum>
           </property>
-          <layout class="QHBoxLayout" name="horizontalLayout_7">
-           <item>
+          <layout class="QGridLayout" name="gridLayout">
+           <property name="leftMargin">
+            <number>11</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <item row="0" column="0">
             <widget class="QPushButton" name="btn_prev_lesson">
              <property name="minimumSize">
               <size>
                <width>70</width>
-               <height>650</height>
+               <height>600</height>
               </size>
              </property>
              <property name="maximumSize">
@@ -394,80 +417,156 @@ color: #F4F1DE;
              </property>
             </widget>
            </item>
-           <item>
-            <widget class="QLabel" name="lbl_image">
-             <property name="enabled">
-              <bool>true</bool>
-             </property>
+           <item row="0" column="1">
+            <widget class="QFrame" name="middle_content_frame">
              <property name="minimumSize">
               <size>
-               <width>800</width>
-               <height>550</height>
+               <width>1100</width>
+               <height>611</height>
               </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>16777215</width>
-               <height>16777215</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <pointsize>30</pointsize>
-              </font>
              </property>
              <property name="styleSheet">
-              <string notr="true">border: 3px dashed rgb(222, 219, 202);
-color:  rgb(61, 64, 91);</string>
+              <string notr="true">background-color: rgb(244, 241, 222);
+color: rgb(61, 64, 91);
+border: none;</string>
              </property>
-             <property name="text">
-              <string>ছবি</string>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
              </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
              </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_12">
+              <property name="leftMargin">
+               <number>5</number>
+              </property>
+              <property name="topMargin">
+               <number>10</number>
+              </property>
+              <property name="rightMargin">
+               <number>5</number>
+              </property>
+              <property name="bottomMargin">
+               <number>10</number>
+              </property>
+              <item>
+               <widget class="QStackedWidget" name="mediaStackWidget">
+                <property name="minimumSize">
+                 <size>
+                  <width>690</width>
+                  <height>400</height>
+                 </size>
+                </property>
+                <property name="currentIndex">
+                 <number>0</number>
+                </property>
+                <widget class="QWidget" name="image_page">
+                 <layout class="QHBoxLayout" name="horizontalLayout_9">
+                  <property name="leftMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <item>
+                   <widget class="QLabel" name="lsn_lbl_image">
+                    <property name="minimumSize">
+                     <size>
+                      <width>690</width>
+                      <height>380</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Kalpurush</family>
+                      <pointsize>30</pointsize>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">border: 3px dotted rgb(227, 224, 207) ;
+color: rgb(61, 64, 91);</string>
+                    </property>
+                    <property name="text">
+                     <string>ছবি</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+                <widget class="QWidget" name="video_page">
+                 <layout class="QVBoxLayout" name="verticalLayout_5">
+                  <property name="leftMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>5</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>5</number>
+                  </property>
+                  <item>
+                   <layout class="QHBoxLayout" name="video_player_widget"/>
+                  </item>
+                 </layout>
+                </widget>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lsn_lbl_lesson_topic">
+                <property name="minimumSize">
+                 <size>
+                  <width>380</width>
+                  <height>400</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>500</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Kalpurush</family>
+                  <pointsize>25</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">border: 3px dotted rgb(227, 224, 207) ;
+color: rgb(61, 64, 91);</string>
+                </property>
+                <property name="text">
+                 <string>পরিচয়</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <property name="wordWrap">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
             </widget>
            </item>
-           <item>
-            <widget class="QLabel" name="lbl_image_text">
-             <property name="minimumSize">
-              <size>
-               <width>300</width>
-               <height>500</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>700</width>
-               <height>16777215</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <pointsize>25</pointsize>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">border: 3px dashed rgb(222, 219, 202);
-color:  rgb(61, 64, 91);</string>
-             </property>
-             <property name="text">
-              <string>পরিচয়</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-             <property name="wordWrap">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-           <item>
+           <item row="0" column="2">
             <widget class="QPushButton" name="btn_next_lesson">
              <property name="minimumSize">
               <size>
                <width>70</width>
-               <height>650</height>
+               <height>600</height>
               </size>
              </property>
              <property name="maximumSize">
@@ -499,8 +598,8 @@ color: #F4F1DE;
              </property>
              <property name="iconSize">
               <size>
-               <width>100</width>
-               <height>100</height>
+               <width>150</width>
+               <height>150</height>
               </size>
              </property>
             </widget>

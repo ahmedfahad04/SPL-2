@@ -14,11 +14,11 @@ class lesson_data(Database_Manager, ABC):
         try:
             self.controller_db_cursor.execute('''CREATE TABLE IF NOT EXISTS lesson_data
             (
-            Category_ID INT NOT NULL,
-            Lesson_ID INT NOT NULL,
-            Lesson_Topic VARCHAR(255) NOT NULL,
+            Content_Type INT NOT NULL,
+            Content_ID INT NOT NULL,
+            Content_Topic VARCHAR(255) NOT NULL,
             Content_Path VARCHAR(255),
-            PRIMARY KEY (Category_ID, Lesson_ID)
+            PRIMARY KEY (Content_Type, Content_ID)
             )''')
 
             self.controller_db.commit()
@@ -34,7 +34,7 @@ class lesson_data(Database_Manager, ABC):
 
         try:
             self.controller_db_cursor.execute(
-                "INSERT INTO lesson_data (Category_ID, Lesson_ID, Lesson_Topic, Content_Path)"
+                "INSERT INTO lesson_data (Content_Type, Content_ID, Content_Topic, Content_Path)"
                 "VALUES (?, ?, ?, ?)", tuple(data))
 
             self.controller_db.commit()
@@ -50,13 +50,13 @@ class lesson_data(Database_Manager, ABC):
         self.controller_db_cursor.execute("SELECT * FROM lesson_data")
         return self.controller_db_cursor.fetchall()
 
-    def delete_entry(self, category_id, lesson_id) -> bool:
+    def delete_entry(self, Content_Type, Content_ID) -> bool:
 
-        print("ID: ", category_id, lesson_id)
+        print("ID: ", Content_Type, Content_ID)
 
         try:
             res = self.controller_db_cursor.execute(
-                '''DELETE FROM lesson_data WHERE Category_ID=?, Lesson_ID=?''', (category_id, lesson_id))
+                '''DELETE FROM lesson_data WHERE Content_Type=?, Content_ID=?''', (Content_Type, Content_ID))
             self.controller_db.commit()
 
             print("[DELETE] Data Deleted successfully!")
@@ -72,8 +72,8 @@ class lesson_data(Database_Manager, ABC):
 
             print("GOT the query...")
 
-            query = "UPDATE lesson_data Set Category_ID=?, Lesson_ID=?, Lesson_Topic=?, Content_Path=? Where " \
-                    "Category_ID=?, Lesson_ID=?;"
+            query = "UPDATE lesson_data Set Content_Type=?, Content_ID=?, Content_Topic=?, Content_Path=? Where " \
+                    "Content_Type=?, Content_ID=?;"
 
             print("Data: ", data)
 

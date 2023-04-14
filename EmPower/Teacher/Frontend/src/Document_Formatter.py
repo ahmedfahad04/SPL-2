@@ -1,6 +1,7 @@
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
+import sys 
 
 
 # ==> Helper functions: Align the elements in the table
@@ -23,3 +24,17 @@ def set_drop_shadow(ui_object):
     shadow.setYOffset(7)
     shadow.setColor(QColor(255, 255, 255, 55))
     ui_object.setGraphicsEffect(shadow)
+    
+def show_warning_message(title, message):
+    msg = QMessageBox()
+    msg.setIcon(QMessageBox.Warning)
+    msg.setText(message)
+    msg.setWindowTitle(title)
+    msg.setWindowIcon(QIcon("Frontend\Images\warning_icon.png"))
+    msg.setStandardButtons(QMessageBox.Ok)
+    msg.exec_()
+
+def restart():
+    QCoreApplication.quit()
+    status = QProcess.startDetached(sys.executable, sys.argv)
+    print(status)

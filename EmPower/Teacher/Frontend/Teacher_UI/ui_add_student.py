@@ -51,21 +51,23 @@ class Ui_Form(object):
         self.input_id = QtWidgets.QLineEdit(self.middle_frame)
         self.input_id.setMinimumSize(QtCore.QSize(280, 55))
         font = QtGui.QFont()
-        font.setFamily("Hind Siliguri Medium")
+        font.setFamily("Kalpurush")
         font.setPointSize(11)
+        font.setBold(False)
+        font.setWeight(50)
         self.input_id.setFont(font)
         self.input_id.setStyleSheet("background-color: rgb(137, 218, 199);\n"
 "border: 2px solid rgb(101, 161, 146);\n"
 "padding-left: 15px;\n"
 "border-radius: 10px;\n"
-"color: rgb(43, 72, 101);")
+"color: black;")
         self.input_id.setText("")
         self.input_id.setObjectName("input_id")
         self.verticalLayout_2.addWidget(self.input_id)
         self.input_name = QtWidgets.QLineEdit(self.middle_frame)
         self.input_name.setMinimumSize(QtCore.QSize(330, 50))
         font = QtGui.QFont()
-        font.setFamily("Hind Siliguri Medium")
+        font.setFamily("Kalpurush")
         font.setPointSize(11)
         font.setBold(False)
         font.setWeight(50)
@@ -74,13 +76,13 @@ class Ui_Form(object):
 "border: 2px solid rgb(101, 161, 146);\n"
 "padding-left: 15px;\n"
 "border-radius: 10px;\n"
-"color: rgb(43, 72, 101);")
+"color: black;")
         self.input_name.setObjectName("input_name")
         self.verticalLayout_2.addWidget(self.input_name)
         self.input_age = QtWidgets.QLineEdit(self.middle_frame)
         self.input_age.setMinimumSize(QtCore.QSize(330, 50))
         font = QtGui.QFont()
-        font.setFamily("Hind Siliguri Medium")
+        font.setFamily("Kalpurush")
         font.setPointSize(11)
         font.setBold(False)
         font.setWeight(50)
@@ -89,46 +91,46 @@ class Ui_Form(object):
 "border: 2px solid rgb(101, 161, 146);\n"
 "padding-left: 15px;\n"
 "border-radius: 10px;\n"
-"color: rgb(43, 72, 101);")
+"color: black;")
         self.input_age.setObjectName("input_age")
         self.verticalLayout_2.addWidget(self.input_age)
         self.input_address = QtWidgets.QLineEdit(self.middle_frame)
         self.input_address.setMinimumSize(QtCore.QSize(330, 50))
         font = QtGui.QFont()
-        font.setFamily("Hind Siliguri Medium")
+        font.setFamily("Kalpurush")
         font.setPointSize(11)
         self.input_address.setFont(font)
         self.input_address.setStyleSheet("background-color: rgb(137, 218, 199);\n"
 "border: 2px solid rgb(101, 161, 146);\n"
 "padding-left: 15px;\n"
 "border-radius: 10px;\n"
-"color: rgb(43, 72, 101);")
+"color: black;")
         self.input_address.setObjectName("input_address")
         self.verticalLayout_2.addWidget(self.input_address)
         self.input_guardian = QtWidgets.QLineEdit(self.middle_frame)
         self.input_guardian.setMinimumSize(QtCore.QSize(330, 50))
         font = QtGui.QFont()
-        font.setFamily("Hind Siliguri Medium")
+        font.setFamily("Kalpurush")
         font.setPointSize(11)
         self.input_guardian.setFont(font)
         self.input_guardian.setStyleSheet("background-color: rgb(137, 218, 199);\n"
 "border: 2px solid rgb(101, 161, 146);\n"
 "padding-left: 15px;\n"
 "border-radius: 10px;\n"
-"color: rgb(43, 72, 101);")
+"color: black;")
         self.input_guardian.setObjectName("input_guardian")
         self.verticalLayout_2.addWidget(self.input_guardian)
         self.input_phone = QtWidgets.QLineEdit(self.middle_frame)
         self.input_phone.setMinimumSize(QtCore.QSize(330, 50))
         font = QtGui.QFont()
-        font.setFamily("Hind Siliguri Medium")
+        font.setFamily("Kalpurush")
         font.setPointSize(11)
         self.input_phone.setFont(font)
         self.input_phone.setStyleSheet("background-color: rgb(137, 218, 199);\n"
 "border: 2px solid rgb(101, 161, 146);\n"
 "padding-left: 15px;\n"
 "border-radius: 10px;\n"
-"color: rgb(43, 72, 101);")
+"color: black;")
         self.input_phone.setObjectName("input_phone")
         self.verticalLayout_2.addWidget(self.input_phone)
         self.btn_submit = QtWidgets.QPushButton(self.middle_frame)

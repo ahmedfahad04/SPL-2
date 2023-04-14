@@ -12,8 +12,10 @@ from Frontend.src.Lesson import Lesson_Window
 class Home(QMainWindow):  # Home extends QMainWindow
 
     def __init__(self):
+        
         super(QMainWindow, self).__init__()
         self.lesson_window = None
+        self.music_player = None 
         self.home_page()
 
     def home_page(self):
@@ -39,26 +41,32 @@ class Home(QMainWindow):  # Home extends QMainWindow
         self.load_lesson()
 
     def load_lesson(self):
-        folder_path = "Resources/নাম_শিখন(Noun)_পাঠ_1"
-
-        # read the lesson name
-        lesson_name = os.path.basename(folder_path)
-        self.home.lbl_lesson_headline.setText(lesson_name)
+        
+        self.categories = {
+            1: 'নাম_শিখন(Noun)',
+            2: 'ক্রিয়া_শিখন(Verb)',
+            3: 'সম্পর্ক_শিখন(Association)',
+            4: 'কর্মধারা_শিখন(Activity)'
+        }
+        
+        # read the file path and the folders
+        folder_path = os.listdir('Resources')[1]
+        folder_path = os.path.join('Resources', folder_path)
 
         # image load
-        image_file_path = os.path.join(folder_path, "image.jpeg")
+        image_file_path = os.path.join(folder_path, "media.png")
         self.qt_image = QPixmap(image_file_path)
         self.qt_image = self.qt_image.scaledToHeight(550, Qt.SmoothTransformation)
-        self.home.lbl_image.setPixmap(self.qt_image)
+        self.home.lsn_lbl_image.setPixmap(self.qt_image)
 
         # audio load
         audio_file_path = os.path.join(folder_path, "audio.wav")
-        audio = QSound(audio_file_path)
-        music_player = MusicPlayer(audio_file_path)
-        music_player.start_music()
-        # lesson change hoile
-            # music_player.stop_music()
+        QSound(audio_file_path)
+        self.music_player = MusicPlayer(audio_file_path)
+        self.music_player.start_music()
 
+        # lesson change hoile
+        # music_player.stop_music()
 
         # read content json
         json_file_path = os.path.join(folder_path, "content.json")
@@ -66,6 +74,30 @@ class Home(QMainWindow):  # Home extends QMainWindow
             json_data = json.load(f)
 
         # set the description of the image
-        self.home.lbl_image_text.setText(json_data["lesson_topic"])
+        self.home.lsn_lbl_lesson_topic.setText(json_data["lesson_topic"])
+        content_type = self.categories[json_data["category_id"]]
+        lesson_name = content_type + '_' + 'পাঠ_' + str(json_data["lesson_id"])
+        
+        # read the lesson name
+        self.home.lbl_lesson_headline.setText(lesson_name)
+        
+    def load_next_lesson(self):
+        pass
+    
+    def load_previous_lesson(self):
+        pass
 
+    def closeEvent(self, event):
+        
+        self.music_player.stop_music()
+        
+        reply = QMessageBox.question(
+            self, 'সফটওয়্যার বন্ধ করুন', 'আপনি কি সফটওয়্যারটি বন্ধ করতে চান?', QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
+ 
+        if reply == QMessageBox.Yes:
+            self.music_player.stop_music()
+            event.accept()
+            print('Window closed')
+        else:
+            event.ignore()
 

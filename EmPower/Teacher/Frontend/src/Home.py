@@ -12,6 +12,7 @@ from Frontend.Teacher_UI import ui_home_page
 from Frontend.src.Document_Formatter import *
 from Frontend.src.Student_Window import Student_Window
 from Frontend.src.Lesson_Window import Lesson_Window
+from Frontend.src.Task_Window import Task_Window
 
 class Home(QMainWindow):  # Home extends QMainWindow
 
@@ -40,6 +41,8 @@ class Home(QMainWindow):  # Home extends QMainWindow
         self.home.stackedWidget.setCurrentWidget(self.home.home_page)
         self.home.home_btn_student.clicked.connect(self.student_page)
         self.home.home_btn_lesson.clicked.connect(self.lesson_page)
+        self.home.home_btn_quiz.clicked.connect(self.task_page)
+        
         
     def student_page(self):
         
@@ -81,4 +84,35 @@ class Home(QMainWindow):  # Home extends QMainWindow
         self.home.lsn_btn_add_lessons.clicked.connect(self.lesson_window.create_lesson)
         self.home.lsn_cmb_category.currentIndexChanged.connect(self.lesson_window.on_category_changed)
         self.home.lsn_cmb_lessons.currentIndexChanged.connect(self.lesson_window.on_lesson_changed)
+       
+    def task_page(self):
         
+        self.task_window = Task_Window(self.home)
+        
+        # Navigate between windows
+        self.home.stackedWidget.setCurrentWidget(self.home.task_page)
+        self.home.task_btn_back_to_home.clicked.connect(self.home_page)
+        
+        # Connecting Task window buttons
+        # !need to move on Task Window Page
+        self.home.task_btn_mcq.clicked.connect(self.mcq_page)
+        self.home.task_btn_matching.clicked.connect(self.matching_page)
+        self.home.task_btn_sequence.clicked.connect(self.sequence_page)
+        self.home.task_btn_puzzle.clicked.connect(self.puzzle_page)
+        
+    def mcq_page(self):
+        
+        self.home.evalstackwidget.setCurrentWidget(self.home.mcq_page) 
+        
+    def matching_page(self):
+        
+        self.home.evalstackwidget.setCurrentWidget(self.home.dragdrop_page)
+        
+    def sequence_page(self):
+        
+        self.home.evalstackwidget.setCurrentWidget(self.home.sequence_page) 
+        
+    def puzzle_page(self):
+        
+        self.home.evalstackwidget.setCurrentWidget(self.home.puzzle_page) 
+         

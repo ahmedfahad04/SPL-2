@@ -3,8 +3,10 @@ import pygame
 import time
 
 class MusicPlayer:
+    
     def __init__(self, music_file_path):
         pygame.mixer.init()
+        
         self.music_file_path = music_file_path
         self.play_music_continuously = False
         self.music_thread = None

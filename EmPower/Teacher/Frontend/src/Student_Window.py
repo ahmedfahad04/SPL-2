@@ -67,6 +67,8 @@ class Student_Window(QWidget):  # Home extends QMainWindow
 
     # ==> Helper function: update user data
     def update_student_info(self):
+        
+        # TODO: need to check duplicate id number or entry of teacher
 
         # load & set up the Student Add Info page
         custom_form = QWidget()

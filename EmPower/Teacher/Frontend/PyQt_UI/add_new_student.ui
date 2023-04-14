@@ -92,8 +92,10 @@ border-radius: 20px;</string>
         </property>
         <property name="font">
          <font>
-          <family>Hind Siliguri Medium</family>
+          <family>Kalpurush</family>
           <pointsize>11</pointsize>
+          <weight>50</weight>
+          <bold>false</bold>
          </font>
         </property>
         <property name="styleSheet">
@@ -101,7 +103,7 @@ border-radius: 20px;</string>
 border: 2px solid rgb(101, 161, 146);
 padding-left: 15px;
 border-radius: 10px;
-color: rgb(43, 72, 101);</string>
+color: black;</string>
         </property>
         <property name="text">
          <string/>
@@ -121,7 +123,7 @@ color: rgb(43, 72, 101);</string>
         </property>
         <property name="font">
          <font>
-          <family>Hind Siliguri Medium</family>
+          <family>Kalpurush</family>
           <pointsize>11</pointsize>
           <weight>50</weight>
           <bold>false</bold>
@@ -132,7 +134,7 @@ color: rgb(43, 72, 101);</string>
 border: 2px solid rgb(101, 161, 146);
 padding-left: 15px;
 border-radius: 10px;
-color: rgb(43, 72, 101);</string>
+color: black;</string>
         </property>
         <property name="placeholderText">
          <string>শিক্ষার্থীর নাম </string>
@@ -149,7 +151,7 @@ color: rgb(43, 72, 101);</string>
         </property>
         <property name="font">
          <font>
-          <family>Hind Siliguri Medium</family>
+          <family>Kalpurush</family>
           <pointsize>11</pointsize>
           <weight>50</weight>
           <bold>false</bold>
@@ -160,7 +162,7 @@ color: rgb(43, 72, 101);</string>
 border: 2px solid rgb(101, 161, 146);
 padding-left: 15px;
 border-radius: 10px;
-color: rgb(43, 72, 101);</string>
+color: black;</string>
         </property>
         <property name="placeholderText">
          <string>শিক্ষার্থীর বয়স</string>
@@ -177,7 +179,7 @@ color: rgb(43, 72, 101);</string>
         </property>
         <property name="font">
          <font>
-          <family>Hind Siliguri Medium</family>
+          <family>Kalpurush</family>
           <pointsize>11</pointsize>
          </font>
         </property>
@@ -186,7 +188,7 @@ color: rgb(43, 72, 101);</string>
 border: 2px solid rgb(101, 161, 146);
 padding-left: 15px;
 border-radius: 10px;
-color: rgb(43, 72, 101);</string>
+color: black;</string>
         </property>
         <property name="placeholderText">
          <string>ঠিকানা</string>
@@ -203,7 +205,7 @@ color: rgb(43, 72, 101);</string>
         </property>
         <property name="font">
          <font>
-          <family>Hind Siliguri Medium</family>
+          <family>Kalpurush</family>
           <pointsize>11</pointsize>
          </font>
         </property>
@@ -212,7 +214,7 @@ color: rgb(43, 72, 101);</string>
 border: 2px solid rgb(101, 161, 146);
 padding-left: 15px;
 border-radius: 10px;
-color: rgb(43, 72, 101);</string>
+color: black;</string>
         </property>
         <property name="placeholderText">
          <string>অভিভাবকের নাম</string>
@@ -229,7 +231,7 @@ color: rgb(43, 72, 101);</string>
         </property>
         <property name="font">
          <font>
-          <family>Hind Siliguri Medium</family>
+          <family>Kalpurush</family>
           <pointsize>11</pointsize>
          </font>
         </property>
@@ -238,7 +240,7 @@ color: rgb(43, 72, 101);</string>
 border: 2px solid rgb(101, 161, 146);
 padding-left: 15px;
 border-radius: 10px;
-color: rgb(43, 72, 101);</string>
+color: black;</string>
         </property>
         <property name="placeholderText">
          <string>অভিভাবকের মোবাইল নম্বর</string>

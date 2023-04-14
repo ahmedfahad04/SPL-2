@@ -19,10 +19,9 @@ class Ui_MainWindow(object):
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setMinimumSize(QtCore.QSize(1280, 720))
         self.centralwidget.setObjectName("centralwidget")
-        self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.centralwidget)
-        self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_3.setSpacing(0)
-        self.verticalLayout_3.setObjectName("verticalLayout_3")
+        self.horizontalLayout_14 = QtWidgets.QHBoxLayout(self.centralwidget)
+        self.horizontalLayout_14.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_14.setObjectName("horizontalLayout_14")
         self.stackedWidget = QtWidgets.QStackedWidget(self.centralwidget)
         self.stackedWidget.setMinimumSize(QtCore.QSize(1280, 720))
         self.stackedWidget.setObjectName("stackedWidget")
@@ -589,7 +588,7 @@ class Ui_MainWindow(object):
         self.bottom_top_frame = QtWidgets.QFrame(self.mid_frame_2)
         self.bottom_top_frame.setMinimumSize(QtCore.QSize(0, 60))
         self.bottom_top_frame.setMaximumSize(QtCore.QSize(16777215, 60))
-        self.bottom_top_frame.setStyleSheet("background-color: rgb(29, 88, 105);\n"
+        self.bottom_top_frame.setStyleSheet("background-color: rgb(36, 105, 127);\n"
 "color: rgb(137, 218, 199);\n"
 "")
         self.bottom_top_frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -614,6 +613,7 @@ class Ui_MainWindow(object):
         font.setBold(False)
         font.setWeight(50)
         self.lsn_cmb_category.setFont(font)
+        self.lsn_cmb_category.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.lsn_cmb_category.setStyleSheet("background-color: rgb(137, 218, 199);\n"
 "padding-left: 15px;\n"
 "border-radius: 10px;\n"
@@ -641,6 +641,7 @@ class Ui_MainWindow(object):
         font.setBold(False)
         font.setWeight(50)
         self.lsn_cmb_lessons.setFont(font)
+        self.lsn_cmb_lessons.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.lsn_cmb_lessons.setStyleSheet("background-color: rgb(137, 218, 199);\n"
 "border-radius: 12px;\n"
 "color: rgb(0, 43, 91);\n"
@@ -653,7 +654,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_4.addWidget(self.bottom_top_frame)
         self.middle_content_frame = QtWidgets.QFrame(self.mid_frame_2)
         self.middle_content_frame.setMinimumSize(QtCore.QSize(1241, 400))
-        self.middle_content_frame.setStyleSheet("background-color: rgb(30, 90, 108);")
+        self.middle_content_frame.setStyleSheet("background-color: rgb(36, 105, 127)")
         self.middle_content_frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.middle_content_frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.middle_content_frame.setObjectName("middle_content_frame")
@@ -733,7 +734,7 @@ class Ui_MainWindow(object):
 "border-radius: 15px;\n"
 "}\n"
 "\n"
-"QPushButton::hover {\n"
+"QPushButton::hover:!pressed {\n"
 "    \n"
 "    background-color: rgb(143, 227, 207);\n"
 "    color: #2B4865;\n"
@@ -746,12 +747,288 @@ class Ui_MainWindow(object):
         self.gridLayout_2.addWidget(self.bottom_frame_2, 2, 0, 1, 1)
         self.horizontalLayout_11.addWidget(self.lesson_frame)
         self.stackedWidget.addWidget(self.lesson_page)
-        self.verticalLayout_3.addWidget(self.stackedWidget)
+        self.task_page = QtWidgets.QWidget()
+        self.task_page.setObjectName("task_page")
+        self.verticalLayout_7 = QtWidgets.QVBoxLayout(self.task_page)
+        self.verticalLayout_7.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_7.setObjectName("verticalLayout_7")
+        self.evaluation_frame = QtWidgets.QFrame(self.task_page)
+        self.evaluation_frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.evaluation_frame.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.evaluation_frame.setObjectName("evaluation_frame")
+        self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.evaluation_frame)
+        self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_3.setSpacing(0)
+        self.verticalLayout_3.setObjectName("verticalLayout_3")
+        self.top_frame_3 = QtWidgets.QFrame(self.evaluation_frame)
+        self.top_frame_3.setMinimumSize(QtCore.QSize(1180, 80))
+        self.top_frame_3.setMaximumSize(QtCore.QSize(16777215, 80))
+        self.top_frame_3.setStyleSheet("background-color: #2B4865;")
+        self.top_frame_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.top_frame_3.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.top_frame_3.setObjectName("top_frame_3")
+        self.horizontalLayout_13 = QtWidgets.QHBoxLayout(self.top_frame_3)
+        self.horizontalLayout_13.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_13.setObjectName("horizontalLayout_13")
+        self.task_btn_back_to_home = QtWidgets.QPushButton(self.top_frame_3)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.task_btn_back_to_home.sizePolicy().hasHeightForWidth())
+        self.task_btn_back_to_home.setSizePolicy(sizePolicy)
+        self.task_btn_back_to_home.setMinimumSize(QtCore.QSize(0, 60))
+        self.task_btn_back_to_home.setMaximumSize(QtCore.QSize(60, 60))
+        self.task_btn_back_to_home.setBaseSize(QtCore.QSize(0, 4))
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        self.task_btn_back_to_home.setFont(font)
+        self.task_btn_back_to_home.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.task_btn_back_to_home.setMouseTracking(True)
+        self.task_btn_back_to_home.setStyleSheet("QPushButton {\n"
+"    background-color: #2B4865 #256D85;\n"
+"    border: none;\n"
+"}\n"
+"\n"
+"QPushButton:hover:!pressed\n"
+"{\n"
+"    background-color:  #256D85;\n"
+"    border-radius: 30px;\n"
+"}")
+        self.task_btn_back_to_home.setText("")
+        self.task_btn_back_to_home.setIcon(icon5)
+        self.task_btn_back_to_home.setIconSize(QtCore.QSize(200, 200))
+        self.task_btn_back_to_home.setAutoDefault(False)
+        self.task_btn_back_to_home.setDefault(False)
+        self.task_btn_back_to_home.setFlat(False)
+        self.task_btn_back_to_home.setObjectName("task_btn_back_to_home")
+        self.horizontalLayout_13.addWidget(self.task_btn_back_to_home)
+        self.lsn_lbl_headline_2 = QtWidgets.QLabel(self.top_frame_3)
+        font = QtGui.QFont()
+        font.setFamily("Hind Siliguri Medium")
+        font.setPointSize(27)
+        self.lsn_lbl_headline_2.setFont(font)
+        self.lsn_lbl_headline_2.setStyleSheet("color: #8FE3CF")
+        self.lsn_lbl_headline_2.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.lsn_lbl_headline_2.setObjectName("lsn_lbl_headline_2")
+        self.horizontalLayout_13.addWidget(self.lsn_lbl_headline_2)
+        self.verticalLayout_3.addWidget(self.top_frame_3)
+        self.body = QtWidgets.QFrame(self.evaluation_frame)
+        self.body.setStyleSheet("background-color: rgb(37, 109, 133);")
+        self.body.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.body.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.body.setObjectName("body")
+        self.horizontalLayout_16 = QtWidgets.QHBoxLayout(self.body)
+        self.horizontalLayout_16.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_16.setSpacing(0)
+        self.horizontalLayout_16.setObjectName("horizontalLayout_16")
+        self.eval_left_frame = QtWidgets.QFrame(self.body)
+        self.eval_left_frame.setMinimumSize(QtCore.QSize(385, 636))
+        self.eval_left_frame.setStyleSheet("")
+        self.eval_left_frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.eval_left_frame.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.eval_left_frame.setObjectName("eval_left_frame")
+        self.gridLayout_5 = QtWidgets.QGridLayout(self.eval_left_frame)
+        self.gridLayout_5.setObjectName("gridLayout_5")
+        spacerItem9 = QtWidgets.QSpacerItem(20, 164, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.gridLayout_5.addItem(spacerItem9, 0, 1, 1, 1)
+        spacerItem10 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_5.addItem(spacerItem10, 1, 0, 1, 1)
+        self.task_btn_mcq = QtWidgets.QPushButton(self.eval_left_frame)
+        self.task_btn_mcq.setMinimumSize(QtCore.QSize(261, 61))
+        font = QtGui.QFont()
+        font.setFamily("Hind Siliguri Medium")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.task_btn_mcq.setFont(font)
+        self.task_btn_mcq.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.task_btn_mcq.setStyleSheet("QPushButton {\n"
+"background-color: rgb(160, 253, 230);\n"
+"color:  rgb(0, 43, 91) ;\n"
+"border-radius: 15px;\n"
+"border: 4px solid rgb(43, 72, 101);\n"
+"}\n"
+"\n"
+"QPushButton::hover:!pressed {\n"
+"    \n"
+"    background-color: rgb(143, 227, 207);\n"
+"    color: rgb(0, 43, 91);\n"
+"\n"
+"}")
+        icon9 = QtGui.QIcon()
+        icon9.addPixmap(QtGui.QPixmap(".\\Frontend\\PyQt_UI\\../Images/mcq.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.task_btn_mcq.setIcon(icon9)
+        self.task_btn_mcq.setIconSize(QtCore.QSize(25, 50))
+        self.task_btn_mcq.setObjectName("task_btn_mcq")
+        self.gridLayout_5.addWidget(self.task_btn_mcq, 1, 1, 1, 1)
+        spacerItem11 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_5.addItem(spacerItem11, 1, 2, 1, 1)
+        spacerItem12 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_5.addItem(spacerItem12, 2, 0, 1, 1)
+        self.task_btn_matching = QtWidgets.QPushButton(self.eval_left_frame)
+        self.task_btn_matching.setMinimumSize(QtCore.QSize(261, 61))
+        font = QtGui.QFont()
+        font.setFamily("Hind Siliguri Medium")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.task_btn_matching.setFont(font)
+        self.task_btn_matching.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.task_btn_matching.setStyleSheet("QPushButton {\n"
+"background-color: rgb(160, 253, 230);\n"
+"color:  rgb(0, 43, 91) ;\n"
+"border-radius: 15px;\n"
+"border: 4px solid rgb(43, 72, 101);\n"
+"}\n"
+"\n"
+"QPushButton::hover:!pressed {\n"
+"    \n"
+"    background-color: rgb(143, 227, 207);\n"
+"    color: rgb(0, 43, 91);\n"
+"\n"
+"}")
+        icon10 = QtGui.QIcon()
+        icon10.addPixmap(QtGui.QPixmap(".\\Frontend\\PyQt_UI\\../Images/connect_icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.task_btn_matching.setIcon(icon10)
+        self.task_btn_matching.setIconSize(QtCore.QSize(28, 50))
+        self.task_btn_matching.setObjectName("task_btn_matching")
+        self.gridLayout_5.addWidget(self.task_btn_matching, 2, 1, 1, 1)
+        spacerItem13 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_5.addItem(spacerItem13, 2, 2, 1, 1)
+        spacerItem14 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_5.addItem(spacerItem14, 3, 0, 1, 1)
+        self.task_btn_sequence = QtWidgets.QPushButton(self.eval_left_frame)
+        self.task_btn_sequence.setMinimumSize(QtCore.QSize(261, 61))
+        font = QtGui.QFont()
+        font.setFamily("Hind Siliguri Medium")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.task_btn_sequence.setFont(font)
+        self.task_btn_sequence.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.task_btn_sequence.setStyleSheet("QPushButton {\n"
+"background-color: rgb(160, 253, 230);\n"
+"color:  rgb(0, 43, 91) ;\n"
+"border-radius: 15px;\n"
+"border: 4px solid rgb(43, 72, 101);\n"
+"}\n"
+"\n"
+"QPushButton::hover:!pressed {\n"
+"    \n"
+"    background-color: rgb(143, 227, 207);\n"
+"    color: rgb(0, 43, 91);\n"
+"\n"
+"}")
+        icon11 = QtGui.QIcon()
+        icon11.addPixmap(QtGui.QPixmap(".\\Frontend\\PyQt_UI\\../Images/sequence_icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.task_btn_sequence.setIcon(icon11)
+        self.task_btn_sequence.setIconSize(QtCore.QSize(26, 50))
+        self.task_btn_sequence.setObjectName("task_btn_sequence")
+        self.gridLayout_5.addWidget(self.task_btn_sequence, 3, 1, 1, 1)
+        spacerItem15 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_5.addItem(spacerItem15, 3, 2, 1, 1)
+        spacerItem16 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_5.addItem(spacerItem16, 4, 0, 1, 1)
+        self.task_btn_puzzle = QtWidgets.QPushButton(self.eval_left_frame)
+        self.task_btn_puzzle.setMinimumSize(QtCore.QSize(261, 61))
+        font = QtGui.QFont()
+        font.setFamily("Hind Siliguri Medium")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.task_btn_puzzle.setFont(font)
+        self.task_btn_puzzle.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.task_btn_puzzle.setStyleSheet("QPushButton {\n"
+"background-color: rgb(160, 253, 230);\n"
+"color:  rgb(0, 43, 91) ;\n"
+"border-radius: 15px;\n"
+"border: 4px solid rgb(43, 72, 101);\n"
+"}\n"
+"\n"
+"QPushButton::hover:!pressed {\n"
+"    \n"
+"    background-color: rgb(143, 227, 207);\n"
+"    color: rgb(0, 43, 91);\n"
+"\n"
+"}")
+        icon12 = QtGui.QIcon()
+        icon12.addPixmap(QtGui.QPixmap(".\\Frontend\\PyQt_UI\\../Images/puzzle_icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.task_btn_puzzle.setIcon(icon12)
+        self.task_btn_puzzle.setIconSize(QtCore.QSize(20, 30))
+        self.task_btn_puzzle.setObjectName("task_btn_puzzle")
+        self.gridLayout_5.addWidget(self.task_btn_puzzle, 4, 1, 1, 1)
+        spacerItem17 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_5.addItem(spacerItem17, 4, 2, 1, 1)
+        spacerItem18 = QtWidgets.QSpacerItem(20, 163, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.gridLayout_5.addItem(spacerItem18, 5, 1, 1, 1)
+        self.horizontalLayout_16.addWidget(self.eval_left_frame)
+        self.eval_right_frame = QtWidgets.QFrame(self.body)
+        self.eval_right_frame.setMinimumSize(QtCore.QSize(891, 621))
+        self.eval_right_frame.setStyleSheet("")
+        self.eval_right_frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.eval_right_frame.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.eval_right_frame.setObjectName("eval_right_frame")
+        self.gridLayout_6 = QtWidgets.QGridLayout(self.eval_right_frame)
+        self.gridLayout_6.setContentsMargins(0, 0, 0, 0)
+        self.gridLayout_6.setObjectName("gridLayout_6")
+        self.evalstackwidget = QtWidgets.QStackedWidget(self.eval_right_frame)
+        self.evalstackwidget.setObjectName("evalstackwidget")
+        self.mcq_page = QtWidgets.QWidget()
+        self.mcq_page.setObjectName("mcq_page")
+        self.task_lbl_mcq = QtWidgets.QLabel(self.mcq_page)
+        self.task_lbl_mcq.setGeometry(QtCore.QRect(20, 30, 841, 581))
+        font = QtGui.QFont()
+        font.setPointSize(28)
+        self.task_lbl_mcq.setFont(font)
+        self.task_lbl_mcq.setStyleSheet("color: rgb(160, 253, 230);")
+        self.task_lbl_mcq.setAlignment(QtCore.Qt.AlignCenter)
+        self.task_lbl_mcq.setObjectName("task_lbl_mcq")
+        self.evalstackwidget.addWidget(self.mcq_page)
+        self.dragdrop_page = QtWidgets.QWidget()
+        self.dragdrop_page.setObjectName("dragdrop_page")
+        self.task_lbl_matching = QtWidgets.QLabel(self.dragdrop_page)
+        self.task_lbl_matching.setGeometry(QtCore.QRect(30, 10, 841, 581))
+        font = QtGui.QFont()
+        font.setPointSize(28)
+        self.task_lbl_matching.setFont(font)
+        self.task_lbl_matching.setStyleSheet("color: rgb(160, 253, 230);")
+        self.task_lbl_matching.setAlignment(QtCore.Qt.AlignCenter)
+        self.task_lbl_matching.setObjectName("task_lbl_matching")
+        self.evalstackwidget.addWidget(self.dragdrop_page)
+        self.sequence_page = QtWidgets.QWidget()
+        self.sequence_page.setObjectName("sequence_page")
+        self.task_lbl_sequencing = QtWidgets.QLabel(self.sequence_page)
+        self.task_lbl_sequencing.setGeometry(QtCore.QRect(30, 40, 841, 581))
+        font = QtGui.QFont()
+        font.setPointSize(28)
+        self.task_lbl_sequencing.setFont(font)
+        self.task_lbl_sequencing.setStyleSheet("color: rgb(160, 253, 230);")
+        self.task_lbl_sequencing.setAlignment(QtCore.Qt.AlignCenter)
+        self.task_lbl_sequencing.setObjectName("task_lbl_sequencing")
+        self.evalstackwidget.addWidget(self.sequence_page)
+        self.puzzle_page = QtWidgets.QWidget()
+        self.puzzle_page.setObjectName("puzzle_page")
+        self.task_lbl_puzzle = QtWidgets.QLabel(self.puzzle_page)
+        self.task_lbl_puzzle.setGeometry(QtCore.QRect(20, 30, 841, 581))
+        font = QtGui.QFont()
+        font.setPointSize(28)
+        self.task_lbl_puzzle.setFont(font)
+        self.task_lbl_puzzle.setStyleSheet("color: rgb(160, 253, 230);")
+        self.task_lbl_puzzle.setAlignment(QtCore.Qt.AlignCenter)
+        self.task_lbl_puzzle.setObjectName("task_lbl_puzzle")
+        self.evalstackwidget.addWidget(self.puzzle_page)
+        self.gridLayout_6.addWidget(self.evalstackwidget, 0, 0, 1, 1)
+        self.horizontalLayout_16.addWidget(self.eval_right_frame)
+        self.verticalLayout_3.addWidget(self.body)
+        self.verticalLayout_7.addWidget(self.evaluation_frame)
+        self.stackedWidget.addWidget(self.task_page)
+        self.horizontalLayout_14.addWidget(self.stackedWidget)
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
-        self.stackedWidget.setCurrentIndex(1)
-        self.mediaStackWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(2)
+        self.mediaStackWidget.setCurrentIndex(0)
+        self.evalstackwidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -787,6 +1064,15 @@ class Ui_MainWindow(object):
         self.lsn_lbl_lesson_image.setText(_translate("MainWindow", "ছবি"))
         self.lsn_lbl_lesson_topic.setText(_translate("MainWindow", "পরিচয়"))
         self.lsn_btn_add_lessons.setText(_translate("MainWindow", "নতুন পাঠ যুক্ত করুন"))
+        self.lsn_lbl_headline_2.setText(_translate("MainWindow", "পাঠ মূল্যায়ন"))
+        self.task_btn_mcq.setText(_translate("MainWindow", "বহুনির্বচনী"))
+        self.task_btn_matching.setText(_translate("MainWindow", "শব্দ মিলাই"))
+        self.task_btn_sequence.setText(_translate("MainWindow", "ক্রমধারা"))
+        self.task_btn_puzzle.setText(_translate("MainWindow", "ধাঁধা"))
+        self.task_lbl_mcq.setText(_translate("MainWindow", "বহু নির্বচনী প্রশ্নোত্তর"))
+        self.task_lbl_matching.setText(_translate("MainWindow", "শব্দ মিলাই"))
+        self.task_lbl_sequencing.setText(_translate("MainWindow", "ক্রমধারা"))
+        self.task_lbl_puzzle.setText(_translate("MainWindow", "ধাঁধা"))
 
 
 if __name__ == "__main__":
