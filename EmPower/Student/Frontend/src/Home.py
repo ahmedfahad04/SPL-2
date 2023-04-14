@@ -50,7 +50,7 @@ class Home(QMainWindow):  # Home extends QMainWindow
         }
         
         # read the file path and the folders
-        folder_path = os.listdir('Resources')[1]
+        folder_path = os.listdir('Resources')[0]
         folder_path = os.path.join('Resources', folder_path)
 
         # image load
@@ -88,8 +88,6 @@ class Home(QMainWindow):  # Home extends QMainWindow
         pass
 
     def closeEvent(self, event):
-        
-        self.music_player.stop_music()
         
         reply = QMessageBox.question(
             self, 'সফটওয়্যার বন্ধ করুন', 'আপনি কি সফটওয়্যারটি বন্ধ করতে চান?', QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
