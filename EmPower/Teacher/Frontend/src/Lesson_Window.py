@@ -34,6 +34,7 @@ class Lesson_Window(QMainWindow):  # Home extends QMainWindow
         self.content = None
         self.lesson_elements = ld().load_table()
         self.current_category = None
+        self.category_lesson_mappings = dict()
 
         # dictionary
         self.categories = {
@@ -218,6 +219,11 @@ class Lesson_Window(QMainWindow):  # Home extends QMainWindow
         self.lesson_window.lsn_cmb_category.setCurrentIndex(self.category_id)
 
         # get lesson id
+        # TODO: We have to make it dynamic
+        # step 1: get the last lesson id
+        # step 2: add 1 to it
+        # step 3: set it to the lesson id
+        
         self.lesson_id = self.form.edit_lesson_id.text()
         self.lesson_window.lsn_cmb_lessons.addItem(self.lesson_id)
 
@@ -243,16 +249,16 @@ class Lesson_Window(QMainWindow):  # Home extends QMainWindow
         if self.media_file_name is None:
             show_warning_message("সতর্কতা!!", "ছবি/ভিডিও নির্বাচন করুন")
             return
-        
+
         # check for video format
         if self.media_file_name.split('.')[1] not in self.videoFormat:
-            
+
             if self.audio_location is None:
                 show_warning_message("সতর্কতা!!", "অডিও নির্বাচন করুন")
                 return
-             
+
             shutil.copy2(self.audio_location, self.folder_location +
-                            '/' + 'audio.' + self.audio_name.split('.')[1])
+                         '/' + 'audio.' + self.audio_name.split('.')[1])
 
         shutil.copy2(self.media_file_location, self.folder_location +
                      '/' + 'media.' + self.media_file_name.split('.')[1])
@@ -275,18 +281,26 @@ class Lesson_Window(QMainWindow):  # Home extends QMainWindow
 
         childObj.hide()
 
-
     def load_lessons(self):
 
         tmp_lsn_id = set()
+        tmp_cat_lsn_pairs = list()
 
         # add the lessons to the lesson window
         for element in self.lesson_elements:
-            print(element)
+            print("-->", element)
 
             # extract the content
             cat_id, lsn_id, lsn_topic, media_loc = element
             tmp_lsn_id.add(str(lsn_id))
+            tmp_cat_lsn_pairs.append((cat_id, lsn_id))
+
+        for key, value in tmp_cat_lsn_pairs:
+            if key not in self.category_lesson_mappings:
+                self.category_lesson_mappings[key] = [value]
+            else:
+                self.category_lesson_mappings[key].append(value)
+                
 
         self.lesson_window.lsn_cmb_lessons.addItems(sorted(tmp_lsn_id))
 
@@ -294,8 +308,15 @@ class Lesson_Window(QMainWindow):  # Home extends QMainWindow
 
         self.current_category = str(index)
         print("Current Category: ", self.current_category)
+        
+        self.lesson_window.lsn_cmb_lessons.clear()
+        
+        for value in self.category_lesson_mappings[index]:
+            self.lesson_window.lsn_cmb_lessons.addItem(str(value))
+            print(value)
 
-        self.lesson_window.lsn_cmb_lessons.setCurrentIndex(0)
+        # self.lesson_window.lsn_cmb_lessons.addItem("পাঠ নির্বাচন করুন")
+        # self.lesson_window.lsn_cmb_lessons.setCurrentIndex(0)
 
     def on_lesson_changed(self, index):
 
@@ -325,7 +346,7 @@ class Lesson_Window(QMainWindow):  # Home extends QMainWindow
                 file_extension = media_loc.split('.')[-1]
 
                 if file_extension in self.videoFormat:
-    
+
                     if self.lesson_window.video_player_widget.count() != 0:
                         self.lesson_window.video_player_widget.itemAt(
                             0).widget().setParent(None)
