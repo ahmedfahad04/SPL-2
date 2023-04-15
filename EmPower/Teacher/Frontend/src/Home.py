@@ -13,6 +13,8 @@ from Frontend.src.Document_Formatter import *
 from Frontend.src.Student_Window import Student_Window
 from Frontend.src.Lesson_Window import Lesson_Window
 from Frontend.src.Task_Window import Task_Window
+from Backend.Database.lesson_db import lesson_data as ld
+from Backend.Database.student_db import student_data as sd
 
 class Home(QMainWindow):  # Home extends QMainWindow
 
@@ -46,6 +48,9 @@ class Home(QMainWindow):  # Home extends QMainWindow
         
     def student_page(self):
         
+        # create table for student info
+        sd().create_table()
+        
         # instance of student window class
         self.student_window = Student_Window(self.home)
         
@@ -67,6 +72,9 @@ class Home(QMainWindow):  # Home extends QMainWindow
         self.home.std_btn_remove_student.clicked.connect(self.student_window.remove_rows)
                 
     def lesson_page(self):
+        
+        # create table for lesson info
+        ld().create_table()
         
         # instance of lesson window class
         self.lesson_window = Lesson_Window(self.home)

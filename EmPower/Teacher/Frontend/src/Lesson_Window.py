@@ -47,6 +47,8 @@ class Lesson_Window(QMainWindow):  # Home extends QMainWindow
         os.path.exists('Lessons') or os.mkdir('Lessons')
         self.videoFormat = ['mp4', 'avi', 'mkv',
                             'flv', 'wmv', 'mov', '3gp', 'webm']
+        
+        self.audioFormat = ['mp3', 'wav', 'ogg', 'wma', 'aac', 'flac', 'm4a']
 
         self.load_lessons()
 
@@ -71,8 +73,8 @@ class Lesson_Window(QMainWindow):  # Home extends QMainWindow
         self.form.btn_select_photo.clicked.connect(self.manage_media)
         self.form.btn_select_audio.clicked.connect(self.manage_audio)
         self.form.btn_record_audio.clicked.connect(self.record_audio)
-        self.form.btn_submit.clicked.connect(
-            lambda: self.save_lesson_content(custom_form))
+        self.form.btn_submit.clicked.connect(lambda: self.save_lesson_content(custom_form))
+        self.form.cmb_category.currentIndexChanged.connect(self.on_lsn_creating_category_changed)
 
     def manage_media(self):
 
@@ -219,11 +221,6 @@ class Lesson_Window(QMainWindow):  # Home extends QMainWindow
         self.lesson_window.lsn_cmb_category.setCurrentIndex(self.category_id)
 
         # get lesson id
-        # TODO: We have to make it dynamic
-        # step 1: get the last lesson id
-        # step 2: add 1 to it
-        # step 3: set it to the lesson id
-        
         self.lesson_id = self.form.edit_lesson_id.text()
         self.lesson_window.lsn_cmb_lessons.addItem(self.lesson_id)
 
@@ -249,6 +246,7 @@ class Lesson_Window(QMainWindow):  # Home extends QMainWindow
         if self.media_file_name is None:
             show_warning_message("সতর্কতা!!", "ছবি/ভিডিও নির্বাচন করুন")
             return
+        
 
         # check for video format
         if self.media_file_name.split('.')[1] not in self.videoFormat:
@@ -311,9 +309,12 @@ class Lesson_Window(QMainWindow):  # Home extends QMainWindow
         
         self.lesson_window.lsn_cmb_lessons.clear()
         
-        for value in self.category_lesson_mappings[index]:
-            self.lesson_window.lsn_cmb_lessons.addItem(str(value))
-            print(value)
+        try:
+            for value in self.category_lesson_mappings[index]:
+                self.lesson_window.lsn_cmb_lessons.addItem(str(value))
+                print(value)
+        except KeyError as e:
+            print(f"No lessons found for categoryc-> {e}")
 
         # self.lesson_window.lsn_cmb_lessons.addItem("পাঠ নির্বাচন করুন")
         # self.lesson_window.lsn_cmb_lessons.setCurrentIndex(0)
@@ -369,3 +370,17 @@ class Lesson_Window(QMainWindow):  # Home extends QMainWindow
                         700, Qt.SmoothTransformation)
                     self.lesson_window.lsn_lbl_lesson_image.setPixmap(
                         self.qtimg)
+
+    def on_lsn_creating_category_changed(self, index):
+
+        current_category = str(index)
+        print("Current Category: ", current_category)
+        
+        try:
+            category_wise_lesson = len(self.category_lesson_mappings[index])
+        
+            self.form.lbl_lsn_cat_status.setText(f"এই ক্যাটেগরি তে মোট পাঠ সংখ্যা: {category_wise_lesson}, নতুন পাঠ {category_wise_lesson+1} থেকে শুরু করুন ")
+            
+        except:
+            self.form.lbl_lsn_cat_status.setText(f"এই ক্যাটেগরি এখনো কোন পাঠ নেই, নতুন পাঠ 1 থেকে শুরু করুন")
+            

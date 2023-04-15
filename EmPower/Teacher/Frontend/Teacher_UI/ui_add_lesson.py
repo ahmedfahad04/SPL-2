@@ -48,8 +48,8 @@ class Ui_Form(object):
         self.middle_frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.middle_frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.middle_frame.setObjectName("middle_frame")
-        self.verticalLayout = QtWidgets.QVBoxLayout(self.middle_frame)
-        self.verticalLayout.setObjectName("verticalLayout")
+        self.gridLayout_3 = QtWidgets.QGridLayout(self.middle_frame)
+        self.gridLayout_3.setObjectName("gridLayout_3")
         self.frame_3 = QtWidgets.QFrame(self.middle_frame)
         self.frame_3.setMinimumSize(QtCore.QSize(630, 80))
         self.frame_3.setMaximumSize(QtCore.QSize(493, 80))
@@ -88,7 +88,7 @@ class Ui_Form(object):
         self.cmb_category.addItem("")
         self.cmb_category.addItem("")
         self.horizontalLayout_5.addWidget(self.cmb_category)
-        self.verticalLayout.addWidget(self.frame_3)
+        self.gridLayout_3.addWidget(self.frame_3, 0, 0, 1, 3)
         self.frame_6 = QtWidgets.QFrame(self.middle_frame)
         self.frame_6.setMinimumSize(QtCore.QSize(630, 71))
         self.frame_6.setMaximumSize(QtCore.QSize(600, 72))
@@ -125,7 +125,7 @@ class Ui_Form(object):
         self.edit_lesson_id.setCursorPosition(0)
         self.edit_lesson_id.setObjectName("edit_lesson_id")
         self.horizontalLayout_3.addWidget(self.edit_lesson_id)
-        self.verticalLayout.addWidget(self.frame_6)
+        self.gridLayout_3.addWidget(self.frame_6, 1, 0, 1, 3)
         self.frame_2 = QtWidgets.QFrame(self.middle_frame)
         self.frame_2.setMinimumSize(QtCore.QSize(630, 71))
         self.frame_2.setMaximumSize(QtCore.QSize(600, 72))
@@ -159,7 +159,7 @@ class Ui_Form(object):
 "color: rgb(43, 72, 101);")
         self.edit_lesson_topic.setObjectName("edit_lesson_topic")
         self.horizontalLayout_6.addWidget(self.edit_lesson_topic)
-        self.verticalLayout.addWidget(self.frame_2)
+        self.gridLayout_3.addWidget(self.frame_2, 2, 0, 1, 3)
         self.frame = QtWidgets.QFrame(self.middle_frame)
         self.frame.setMinimumSize(QtCore.QSize(630, 71))
         self.frame.setMaximumSize(QtCore.QSize(491, 71))
@@ -213,7 +213,7 @@ class Ui_Form(object):
         self.lbl_photo_name.setWordWrap(True)
         self.lbl_photo_name.setObjectName("lbl_photo_name")
         self.horizontalLayout_2.addWidget(self.lbl_photo_name)
-        self.verticalLayout.addWidget(self.frame)
+        self.gridLayout_3.addWidget(self.frame, 3, 0, 1, 3)
         self.frame_5 = QtWidgets.QFrame(self.middle_frame)
         self.frame_5.setMinimumSize(QtCore.QSize(630, 179))
         self.frame_5.setMaximumSize(QtCore.QSize(491, 142))
@@ -244,6 +244,33 @@ class Ui_Form(object):
         self.lbl_or.setObjectName("lbl_or")
         self.horizontalLayout_4.addWidget(self.lbl_or)
         self.gridLayout.addWidget(self.frame_4, 1, 0, 1, 2)
+        self.btn_record_audio = QtWidgets.QPushButton(self.frame_5)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.btn_record_audio.sizePolicy().hasHeightForWidth())
+        self.btn_record_audio.setSizePolicy(sizePolicy)
+        self.btn_record_audio.setMinimumSize(QtCore.QSize(610, 50))
+        self.btn_record_audio.setMaximumSize(QtCore.QSize(200, 50))
+        font = QtGui.QFont()
+        font.setFamily("Hind Siliguri Medium")
+        font.setPointSize(11)
+        self.btn_record_audio.setFont(font)
+        self.btn_record_audio.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.btn_record_audio.setStyleSheet("QPushButton {\n"
+"border: 3px solid rgb(43, 72, 101);\n"
+"border-radius: 10px;\n"
+"background-color:  #002B5B;\n"
+"color: rgb(137, 218, 199)\n"
+"}\n"
+"\n"
+"QPushButton::hover:!pressed {\n"
+"background-color: rgb(43, 72, 101);\n"
+"border: 3px solid rgb(0, 43, 91); \n"
+"}")
+        self.btn_record_audio.setFlat(True)
+        self.btn_record_audio.setObjectName("btn_record_audio")
+        self.gridLayout.addWidget(self.btn_record_audio, 2, 0, 1, 2)
         self.btn_select_audio = QtWidgets.QPushButton(self.frame_5)
         self.btn_select_audio.setMinimumSize(QtCore.QSize(200, 50))
         self.btn_select_audio.setMaximumSize(QtCore.QSize(200, 50))
@@ -285,38 +312,15 @@ class Ui_Form(object):
         self.lbl_audio.setWordWrap(True)
         self.lbl_audio.setObjectName("lbl_audio")
         self.gridLayout.addWidget(self.lbl_audio, 0, 1, 1, 1)
-        self.btn_record_audio = QtWidgets.QPushButton(self.frame_5)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.btn_record_audio.sizePolicy().hasHeightForWidth())
-        self.btn_record_audio.setSizePolicy(sizePolicy)
-        self.btn_record_audio.setMinimumSize(QtCore.QSize(610, 50))
-        self.btn_record_audio.setMaximumSize(QtCore.QSize(200, 50))
-        font = QtGui.QFont()
-        font.setFamily("Hind Siliguri Medium")
-        font.setPointSize(11)
-        self.btn_record_audio.setFont(font)
-        self.btn_record_audio.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.btn_record_audio.setStyleSheet("QPushButton {\n"
-"border: 3px solid rgb(43, 72, 101);\n"
-"border-radius: 10px;\n"
-"background-color:  #002B5B;\n"
-"color: rgb(137, 218, 199)\n"
-"}\n"
-"\n"
-"QPushButton::hover:!pressed {\n"
-"background-color: rgb(43, 72, 101);\n"
-"border: 3px solid rgb(0, 43, 91); \n"
-"}")
-        self.btn_record_audio.setFlat(True)
-        self.btn_record_audio.setObjectName("btn_record_audio")
-        self.gridLayout.addWidget(self.btn_record_audio, 2, 0, 1, 2)
-        self.verticalLayout.addWidget(self.frame_5)
-        spacerItem = QtWidgets.QSpacerItem(20, 54, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.verticalLayout.addItem(spacerItem)
+        self.gridLayout_3.addWidget(self.frame_5, 4, 0, 1, 3)
+        spacerItem = QtWidgets.QSpacerItem(212, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_3.addItem(spacerItem, 5, 0, 2, 1)
+        spacerItem1 = QtWidgets.QSpacerItem(20, 31, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.gridLayout_3.addItem(spacerItem1, 5, 1, 1, 1)
+        spacerItem2 = QtWidgets.QSpacerItem(212, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_3.addItem(spacerItem2, 5, 2, 2, 1)
         self.btn_submit = QtWidgets.QPushButton(self.middle_frame)
-        self.btn_submit.setMinimumSize(QtCore.QSize(176, 50))
+        self.btn_submit.setMinimumSize(QtCore.QSize(191, 50))
         font = QtGui.QFont()
         font.setFamily("Hind Siliguri Medium")
         font.setPointSize(13)
@@ -335,9 +339,22 @@ class Ui_Form(object):
 "}")
         self.btn_submit.setFlat(True)
         self.btn_submit.setObjectName("btn_submit")
-        self.verticalLayout.addWidget(self.btn_submit)
-        spacerItem1 = QtWidgets.QSpacerItem(20, 56, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.verticalLayout.addItem(spacerItem1)
+        self.gridLayout_3.addWidget(self.btn_submit, 6, 1, 1, 1)
+        spacerItem3 = QtWidgets.QSpacerItem(20, 30, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.gridLayout_3.addItem(spacerItem3, 7, 1, 1, 1)
+        self.lbl_lsn_cat_status = QtWidgets.QLabel(self.middle_frame)
+        self.lbl_lsn_cat_status.setMinimumSize(QtCore.QSize(481, 41))
+        font = QtGui.QFont()
+        font.setFamily("Hind Siliguri Medium")
+        font.setPointSize(12)
+        self.lbl_lsn_cat_status.setFont(font)
+        self.lbl_lsn_cat_status.setStyleSheet("border: 2px solid  rgb(0, 43, 91);\n"
+"color: rgb(255, 0, 0);\n"
+"background-color: rgb(137, 218, 199);")
+        self.lbl_lsn_cat_status.setText("")
+        self.lbl_lsn_cat_status.setAlignment(QtCore.Qt.AlignCenter)
+        self.lbl_lsn_cat_status.setObjectName("lbl_lsn_cat_status")
+        self.gridLayout_3.addWidget(self.lbl_lsn_cat_status, 8, 0, 1, 3)
         self.gridLayout_2.addWidget(self.middle_frame, 1, 0, 1, 1)
 
         self.retranslateUi(Form)
@@ -360,10 +377,10 @@ class Ui_Form(object):
         self.btn_select_photo.setText(_translate("Form", "ছবি/ভিডিও নির্বাচন করুন"))
         self.btn_select_photo.setShortcut(_translate("Form", "Return"))
         self.lbl_or.setText(_translate("Form", "অথবা"))
-        self.btn_select_audio.setText(_translate("Form", "অডিও নির্বাচন করুন"))
-        self.btn_select_audio.setShortcut(_translate("Form", "Return"))
         self.btn_record_audio.setText(_translate("Form", "অডিও রেকর্ড করুন"))
         self.btn_record_audio.setShortcut(_translate("Form", "Return"))
+        self.btn_select_audio.setText(_translate("Form", "অডিও নির্বাচন করুন"))
+        self.btn_select_audio.setShortcut(_translate("Form", "Return"))
         self.btn_submit.setText(_translate("Form", "লেসন তৈরি করুন "))
         self.btn_submit.setShortcut(_translate("Form", "Return"))
 
