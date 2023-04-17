@@ -76,7 +76,7 @@
          <string notr="true">color: rgb(143, 227, 207);</string>
         </property>
         <property name="text">
-         <string>পাঠ্যের কন্টেন্ট যুক্ত করুন</string>
+         <string>মডিউলের কন্টেন্ট যুক্ত করুন</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -428,12 +428,12 @@ color: rgb(43, 72, 101);</string>
             <string notr="true">QPushButton {
 border: 3px solid rgb(43, 72, 101);
 border-radius: 10px;
-background-color:  #002B5B;
+background-color:  rgb(43, 72, 101);
 color: rgb(137, 218, 199)
 }
 
 QPushButton::hover:!pressed {
-background-color: rgb(43, 72, 101);
+background-color: rgb(0, 43, 91);
 border: 3px solid rgb(0, 43, 91); 
 }</string>
            </property>
@@ -502,6 +502,86 @@ border-bottom-right-radius: 10px;</string>
          <enum>QFrame::Raised</enum>
         </property>
         <layout class="QGridLayout" name="gridLayout">
+         <item row="0" column="1">
+          <widget class="QLabel" name="lbl_audio">
+           <property name="minimumSize">
+            <size>
+             <width>371</width>
+             <height>47</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Hind Siliguri Medium</family>
+             <pointsize>13</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(137, 218, 199);
+padding-left: 10px;
+border: 3px solid rgb(43, 72, 101);
+border-top-left-radius: 10px;
+border-top-right-radius: 10px;
+border-bottom-left-radius: 10px;
+border-bottom-right-radius: 10px;</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0">
+          <widget class="QPushButton" name="btn_select_audio">
+           <property name="minimumSize">
+            <size>
+             <width>200</width>
+             <height>50</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>200</width>
+             <height>50</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Hind Siliguri Medium</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="cursor">
+            <cursorShape>PointingHandCursor</cursorShape>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+border: 3px solid rgb(43, 72, 101);
+border-radius: 10px;
+background-color:  rgb(43, 72, 101);
+color: rgb(137, 218, 199)
+}
+
+QPushButton::hover:!pressed {
+background-color: rgb(0, 43, 91);
+border: 3px solid rgb(0, 43, 91); 
+}</string>
+           </property>
+           <property name="text">
+            <string>অডিও নির্বাচন করুন</string>
+           </property>
+           <property name="shortcut">
+            <string>Return</string>
+           </property>
+           <property name="flat">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
          <item row="1" column="0" colspan="2">
           <widget class="QFrame" name="frame_4">
            <property name="minimumSize">
@@ -604,12 +684,12 @@ border-bottom-right-radius: 10px;</string>
             <string notr="true">QPushButton {
 border: 3px solid rgb(43, 72, 101);
 border-radius: 10px;
-background-color:  #002B5B;
+background-color:  rgb(43, 72, 101);
 color: rgb(137, 218, 199)
 }
 
 QPushButton::hover:!pressed {
-background-color: rgb(43, 72, 101);
+background-color: rgb(0, 43, 91);
 border: 3px solid rgb(0, 43, 91); 
 }</string>
            </property>
@@ -620,86 +700,6 @@ border: 3px solid rgb(0, 43, 91);
             <string>Return</string>
            </property>
            <property name="flat">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="0">
-          <widget class="QPushButton" name="btn_select_audio">
-           <property name="minimumSize">
-            <size>
-             <width>200</width>
-             <height>50</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>200</width>
-             <height>50</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <family>Hind Siliguri Medium</family>
-             <pointsize>11</pointsize>
-            </font>
-           </property>
-           <property name="cursor">
-            <cursorShape>PointingHandCursor</cursorShape>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QPushButton {
-border: 3px solid rgb(43, 72, 101);
-border-radius: 10px;
-background-color:  #002B5B;
-color: rgb(137, 218, 199)
-}
-
-QPushButton::hover:!pressed {
-background-color: rgb(43, 72, 101);
-border: 3px solid rgb(0, 43, 91); 
-}</string>
-           </property>
-           <property name="text">
-            <string>অডিও নির্বাচন করুন</string>
-           </property>
-           <property name="shortcut">
-            <string>Return</string>
-           </property>
-           <property name="flat">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="1">
-          <widget class="QLabel" name="lbl_audio">
-           <property name="minimumSize">
-            <size>
-             <width>371</width>
-             <height>47</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <family>Hind Siliguri Medium</family>
-             <pointsize>13</pointsize>
-             <weight>50</weight>
-             <bold>false</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">color: rgb(137, 218, 199);
-padding-left: 10px;
-border: 3px solid rgb(43, 72, 101);
-border-top-left-radius: 10px;
-border-top-right-radius: 10px;
-border-bottom-left-radius: 10px;
-border-bottom-right-radius: 10px;</string>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-           <property name="wordWrap">
             <bool>true</bool>
            </property>
           </widget>
@@ -750,7 +750,7 @@ border-bottom-right-radius: 10px;</string>
        <widget class="QPushButton" name="btn_submit">
         <property name="minimumSize">
          <size>
-          <width>191</width>
+          <width>200</width>
           <height>50</height>
          </size>
         </property>
@@ -767,17 +767,17 @@ border-bottom-right-radius: 10px;</string>
          <string notr="true">QPushButton {
 border: 3px solid rgb(43, 72, 101);
 border-radius: 10px;
-background-color:  rgb(43, 72, 101);
+background-color:  #002B5B;
 color: rgb(137, 218, 199)
 }
 
 QPushButton::hover:!pressed {
-background-color: rgb(0, 43, 91);
+background-color: rgb(43, 72, 101);
 border: 3px solid rgb(0, 43, 91); 
 }</string>
         </property>
         <property name="text">
-         <string>লেসন তৈরি করুন </string>
+         <string>মডিউল তৈরি করুন </string>
         </property>
         <property name="shortcut">
          <string>Return</string>

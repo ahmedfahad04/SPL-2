@@ -16,8 +16,6 @@ class Lesson_Window(QMainWindow):  # Home extends QMainWindow
     def __init__(self, ui_object):
         super(QMainWindow, self).__init__()
 
-        # TODO: Video should be added flawlessly
-
         # window
         self.lesson_window = ui_object
         self.form = None
@@ -44,10 +42,9 @@ class Lesson_Window(QMainWindow):  # Home extends QMainWindow
             4: 'কর্মধারা_শিখন(Activity)'
         }
 
-        os.path.exists('Lessons') or os.mkdir('Lessons')
         self.videoFormat = ['mp4', 'avi', 'mkv',
                             'flv', 'wmv', 'mov', '3gp', 'webm']
-        
+
         self.audioFormat = ['mp3', 'wav', 'ogg', 'wma', 'aac', 'flac', 'm4a']
 
         self.load_lessons()
@@ -73,8 +70,10 @@ class Lesson_Window(QMainWindow):  # Home extends QMainWindow
         self.form.btn_select_photo.clicked.connect(self.manage_media)
         self.form.btn_select_audio.clicked.connect(self.manage_audio)
         self.form.btn_record_audio.clicked.connect(self.record_audio)
-        self.form.btn_submit.clicked.connect(lambda: self.save_lesson_content(custom_form))
-        self.form.cmb_category.currentIndexChanged.connect(self.on_lsn_creating_category_changed)
+        self.form.btn_submit.clicked.connect(
+            lambda: self.save_lesson_content(custom_form))
+        self.form.cmb_category.currentIndexChanged.connect(
+            self.on_lsn_creating_category_changed)
 
     def manage_media(self):
 
@@ -214,7 +213,7 @@ class Lesson_Window(QMainWindow):  # Home extends QMainWindow
 
         # get & set lesson content name
         self.lesson_topic = self.form.edit_lesson_topic.text()
-        self.lesson_window.lsn_lbl_lesson_topic.setText(self.lesson_topic)
+        self.lesson_window.lsn_edit_lesson_topic.setText(self.lesson_topic)
 
         # get & set category
         self.category_id = self.form.cmb_category.currentIndex()
@@ -236,7 +235,7 @@ class Lesson_Window(QMainWindow):  # Home extends QMainWindow
 
         # make a folder
         self.folder_name = self.categories[self.category_id] + \
-            '_পাঠ_' + self.lesson_id
+            '_মডিউল_' + self.lesson_id
         self.folder_location = 'Lessons/' + self.folder_name
         if os.path.exists(self.folder_location) == False:
             os.mkdir(self.folder_location)
@@ -246,7 +245,6 @@ class Lesson_Window(QMainWindow):  # Home extends QMainWindow
         if self.media_file_name is None:
             show_warning_message("সতর্কতা!!", "ছবি/ভিডিও নির্বাচন করুন")
             return
-        
 
         # check for video format
         if self.media_file_name.split('.')[1] not in self.videoFormat:
@@ -264,8 +262,8 @@ class Lesson_Window(QMainWindow):  # Home extends QMainWindow
         # copy the files
         self.content = {
             "category_id": self.category_id,
-            "lesson_id": self.lesson_id,
-            "lesson_topic": self.lesson_topic
+            "module_id": self.lesson_id,
+            "module_topic": self.lesson_topic
         }
 
         with open(self.folder_location + '/' + 'content.json', 'w+') as fp:
@@ -298,7 +296,6 @@ class Lesson_Window(QMainWindow):  # Home extends QMainWindow
                 self.category_lesson_mappings[key] = [value]
             else:
                 self.category_lesson_mappings[key].append(value)
-                
 
         self.lesson_window.lsn_cmb_lessons.addItems(sorted(tmp_lsn_id))
 
@@ -306,9 +303,9 @@ class Lesson_Window(QMainWindow):  # Home extends QMainWindow
 
         self.current_category = str(index)
         print("Current Category: ", self.current_category)
-        
+
         self.lesson_window.lsn_cmb_lessons.clear()
-        
+
         try:
             for value in self.category_lesson_mappings[index]:
                 self.lesson_window.lsn_cmb_lessons.addItem(str(value))
@@ -340,7 +337,7 @@ class Lesson_Window(QMainWindow):  # Home extends QMainWindow
                 self.lesson_window.lsn_cmb_lessons.setCurrentText(
                     str(db_lesson))
                 self.lesson_window.lsn_cmb_category.setCurrentText(str(cat_id))
-                self.lesson_window.lsn_lbl_lesson_topic.setText(lsn_topic)
+                self.lesson_window.lsn_edit_lesson_topic.setText(lsn_topic)
 
                 print("Media Location: ", media_loc)
                 media_loc = glob.glob(media_loc+'/media.*')[0]
@@ -375,12 +372,13 @@ class Lesson_Window(QMainWindow):  # Home extends QMainWindow
 
         current_category = str(index)
         print("Current Category: ", current_category)
-        
+
         try:
             category_wise_lesson = len(self.category_lesson_mappings[index])
-        
-            self.form.lbl_lsn_cat_status.setText(f"এই ক্যাটেগরি তে মোট পাঠ সংখ্যা: {category_wise_lesson}, নতুন পাঠ {category_wise_lesson+1} থেকে শুরু করুন ")
-            
+
+            self.form.lbl_lsn_cat_status.setText(
+                f"এই ক্যাটেগরি তে মোট পাঠ সংখ্যা: {category_wise_lesson}, নতুন পাঠ {category_wise_lesson+1} থেকে শুরু করুন ")
+
         except:
-            self.form.lbl_lsn_cat_status.setText(f"এই ক্যাটেগরি এখনো কোন পাঠ নেই, নতুন পাঠ 1 থেকে শুরু করুন")
-            
+            self.form.lbl_lsn_cat_status.setText(
+                f"এই ক্যাটেগরি এখনো কোন পাঠ নেই, নতুন পাঠ 1 থেকে শুরু করুন")

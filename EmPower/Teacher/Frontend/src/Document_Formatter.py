@@ -38,3 +38,8 @@ def restart():
     QCoreApplication.quit()
     status = QProcess.startDetached(sys.executable, sys.argv)
     print(status)
+    
+def align_lineEdit_elements(text_edit):
+    text_option = QTextOption()
+    text_option.setAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+    text_edit.document().setDefaultTextOption(text_option)

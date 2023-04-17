@@ -13,8 +13,10 @@ from Frontend.src.Document_Formatter import *
 from Frontend.src.Student_Window import Student_Window
 from Frontend.src.Lesson_Window import Lesson_Window
 from Frontend.src.Task_Window import Task_Window
+from Frontend.src.Lesson_Making_Wiindow import Lesson_Making_Window
 from Backend.Database.lesson_db import lesson_data as ld
 from Backend.Database.student_db import student_data as sd
+import os
 
 class Home(QMainWindow):  # Home extends QMainWindow
 
@@ -44,8 +46,7 @@ class Home(QMainWindow):  # Home extends QMainWindow
         self.home.home_btn_student.clicked.connect(self.student_page)
         self.home.home_btn_lesson.clicked.connect(self.lesson_page)
         self.home.home_btn_quiz.clicked.connect(self.task_page)
-        
-        
+               
     def student_page(self):
         
         # create table for student info
@@ -73,6 +74,8 @@ class Home(QMainWindow):  # Home extends QMainWindow
                 
     def lesson_page(self):
         
+        os.path.exists('Lessons') or os.mkdir('Lessons')
+        
         # create table for lesson info
         ld().create_table()
         
@@ -81,7 +84,7 @@ class Home(QMainWindow):  # Home extends QMainWindow
         
         # set window icon and title
         self.setWindowIcon(QIcon("Frontend/Images/primary_logo.png"))
-        self.setWindowTitle("শিক্ষার্থীর পাঠসমূহ")
+        self.setWindowTitle("পাঠের মডিউলসমূহ") 
         
         # Navigate between windows
         self.home.mediaStackWidget.setCurrentWidget(self.home.image_page)
@@ -92,6 +95,8 @@ class Home(QMainWindow):  # Home extends QMainWindow
         self.home.lsn_btn_add_lessons.clicked.connect(self.lesson_window.create_lesson)
         self.home.lsn_cmb_category.currentIndexChanged.connect(self.lesson_window.on_category_changed)
         self.home.lsn_cmb_lessons.currentIndexChanged.connect(self.lesson_window.on_lesson_changed)
+        self.home.lsn_btn_reload_window.clicked.connect(self.home_page)
+        self.home.lsn_btn_make_lesson.clicked.connect(self.lesson_making_page)
        
     def task_page(self):
         
@@ -108,6 +113,46 @@ class Home(QMainWindow):  # Home extends QMainWindow
         self.home.task_btn_sequence.clicked.connect(self.sequence_page)
         self.home.task_btn_puzzle.clicked.connect(self.puzzle_page)
         
+    def lesson_making_page(self):
+        
+        # instance of lesson window class
+        self.lesson_making_window = Lesson_Making_Window(self.home)
+        
+        # set window icon and title
+        self.setWindowIcon(QIcon("Frontend/Images/primary_logo.png"))
+        self.setWindowTitle("শিক্ষার্থীর পাঠসমূহ")
+        
+        # Navigate between windows
+        self.home.stackedWidget.setCurrentWidget(self.home.lesson_making_page)
+        self.home.lsn_btn_back_to_home_3.clicked.connect(self.home_page)
+        
+        # additional permission for that window widgets
+        self.home.lsn_module_table_widget.setDragEnabled(True)
+        self.home.lsn_module_table_widget.setDragDropMode(QAbstractItemView.DragOnly)        
+        self.home.lsn_new_module_list_view.setAcceptDrops(True)
+        self.home.lsn_new_module_list_view.setModel(QStandardItemModel(0, 1))
+        
+        # connect buttons
+        self.home.lsn_btn_remove_module.clicked.connect(self.lesson_making_window.remove_list_item)
+    
+    def dragEnterEvent(self, event):
+        event.accept() if event.mimeData().hasText() else event.ignore()
+        
+        
+    def dragMoveEvent(self, event):
+        event.accept() if event.mimeData().hasText() else event.ignore()
+
+    def dropEvent(self, event):
+        
+        # Add the selected row to the list widget
+        if event.mimeData().hasText():
+            event.setDropAction(Qt.CopyAction)
+            self.model().appendRow(QStandardItem(event.mimeData().text()))       
+            event.accept()
+        else: 
+            event.ignore()
+        
+                
     def mcq_page(self):
         
         self.home.evalstackwidget.setCurrentWidget(self.home.mcq_page) 

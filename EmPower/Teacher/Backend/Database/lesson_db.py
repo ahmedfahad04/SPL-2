@@ -6,7 +6,7 @@ class lesson_data(Database_Manager, ABC):
     def __init__(self):
         super().__init__()
 
-        self.create_table()
+        # self.create_table()
 
     def create_table(self) -> bool:
         """This private method will create lesson table that will store all the student information"""

@@ -184,12 +184,12 @@ class Ui_Form(object):
         self.btn_select_photo.setStyleSheet("QPushButton {\n"
 "border: 3px solid rgb(43, 72, 101);\n"
 "border-radius: 10px;\n"
-"background-color:  #002B5B;\n"
+"background-color:  rgb(43, 72, 101);\n"
 "color: rgb(137, 218, 199)\n"
 "}\n"
 "\n"
 "QPushButton::hover:!pressed {\n"
-"background-color: rgb(43, 72, 101);\n"
+"background-color: rgb(0, 43, 91);\n"
 "border: 3px solid rgb(0, 43, 91); \n"
 "}")
         self.btn_select_photo.setFlat(True)
@@ -223,6 +223,47 @@ class Ui_Form(object):
         self.frame_5.setObjectName("frame_5")
         self.gridLayout = QtWidgets.QGridLayout(self.frame_5)
         self.gridLayout.setObjectName("gridLayout")
+        self.lbl_audio = QtWidgets.QLabel(self.frame_5)
+        self.lbl_audio.setMinimumSize(QtCore.QSize(371, 47))
+        font = QtGui.QFont()
+        font.setFamily("Hind Siliguri Medium")
+        font.setPointSize(13)
+        font.setBold(False)
+        font.setWeight(50)
+        self.lbl_audio.setFont(font)
+        self.lbl_audio.setStyleSheet("color: rgb(137, 218, 199);\n"
+"padding-left: 10px;\n"
+"border: 3px solid rgb(43, 72, 101);\n"
+"border-top-left-radius: 10px;\n"
+"border-top-right-radius: 10px;\n"
+"border-bottom-left-radius: 10px;\n"
+"border-bottom-right-radius: 10px;")
+        self.lbl_audio.setText("")
+        self.lbl_audio.setWordWrap(True)
+        self.lbl_audio.setObjectName("lbl_audio")
+        self.gridLayout.addWidget(self.lbl_audio, 0, 1, 1, 1)
+        self.btn_select_audio = QtWidgets.QPushButton(self.frame_5)
+        self.btn_select_audio.setMinimumSize(QtCore.QSize(200, 50))
+        self.btn_select_audio.setMaximumSize(QtCore.QSize(200, 50))
+        font = QtGui.QFont()
+        font.setFamily("Hind Siliguri Medium")
+        font.setPointSize(11)
+        self.btn_select_audio.setFont(font)
+        self.btn_select_audio.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.btn_select_audio.setStyleSheet("QPushButton {\n"
+"border: 3px solid rgb(43, 72, 101);\n"
+"border-radius: 10px;\n"
+"background-color:  rgb(43, 72, 101);\n"
+"color: rgb(137, 218, 199)\n"
+"}\n"
+"\n"
+"QPushButton::hover:!pressed {\n"
+"background-color: rgb(0, 43, 91);\n"
+"border: 3px solid rgb(0, 43, 91); \n"
+"}")
+        self.btn_select_audio.setFlat(True)
+        self.btn_select_audio.setObjectName("btn_select_audio")
+        self.gridLayout.addWidget(self.btn_select_audio, 0, 0, 1, 1)
         self.frame_4 = QtWidgets.QFrame(self.frame_5)
         self.frame_4.setMinimumSize(QtCore.QSize(610, 17))
         self.frame_4.setMaximumSize(QtCore.QSize(465, 72))
@@ -260,58 +301,17 @@ class Ui_Form(object):
         self.btn_record_audio.setStyleSheet("QPushButton {\n"
 "border: 3px solid rgb(43, 72, 101);\n"
 "border-radius: 10px;\n"
-"background-color:  #002B5B;\n"
+"background-color:  rgb(43, 72, 101);\n"
 "color: rgb(137, 218, 199)\n"
 "}\n"
 "\n"
 "QPushButton::hover:!pressed {\n"
-"background-color: rgb(43, 72, 101);\n"
+"background-color: rgb(0, 43, 91);\n"
 "border: 3px solid rgb(0, 43, 91); \n"
 "}")
         self.btn_record_audio.setFlat(True)
         self.btn_record_audio.setObjectName("btn_record_audio")
         self.gridLayout.addWidget(self.btn_record_audio, 2, 0, 1, 2)
-        self.btn_select_audio = QtWidgets.QPushButton(self.frame_5)
-        self.btn_select_audio.setMinimumSize(QtCore.QSize(200, 50))
-        self.btn_select_audio.setMaximumSize(QtCore.QSize(200, 50))
-        font = QtGui.QFont()
-        font.setFamily("Hind Siliguri Medium")
-        font.setPointSize(11)
-        self.btn_select_audio.setFont(font)
-        self.btn_select_audio.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.btn_select_audio.setStyleSheet("QPushButton {\n"
-"border: 3px solid rgb(43, 72, 101);\n"
-"border-radius: 10px;\n"
-"background-color:  #002B5B;\n"
-"color: rgb(137, 218, 199)\n"
-"}\n"
-"\n"
-"QPushButton::hover:!pressed {\n"
-"background-color: rgb(43, 72, 101);\n"
-"border: 3px solid rgb(0, 43, 91); \n"
-"}")
-        self.btn_select_audio.setFlat(True)
-        self.btn_select_audio.setObjectName("btn_select_audio")
-        self.gridLayout.addWidget(self.btn_select_audio, 0, 0, 1, 1)
-        self.lbl_audio = QtWidgets.QLabel(self.frame_5)
-        self.lbl_audio.setMinimumSize(QtCore.QSize(371, 47))
-        font = QtGui.QFont()
-        font.setFamily("Hind Siliguri Medium")
-        font.setPointSize(13)
-        font.setBold(False)
-        font.setWeight(50)
-        self.lbl_audio.setFont(font)
-        self.lbl_audio.setStyleSheet("color: rgb(137, 218, 199);\n"
-"padding-left: 10px;\n"
-"border: 3px solid rgb(43, 72, 101);\n"
-"border-top-left-radius: 10px;\n"
-"border-top-right-radius: 10px;\n"
-"border-bottom-left-radius: 10px;\n"
-"border-bottom-right-radius: 10px;")
-        self.lbl_audio.setText("")
-        self.lbl_audio.setWordWrap(True)
-        self.lbl_audio.setObjectName("lbl_audio")
-        self.gridLayout.addWidget(self.lbl_audio, 0, 1, 1, 1)
         self.gridLayout_3.addWidget(self.frame_5, 4, 0, 1, 3)
         spacerItem = QtWidgets.QSpacerItem(212, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.gridLayout_3.addItem(spacerItem, 5, 0, 2, 1)
@@ -320,7 +320,7 @@ class Ui_Form(object):
         spacerItem2 = QtWidgets.QSpacerItem(212, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.gridLayout_3.addItem(spacerItem2, 5, 2, 2, 1)
         self.btn_submit = QtWidgets.QPushButton(self.middle_frame)
-        self.btn_submit.setMinimumSize(QtCore.QSize(191, 50))
+        self.btn_submit.setMinimumSize(QtCore.QSize(200, 50))
         font = QtGui.QFont()
         font.setFamily("Hind Siliguri Medium")
         font.setPointSize(13)
@@ -329,12 +329,12 @@ class Ui_Form(object):
         self.btn_submit.setStyleSheet("QPushButton {\n"
 "border: 3px solid rgb(43, 72, 101);\n"
 "border-radius: 10px;\n"
-"background-color:  rgb(43, 72, 101);\n"
+"background-color:  #002B5B;\n"
 "color: rgb(137, 218, 199)\n"
 "}\n"
 "\n"
 "QPushButton::hover:!pressed {\n"
-"background-color: rgb(0, 43, 91);\n"
+"background-color: rgb(43, 72, 101);\n"
 "border: 3px solid rgb(0, 43, 91); \n"
 "}")
         self.btn_submit.setFlat(True)
@@ -363,7 +363,7 @@ class Ui_Form(object):
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
-        self.lbl_heading.setText(_translate("Form", "পাঠ্যের কন্টেন্ট যুক্ত করুন"))
+        self.lbl_heading.setText(_translate("Form", "মডিউলের কন্টেন্ট যুক্ত করুন"))
         self.lbl_category.setText(_translate("Form", "ক্যাটেগরি"))
         self.cmb_category.setItemText(0, _translate("Form", "ক্যাটাগরি নির্বাচন করুন"))
         self.cmb_category.setItemText(1, _translate("Form", "নাম শিখন (Noun)"))
@@ -376,12 +376,12 @@ class Ui_Form(object):
         self.edit_lesson_topic.setPlaceholderText(_translate("Form", "যেমনঃ আম "))
         self.btn_select_photo.setText(_translate("Form", "ছবি/ভিডিও নির্বাচন করুন"))
         self.btn_select_photo.setShortcut(_translate("Form", "Return"))
+        self.btn_select_audio.setText(_translate("Form", "অডিও নির্বাচন করুন"))
+        self.btn_select_audio.setShortcut(_translate("Form", "Return"))
         self.lbl_or.setText(_translate("Form", "অথবা"))
         self.btn_record_audio.setText(_translate("Form", "অডিও রেকর্ড করুন"))
         self.btn_record_audio.setShortcut(_translate("Form", "Return"))
-        self.btn_select_audio.setText(_translate("Form", "অডিও নির্বাচন করুন"))
-        self.btn_select_audio.setShortcut(_translate("Form", "Return"))
-        self.btn_submit.setText(_translate("Form", "লেসন তৈরি করুন "))
+        self.btn_submit.setText(_translate("Form", "মডিউল তৈরি করুন "))
         self.btn_submit.setShortcut(_translate("Form", "Return"))
 
 
