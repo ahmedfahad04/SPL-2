@@ -1491,6 +1491,9 @@ class Ui_MainWindow(object):
         self.gridLayout_10.addWidget(self.lsn_lbl_lessons_6, 0, 1, 1, 1)
         self.lsn_table_assigning_lessons = QtWidgets.QTableWidget(self.mid_frame_5)
         self.lsn_table_assigning_lessons.setMinimumSize(QtCore.QSize(830, 511))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.lsn_table_assigning_lessons.setFont(font)
         self.lsn_table_assigning_lessons.viewport().setProperty("cursor", QtGui.QCursor(QtCore.Qt.OpenHandCursor))
         self.lsn_table_assigning_lessons.setStyleSheet("QHeaderView::section {\n"
 "    background-color: #002B5B;\n"
@@ -1596,7 +1599,7 @@ class Ui_MainWindow(object):
         self.lsn_list_students.setMinimumSize(QtCore.QSize(401, 509))
         self.lsn_list_students.setMaximumSize(QtCore.QSize(371, 16777215))
         font = QtGui.QFont()
-        font.setPointSize(10)
+        font.setPointSize(13)
         self.lsn_list_students.setFont(font)
         self.lsn_list_students.setStyleSheet("color: rgb(143, 227, 190);\n"
 "border: 2px solid rgb(0, 43, 91);")

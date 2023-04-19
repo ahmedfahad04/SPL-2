@@ -1525,24 +1525,34 @@ class Ui_MainWindow(object):
         self.lsn_table_assigning_lessons = QTableWidget(self.mid_frame_5)
         if (self.lsn_table_assigning_lessons.columnCount() < 4):
             self.lsn_table_assigning_lessons.setColumnCount(4)
+        font21 = QFont()
+        font21.setPointSize(12)
+        font21.setBold(False)
         __qtablewidgetitem8 = QTableWidgetItem()
         __qtablewidgetitem8.setTextAlignment(Qt.AlignCenter);
-        __qtablewidgetitem8.setFont(font9);
+        __qtablewidgetitem8.setFont(font21);
         self.lsn_table_assigning_lessons.setHorizontalHeaderItem(0, __qtablewidgetitem8)
+        font22 = QFont()
+        font22.setFamilies([u"Segoe UI"])
+        font22.setPointSize(12)
+        font22.setBold(False)
         __qtablewidgetitem9 = QTableWidgetItem()
         __qtablewidgetitem9.setTextAlignment(Qt.AlignCenter);
-        __qtablewidgetitem9.setFont(font17);
+        __qtablewidgetitem9.setFont(font22);
         self.lsn_table_assigning_lessons.setHorizontalHeaderItem(1, __qtablewidgetitem9)
         __qtablewidgetitem10 = QTableWidgetItem()
         __qtablewidgetitem10.setTextAlignment(Qt.AlignCenter);
-        __qtablewidgetitem10.setFont(font17);
+        __qtablewidgetitem10.setFont(font22);
         self.lsn_table_assigning_lessons.setHorizontalHeaderItem(2, __qtablewidgetitem10)
+        font23 = QFont()
+        font23.setPointSize(12)
         __qtablewidgetitem11 = QTableWidgetItem()
         __qtablewidgetitem11.setTextAlignment(Qt.AlignCenter);
-        __qtablewidgetitem11.setFont(font20);
+        __qtablewidgetitem11.setFont(font23);
         self.lsn_table_assigning_lessons.setHorizontalHeaderItem(3, __qtablewidgetitem11)
         self.lsn_table_assigning_lessons.setObjectName(u"lsn_table_assigning_lessons")
         self.lsn_table_assigning_lessons.setMinimumSize(QSize(830, 511))
+        self.lsn_table_assigning_lessons.setFont(font23)
         self.lsn_table_assigning_lessons.viewport().setProperty("cursor", QCursor(Qt.OpenHandCursor))
         self.lsn_table_assigning_lessons.setStyleSheet(u"QHeaderView::section {\n"
 "	background-color: #002B5B;\n"
@@ -1608,7 +1618,9 @@ class Ui_MainWindow(object):
         self.lsn_list_students.setObjectName(u"lsn_list_students")
         self.lsn_list_students.setMinimumSize(QSize(401, 509))
         self.lsn_list_students.setMaximumSize(QSize(371, 16777215))
-        self.lsn_list_students.setFont(font20)
+        font24 = QFont()
+        font24.setPointSize(13)
+        self.lsn_list_students.setFont(font24)
         self.lsn_list_students.setStyleSheet(u"color: rgb(143, 227, 190);\n"
 "border: 2px solid rgb(0, 43, 91);")
         self.lsn_list_students.setEditTriggers(QAbstractItemView.NoEditTriggers)

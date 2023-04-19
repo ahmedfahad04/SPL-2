@@ -103,6 +103,8 @@ class Lesson_Making_Window(QMainWindow):  # Home extends QMainWindow
         print('Lesson created successfully')	
         
         data = [str(lesson_serial_no + 1), folder_path]
+        
+        # add the lesson to the database
         ld().add_entry(data)
         
         self.lesson_making_window.lsn_new_module_list_view.model().clear() 
