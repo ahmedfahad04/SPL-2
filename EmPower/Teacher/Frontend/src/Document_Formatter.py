@@ -33,6 +33,15 @@ def show_warning_message(title, message):
     msg.setWindowIcon(QIcon("Frontend\Images\warning_icon.png"))
     msg.setStandardButtons(QMessageBox.Ok)
     msg.exec_()
+    
+def show_success_message(title, message):
+    msg = QMessageBox()
+    msg.setIcon(QMessageBox.Information)
+    msg.setText(message)
+    msg.setWindowTitle(title)
+    msg.setWindowIcon(QIcon("Frontend\Images\done.png"))
+    msg.setStandardButtons(QMessageBox.Ok)
+    msg.exec_()
 
 def restart():
     QCoreApplication.quit()

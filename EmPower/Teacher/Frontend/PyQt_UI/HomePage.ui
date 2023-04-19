@@ -1465,38 +1465,36 @@ color: rgb(137, 218, 199);</string>
                   </widget>
                  </item>
                  <item>
-                  <widget class="QTextEdit" name="lsn_edit_lesson_topic">
-                   <property name="enabled">
-                    <bool>false</bool>
-                   </property>
+                  <widget class="QLabel" name="lsn_lbl_lesson_topic">
                    <property name="minimumSize">
                     <size>
                      <width>520</width>
                      <height>400</height>
                     </size>
                    </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>500</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
                    <property name="font">
                     <font>
-                     <family>Hind Siliguri Medium</family>
-                     <pointsize>24</pointsize>
-                     <weight>7</weight>
-                     <italic>false</italic>
-                     <bold>false</bold>
+                     <pointsize>25</pointsize>
                     </font>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">QTextEdit {
-border: 3px dotted  rgb(137, 218, 199);
-font: 57 24pt &quot;Hind Siliguri Medium&quot;;
-color: rgb(137, 218, 199);
-padding: 20px;
-}</string>
+                    <string notr="true">border: 3px dotted  rgb(137, 218, 199);
+color: rgb(137, 218, 199);</string>
                    </property>
-                   <property name="readOnly">
-                    <bool>true</bool>
-                   </property>
-                   <property name="placeholderText">
+                   <property name="text">
                     <string>পরিচয়</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignCenter</set>
+                   </property>
+                   <property name="wordWrap">
+                    <bool>true</bool>
                    </property>
                   </widget>
                  </item>
@@ -2838,6 +2836,9 @@ QPushButton:hover:!pressed
                      <height>501</height>
                     </size>
                    </property>
+                   <property name="cursor" stdset="0">
+                    <cursorShape>ClosedHandCursor</cursorShape>
+                   </property>
                    <property name="styleSheet">
                     <string notr="true">QHeaderView::section {
 	background-color: #002B5B;
@@ -2862,7 +2863,7 @@ QTableWidget {
                    </attribute>
                    <column>
                     <property name="text">
-                     <string>মডিউলের বিবরণ </string>
+                     <string>মডিউলের নাম</string>
                     </property>
                     <property name="font">
                      <font>
@@ -2878,7 +2879,7 @@ QTableWidget {
                    </column>
                    <column>
                     <property name="text">
-                     <string>মডিউলের নাম</string>
+                     <string>মডিউলের বিবরণ </string>
                     </property>
                     <property name="font">
                      <font>
@@ -2894,80 +2895,10 @@ QTableWidget {
                    </column>
                   </widget>
                  </item>
-                 <item row="1" column="3" rowspan="2">
-                  <widget class="QTreeView" name="lsn_tree_view">
-                   <property name="minimumSize">
-                    <size>
-                     <width>378</width>
-                     <height>566</height>
-                    </size>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="2" column="0">
-                  <widget class="QPushButton" name="lsn_btn_add_new_module">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                     <horstretch>230</horstretch>
-                     <verstretch>40</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <property name="minimumSize">
-                    <size>
-                     <width>451</width>
-                     <height>58</height>
-                    </size>
-                   </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>451</width>
-                     <height>58</height>
-                    </size>
-                   </property>
-                   <property name="font">
-                    <font>
-                     <family>Hind Siliguri Medium</family>
-                     <pointsize>15</pointsize>
-                     <weight>50</weight>
-                     <bold>false</bold>
-                    </font>
-                   </property>
-                   <property name="cursor">
-                    <cursorShape>PointingHandCursor</cursorShape>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">QPushButton {
-background-color: rgb(160, 253, 230);
-color:  #256D85 ;
-border-radius: 10px;
-}
-
-QPushButton::hover {
-	
-	background-color: rgb(143, 227, 207);
-	color: #2B4865;
-
-}</string>
-                   </property>
-                   <property name="text">
-                    <string>পাঠে যুক্ত করুন</string>
-                   </property>
-                   <property name="icon">
-                    <iconset>
-                     <normaloff>../Images/add_icon.png</normaloff>../Images/add_icon.png</iconset>
-                   </property>
-                   <property name="iconSize">
-                    <size>
-                     <width>25</width>
-                     <height>25</height>
-                    </size>
-                   </property>
-                  </widget>
-                 </item>
                  <item row="2" column="2">
                   <widget class="QPushButton" name="lsn_btn_finish_add_module">
                    <property name="enabled">
-                    <bool>false</bool>
+                    <bool>true</bool>
                    </property>
                    <property name="sizePolicy">
                     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -2990,7 +2921,7 @@ QPushButton::hover {
                    <property name="font">
                     <font>
                      <family>Hind Siliguri Medium</family>
-                     <pointsize>12</pointsize>
+                     <pointsize>10</pointsize>
                      <weight>50</weight>
                      <bold>false</bold>
                     </font>
@@ -3013,7 +2944,7 @@ QPushButton::hover {
 }</string>
                    </property>
                    <property name="text">
-                    <string>শেষ করুন</string>
+                    <string>পাঠ তৈরি সম্পন্ন করুন</string>
                    </property>
                    <property name="icon">
                     <iconset>
@@ -3073,7 +3004,7 @@ QPushButton::hover {
 }</string>
                    </property>
                    <property name="text">
-                    <string>মডিউলটি বাতিল করুন</string>
+                    <string>সিলেকশন বাতিল করুন</string>
                    </property>
                    <property name="icon">
                     <iconset>
@@ -3084,6 +3015,32 @@ QPushButton::hover {
                      <width>20</width>
                      <height>25</height>
                     </size>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="2" column="0">
+                  <widget class="QLabel" name="label">
+                   <property name="font">
+                    <font>
+                     <family>Hind Siliguri Medium</family>
+                     <pointsize>11</pointsize>
+                     <weight>50</weight>
+                     <bold>false</bold>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">color: rgb(132, 211, 184);
+background-color: rgb(0, 43, 91);
+padding: 5px;</string>
+                   </property>
+                   <property name="text">
+                    <string>নতুন পাঠে মডিউল যুক্ত করার জন্য শুধুমাত্র &quot;মডিউল নাম&quot; এর উপর ক্লিক করে &quot;নতুন পাঠের মডিউল সমূহ&quot;  উইন্ডোতে ড্র্যাগ করুন</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignCenter</set>
+                   </property>
+                   <property name="wordWrap">
+                    <bool>true</bool>
                    </property>
                   </widget>
                  </item>
@@ -3102,6 +3059,22 @@ QPushButton::hover {
                    </property>
                    <property name="styleSheet">
                     <string notr="true">color: rgb(143, 227, 190);</string>
+                   </property>
+                   <property name="editTriggers">
+                    <set>QAbstractItemView::NoEditTriggers</set>
+                   </property>
+                   <property name="dragEnabled">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="3" rowspan="2">
+                  <widget class="QTreeView" name="lsn_tree_view">
+                   <property name="minimumSize">
+                    <size>
+                     <width>378</width>
+                     <height>566</height>
+                    </size>
                    </property>
                   </widget>
                  </item>

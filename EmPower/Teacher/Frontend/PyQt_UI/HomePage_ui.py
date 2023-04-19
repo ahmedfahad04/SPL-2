@@ -15,11 +15,11 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QAbstractScrollArea, QApplication, QComboBox, QFrame,
-    QGridLayout, QHBoxLayout, QHeaderView, QLabel,
-    QListView, QMainWindow, QPushButton, QSizePolicy,
-    QSpacerItem, QStackedWidget, QTableWidget, QTableWidgetItem,
-    QTextEdit, QTreeView, QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QAbstractItemView, QAbstractScrollArea, QApplication, QComboBox,
+    QFrame, QGridLayout, QHBoxLayout, QHeaderView,
+    QLabel, QListView, QMainWindow, QPushButton,
+    QSizePolicy, QSpacerItem, QStackedWidget, QTableWidget,
+    QTableWidgetItem, QTreeView, QVBoxLayout, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -670,25 +670,19 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_12.addWidget(self.mediaStackWidget)
 
-        self.lsn_edit_lesson_topic = QTextEdit(self.middle_content_frame)
-        self.lsn_edit_lesson_topic.setObjectName(u"lsn_edit_lesson_topic")
-        self.lsn_edit_lesson_topic.setEnabled(False)
-        self.lsn_edit_lesson_topic.setMinimumSize(QSize(520, 400))
+        self.lsn_lbl_lesson_topic = QLabel(self.middle_content_frame)
+        self.lsn_lbl_lesson_topic.setObjectName(u"lsn_lbl_lesson_topic")
+        self.lsn_lbl_lesson_topic.setMinimumSize(QSize(520, 400))
+        self.lsn_lbl_lesson_topic.setMaximumSize(QSize(500, 16777215))
         font11 = QFont()
-        font11.setFamilies([u"Hind Siliguri Medium"])
-        font11.setPointSize(24)
-        font11.setBold(False)
-        font11.setItalic(False)
-        self.lsn_edit_lesson_topic.setFont(font11)
-        self.lsn_edit_lesson_topic.setStyleSheet(u"QTextEdit {\n"
-"border: 3px dotted  rgb(137, 218, 199);\n"
-"font: 57 24pt \"Hind Siliguri Medium\";\n"
-"color: rgb(137, 218, 199);\n"
-"padding: 20px;\n"
-"}")
-        self.lsn_edit_lesson_topic.setReadOnly(True)
+        font11.setPointSize(25)
+        self.lsn_lbl_lesson_topic.setFont(font11)
+        self.lsn_lbl_lesson_topic.setStyleSheet(u"border: 3px dotted  rgb(137, 218, 199);\n"
+"color: rgb(137, 218, 199);")
+        self.lsn_lbl_lesson_topic.setAlignment(Qt.AlignCenter)
+        self.lsn_lbl_lesson_topic.setWordWrap(True)
 
-        self.horizontalLayout_12.addWidget(self.lsn_edit_lesson_topic)
+        self.horizontalLayout_12.addWidget(self.lsn_lbl_lesson_topic)
 
 
         self.verticalLayout_4.addWidget(self.middle_content_frame)
@@ -1257,6 +1251,7 @@ class Ui_MainWindow(object):
         self.lsn_module_table_widget.setHorizontalHeaderItem(1, __qtablewidgetitem7)
         self.lsn_module_table_widget.setObjectName(u"lsn_module_table_widget")
         self.lsn_module_table_widget.setMinimumSize(QSize(451, 501))
+        self.lsn_module_table_widget.viewport().setProperty("cursor", QCursor(Qt.ClosedHandCursor))
         self.lsn_module_table_widget.setStyleSheet(u"QHeaderView::section {\n"
 "	background-color: #002B5B;\n"
 "    color: rgb(143, 227, 207);\n"
@@ -1276,49 +1271,14 @@ class Ui_MainWindow(object):
 
         self.gridLayout_4.addWidget(self.lsn_module_table_widget, 1, 0, 1, 1)
 
-        self.lsn_tree_view = QTreeView(self.mid_frame_4)
-        self.lsn_tree_view.setObjectName(u"lsn_tree_view")
-        self.lsn_tree_view.setMinimumSize(QSize(378, 566))
-
-        self.gridLayout_4.addWidget(self.lsn_tree_view, 1, 3, 2, 1)
-
-        self.lsn_btn_add_new_module = QPushButton(self.mid_frame_4)
-        self.lsn_btn_add_new_module.setObjectName(u"lsn_btn_add_new_module")
-        sizePolicy1.setHeightForWidth(self.lsn_btn_add_new_module.sizePolicy().hasHeightForWidth())
-        self.lsn_btn_add_new_module.setSizePolicy(sizePolicy1)
-        self.lsn_btn_add_new_module.setMinimumSize(QSize(451, 58))
-        self.lsn_btn_add_new_module.setMaximumSize(QSize(451, 58))
-        font18 = QFont()
-        font18.setFamilies([u"Hind Siliguri Medium"])
-        font18.setPointSize(15)
-        font18.setBold(False)
-        self.lsn_btn_add_new_module.setFont(font18)
-        self.lsn_btn_add_new_module.setCursor(QCursor(Qt.PointingHandCursor))
-        self.lsn_btn_add_new_module.setStyleSheet(u"QPushButton {\n"
-"background-color: rgb(160, 253, 230);\n"
-"color:  #256D85 ;\n"
-"border-radius: 10px;\n"
-"}\n"
-"\n"
-"QPushButton::hover {\n"
-"	\n"
-"	background-color: rgb(143, 227, 207);\n"
-"	color: #2B4865;\n"
-"\n"
-"}")
-        self.lsn_btn_add_new_module.setIcon(icon9)
-        self.lsn_btn_add_new_module.setIconSize(QSize(25, 25))
-
-        self.gridLayout_4.addWidget(self.lsn_btn_add_new_module, 2, 0, 1, 1)
-
         self.lsn_btn_finish_add_module = QPushButton(self.mid_frame_4)
         self.lsn_btn_finish_add_module.setObjectName(u"lsn_btn_finish_add_module")
-        self.lsn_btn_finish_add_module.setEnabled(False)
+        self.lsn_btn_finish_add_module.setEnabled(True)
         sizePolicy1.setHeightForWidth(self.lsn_btn_finish_add_module.sizePolicy().hasHeightForWidth())
         self.lsn_btn_finish_add_module.setSizePolicy(sizePolicy1)
         self.lsn_btn_finish_add_module.setMinimumSize(QSize(200, 58))
         self.lsn_btn_finish_add_module.setMaximumSize(QSize(200, 58))
-        self.lsn_btn_finish_add_module.setFont(font5)
+        self.lsn_btn_finish_add_module.setFont(font17)
         self.lsn_btn_finish_add_module.setCursor(QCursor(Qt.PointingHandCursor))
         self.lsn_btn_finish_add_module.setStyleSheet(u"QPushButton {\n"
 "background-color: rgb(160, 253, 230);\n"
@@ -1366,6 +1326,21 @@ class Ui_MainWindow(object):
 
         self.gridLayout_4.addWidget(self.lsn_btn_remove_module, 2, 1, 1, 1)
 
+        self.label = QLabel(self.mid_frame_4)
+        self.label.setObjectName(u"label")
+        font18 = QFont()
+        font18.setFamilies([u"Hind Siliguri Medium"])
+        font18.setPointSize(11)
+        font18.setBold(False)
+        self.label.setFont(font18)
+        self.label.setStyleSheet(u"color: rgb(132, 211, 184);\n"
+"background-color: rgb(0, 43, 91);\n"
+"padding: 5px;")
+        self.label.setAlignment(Qt.AlignCenter)
+        self.label.setWordWrap(True)
+
+        self.gridLayout_4.addWidget(self.label, 2, 0, 1, 1)
+
         self.lsn_new_module_list_view = QListView(self.mid_frame_4)
         self.lsn_new_module_list_view.setObjectName(u"lsn_new_module_list_view")
         self.lsn_new_module_list_view.setMinimumSize(QSize(420, 501))
@@ -1373,8 +1348,16 @@ class Ui_MainWindow(object):
         font19.setPointSize(10)
         self.lsn_new_module_list_view.setFont(font19)
         self.lsn_new_module_list_view.setStyleSheet(u"color: rgb(143, 227, 190);")
+        self.lsn_new_module_list_view.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        self.lsn_new_module_list_view.setDragEnabled(True)
 
         self.gridLayout_4.addWidget(self.lsn_new_module_list_view, 1, 1, 1, 2)
+
+        self.lsn_tree_view = QTreeView(self.mid_frame_4)
+        self.lsn_tree_view.setObjectName(u"lsn_tree_view")
+        self.lsn_tree_view.setMinimumSize(QSize(378, 566))
+
+        self.gridLayout_4.addWidget(self.lsn_tree_view, 1, 3, 2, 1)
 
 
         self.verticalLayout_9.addWidget(self.mid_frame_4)
@@ -1442,7 +1425,7 @@ class Ui_MainWindow(object):
         self.lsn_cmb_lessons.setItemText(0, QCoreApplication.translate("MainWindow", u"\u09aa\u09be\u09a0 \u0995\u09cd\u09b0\u09ae \u09a8\u09bf\u09b0\u09cd\u09ac\u09be\u099a\u09a8 \u0995\u09b0\u09c1\u09a8", None))
 
         self.lsn_lbl_lesson_image.setText(QCoreApplication.translate("MainWindow", u"\u099b\u09ac\u09bf", None))
-        self.lsn_edit_lesson_topic.setPlaceholderText(QCoreApplication.translate("MainWindow", u"\u09aa\u09b0\u09bf\u099a\u09df", None))
+        self.lsn_lbl_lesson_topic.setText(QCoreApplication.translate("MainWindow", u"\u09aa\u09b0\u09bf\u099a\u09df", None))
         self.lsn_btn_add_lessons.setText(QCoreApplication.translate("MainWindow", u"\u09a8\u09a4\u09c1\u09a8 \u09ae\u09a1\u09bf\u0989\u09b2 \u09af\u09c1\u0995\u09cd\u09a4 \u0995\u09b0\u09c1\u09a8", None))
         self.lsn_btn_make_lesson.setText(QCoreApplication.translate("MainWindow", u"\u09aa\u09be\u09a0 \u09a4\u09c8\u09b0\u09bf \u0995\u09b0\u09c1\u09a8", None))
         self.lsn_btn_reload_window.setText("")
@@ -1464,11 +1447,11 @@ class Ui_MainWindow(object):
         self.lsn_lbl_lessons_5.setText(QCoreApplication.translate("MainWindow", u"\u09a8\u09a4\u09c1\u09a8 \u09aa\u09be\u09a0\u09c7\u09b0 \u09ae\u09a1\u09bf\u0989\u09b2 \u09b8\u09ae\u09c2\u09b9", None))
         self.lsn_lbl_lessons_4.setText(QCoreApplication.translate("MainWindow", u"\u09aa\u09be\u09a0\u09c7\u09b0 \u09a4\u09be\u09b2\u09bf\u0995\u09be\u09b8\u09ae\u09c2\u09b9", None))
         ___qtablewidgetitem6 = self.lsn_module_table_widget.horizontalHeaderItem(0)
-        ___qtablewidgetitem6.setText(QCoreApplication.translate("MainWindow", u"\u09ae\u09a1\u09bf\u0989\u09b2\u09c7\u09b0 \u09ac\u09bf\u09ac\u09b0\u09a3 ", None));
+        ___qtablewidgetitem6.setText(QCoreApplication.translate("MainWindow", u"\u09ae\u09a1\u09bf\u0989\u09b2\u09c7\u09b0 \u09a8\u09be\u09ae", None));
         ___qtablewidgetitem7 = self.lsn_module_table_widget.horizontalHeaderItem(1)
-        ___qtablewidgetitem7.setText(QCoreApplication.translate("MainWindow", u"\u09ae\u09a1\u09bf\u0989\u09b2\u09c7\u09b0 \u09a8\u09be\u09ae", None));
-        self.lsn_btn_add_new_module.setText(QCoreApplication.translate("MainWindow", u"\u09aa\u09be\u09a0\u09c7 \u09af\u09c1\u0995\u09cd\u09a4 \u0995\u09b0\u09c1\u09a8", None))
-        self.lsn_btn_finish_add_module.setText(QCoreApplication.translate("MainWindow", u"\u09b6\u09c7\u09b7 \u0995\u09b0\u09c1\u09a8", None))
-        self.lsn_btn_remove_module.setText(QCoreApplication.translate("MainWindow", u"\u09ae\u09a1\u09bf\u0989\u09b2\u099f\u09bf \u09ac\u09be\u09a4\u09bf\u09b2 \u0995\u09b0\u09c1\u09a8", None))
+        ___qtablewidgetitem7.setText(QCoreApplication.translate("MainWindow", u"\u09ae\u09a1\u09bf\u0989\u09b2\u09c7\u09b0 \u09ac\u09bf\u09ac\u09b0\u09a3 ", None));
+        self.lsn_btn_finish_add_module.setText(QCoreApplication.translate("MainWindow", u"\u09aa\u09be\u09a0 \u09a4\u09c8\u09b0\u09bf \u09b8\u09ae\u09cd\u09aa\u09a8\u09cd\u09a8 \u0995\u09b0\u09c1\u09a8", None))
+        self.lsn_btn_remove_module.setText(QCoreApplication.translate("MainWindow", u"\u09b8\u09bf\u09b2\u09c7\u0995\u09b6\u09a8 \u09ac\u09be\u09a4\u09bf\u09b2 \u0995\u09b0\u09c1\u09a8", None))
+        self.label.setText(QCoreApplication.translate("MainWindow", u"\u09a8\u09a4\u09c1\u09a8 \u09aa\u09be\u09a0\u09c7 \u09ae\u09a1\u09bf\u0989\u09b2 \u09af\u09c1\u0995\u09cd\u09a4 \u0995\u09b0\u09be\u09b0 \u099c\u09a8\u09cd\u09af \u09b6\u09c1\u09a7\u09c1\u09ae\u09be\u09a4\u09cd\u09b0 \"\u09ae\u09a1\u09bf\u0989\u09b2 \u09a8\u09be\u09ae\" \u098f\u09b0 \u0989\u09aa\u09b0 \u0995\u09cd\u09b2\u09bf\u0995 \u0995\u09b0\u09c7 \"\u09a8\u09a4\u09c1\u09a8 \u09aa\u09be\u09a0\u09c7\u09b0 \u09ae\u09a1\u09bf\u0989\u09b2 \u09b8\u09ae\u09c2\u09b9\"  \u0989\u0987\u09a8\u09cd\u09a1\u09cb\u09a4\u09c7 \u09a1\u09cd\u09b0\u09cd\u09af\u09be\u0997 \u0995\u09b0\u09c1\u09a8", None))
     # retranslateUi
 

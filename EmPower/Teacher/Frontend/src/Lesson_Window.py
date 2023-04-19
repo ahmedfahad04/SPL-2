@@ -213,7 +213,7 @@ class Lesson_Window(QMainWindow):  # Home extends QMainWindow
 
         # get & set lesson content name
         self.lesson_topic = self.form.edit_lesson_topic.text()
-        self.lesson_window.lsn_edit_lesson_topic.setText(self.lesson_topic)
+        self.lesson_window.lsn_lbl_lesson_topic.setText(self.lesson_topic)
 
         # get & set category
         self.category_id = self.form.cmb_category.currentIndex()
@@ -236,7 +236,7 @@ class Lesson_Window(QMainWindow):  # Home extends QMainWindow
         # make a folder
         self.folder_name = self.categories[self.category_id] + \
             '_মডিউল_' + self.lesson_id
-        self.folder_location = 'Lessons/' + self.folder_name
+        self.folder_location = 'Lessons/মডিউলসমূহ/' + self.folder_name
         if os.path.exists(self.folder_location) == False:
             os.mkdir(self.folder_location)
 
@@ -337,7 +337,7 @@ class Lesson_Window(QMainWindow):  # Home extends QMainWindow
                 self.lesson_window.lsn_cmb_lessons.setCurrentText(
                     str(db_lesson))
                 self.lesson_window.lsn_cmb_category.setCurrentText(str(cat_id))
-                self.lesson_window.lsn_edit_lesson_topic.setText(lsn_topic)
+                self.lesson_window.lsn_lbl_lesson_topic.setText(lsn_topic)
 
                 print("Media Location: ", media_loc)
                 media_loc = glob.glob(media_loc+'/media.*')[0]

@@ -638,25 +638,18 @@ class Ui_MainWindow(object):
         self.verticalLayout_5.addLayout(self.video_player_widget)
         self.mediaStackWidget.addWidget(self.video_page)
         self.horizontalLayout_12.addWidget(self.mediaStackWidget)
-        self.lsn_edit_lesson_topic = QtWidgets.QTextEdit(self.middle_content_frame)
-        self.lsn_edit_lesson_topic.setEnabled(False)
-        self.lsn_edit_lesson_topic.setMinimumSize(QtCore.QSize(520, 400))
+        self.lsn_lbl_lesson_topic = QtWidgets.QLabel(self.middle_content_frame)
+        self.lsn_lbl_lesson_topic.setMinimumSize(QtCore.QSize(520, 400))
+        self.lsn_lbl_lesson_topic.setMaximumSize(QtCore.QSize(500, 16777215))
         font = QtGui.QFont()
-        font.setFamily("Hind Siliguri Medium")
-        font.setPointSize(24)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setWeight(7)
-        self.lsn_edit_lesson_topic.setFont(font)
-        self.lsn_edit_lesson_topic.setStyleSheet("QTextEdit {\n"
-"border: 3px dotted  rgb(137, 218, 199);\n"
-"font: 57 24pt \"Hind Siliguri Medium\";\n"
-"color: rgb(137, 218, 199);\n"
-"padding: 20px;\n"
-"}")
-        self.lsn_edit_lesson_topic.setReadOnly(True)
-        self.lsn_edit_lesson_topic.setObjectName("lsn_edit_lesson_topic")
-        self.horizontalLayout_12.addWidget(self.lsn_edit_lesson_topic)
+        font.setPointSize(25)
+        self.lsn_lbl_lesson_topic.setFont(font)
+        self.lsn_lbl_lesson_topic.setStyleSheet("border: 3px dotted  rgb(137, 218, 199);\n"
+"color: rgb(137, 218, 199);")
+        self.lsn_lbl_lesson_topic.setAlignment(QtCore.Qt.AlignCenter)
+        self.lsn_lbl_lesson_topic.setWordWrap(True)
+        self.lsn_lbl_lesson_topic.setObjectName("lsn_lbl_lesson_topic")
+        self.horizontalLayout_12.addWidget(self.lsn_lbl_lesson_topic)
         self.verticalLayout_4.addWidget(self.middle_content_frame)
         self.gridLayout_2.addWidget(self.mid_frame_2, 1, 0, 1, 1)
         self.bottom_frame_2 = QtWidgets.QFrame(self.lesson_frame)
@@ -1204,6 +1197,7 @@ class Ui_MainWindow(object):
         self.gridLayout_4.addWidget(self.lsn_lbl_lessons_4, 0, 3, 1, 1)
         self.lsn_module_table_widget = QtWidgets.QTableWidget(self.mid_frame_4)
         self.lsn_module_table_widget.setMinimumSize(QtCore.QSize(451, 501))
+        self.lsn_module_table_widget.viewport().setProperty("cursor", QtGui.QCursor(QtCore.Qt.ClosedHandCursor))
         self.lsn_module_table_widget.setStyleSheet("QHeaderView::section {\n"
 "    background-color: #002B5B;\n"
 "    color: rgb(143, 227, 207);\n"
@@ -1242,43 +1236,8 @@ class Ui_MainWindow(object):
         self.lsn_module_table_widget.horizontalHeader().setDefaultSectionSize(188)
         self.lsn_module_table_widget.horizontalHeader().setStretchLastSection(True)
         self.gridLayout_4.addWidget(self.lsn_module_table_widget, 1, 0, 1, 1)
-        self.lsn_tree_view = QtWidgets.QTreeView(self.mid_frame_4)
-        self.lsn_tree_view.setMinimumSize(QtCore.QSize(378, 566))
-        self.lsn_tree_view.setObjectName("lsn_tree_view")
-        self.gridLayout_4.addWidget(self.lsn_tree_view, 1, 3, 2, 1)
-        self.lsn_btn_add_new_module = QtWidgets.QPushButton(self.mid_frame_4)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
-        sizePolicy.setHorizontalStretch(230)
-        sizePolicy.setVerticalStretch(40)
-        sizePolicy.setHeightForWidth(self.lsn_btn_add_new_module.sizePolicy().hasHeightForWidth())
-        self.lsn_btn_add_new_module.setSizePolicy(sizePolicy)
-        self.lsn_btn_add_new_module.setMinimumSize(QtCore.QSize(451, 58))
-        self.lsn_btn_add_new_module.setMaximumSize(QtCore.QSize(451, 58))
-        font = QtGui.QFont()
-        font.setFamily("Hind Siliguri Medium")
-        font.setPointSize(15)
-        font.setBold(False)
-        font.setWeight(50)
-        self.lsn_btn_add_new_module.setFont(font)
-        self.lsn_btn_add_new_module.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.lsn_btn_add_new_module.setStyleSheet("QPushButton {\n"
-"background-color: rgb(160, 253, 230);\n"
-"color:  #256D85 ;\n"
-"border-radius: 10px;\n"
-"}\n"
-"\n"
-"QPushButton::hover {\n"
-"    \n"
-"    background-color: rgb(143, 227, 207);\n"
-"    color: #2B4865;\n"
-"\n"
-"}")
-        self.lsn_btn_add_new_module.setIcon(icon9)
-        self.lsn_btn_add_new_module.setIconSize(QtCore.QSize(25, 25))
-        self.lsn_btn_add_new_module.setObjectName("lsn_btn_add_new_module")
-        self.gridLayout_4.addWidget(self.lsn_btn_add_new_module, 2, 0, 1, 1)
         self.lsn_btn_finish_add_module = QtWidgets.QPushButton(self.mid_frame_4)
-        self.lsn_btn_finish_add_module.setEnabled(False)
+        self.lsn_btn_finish_add_module.setEnabled(True)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(230)
         sizePolicy.setVerticalStretch(40)
@@ -1288,7 +1247,7 @@ class Ui_MainWindow(object):
         self.lsn_btn_finish_add_module.setMaximumSize(QtCore.QSize(200, 58))
         font = QtGui.QFont()
         font.setFamily("Hind Siliguri Medium")
-        font.setPointSize(12)
+        font.setPointSize(10)
         font.setBold(False)
         font.setWeight(50)
         self.lsn_btn_finish_add_module.setFont(font)
@@ -1344,14 +1303,34 @@ class Ui_MainWindow(object):
         self.lsn_btn_remove_module.setIconSize(QtCore.QSize(20, 25))
         self.lsn_btn_remove_module.setObjectName("lsn_btn_remove_module")
         self.gridLayout_4.addWidget(self.lsn_btn_remove_module, 2, 1, 1, 1)
+        self.label = QtWidgets.QLabel(self.mid_frame_4)
+        font = QtGui.QFont()
+        font.setFamily("Hind Siliguri Medium")
+        font.setPointSize(11)
+        font.setBold(False)
+        font.setWeight(50)
+        self.label.setFont(font)
+        self.label.setStyleSheet("color: rgb(132, 211, 184);\n"
+"background-color: rgb(0, 43, 91);\n"
+"padding: 5px;")
+        self.label.setAlignment(QtCore.Qt.AlignCenter)
+        self.label.setWordWrap(True)
+        self.label.setObjectName("label")
+        self.gridLayout_4.addWidget(self.label, 2, 0, 1, 1)
         self.lsn_new_module_list_view = QtWidgets.QListView(self.mid_frame_4)
         self.lsn_new_module_list_view.setMinimumSize(QtCore.QSize(420, 501))
         font = QtGui.QFont()
         font.setPointSize(10)
         self.lsn_new_module_list_view.setFont(font)
         self.lsn_new_module_list_view.setStyleSheet("color: rgb(143, 227, 190);")
+        self.lsn_new_module_list_view.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.lsn_new_module_list_view.setDragEnabled(True)
         self.lsn_new_module_list_view.setObjectName("lsn_new_module_list_view")
         self.gridLayout_4.addWidget(self.lsn_new_module_list_view, 1, 1, 1, 2)
+        self.lsn_tree_view = QtWidgets.QTreeView(self.mid_frame_4)
+        self.lsn_tree_view.setMinimumSize(QtCore.QSize(378, 566))
+        self.lsn_tree_view.setObjectName("lsn_tree_view")
+        self.gridLayout_4.addWidget(self.lsn_tree_view, 1, 3, 2, 1)
         self.verticalLayout_9.addWidget(self.mid_frame_4)
         self.gridLayout_3.addWidget(self.lesson_frame_2, 0, 0, 1, 1)
         self.gridLayout_8.addWidget(self.frame, 0, 0, 1, 1)
@@ -1395,7 +1374,7 @@ class Ui_MainWindow(object):
         self.lsn_lbl_lessons.setText(_translate("MainWindow", "পাঠসমূহ"))
         self.lsn_cmb_lessons.setItemText(0, _translate("MainWindow", "পাঠ ক্রম নির্বাচন করুন"))
         self.lsn_lbl_lesson_image.setText(_translate("MainWindow", "ছবি"))
-        self.lsn_edit_lesson_topic.setPlaceholderText(_translate("MainWindow", "পরিচয়"))
+        self.lsn_lbl_lesson_topic.setText(_translate("MainWindow", "পরিচয়"))
         self.lsn_btn_add_lessons.setText(_translate("MainWindow", "নতুন মডিউল যুক্ত করুন"))
         self.lsn_btn_make_lesson.setText(_translate("MainWindow", "পাঠ তৈরি করুন"))
         self.lsn_lbl_headline.setText(_translate("MainWindow", "পাঠসূচি"))
@@ -1413,12 +1392,12 @@ class Ui_MainWindow(object):
         self.lsn_lbl_lessons_5.setText(_translate("MainWindow", "নতুন পাঠের মডিউল সমূহ"))
         self.lsn_lbl_lessons_4.setText(_translate("MainWindow", "পাঠের তালিকাসমূহ"))
         item = self.lsn_module_table_widget.horizontalHeaderItem(0)
-        item.setText(_translate("MainWindow", "মডিউলের বিবরণ "))
-        item = self.lsn_module_table_widget.horizontalHeaderItem(1)
         item.setText(_translate("MainWindow", "মডিউলের নাম"))
-        self.lsn_btn_add_new_module.setText(_translate("MainWindow", "পাঠে যুক্ত করুন"))
-        self.lsn_btn_finish_add_module.setText(_translate("MainWindow", "শেষ করুন"))
-        self.lsn_btn_remove_module.setText(_translate("MainWindow", "মডিউলটি বাতিল করুন"))
+        item = self.lsn_module_table_widget.horizontalHeaderItem(1)
+        item.setText(_translate("MainWindow", "মডিউলের বিবরণ "))
+        self.lsn_btn_finish_add_module.setText(_translate("MainWindow", "পাঠ তৈরি সম্পন্ন করুন"))
+        self.lsn_btn_remove_module.setText(_translate("MainWindow", "সিলেকশন বাতিল করুন"))
+        self.label.setText(_translate("MainWindow", "নতুন পাঠে মডিউল যুক্ত করার জন্য শুধুমাত্র \"মডিউল নাম\" এর উপর ক্লিক করে \"নতুন পাঠের মডিউল সমূহ\"  উইন্ডোতে ড্র্যাগ করুন"))
 
 
 if __name__ == "__main__":

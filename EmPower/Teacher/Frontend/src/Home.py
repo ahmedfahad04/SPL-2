@@ -74,8 +74,10 @@ class Home(QMainWindow):  # Home extends QMainWindow
                 
     def lesson_page(self):
         
-        os.path.exists('Lessons') or os.mkdir('Lessons')
-        
+        os.path.exists('Lessons') or os.mkdir('Lessons') 
+        os.path.exists('Lessons/মডিউলসমূহ') or os.mkdir('Lessons/মডিউলসমূহ') 
+        os.path.exists('Lessons/পাঠসমূহ') or os.mkdir('Lessons/পাঠসমূহ')
+         
         # create table for lesson info
         ld().create_table()
         
@@ -134,20 +136,22 @@ class Home(QMainWindow):  # Home extends QMainWindow
         
         # connect buttons
         self.home.lsn_btn_remove_module.clicked.connect(self.lesson_making_window.remove_list_item)
+        self.home.lsn_btn_finish_add_module.clicked.connect(self.lesson_making_window.make_lesson)
+        
     
+    #! only module related text to be dragged [TODO]
     def dragEnterEvent(self, event):
         event.accept() if event.mimeData().hasText() else event.ignore()
-        
-        
+                
     def dragMoveEvent(self, event):
         event.accept() if event.mimeData().hasText() else event.ignore()
 
-    def dropEvent(self, event):
+    def dropEvent(self, event): 
         
         # Add the selected row to the list widget
         if event.mimeData().hasText():
             event.setDropAction(Qt.CopyAction)
-            self.model().appendRow(QStandardItem(event.mimeData().text()))       
+            self.model().appendRow(QStandardItem(event.mimeData().text())) 
             event.accept()
         else: 
             event.ignore()
