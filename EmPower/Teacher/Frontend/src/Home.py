@@ -137,7 +137,7 @@ class Home(QMainWindow):  # Home extends QMainWindow
         # connect buttons
         self.home.lsn_btn_remove_module.clicked.connect(self.lesson_making_window.remove_list_item)
         self.home.lsn_btn_finish_add_module.clicked.connect(self.lesson_making_window.make_lesson)
-        
+        self.home.lsn_btn_see_lessons.clicked.connect(self.lesson_making_window.show_lessons)
     
     #! only module related text to be dragged [TODO]
     def dragEnterEvent(self, event):

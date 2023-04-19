@@ -14,7 +14,6 @@ class Lesson_Making_Window(QMainWindow):  # Home extends QMainWindow
         self.lesson_making_window = ui_object
         self.form = None
 
-        self.show_folder_data()
         self.populate_module_data()
 
     def getFolderDetails(self):
@@ -99,13 +98,12 @@ class Lesson_Making_Window(QMainWindow):  # Home extends QMainWindow
         print('Lesson created successfully')	
         self.lesson_making_window.lsn_new_module_list_view.model().clear() 
         show_success_message('পাঠ তৈরি করা হয়েছে', 'পাঠ তৈরি করা হয়েছে। পাঠটি দেখতে পাঠ সমূহ ফোল্ডারটি দেখুন')
-            
-    def show_folder_data(self):
+     
+    def show_lessons(self):
         
-        path = 'E:\SPL2\SPL2 - GITHUB\EmPower\Teacher\Lessons\পাঠসমূহ'
-        model = QFileSystemModel()
-        model.setRootPath(QDir.rootPath())	    
-        self.lesson_making_window.lsn_tree_view.setModel(model)
+        # open lesson folder  
+        os.startfile('Lessons\পাঠসমূহ')
+               
     
             
         

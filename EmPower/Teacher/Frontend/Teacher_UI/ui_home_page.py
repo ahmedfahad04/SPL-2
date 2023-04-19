@@ -1156,8 +1156,7 @@ class Ui_MainWindow(object):
         self.mid_frame_4.setFrameShadow(QtWidgets.QFrame.Raised)
         self.mid_frame_4.setObjectName("mid_frame_4")
         self.gridLayout_4 = QtWidgets.QGridLayout(self.mid_frame_4)
-        self.gridLayout_4.setContentsMargins(5, 5, 31, 11)
-        self.gridLayout_4.setHorizontalSpacing(3)
+        self.gridLayout_4.setContentsMargins(-1, -1, 25, -1)
         self.gridLayout_4.setObjectName("gridLayout_4")
         self.lsn_lbl_lessons_3 = QtWidgets.QLabel(self.mid_frame_4)
         self.lsn_lbl_lessons_3.setMinimumSize(QtCore.QSize(451, 36))
@@ -1171,18 +1170,6 @@ class Ui_MainWindow(object):
         self.lsn_lbl_lessons_3.setAlignment(QtCore.Qt.AlignCenter)
         self.lsn_lbl_lessons_3.setObjectName("lsn_lbl_lessons_3")
         self.gridLayout_4.addWidget(self.lsn_lbl_lessons_3, 0, 0, 1, 1)
-        self.lsn_lbl_lessons_5 = QtWidgets.QLabel(self.mid_frame_4)
-        self.lsn_lbl_lessons_5.setMinimumSize(QtCore.QSize(371, 36))
-        font = QtGui.QFont()
-        font.setFamily("Hind Siliguri Medium")
-        font.setPointSize(16)
-        font.setBold(False)
-        font.setWeight(50)
-        self.lsn_lbl_lessons_5.setFont(font)
-        self.lsn_lbl_lessons_5.setStyleSheet("color: rgb(149, 236, 215);")
-        self.lsn_lbl_lessons_5.setAlignment(QtCore.Qt.AlignCenter)
-        self.lsn_lbl_lessons_5.setObjectName("lsn_lbl_lessons_5")
-        self.gridLayout_4.addWidget(self.lsn_lbl_lessons_5, 0, 1, 1, 2)
         self.lsn_lbl_lessons_4 = QtWidgets.QLabel(self.mid_frame_4)
         self.lsn_lbl_lessons_4.setMinimumSize(QtCore.QSize(361, 36))
         font = QtGui.QFont()
@@ -1194,10 +1181,219 @@ class Ui_MainWindow(object):
         self.lsn_lbl_lessons_4.setStyleSheet("color: rgb(149, 236, 215);")
         self.lsn_lbl_lessons_4.setAlignment(QtCore.Qt.AlignCenter)
         self.lsn_lbl_lessons_4.setObjectName("lsn_lbl_lessons_4")
-        self.gridLayout_4.addWidget(self.lsn_lbl_lessons_4, 0, 3, 1, 1)
+        self.gridLayout_4.addWidget(self.lsn_lbl_lessons_4, 0, 1, 1, 3)
+        self.lsn_lbl_lessons_5 = QtWidgets.QLabel(self.mid_frame_4)
+        self.lsn_lbl_lessons_5.setMinimumSize(QtCore.QSize(371, 36))
+        font = QtGui.QFont()
+        font.setFamily("Hind Siliguri Medium")
+        font.setPointSize(16)
+        font.setBold(False)
+        font.setWeight(50)
+        self.lsn_lbl_lessons_5.setFont(font)
+        self.lsn_lbl_lessons_5.setStyleSheet("color: rgb(149, 236, 215);")
+        self.lsn_lbl_lessons_5.setAlignment(QtCore.Qt.AlignCenter)
+        self.lsn_lbl_lessons_5.setObjectName("lsn_lbl_lessons_5")
+        self.gridLayout_4.addWidget(self.lsn_lbl_lessons_5, 0, 4, 1, 2)
+        self.label = QtWidgets.QLabel(self.mid_frame_4)
+        font = QtGui.QFont()
+        font.setFamily("Hind Siliguri Medium")
+        font.setPointSize(11)
+        font.setBold(False)
+        font.setWeight(50)
+        self.label.setFont(font)
+        self.label.setStyleSheet("color: rgb(132, 211, 184);\n"
+"background-color: rgb(0, 43, 91);\n"
+"padding: 5px;")
+        self.label.setAlignment(QtCore.Qt.AlignCenter)
+        self.label.setWordWrap(True)
+        self.label.setObjectName("label")
+        self.gridLayout_4.addWidget(self.label, 1, 1, 1, 3)
+        self.lsn_new_module_list_view = QtWidgets.QListView(self.mid_frame_4)
+        self.lsn_new_module_list_view.setMinimumSize(QtCore.QSize(420, 501))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.lsn_new_module_list_view.setFont(font)
+        self.lsn_new_module_list_view.setStyleSheet("color: rgb(143, 227, 190);")
+        self.lsn_new_module_list_view.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.lsn_new_module_list_view.setDragEnabled(True)
+        self.lsn_new_module_list_view.setObjectName("lsn_new_module_list_view")
+        self.gridLayout_4.addWidget(self.lsn_new_module_list_view, 1, 4, 9, 2)
+        spacerItem19 = QtWidgets.QSpacerItem(164, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_4.addItem(spacerItem19, 2, 1, 1, 1)
+        self.label_5 = QtWidgets.QLabel(self.mid_frame_4)
+        font = QtGui.QFont()
+        font.setPointSize(7)
+        self.label_5.setFont(font)
+        self.label_5.setText("")
+        self.label_5.setPixmap(QtGui.QPixmap(".\\Frontend\\PyQt_UI\\../Images/downward_icon.png"))
+        self.label_5.setObjectName("label_5")
+        self.gridLayout_4.addWidget(self.label_5, 2, 2, 1, 1)
+        spacerItem20 = QtWidgets.QSpacerItem(164, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_4.addItem(spacerItem20, 2, 3, 1, 1)
+        self.label_2 = QtWidgets.QLabel(self.mid_frame_4)
+        font = QtGui.QFont()
+        font.setFamily("Hind Siliguri Medium")
+        font.setPointSize(11)
+        font.setBold(False)
+        font.setWeight(50)
+        self.label_2.setFont(font)
+        self.label_2.setStyleSheet("color: rgb(132, 211, 184);\n"
+"background-color: rgb(0, 43, 91);\n"
+"padding: 5px;")
+        self.label_2.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_2.setWordWrap(True)
+        self.label_2.setObjectName("label_2")
+        self.gridLayout_4.addWidget(self.label_2, 3, 1, 1, 3)
+        spacerItem21 = QtWidgets.QSpacerItem(4, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_4.addItem(spacerItem21, 3, 6, 1, 1)
+        spacerItem22 = QtWidgets.QSpacerItem(164, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_4.addItem(spacerItem22, 4, 1, 1, 1)
+        self.label_6 = QtWidgets.QLabel(self.mid_frame_4)
+        font = QtGui.QFont()
+        font.setPointSize(7)
+        self.label_6.setFont(font)
+        self.label_6.setText("")
+        self.label_6.setPixmap(QtGui.QPixmap(".\\Frontend\\PyQt_UI\\../Images/downward_icon.png"))
+        self.label_6.setObjectName("label_6")
+        self.gridLayout_4.addWidget(self.label_6, 4, 2, 1, 1)
+        spacerItem23 = QtWidgets.QSpacerItem(164, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_4.addItem(spacerItem23, 4, 3, 1, 1)
+        self.label_3 = QtWidgets.QLabel(self.mid_frame_4)
+        font = QtGui.QFont()
+        font.setFamily("Hind Siliguri Medium")
+        font.setPointSize(11)
+        font.setBold(False)
+        font.setWeight(50)
+        self.label_3.setFont(font)
+        self.label_3.setStyleSheet("color: rgb(132, 211, 184);\n"
+"background-color: rgb(0, 43, 91);\n"
+"padding: 5px;")
+        self.label_3.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_3.setWordWrap(True)
+        self.label_3.setObjectName("label_3")
+        self.gridLayout_4.addWidget(self.label_3, 5, 1, 1, 3)
+        spacerItem24 = QtWidgets.QSpacerItem(164, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_4.addItem(spacerItem24, 6, 1, 1, 1)
+        self.label_7 = QtWidgets.QLabel(self.mid_frame_4)
+        font = QtGui.QFont()
+        font.setPointSize(7)
+        self.label_7.setFont(font)
+        self.label_7.setText("")
+        self.label_7.setPixmap(QtGui.QPixmap(".\\Frontend\\PyQt_UI\\../Images/downward_icon.png"))
+        self.label_7.setObjectName("label_7")
+        self.gridLayout_4.addWidget(self.label_7, 6, 2, 1, 1)
+        spacerItem25 = QtWidgets.QSpacerItem(164, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_4.addItem(spacerItem25, 6, 3, 1, 1)
+        self.label_4 = QtWidgets.QLabel(self.mid_frame_4)
+        font = QtGui.QFont()
+        font.setFamily("Hind Siliguri Medium")
+        font.setPointSize(11)
+        font.setBold(False)
+        font.setWeight(50)
+        self.label_4.setFont(font)
+        self.label_4.setStyleSheet("color: rgb(132, 211, 184);\n"
+"background-color: rgb(0, 43, 91);\n"
+"padding: 5px;")
+        self.label_4.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_4.setWordWrap(True)
+        self.label_4.setObjectName("label_4")
+        self.gridLayout_4.addWidget(self.label_4, 7, 1, 1, 3)
+        spacerItem26 = QtWidgets.QSpacerItem(20, 1, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.gridLayout_4.addItem(spacerItem26, 8, 2, 1, 1)
+        self.lsn_btn_see_lessons = QtWidgets.QPushButton(self.mid_frame_4)
+        self.lsn_btn_see_lessons.setMinimumSize(QtCore.QSize(151, 41))
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        self.lsn_btn_see_lessons.setFont(font)
+        self.lsn_btn_see_lessons.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.lsn_btn_see_lessons.setStyleSheet("QPushButton {\n"
+"background-color: rgb(160, 253, 230);\n"
+"color:  #256D85 ;\n"
+"border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton::hover {\n"
+"    \n"
+"    background-color: rgb(143, 227, 207);\n"
+"    color: #2B4865;\n"
+"\n"
+"}")
+        icon16 = QtGui.QIcon()
+        icon16.addPixmap(QtGui.QPixmap(".\\Frontend\\PyQt_UI\\../Images/open_folders_icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.lsn_btn_see_lessons.setIcon(icon16)
+        self.lsn_btn_see_lessons.setIconSize(QtCore.QSize(30, 30))
+        self.lsn_btn_see_lessons.setObjectName("lsn_btn_see_lessons")
+        self.gridLayout_4.addWidget(self.lsn_btn_see_lessons, 9, 1, 1, 3)
+        self.lsn_btn_remove_module = QtWidgets.QPushButton(self.mid_frame_4)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(230)
+        sizePolicy.setVerticalStretch(40)
+        sizePolicy.setHeightForWidth(self.lsn_btn_remove_module.sizePolicy().hasHeightForWidth())
+        self.lsn_btn_remove_module.setSizePolicy(sizePolicy)
+        self.lsn_btn_remove_module.setMinimumSize(QtCore.QSize(200, 58))
+        self.lsn_btn_remove_module.setMaximumSize(QtCore.QSize(200, 58))
+        font = QtGui.QFont()
+        font.setFamily("Hind Siliguri Medium")
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setWeight(50)
+        self.lsn_btn_remove_module.setFont(font)
+        self.lsn_btn_remove_module.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.lsn_btn_remove_module.setStyleSheet("QPushButton {\n"
+"background-color: rgb(160, 253, 230);\n"
+"color:  #256D85 ;\n"
+"border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton::hover {\n"
+"    \n"
+"    background-color: rgb(143, 227, 207);\n"
+"    color: #2B4865;\n"
+"\n"
+"}")
+        icon17 = QtGui.QIcon()
+        icon17.addPixmap(QtGui.QPixmap(".\\Frontend\\PyQt_UI\\../Images/remove_icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.lsn_btn_remove_module.setIcon(icon17)
+        self.lsn_btn_remove_module.setIconSize(QtCore.QSize(20, 25))
+        self.lsn_btn_remove_module.setObjectName("lsn_btn_remove_module")
+        self.gridLayout_4.addWidget(self.lsn_btn_remove_module, 10, 4, 1, 1)
+        self.lsn_btn_finish_add_module = QtWidgets.QPushButton(self.mid_frame_4)
+        self.lsn_btn_finish_add_module.setEnabled(True)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(230)
+        sizePolicy.setVerticalStretch(40)
+        sizePolicy.setHeightForWidth(self.lsn_btn_finish_add_module.sizePolicy().hasHeightForWidth())
+        self.lsn_btn_finish_add_module.setSizePolicy(sizePolicy)
+        self.lsn_btn_finish_add_module.setMinimumSize(QtCore.QSize(200, 58))
+        self.lsn_btn_finish_add_module.setMaximumSize(QtCore.QSize(200, 58))
+        font = QtGui.QFont()
+        font.setFamily("Hind Siliguri Medium")
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setWeight(50)
+        self.lsn_btn_finish_add_module.setFont(font)
+        self.lsn_btn_finish_add_module.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.lsn_btn_finish_add_module.setStyleSheet("QPushButton {\n"
+"background-color: rgb(160, 253, 230);\n"
+"color:  #256D85 ;\n"
+"border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton::hover {\n"
+"    \n"
+"    background-color: rgb(143, 227, 207);\n"
+"    color: #2B4865;\n"
+"\n"
+"}")
+        icon18 = QtGui.QIcon()
+        icon18.addPixmap(QtGui.QPixmap(".\\Frontend\\PyQt_UI\\../Images/done.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.lsn_btn_finish_add_module.setIcon(icon18)
+        self.lsn_btn_finish_add_module.setIconSize(QtCore.QSize(20, 25))
+        self.lsn_btn_finish_add_module.setObjectName("lsn_btn_finish_add_module")
+        self.gridLayout_4.addWidget(self.lsn_btn_finish_add_module, 10, 5, 1, 1)
         self.lsn_module_table_widget = QtWidgets.QTableWidget(self.mid_frame_4)
         self.lsn_module_table_widget.setMinimumSize(QtCore.QSize(451, 501))
-        self.lsn_module_table_widget.viewport().setProperty("cursor", QtGui.QCursor(QtCore.Qt.ClosedHandCursor))
+        self.lsn_module_table_widget.viewport().setProperty("cursor", QtGui.QCursor(QtCore.Qt.OpenHandCursor))
         self.lsn_module_table_widget.setStyleSheet("QHeaderView::section {\n"
 "    background-color: #002B5B;\n"
 "    color: rgb(143, 227, 207);\n"
@@ -1235,102 +1431,7 @@ class Ui_MainWindow(object):
         self.lsn_module_table_widget.setHorizontalHeaderItem(1, item)
         self.lsn_module_table_widget.horizontalHeader().setDefaultSectionSize(188)
         self.lsn_module_table_widget.horizontalHeader().setStretchLastSection(True)
-        self.gridLayout_4.addWidget(self.lsn_module_table_widget, 1, 0, 1, 1)
-        self.lsn_btn_finish_add_module = QtWidgets.QPushButton(self.mid_frame_4)
-        self.lsn_btn_finish_add_module.setEnabled(True)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
-        sizePolicy.setHorizontalStretch(230)
-        sizePolicy.setVerticalStretch(40)
-        sizePolicy.setHeightForWidth(self.lsn_btn_finish_add_module.sizePolicy().hasHeightForWidth())
-        self.lsn_btn_finish_add_module.setSizePolicy(sizePolicy)
-        self.lsn_btn_finish_add_module.setMinimumSize(QtCore.QSize(200, 58))
-        self.lsn_btn_finish_add_module.setMaximumSize(QtCore.QSize(200, 58))
-        font = QtGui.QFont()
-        font.setFamily("Hind Siliguri Medium")
-        font.setPointSize(10)
-        font.setBold(False)
-        font.setWeight(50)
-        self.lsn_btn_finish_add_module.setFont(font)
-        self.lsn_btn_finish_add_module.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.lsn_btn_finish_add_module.setStyleSheet("QPushButton {\n"
-"background-color: rgb(160, 253, 230);\n"
-"color:  #256D85 ;\n"
-"border-radius: 10px;\n"
-"}\n"
-"\n"
-"QPushButton::hover {\n"
-"    \n"
-"    background-color: rgb(143, 227, 207);\n"
-"    color: #2B4865;\n"
-"\n"
-"}")
-        icon16 = QtGui.QIcon()
-        icon16.addPixmap(QtGui.QPixmap(".\\Frontend\\PyQt_UI\\../Images/done.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.lsn_btn_finish_add_module.setIcon(icon16)
-        self.lsn_btn_finish_add_module.setIconSize(QtCore.QSize(20, 25))
-        self.lsn_btn_finish_add_module.setObjectName("lsn_btn_finish_add_module")
-        self.gridLayout_4.addWidget(self.lsn_btn_finish_add_module, 2, 2, 1, 1)
-        self.lsn_btn_remove_module = QtWidgets.QPushButton(self.mid_frame_4)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
-        sizePolicy.setHorizontalStretch(230)
-        sizePolicy.setVerticalStretch(40)
-        sizePolicy.setHeightForWidth(self.lsn_btn_remove_module.sizePolicy().hasHeightForWidth())
-        self.lsn_btn_remove_module.setSizePolicy(sizePolicy)
-        self.lsn_btn_remove_module.setMinimumSize(QtCore.QSize(200, 58))
-        self.lsn_btn_remove_module.setMaximumSize(QtCore.QSize(200, 58))
-        font = QtGui.QFont()
-        font.setFamily("Hind Siliguri Medium")
-        font.setPointSize(10)
-        font.setBold(False)
-        font.setWeight(50)
-        self.lsn_btn_remove_module.setFont(font)
-        self.lsn_btn_remove_module.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.lsn_btn_remove_module.setStyleSheet("QPushButton {\n"
-"background-color: rgb(160, 253, 230);\n"
-"color:  #256D85 ;\n"
-"border-radius: 10px;\n"
-"}\n"
-"\n"
-"QPushButton::hover {\n"
-"    \n"
-"    background-color: rgb(143, 227, 207);\n"
-"    color: #2B4865;\n"
-"\n"
-"}")
-        icon17 = QtGui.QIcon()
-        icon17.addPixmap(QtGui.QPixmap(".\\Frontend\\PyQt_UI\\../Images/remove_icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.lsn_btn_remove_module.setIcon(icon17)
-        self.lsn_btn_remove_module.setIconSize(QtCore.QSize(20, 25))
-        self.lsn_btn_remove_module.setObjectName("lsn_btn_remove_module")
-        self.gridLayout_4.addWidget(self.lsn_btn_remove_module, 2, 1, 1, 1)
-        self.label = QtWidgets.QLabel(self.mid_frame_4)
-        font = QtGui.QFont()
-        font.setFamily("Hind Siliguri Medium")
-        font.setPointSize(11)
-        font.setBold(False)
-        font.setWeight(50)
-        self.label.setFont(font)
-        self.label.setStyleSheet("color: rgb(132, 211, 184);\n"
-"background-color: rgb(0, 43, 91);\n"
-"padding: 5px;")
-        self.label.setAlignment(QtCore.Qt.AlignCenter)
-        self.label.setWordWrap(True)
-        self.label.setObjectName("label")
-        self.gridLayout_4.addWidget(self.label, 2, 0, 1, 1)
-        self.lsn_new_module_list_view = QtWidgets.QListView(self.mid_frame_4)
-        self.lsn_new_module_list_view.setMinimumSize(QtCore.QSize(420, 501))
-        font = QtGui.QFont()
-        font.setPointSize(10)
-        self.lsn_new_module_list_view.setFont(font)
-        self.lsn_new_module_list_view.setStyleSheet("color: rgb(143, 227, 190);")
-        self.lsn_new_module_list_view.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
-        self.lsn_new_module_list_view.setDragEnabled(True)
-        self.lsn_new_module_list_view.setObjectName("lsn_new_module_list_view")
-        self.gridLayout_4.addWidget(self.lsn_new_module_list_view, 1, 1, 1, 2)
-        self.lsn_tree_view = QtWidgets.QTreeView(self.mid_frame_4)
-        self.lsn_tree_view.setMinimumSize(QtCore.QSize(378, 566))
-        self.lsn_tree_view.setObjectName("lsn_tree_view")
-        self.gridLayout_4.addWidget(self.lsn_tree_view, 1, 3, 2, 1)
+        self.gridLayout_4.addWidget(self.lsn_module_table_widget, 1, 0, 10, 1)
         self.verticalLayout_9.addWidget(self.mid_frame_4)
         self.gridLayout_3.addWidget(self.lesson_frame_2, 0, 0, 1, 1)
         self.gridLayout_8.addWidget(self.frame, 0, 0, 1, 1)
@@ -1389,15 +1490,19 @@ class Ui_MainWindow(object):
         self.task_lbl_puzzle.setText(_translate("MainWindow", "ধাঁধা"))
         self.lsn_lbl_headline_4.setText(_translate("MainWindow", "পাঠসূচি"))
         self.lsn_lbl_lessons_3.setText(_translate("MainWindow", "মডিউলের তালিকাসমূহ"))
+        self.lsn_lbl_lessons_4.setText(_translate("MainWindow", "নতুন পাঠ তৈরির নিয়ম"))
         self.lsn_lbl_lessons_5.setText(_translate("MainWindow", "নতুন পাঠের মডিউল সমূহ"))
-        self.lsn_lbl_lessons_4.setText(_translate("MainWindow", "পাঠের তালিকাসমূহ"))
+        self.label.setText(_translate("MainWindow", "নতুন পাঠে মডিউল যুক্ত করার জন্য শুধুমাত্র \"মডিউল নাম\" এর উপর ক্লিক করে \"নতুন পাঠের মডিউল সমূহ\"  উইন্ডোতে ড্র্যাগ করুন"))
+        self.label_2.setText(_translate("MainWindow", "সিলেক্টেড কোন মডিউল বাতিল করার করার জন্য নিচের ঐ মডিউলটি সিলেক্ট করে \"সিলেকশন বাতিল করুন\" বাটনে প্রেস করুন"))
+        self.label_3.setText(_translate("MainWindow", "মডিউল যুক্ত করা শেষ হলে \"পাঠ তৈরি সম্পন্ন করুন\" বাটনে প্রেস করুন"))
+        self.label_4.setText(_translate("MainWindow", "সকল পাঠসমূহ দেখার জন্য নিচের আইকনে ক্লিক করুন"))
+        self.lsn_btn_see_lessons.setText(_translate("MainWindow", "পাঠসমূহ দেখুন"))
+        self.lsn_btn_remove_module.setText(_translate("MainWindow", "সিলেকশন বাতিল করুন"))
+        self.lsn_btn_finish_add_module.setText(_translate("MainWindow", "পাঠ তৈরি সম্পন্ন করুন"))
         item = self.lsn_module_table_widget.horizontalHeaderItem(0)
         item.setText(_translate("MainWindow", "মডিউলের নাম"))
         item = self.lsn_module_table_widget.horizontalHeaderItem(1)
         item.setText(_translate("MainWindow", "মডিউলের বিবরণ "))
-        self.lsn_btn_finish_add_module.setText(_translate("MainWindow", "পাঠ তৈরি সম্পন্ন করুন"))
-        self.lsn_btn_remove_module.setText(_translate("MainWindow", "সিলেকশন বাতিল করুন"))
-        self.label.setText(_translate("MainWindow", "নতুন পাঠে মডিউল যুক্ত করার জন্য শুধুমাত্র \"মডিউল নাম\" এর উপর ক্লিক করে \"নতুন পাঠের মডিউল সমূহ\"  উইন্ডোতে ড্র্যাগ করুন"))
 
 
 if __name__ == "__main__":
