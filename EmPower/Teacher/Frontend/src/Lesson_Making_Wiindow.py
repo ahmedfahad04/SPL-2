@@ -82,8 +82,8 @@ class Lesson_Making_Window(QMainWindow):  # Home extends QMainWindow
             lesson_serial_no = int(max(tmp_serial))
                 
         # create a new folder for the lesson
-        folder_name = 'Lessons/পাঠসমূহ/পাঠ_' + str(lesson_serial_no + 1)
-        os.path.exists(folder_name) or os.mkdir(folder_name) 
+        folder_path = 'Lessons/পাঠসমূহ/পাঠ_' + str(lesson_serial_no + 1)
+        os.path.exists(folder_path) or os.mkdir(folder_path) 
         
         # copy the selected modules into the new lesson folder
         model = self.lesson_making_window.lsn_new_module_list_view.model()
@@ -92,10 +92,19 @@ class Lesson_Making_Window(QMainWindow):  # Home extends QMainWindow
             item = model.data(index)
             if 'মডিউল' in item: 
                 sub_folder_name = 'Lessons/পাঠসমূহ/পাঠ_' + str(lesson_serial_no + 1) + '/' + item
-                os.mkdir(sub_folder_name)
+               
+                # handle duplicate names
+                try:
+                    os.mkdir(sub_folder_name)
+                except:
+                    continue
                 shutil.copytree('Lessons/মডিউলসমূহ/' + item, sub_folder_name, dirs_exist_ok=True)
             
         print('Lesson created successfully')	
+        
+        data = [str(lesson_serial_no + 1), folder_path]
+        ld().add_entry(data)
+        
         self.lesson_making_window.lsn_new_module_list_view.model().clear() 
         show_success_message('পাঠ তৈরি করা হয়েছে', 'পাঠ তৈরি করা হয়েছে। পাঠটি দেখতে পাঠ সমূহ ফোল্ডারটি দেখুন')
      
@@ -103,7 +112,5 @@ class Lesson_Making_Window(QMainWindow):  # Home extends QMainWindow
         
         # open lesson folder  
         os.startfile('Lessons\পাঠসমূহ')
-               
-    
-            
+                     
         

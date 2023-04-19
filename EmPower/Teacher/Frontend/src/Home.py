@@ -14,6 +14,8 @@ from Frontend.src.Student_Window import Student_Window
 from Frontend.src.Lesson_Window import Lesson_Window
 from Frontend.src.Task_Window import Task_Window
 from Frontend.src.Lesson_Making_Wiindow import Lesson_Making_Window
+from Frontend.src.Lesson_Assigning_Window import Lesson_Assigning_Window
+from Backend.Database.module_db import module_data as md
 from Backend.Database.lesson_db import lesson_data as ld
 from Backend.Database.student_db import student_data as sd
 import os
@@ -40,12 +42,13 @@ class Home(QMainWindow):  # Home extends QMainWindow
         set_drop_shadow(self.home.home_btn_lesson)
         set_drop_shadow(self.home.home_btn_quiz)
         set_drop_shadow(self.home.home_btn_progress)
-        set_drop_shadow(self.home.home_btn_settings)
+        set_drop_shadow(self.home.home_btn_lesson_assigns)
         
         self.home.stackedWidget.setCurrentWidget(self.home.home_page)
         self.home.home_btn_student.clicked.connect(self.student_page)
         self.home.home_btn_lesson.clicked.connect(self.lesson_page)
         self.home.home_btn_quiz.clicked.connect(self.task_page)
+        self.home.home_btn_lesson_assigns.clicked.connect(self.lesson_assigning_page)
                
     def student_page(self):
         
@@ -79,7 +82,7 @@ class Home(QMainWindow):  # Home extends QMainWindow
         os.path.exists('Lessons/পাঠসমূহ') or os.mkdir('Lessons/পাঠসমূহ')
          
         # create table for lesson info
-        ld().create_table()
+        md().create_table()
         
         # instance of lesson window class
         self.lesson_window = Lesson_Window(self.home)
@@ -117,12 +120,15 @@ class Home(QMainWindow):  # Home extends QMainWindow
         
     def lesson_making_page(self):
         
+        # create table for lesson info
+        ld().create_table()
+        
         # instance of lesson window class
         self.lesson_making_window = Lesson_Making_Window(self.home)
         
         # set window icon and title
         self.setWindowIcon(QIcon("Frontend/Images/primary_logo.png"))
-        self.setWindowTitle("শিক্ষার্থীর পাঠসমূহ")
+        self.setWindowTitle("পাঠ তৈরি করুন")
         
         # Navigate between windows
         self.home.stackedWidget.setCurrentWidget(self.home.lesson_making_page)
@@ -138,6 +144,22 @@ class Home(QMainWindow):  # Home extends QMainWindow
         self.home.lsn_btn_remove_module.clicked.connect(self.lesson_making_window.remove_list_item)
         self.home.lsn_btn_finish_add_module.clicked.connect(self.lesson_making_window.make_lesson)
         self.home.lsn_btn_see_lessons.clicked.connect(self.lesson_making_window.show_lessons)
+    
+    def lesson_assigning_page(self):
+        
+        # instance of lesson assigning window class
+        self.lesson_assinging_window = Lesson_Assigning_Window(self.home)
+        
+        # set window icon and title
+        self.setWindowIcon(QIcon("Frontend/Images/primary_logo.png"))
+        self.setWindowTitle("পাঠ বরাদ্দের তালিকা")
+        
+        # navigate between windows
+        self.home.stackedWidget.setCurrentWidget(self.home.lesson_assigning_page)
+        self.home.lsn_btn_back_to_home_4.clicked.connect(self.home_page)
+        
+        # connect buttons    
+        self.home.lsn_btn_assign_lesson.clicked.connect(self.lesson_assinging_window.assign_lesson)    
     
     #! only module related text to be dragged [TODO]
     def dragEnterEvent(self, event):
@@ -157,10 +179,6 @@ class Home(QMainWindow):  # Home extends QMainWindow
             event.ignore()
         
                 
-    def mcq_page(self):
-        
-        self.home.evalstackwidget.setCurrentWidget(self.home.mcq_page) 
-        
     def matching_page(self):
         
         self.home.evalstackwidget.setCurrentWidget(self.home.dragdrop_page)

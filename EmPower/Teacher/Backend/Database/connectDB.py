@@ -54,3 +54,4 @@ class Database_Manager:
     @abstractmethod
     def update_entry(self, data) -> bool:
         pass
+    
