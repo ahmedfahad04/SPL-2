@@ -10,12 +10,18 @@ class MusicPlayer:
         self.music_thread = None
 
     def play_music(self):
+        self.play_music_continuously = True
         pygame.mixer.music.load(self.music_file_path)
-        pygame.mixer.music.play()
 
-        # Wait for the music to finish playing
-        while pygame.mixer.music.get_busy():
-            time.sleep(1)
+        while self.play_music_continuously:
+            pygame.mixer.music.play()
+
+            # Wait for the music to finish playing
+            while pygame.mixer.music.get_busy():
+                time.sleep(1)
+
+            # Wait for 2 seconds before playing the music again
+            time.sleep(2)
 
     def start_music(self):
         pygame.mixer.init()
