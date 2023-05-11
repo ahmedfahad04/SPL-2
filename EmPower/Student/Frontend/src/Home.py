@@ -23,7 +23,6 @@ class Home(QMainWindow):  # Home extends QMainWindow
         self.home.setupUi(self)
 
         # set window icon and title
-        # TODO: Show the window at the middle of the screen
         self.setWindowIcon(QIcon("Frontend/Images/primary_logo.png"))
         self.setWindowTitle("শিখবে সবাই")
         set_drop_shadow(self.home.btn_lesson)
@@ -35,9 +34,12 @@ class Home(QMainWindow):  # Home extends QMainWindow
         QTimer.singleShot(2000, self.lesson_page)
 
     def lesson_page(self):
+        
+        # load & set up the LESSON page
         self.lesson_window = Lesson_Window(self.home)
         self.home.stackedWidget.setCurrentWidget(self.home.lesson_page)
         
+        # connect buttons to functions
         self.home.btn_next_lesson.clicked.connect(self.lesson_window.load_next_lesson)
         self.home.btn_prev_lesson.clicked.connect(self.lesson_window.load_previous_lesson)
 

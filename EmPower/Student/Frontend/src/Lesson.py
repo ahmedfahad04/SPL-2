@@ -16,7 +16,6 @@ class Lesson_Window(QMainWindow):
 
         # window
         self.lesson_window = ui_object
-        self.music_player = None
 
         self.categories = {
             1: 'নাম_শিখন(Noun)',
@@ -25,6 +24,7 @@ class Lesson_Window(QMainWindow):
             4: 'কর্মধারা_শিখন(Activity)'
         }
 
+        # class variables
         self.lesson_list = os.listdir('Resources')
         self.total_lessons = len(self.lesson_list)
         self.current_lesson_id = 0
@@ -33,6 +33,18 @@ class Lesson_Window(QMainWindow):
         self.folder_path = None
         self.video_file_formate = ['mp4', 'avi', 'mov', 'wmv', 'flv', 'mkv']  
         self.video_player = None 
+        self.music_player = None
+        self.time_elapsed = 0
+        
+        # switch lesson in every 10 seconds
+        self.timer = QTimer()
+        self.timer.timeout.connect(self.load_next_lesson)
+        self.timer.start(5000)  # rotate every 10 seconds
+        
+        # start the timer to count the elapsed time
+        self.elapsed_timer = QTimer()
+        self.elapsed_timer.timeout.connect(self.update_elapsed_time)
+        self.elapsed_timer.start(1000)  # update every 1 second
 
         # method
         self.display_lesson()
@@ -42,16 +54,13 @@ class Lesson_Window(QMainWindow):
         # read the file path and the folders
         self.folder_path = self.lesson_list[self.current_lesson_id]
         self.folder_path = os.path.join('Resources', self.folder_path)
-        print("Current Lesson: ", self.folder_path)
 
+        # read audio/video file path
         self.visual_file_content = glob.glob(self.folder_path+'/media.*')[0]
         print("Visual File: ", self.visual_file_content)	
     
         # check if the file is audio or video
         if self.visual_file_content.split('.')[-1] in self.video_file_formate:
-            
-            if self.music_player is not None:
-                self.music_player.stop_music()
                 
             if self.lesson_window.video_player_widget.count() != 0:
                 self.lesson_window.video_player_widget.itemAt(0).widget().setParent(None)
@@ -60,6 +69,9 @@ class Lesson_Window(QMainWindow):
 
             self.video_player = Window(self.visual_file_content)
             self.lesson_window.video_player_widget.addWidget(self.video_player)
+            
+            if self.music_player is not None:
+                self.music_player.stop_music()
 
         else:
             
@@ -72,8 +84,10 @@ class Lesson_Window(QMainWindow):
 
             # image load
             self.qt_image = QPixmap(self.visual_file_content)
-            self.qt_image = self.qt_image.scaledToHeight(550, Qt.SmoothTransformation)
+            self.qt_image = self.qt_image.scaledToWidth(self.lesson_window.lsn_lbl_image.width(), Qt.SmoothTransformation)
             self.lesson_window.lsn_lbl_image.setPixmap(self.qt_image)
+            self.lesson_window.lsn_lbl_image.setFixedSize(self.lesson_window.lsn_lbl_image.width(), self.lesson_window.lsn_lbl_image.width())
+
 
             # audio load
             self.audio_file_path = os.path.join(self.folder_path, "audio.wav")
@@ -87,8 +101,7 @@ class Lesson_Window(QMainWindow):
             json_data = json.load(f)
 
         # set the description of the image
-        self.lesson_window.lsn_lbl_lesson_topic.setText(
-            json_data["lesson_topic"])
+        self.lesson_window.lsn_lbl_lesson_topic.setText(json_data["lesson_topic"])
         content_type = self.categories[json_data["category_id"]]
         lesson_name = content_type + '_' + 'পাঠ_' + str(json_data["lesson_id"])
 
@@ -121,3 +134,7 @@ class Lesson_Window(QMainWindow):
         self.visual_file_content = None
         self.audio_file_path = None
         self.folder_path = None
+        
+    def update_elapsed_time(self):
+        self.time_elapsed += 1
+        print("Time elapsed:", self.time_elapsed, "seconds")

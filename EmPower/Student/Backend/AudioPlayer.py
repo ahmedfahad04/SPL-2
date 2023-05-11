@@ -16,6 +16,7 @@ class MusicPlayer:
         pygame.mixer.music.load(self.music_file_path)
 
         while self.play_music_continuously:
+            pygame.mixer.init()
             pygame.mixer.music.play()
 
             # Wait for the music to finish playing
@@ -26,16 +27,17 @@ class MusicPlayer:
             time.sleep(2)
 
     def start_music(self):
-        self.music_thread = threading.Thread(target=self.play_music)
+        self.music_thread = threading.Thread(target=self.play_music, daemon=True)
         self.music_thread.start()
 
     def stop_music(self):
         self.play_music_continuously = False
 
-        if self.music_thread is not None:
-            self.music_thread.join()
+        # if self.music_thread is not None:
+        #     self.music_thread.join()
 
         # Stop the music before quitting the mixer
+        pygame.mixer.music.pause()
         pygame.mixer.music.stop()
 
         pygame.mixer.quit()
