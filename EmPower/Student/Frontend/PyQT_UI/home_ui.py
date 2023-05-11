@@ -251,7 +251,7 @@ class Ui_MainWindow(object):
         self.lsn_lbl_lesson_topic.setMaximumSize(QSize(500, 16777215))
         font3 = QFont()
         font3.setFamilies([u"Kalpurush"])
-        font3.setPointSize(25)
+        font3.setPointSize(35)
         self.lsn_lbl_lesson_topic.setFont(font3)
         self.lsn_lbl_lesson_topic.setStyleSheet(u"border: 3px dotted rgb(227, 224, 207) ;\n"
 "color: rgb(61, 64, 91);")

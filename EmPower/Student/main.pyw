@@ -5,6 +5,7 @@ import sys
 app = QApplication(sys.argv)
 
 window = Home()
+window.showMaximized()
 window.show()
 
 sys.exit(app.exec_()) 

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '.\Frontend\PyQT_UI\home_page.ui'
+# Form implementation generated from reading ui file '.\Frontend\PyQT_UI\home.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.4
 #
@@ -225,7 +225,7 @@ class Ui_MainWindow(object):
         self.lsn_lbl_lesson_topic.setMaximumSize(QtCore.QSize(500, 16777215))
         font = QtGui.QFont()
         font.setFamily("Kalpurush")
-        font.setPointSize(25)
+        font.setPointSize(35)
         self.lsn_lbl_lesson_topic.setFont(font)
         self.lsn_lbl_lesson_topic.setStyleSheet("border: 3px dotted rgb(227, 224, 207) ;\n"
 "color: rgb(61, 64, 91);")

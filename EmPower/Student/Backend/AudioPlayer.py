@@ -10,6 +10,8 @@ class MusicPlayer:
         self.music_thread = None
 
     def play_music(self):
+        pygame.mixer.init()
+        
         self.play_music_continuously = True
         pygame.mixer.music.load(self.music_file_path)
 
@@ -24,7 +26,6 @@ class MusicPlayer:
             time.sleep(2)
 
     def start_music(self):
-        pygame.mixer.init()
         self.music_thread = threading.Thread(target=self.play_music)
         self.music_thread.start()
 

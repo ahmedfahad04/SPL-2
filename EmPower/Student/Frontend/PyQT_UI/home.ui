@@ -540,7 +540,7 @@ color: rgb(61, 64, 91);</string>
                 <property name="font">
                  <font>
                   <family>Kalpurush</family>
-                  <pointsize>25</pointsize>
+                  <pointsize>35</pointsize>
                  </font>
                 </property>
                 <property name="styleSheet">
