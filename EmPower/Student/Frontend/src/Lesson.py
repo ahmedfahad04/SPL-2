@@ -54,8 +54,7 @@ class Lesson_Window(QMainWindow):
                 self.music_player.stop_music()
                 
             if self.lesson_window.video_player_widget.count() != 0:
-                self.lesson_window.video_player_widget.itemAt(
-                    0).widget().setParent(None)
+                self.lesson_window.video_player_widget.itemAt(0).widget().setParent(None)
 
             self.lesson_window.mediaStackWidget.setCurrentWidget(self.lesson_window.video_page)
 
@@ -64,17 +63,16 @@ class Lesson_Window(QMainWindow):
 
         else:
             
+            # stop the video player
             if self.video_player: 
                 self.video_player.mediaPlayer.stop()
                 self.video_player.close()
-                
-            
+               
             self.lesson_window.mediaStackWidget.setCurrentWidget(self.lesson_window.image_page)
 
             # image load
             self.qt_image = QPixmap(self.visual_file_content)
-            self.qt_image = self.qt_image.scaledToHeight(
-                550, Qt.SmoothTransformation)
+            self.qt_image = self.qt_image.scaledToHeight(550, Qt.SmoothTransformation)
             self.lesson_window.lsn_lbl_image.setPixmap(self.qt_image)
 
             # audio load
@@ -110,7 +108,9 @@ class Lesson_Window(QMainWindow):
 
         if self.current_lesson_id > 0:
             self.current_lesson_id -= 1
-            self.display_lesson()
+            
+        self.reset_lesson_window()
+        self.display_lesson()
 
     def stop_music(self):
         if self.music_player is not None:
