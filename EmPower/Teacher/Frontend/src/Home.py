@@ -113,7 +113,7 @@ class Home(QMainWindow):  # Home extends QMainWindow
         
         # Connecting Task window buttons
         # !need to move on Task Window Page
-        self.home.task_btn_mcq.clicked.connect(self.mcq_page)
+        # self.home.task_btn_mcq.clicked.connect(self.mcq_page)
         self.home.task_btn_matching.clicked.connect(self.matching_page)
         self.home.task_btn_sequence.clicked.connect(self.sequence_page)
         self.home.task_btn_puzzle.clicked.connect(self.puzzle_page)
