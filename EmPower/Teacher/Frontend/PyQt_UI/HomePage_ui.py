@@ -17,9 +17,10 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QAbstractItemView, QAbstractScrollArea, QApplication, QComboBox,
     QFrame, QGridLayout, QHBoxLayout, QHeaderView,
-    QLabel, QListView, QMainWindow, QPushButton,
-    QSizePolicy, QSpacerItem, QStackedWidget, QTableWidget,
-    QTableWidgetItem, QTreeView, QVBoxLayout, QWidget)
+    QLabel, QListView, QListWidget, QListWidgetItem,
+    QMainWindow, QPushButton, QSizePolicy, QSpacerItem,
+    QStackedWidget, QTableWidget, QTableWidgetItem, QVBoxLayout,
+    QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -32,7 +33,6 @@ class Ui_MainWindow(object):
         self.centralwidget.setMinimumSize(QSize(1280, 720))
         self.gridLayout_7 = QGridLayout(self.centralwidget)
         self.gridLayout_7.setObjectName(u"gridLayout_7")
-        self.gridLayout_7.setHorizontalSpacing(0)
         self.gridLayout_7.setContentsMargins(0, 0, 0, 0)
         self.stackedWidget = QStackedWidget(self.centralwidget)
         self.stackedWidget.setObjectName(u"stackedWidget")
@@ -157,6 +157,33 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_2.addWidget(self.home_btn_lesson)
 
+        self.home_btn_lesson_assigns = QPushButton(self.frm_button)
+        self.home_btn_lesson_assigns.setObjectName(u"home_btn_lesson_assigns")
+        sizePolicy.setHeightForWidth(self.home_btn_lesson_assigns.sizePolicy().hasHeightForWidth())
+        self.home_btn_lesson_assigns.setSizePolicy(sizePolicy)
+        self.home_btn_lesson_assigns.setMinimumSize(QSize(160, 150))
+        self.home_btn_lesson_assigns.setMaximumSize(QSize(200, 200))
+        self.home_btn_lesson_assigns.setCursor(QCursor(Qt.PointingHandCursor))
+        self.home_btn_lesson_assigns.setStyleSheet(u"QPushButton {\n"
+"	background-color: qlineargradient(spread:pad, x1:0.383, y1:0.727, x2:1, y2:0, stop:0 rgba(49, 181, 148, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"	border: 4px solid qlineargradient(spread:pad, x1:0.716905, y1:0.347, x2:0, y2:1, stop:0 rgba(26, 181, 219, 255), stop:1 rgba(255, 255, 255, 255)) ;\n"
+"	border-radius: 15px;\n"
+"	margin: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:hover:!pressed\n"
+"{\n"
+" 	border: 4px solid qlineargradient(spread:pad, x1:0.338, y1:0.602273, x2:1, y2:0, stop:0 rgba(26, 181, 219, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"	background-color: qlineargradient(spread:pad, x1:0.606965, y1:0.409, x2:0, y2:1, stop:0 rgba(81, 181, 159, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"}\n"
+"")
+        icon2 = QIcon()
+        icon2.addFile(u"../Images/assign_records_icon.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.home_btn_lesson_assigns.setIcon(icon2)
+        self.home_btn_lesson_assigns.setIconSize(QSize(250, 300))
+
+        self.horizontalLayout_2.addWidget(self.home_btn_lesson_assigns)
+
         self.home_btn_quiz = QPushButton(self.frm_button)
         self.home_btn_quiz.setObjectName(u"home_btn_quiz")
         sizePolicy.setHeightForWidth(self.home_btn_quiz.sizePolicy().hasHeightForWidth())
@@ -177,9 +204,9 @@ class Ui_MainWindow(object):
 "	background-color: qlineargradient(spread:pad, x1:0.606965, y1:0.409, x2:0, y2:1, stop:0 rgba(81, 181, 159, 255), stop:1 rgba(255, 255, 255, 255));\n"
 "}\n"
 "")
-        icon2 = QIcon()
-        icon2.addFile(u"../Images/std_assessment.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.home_btn_quiz.setIcon(icon2)
+        icon3 = QIcon()
+        icon3.addFile(u"../Images/std_assessment.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.home_btn_quiz.setIcon(icon3)
         self.home_btn_quiz.setIconSize(QSize(250, 300))
 
         self.horizontalLayout_2.addWidget(self.home_btn_quiz)
@@ -204,39 +231,12 @@ class Ui_MainWindow(object):
 "	background-color: qlineargradient(spread:pad, x1:0.606965, y1:0.409, x2:0, y2:1, stop:0 rgba(81, 181, 159, 255), stop:1 rgba(255, 255, 255, 255));\n"
 "}\n"
 "")
-        icon3 = QIcon()
-        icon3.addFile(u"../Images/std_perfor.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.home_btn_progress.setIcon(icon3)
+        icon4 = QIcon()
+        icon4.addFile(u"../Images/std_perfor.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.home_btn_progress.setIcon(icon4)
         self.home_btn_progress.setIconSize(QSize(250, 300))
 
         self.horizontalLayout_2.addWidget(self.home_btn_progress)
-
-        self.home_btn_settings = QPushButton(self.frm_button)
-        self.home_btn_settings.setObjectName(u"home_btn_settings")
-        sizePolicy.setHeightForWidth(self.home_btn_settings.sizePolicy().hasHeightForWidth())
-        self.home_btn_settings.setSizePolicy(sizePolicy)
-        self.home_btn_settings.setMinimumSize(QSize(160, 150))
-        self.home_btn_settings.setMaximumSize(QSize(200, 200))
-        self.home_btn_settings.setCursor(QCursor(Qt.PointingHandCursor))
-        self.home_btn_settings.setStyleSheet(u"QPushButton {\n"
-"	background-color: qlineargradient(spread:pad, x1:0.383, y1:0.727, x2:1, y2:0, stop:0 rgba(49, 181, 148, 255), stop:1 rgba(255, 255, 255, 255));\n"
-"	border: 4px solid qlineargradient(spread:pad, x1:0.716905, y1:0.347, x2:0, y2:1, stop:0 rgba(26, 181, 219, 255), stop:1 rgba(255, 255, 255, 255)) ;\n"
-"	border-radius: 15px;\n"
-"	margin: 10px;\n"
-"}\n"
-"\n"
-"QPushButton:hover:!pressed\n"
-"{\n"
-" 	border: 4px solid qlineargradient(spread:pad, x1:0.338, y1:0.602273, x2:1, y2:0, stop:0 rgba(26, 181, 219, 255), stop:1 rgba(255, 255, 255, 255));\n"
-"	background-color: qlineargradient(spread:pad, x1:0.606965, y1:0.409, x2:0, y2:1, stop:0 rgba(81, 181, 159, 255), stop:1 rgba(255, 255, 255, 255));\n"
-"}\n"
-"")
-        icon4 = QIcon()
-        icon4.addFile(u"../Images/setting_icon.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.home_btn_settings.setIcon(icon4)
-        self.home_btn_settings.setIconSize(QSize(250, 300))
-
-        self.horizontalLayout_2.addWidget(self.home_btn_settings)
 
 
         self.gridLayout.addWidget(self.frm_button, 3, 0, 1, 1)
@@ -735,6 +735,7 @@ class Ui_MainWindow(object):
         self.lsn_btn_make_lesson.setObjectName(u"lsn_btn_make_lesson")
         self.lsn_btn_make_lesson.setMinimumSize(QSize(300, 50))
         self.lsn_btn_make_lesson.setFont(font3)
+        self.lsn_btn_make_lesson.setCursor(QCursor(Qt.PointingHandCursor))
         self.lsn_btn_make_lesson.setStyleSheet(u"QPushButton {\n"
 "background-color: rgb(160, 253, 230);\n"
 "color:  #256D85 ;\n"
@@ -917,50 +918,13 @@ class Ui_MainWindow(object):
 
         self.gridLayout_5.addItem(self.verticalSpacer_3, 0, 1, 1, 1)
 
-        self.horizontalSpacer_8 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.gridLayout_5.addItem(self.horizontalSpacer_8, 1, 0, 1, 1)
-
-        self.task_btn_mcq = QPushButton(self.eval_left_frame)
-        self.task_btn_mcq.setObjectName(u"task_btn_mcq")
-        self.task_btn_mcq.setMinimumSize(QSize(261, 61))
+        self.task_btn_matching = QPushButton(self.eval_left_frame)
+        self.task_btn_matching.setObjectName(u"task_btn_matching")
+        self.task_btn_matching.setMinimumSize(QSize(261, 61))
         font14 = QFont()
         font14.setFamilies([u"Hind Siliguri Medium"])
         font14.setPointSize(12)
         font14.setBold(True)
-        self.task_btn_mcq.setFont(font14)
-        self.task_btn_mcq.setCursor(QCursor(Qt.PointingHandCursor))
-        self.task_btn_mcq.setStyleSheet(u"QPushButton {\n"
-"background-color: rgb(160, 253, 230);\n"
-"color:  rgb(0, 43, 91) ;\n"
-"border-radius: 15px;\n"
-"border: 4px solid rgb(43, 72, 101);\n"
-"}\n"
-"\n"
-"QPushButton::hover:!pressed {\n"
-"	\n"
-"	background-color: rgb(143, 227, 207);\n"
-"	color: rgb(0, 43, 91);\n"
-"\n"
-"}")
-        icon12 = QIcon()
-        icon12.addFile(u"../Images/mcq.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.task_btn_mcq.setIcon(icon12)
-        self.task_btn_mcq.setIconSize(QSize(25, 50))
-
-        self.gridLayout_5.addWidget(self.task_btn_mcq, 1, 1, 1, 1)
-
-        self.horizontalSpacer_9 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.gridLayout_5.addItem(self.horizontalSpacer_9, 1, 2, 1, 1)
-
-        self.horizontalSpacer_10 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.gridLayout_5.addItem(self.horizontalSpacer_10, 2, 0, 1, 1)
-
-        self.task_btn_matching = QPushButton(self.eval_left_frame)
-        self.task_btn_matching.setObjectName(u"task_btn_matching")
-        self.task_btn_matching.setMinimumSize(QSize(261, 61))
         self.task_btn_matching.setFont(font14)
         self.task_btn_matching.setCursor(QCursor(Qt.PointingHandCursor))
         self.task_btn_matching.setStyleSheet(u"QPushButton {\n"
@@ -976,20 +940,20 @@ class Ui_MainWindow(object):
 "	color: rgb(0, 43, 91);\n"
 "\n"
 "}")
-        icon13 = QIcon()
-        icon13.addFile(u"../Images/connect_icon.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.task_btn_matching.setIcon(icon13)
+        icon12 = QIcon()
+        icon12.addFile(u"../Images/connect_icon.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.task_btn_matching.setIcon(icon12)
         self.task_btn_matching.setIconSize(QSize(28, 50))
 
-        self.gridLayout_5.addWidget(self.task_btn_matching, 2, 1, 1, 1)
+        self.gridLayout_5.addWidget(self.task_btn_matching, 1, 1, 1, 1)
 
         self.horizontalSpacer_13 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.gridLayout_5.addItem(self.horizontalSpacer_13, 2, 2, 1, 1)
+        self.gridLayout_5.addItem(self.horizontalSpacer_13, 1, 2, 1, 1)
 
-        self.horizontalSpacer_11 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalSpacer_10 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.gridLayout_5.addItem(self.horizontalSpacer_11, 3, 0, 1, 1)
+        self.gridLayout_5.addItem(self.horizontalSpacer_10, 1, 0, 1, 1)
 
         self.task_btn_sequence = QPushButton(self.eval_left_frame)
         self.task_btn_sequence.setObjectName(u"task_btn_sequence")
@@ -1009,20 +973,16 @@ class Ui_MainWindow(object):
 "	color: rgb(0, 43, 91);\n"
 "\n"
 "}")
-        icon14 = QIcon()
-        icon14.addFile(u"../Images/sequence_icon.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.task_btn_sequence.setIcon(icon14)
+        icon13 = QIcon()
+        icon13.addFile(u"../Images/sequence_icon.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.task_btn_sequence.setIcon(icon13)
         self.task_btn_sequence.setIconSize(QSize(26, 50))
 
-        self.gridLayout_5.addWidget(self.task_btn_sequence, 3, 1, 1, 1)
+        self.gridLayout_5.addWidget(self.task_btn_sequence, 2, 1, 1, 1)
 
         self.horizontalSpacer_14 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.gridLayout_5.addItem(self.horizontalSpacer_14, 3, 2, 1, 1)
-
-        self.horizontalSpacer_12 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.gridLayout_5.addItem(self.horizontalSpacer_12, 4, 0, 1, 1)
+        self.gridLayout_5.addItem(self.horizontalSpacer_14, 2, 2, 1, 1)
 
         self.task_btn_puzzle = QPushButton(self.eval_left_frame)
         self.task_btn_puzzle.setObjectName(u"task_btn_puzzle")
@@ -1042,20 +1002,28 @@ class Ui_MainWindow(object):
 "	color: rgb(0, 43, 91);\n"
 "\n"
 "}")
-        icon15 = QIcon()
-        icon15.addFile(u"../Images/puzzle_icon.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.task_btn_puzzle.setIcon(icon15)
+        icon14 = QIcon()
+        icon14.addFile(u"../Images/puzzle_icon.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.task_btn_puzzle.setIcon(icon14)
         self.task_btn_puzzle.setIconSize(QSize(20, 30))
 
-        self.gridLayout_5.addWidget(self.task_btn_puzzle, 4, 1, 1, 1)
+        self.gridLayout_5.addWidget(self.task_btn_puzzle, 3, 1, 1, 1)
 
         self.horizontalSpacer_15 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.gridLayout_5.addItem(self.horizontalSpacer_15, 4, 2, 1, 1)
+        self.gridLayout_5.addItem(self.horizontalSpacer_15, 3, 2, 1, 1)
+
+        self.horizontalSpacer_11 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_5.addItem(self.horizontalSpacer_11, 2, 0, 1, 1)
+
+        self.horizontalSpacer_12 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_5.addItem(self.horizontalSpacer_12, 3, 0, 1, 1)
 
         self.verticalSpacer_4 = QSpacerItem(20, 163, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
-        self.gridLayout_5.addItem(self.verticalSpacer_4, 5, 1, 1, 1)
+        self.gridLayout_5.addItem(self.verticalSpacer_4, 4, 1, 1, 1)
 
 
         self.horizontalLayout_16.addWidget(self.eval_left_frame)
@@ -1071,22 +1039,13 @@ class Ui_MainWindow(object):
         self.gridLayout_6.setContentsMargins(0, 0, 0, 0)
         self.evalstackwidget = QStackedWidget(self.eval_right_frame)
         self.evalstackwidget.setObjectName(u"evalstackwidget")
-        self.mcq_page = QWidget()
-        self.mcq_page.setObjectName(u"mcq_page")
-        self.task_lbl_mcq = QLabel(self.mcq_page)
-        self.task_lbl_mcq.setObjectName(u"task_lbl_mcq")
-        self.task_lbl_mcq.setGeometry(QRect(20, 30, 841, 581))
-        font15 = QFont()
-        font15.setPointSize(28)
-        self.task_lbl_mcq.setFont(font15)
-        self.task_lbl_mcq.setStyleSheet(u"color: rgb(160, 253, 230);")
-        self.task_lbl_mcq.setAlignment(Qt.AlignCenter)
-        self.evalstackwidget.addWidget(self.mcq_page)
         self.dragdrop_page = QWidget()
         self.dragdrop_page.setObjectName(u"dragdrop_page")
         self.task_lbl_matching = QLabel(self.dragdrop_page)
         self.task_lbl_matching.setObjectName(u"task_lbl_matching")
         self.task_lbl_matching.setGeometry(QRect(30, 10, 841, 581))
+        font15 = QFont()
+        font15.setPointSize(28)
         self.task_lbl_matching.setFont(font15)
         self.task_lbl_matching.setStyleSheet(u"color: rgb(160, 253, 230);")
         self.task_lbl_matching.setAlignment(Qt.AlignCenter)
@@ -1201,38 +1160,55 @@ class Ui_MainWindow(object):
         self.mid_frame_4.setFrameShadow(QFrame.Raised)
         self.gridLayout_4 = QGridLayout(self.mid_frame_4)
         self.gridLayout_4.setObjectName(u"gridLayout_4")
-        self.gridLayout_4.setHorizontalSpacing(3)
-        self.gridLayout_4.setContentsMargins(5, 5, 31, 11)
-        self.lsn_lbl_lessons_3 = QLabel(self.mid_frame_4)
-        self.lsn_lbl_lessons_3.setObjectName(u"lsn_lbl_lessons_3")
-        self.lsn_lbl_lessons_3.setMinimumSize(QSize(451, 36))
+        self.verticalSpacer_5 = QSpacerItem(20, 117, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.gridLayout_4.addItem(self.verticalSpacer_5, 8, 6, 1, 1)
+
+        self.label_4 = QLabel(self.mid_frame_4)
+        self.label_4.setObjectName(u"label_4")
+        self.label_4.setMinimumSize(QSize(365, 68))
         font16 = QFont()
         font16.setFamilies([u"Hind Siliguri Medium"])
-        font16.setPointSize(16)
+        font16.setPointSize(11)
         font16.setBold(False)
-        self.lsn_lbl_lessons_3.setFont(font16)
-        self.lsn_lbl_lessons_3.setStyleSheet(u"color: rgb(149, 236, 215);")
-        self.lsn_lbl_lessons_3.setAlignment(Qt.AlignCenter)
+        self.label_4.setFont(font16)
+        self.label_4.setStyleSheet(u"color: rgb(132, 211, 184);\n"
+"background-color: rgb(0, 43, 91);\n"
+"padding: 5px;")
+        self.label_4.setAlignment(Qt.AlignCenter)
+        self.label_4.setWordWrap(True)
 
-        self.gridLayout_4.addWidget(self.lsn_lbl_lessons_3, 0, 0, 1, 1)
+        self.gridLayout_4.addWidget(self.label_4, 7, 1, 1, 3)
 
-        self.lsn_lbl_lessons_5 = QLabel(self.mid_frame_4)
-        self.lsn_lbl_lessons_5.setObjectName(u"lsn_lbl_lessons_5")
-        self.lsn_lbl_lessons_5.setMinimumSize(QSize(371, 36))
-        self.lsn_lbl_lessons_5.setFont(font16)
-        self.lsn_lbl_lessons_5.setStyleSheet(u"color: rgb(149, 236, 215);")
-        self.lsn_lbl_lessons_5.setAlignment(Qt.AlignCenter)
+        self.horizontalSpacer_20 = QSpacerItem(160, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.gridLayout_4.addWidget(self.lsn_lbl_lessons_5, 0, 1, 1, 2)
+        self.gridLayout_4.addItem(self.horizontalSpacer_20, 6, 1, 1, 1)
 
-        self.lsn_lbl_lessons_4 = QLabel(self.mid_frame_4)
-        self.lsn_lbl_lessons_4.setObjectName(u"lsn_lbl_lessons_4")
-        self.lsn_lbl_lessons_4.setMinimumSize(QSize(361, 36))
-        self.lsn_lbl_lessons_4.setFont(font16)
-        self.lsn_lbl_lessons_4.setStyleSheet(u"color: rgb(149, 236, 215);")
-        self.lsn_lbl_lessons_4.setAlignment(Qt.AlignCenter)
+        self.horizontalSpacer_21 = QSpacerItem(159, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.gridLayout_4.addWidget(self.lsn_lbl_lessons_4, 0, 3, 1, 1)
+        self.gridLayout_4.addItem(self.horizontalSpacer_21, 6, 3, 1, 1)
+
+        self.label_3 = QLabel(self.mid_frame_4)
+        self.label_3.setObjectName(u"label_3")
+        self.label_3.setFont(font16)
+        self.label_3.setStyleSheet(u"color: rgb(132, 211, 184);\n"
+"background-color: rgb(0, 43, 91);\n"
+"padding: 5px;")
+        self.label_3.setAlignment(Qt.AlignCenter)
+        self.label_3.setWordWrap(True)
+
+        self.gridLayout_4.addWidget(self.label_3, 5, 1, 1, 3)
+
+        self.label_2 = QLabel(self.mid_frame_4)
+        self.label_2.setObjectName(u"label_2")
+        self.label_2.setFont(font16)
+        self.label_2.setStyleSheet(u"color: rgb(132, 211, 184);\n"
+"background-color: rgb(0, 43, 91);\n"
+"padding: 5px;")
+        self.label_2.setAlignment(Qt.AlignCenter)
+        self.label_2.setWordWrap(True)
+
+        self.gridLayout_4.addWidget(self.label_2, 3, 1, 1, 3)
 
         self.lsn_module_table_widget = QTableWidget(self.mid_frame_4)
         if (self.lsn_module_table_widget.columnCount() < 2):
@@ -1251,7 +1227,7 @@ class Ui_MainWindow(object):
         self.lsn_module_table_widget.setHorizontalHeaderItem(1, __qtablewidgetitem7)
         self.lsn_module_table_widget.setObjectName(u"lsn_module_table_widget")
         self.lsn_module_table_widget.setMinimumSize(QSize(451, 501))
-        self.lsn_module_table_widget.viewport().setProperty("cursor", QCursor(Qt.ClosedHandCursor))
+        self.lsn_module_table_widget.viewport().setProperty("cursor", QCursor(Qt.OpenHandCursor))
         self.lsn_module_table_widget.setStyleSheet(u"QHeaderView::section {\n"
 "	background-color: #002B5B;\n"
 "    color: rgb(143, 227, 207);\n"
@@ -1263,13 +1239,85 @@ class Ui_MainWindow(object):
 "	background-color: #256D85;\n"
 "	gridline-color: rgb(255, 255, 255);\n"
 "	color: #fff;\n"
+"	border: 2px solid rgb(0, 43, 91);\n"
 "}\n"
 "\n"
 "")
         self.lsn_module_table_widget.horizontalHeader().setDefaultSectionSize(188)
         self.lsn_module_table_widget.horizontalHeader().setStretchLastSection(True)
 
-        self.gridLayout_4.addWidget(self.lsn_module_table_widget, 1, 0, 1, 1)
+        self.gridLayout_4.addWidget(self.lsn_module_table_widget, 1, 0, 8, 1)
+
+        self.horizontalSpacer_9 = QSpacerItem(21, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
+
+        self.gridLayout_4.addItem(self.horizontalSpacer_9, 4, 6, 1, 1)
+
+        self.label = QLabel(self.mid_frame_4)
+        self.label.setObjectName(u"label")
+        self.label.setFont(font16)
+        self.label.setStyleSheet(u"color: rgb(132, 211, 184);\n"
+"background-color: rgb(0, 43, 91);\n"
+"padding: 5px;")
+        self.label.setAlignment(Qt.AlignCenter)
+        self.label.setWordWrap(True)
+
+        self.gridLayout_4.addWidget(self.label, 1, 1, 1, 3)
+
+        self.label_7 = QLabel(self.mid_frame_4)
+        self.label_7.setObjectName(u"label_7")
+        font18 = QFont()
+        font18.setPointSize(7)
+        self.label_7.setFont(font18)
+        self.label_7.setPixmap(QPixmap(u"../Images/downward_icon.png"))
+
+        self.gridLayout_4.addWidget(self.label_7, 6, 2, 1, 1)
+
+        self.lsn_btn_remove_module = QPushButton(self.mid_frame_4)
+        self.lsn_btn_remove_module.setObjectName(u"lsn_btn_remove_module")
+        sizePolicy1.setHeightForWidth(self.lsn_btn_remove_module.sizePolicy().hasHeightForWidth())
+        self.lsn_btn_remove_module.setSizePolicy(sizePolicy1)
+        self.lsn_btn_remove_module.setMinimumSize(QSize(200, 58))
+        self.lsn_btn_remove_module.setMaximumSize(QSize(200, 58))
+        self.lsn_btn_remove_module.setFont(font17)
+        self.lsn_btn_remove_module.setCursor(QCursor(Qt.PointingHandCursor))
+        self.lsn_btn_remove_module.setStyleSheet(u"QPushButton {\n"
+"background-color: rgb(160, 253, 230);\n"
+"color:  #256D85 ;\n"
+"border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton::hover {\n"
+"	\n"
+"	background-color: rgb(143, 227, 207);\n"
+"	color: #2B4865;\n"
+"\n"
+"}")
+        icon15 = QIcon()
+        icon15.addFile(u"../Images/remove_icon.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.lsn_btn_remove_module.setIcon(icon15)
+        self.lsn_btn_remove_module.setIconSize(QSize(20, 25))
+
+        self.gridLayout_4.addWidget(self.lsn_btn_remove_module, 10, 4, 1, 1)
+
+        self.lsn_lbl_lessons_5 = QLabel(self.mid_frame_4)
+        self.lsn_lbl_lessons_5.setObjectName(u"lsn_lbl_lessons_5")
+        self.lsn_lbl_lessons_5.setMinimumSize(QSize(371, 36))
+        font19 = QFont()
+        font19.setFamilies([u"Hind Siliguri Medium"])
+        font19.setPointSize(16)
+        font19.setBold(False)
+        self.lsn_lbl_lessons_5.setFont(font19)
+        self.lsn_lbl_lessons_5.setStyleSheet(u"color: rgb(149, 236, 215);")
+        self.lsn_lbl_lessons_5.setAlignment(Qt.AlignCenter)
+
+        self.gridLayout_4.addWidget(self.lsn_lbl_lessons_5, 0, 4, 1, 2)
+
+        self.label_6 = QLabel(self.mid_frame_4)
+        self.label_6.setObjectName(u"label_6")
+        self.label_6.setFont(font18)
+        self.label_6.setPixmap(QPixmap(u"../Images/downward_icon.png"))
+
+        self.gridLayout_4.addWidget(self.label_6, 4, 2, 1, 1)
 
         self.lsn_btn_finish_add_module = QPushButton(self.mid_frame_4)
         self.lsn_btn_finish_add_module.setObjectName(u"lsn_btn_finish_add_module")
@@ -1297,17 +1345,68 @@ class Ui_MainWindow(object):
         self.lsn_btn_finish_add_module.setIcon(icon16)
         self.lsn_btn_finish_add_module.setIconSize(QSize(20, 25))
 
-        self.gridLayout_4.addWidget(self.lsn_btn_finish_add_module, 2, 2, 1, 1)
+        self.gridLayout_4.addWidget(self.lsn_btn_finish_add_module, 10, 5, 1, 1)
 
-        self.lsn_btn_remove_module = QPushButton(self.mid_frame_4)
-        self.lsn_btn_remove_module.setObjectName(u"lsn_btn_remove_module")
-        sizePolicy1.setHeightForWidth(self.lsn_btn_remove_module.sizePolicy().hasHeightForWidth())
-        self.lsn_btn_remove_module.setSizePolicy(sizePolicy1)
-        self.lsn_btn_remove_module.setMinimumSize(QSize(200, 58))
-        self.lsn_btn_remove_module.setMaximumSize(QSize(200, 58))
-        self.lsn_btn_remove_module.setFont(font17)
-        self.lsn_btn_remove_module.setCursor(QCursor(Qt.PointingHandCursor))
-        self.lsn_btn_remove_module.setStyleSheet(u"QPushButton {\n"
+        self.horizontalSpacer_17 = QSpacerItem(160, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_4.addItem(self.horizontalSpacer_17, 2, 1, 1, 1)
+
+        self.label_5 = QLabel(self.mid_frame_4)
+        self.label_5.setObjectName(u"label_5")
+        self.label_5.setFont(font18)
+        self.label_5.setPixmap(QPixmap(u"../Images/downward_icon.png"))
+
+        self.gridLayout_4.addWidget(self.label_5, 2, 2, 1, 1)
+
+        self.horizontalSpacer_18 = QSpacerItem(160, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_4.addItem(self.horizontalSpacer_18, 4, 1, 1, 1)
+
+        self.horizontalSpacer_16 = QSpacerItem(159, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_4.addItem(self.horizontalSpacer_16, 2, 3, 1, 1)
+
+        self.lsn_lbl_lessons_3 = QLabel(self.mid_frame_4)
+        self.lsn_lbl_lessons_3.setObjectName(u"lsn_lbl_lessons_3")
+        self.lsn_lbl_lessons_3.setMinimumSize(QSize(451, 36))
+        self.lsn_lbl_lessons_3.setFont(font19)
+        self.lsn_lbl_lessons_3.setStyleSheet(u"color: rgb(149, 236, 215);")
+        self.lsn_lbl_lessons_3.setAlignment(Qt.AlignCenter)
+
+        self.gridLayout_4.addWidget(self.lsn_lbl_lessons_3, 0, 0, 1, 1)
+
+        self.lsn_lbl_lessons_4 = QLabel(self.mid_frame_4)
+        self.lsn_lbl_lessons_4.setObjectName(u"lsn_lbl_lessons_4")
+        self.lsn_lbl_lessons_4.setMinimumSize(QSize(361, 36))
+        self.lsn_lbl_lessons_4.setFont(font19)
+        self.lsn_lbl_lessons_4.setStyleSheet(u"color: rgb(149, 236, 215);")
+        self.lsn_lbl_lessons_4.setAlignment(Qt.AlignCenter)
+
+        self.gridLayout_4.addWidget(self.lsn_lbl_lessons_4, 0, 1, 1, 3)
+
+        self.lsn_new_module_list_view = QListView(self.mid_frame_4)
+        self.lsn_new_module_list_view.setObjectName(u"lsn_new_module_list_view")
+        self.lsn_new_module_list_view.setMinimumSize(QSize(424, 509))
+        font20 = QFont()
+        font20.setPointSize(10)
+        self.lsn_new_module_list_view.setFont(font20)
+        self.lsn_new_module_list_view.setStyleSheet(u"color: rgb(143, 227, 190);\n"
+"border: 2px solid rgb(0, 43, 91);")
+        self.lsn_new_module_list_view.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        self.lsn_new_module_list_view.setDragEnabled(True)
+
+        self.gridLayout_4.addWidget(self.lsn_new_module_list_view, 1, 4, 9, 2)
+
+        self.horizontalSpacer_19 = QSpacerItem(159, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_4.addItem(self.horizontalSpacer_19, 4, 3, 1, 1)
+
+        self.lsn_btn_see_lessons = QPushButton(self.mid_frame_4)
+        self.lsn_btn_see_lessons.setObjectName(u"lsn_btn_see_lessons")
+        self.lsn_btn_see_lessons.setMinimumSize(QSize(151, 41))
+        self.lsn_btn_see_lessons.setFont(font1)
+        self.lsn_btn_see_lessons.setCursor(QCursor(Qt.PointingHandCursor))
+        self.lsn_btn_see_lessons.setStyleSheet(u"QPushButton {\n"
 "background-color: rgb(160, 253, 230);\n"
 "color:  #256D85 ;\n"
 "border-radius: 10px;\n"
@@ -1320,44 +1419,11 @@ class Ui_MainWindow(object):
 "\n"
 "}")
         icon17 = QIcon()
-        icon17.addFile(u"../Images/remove_icon.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.lsn_btn_remove_module.setIcon(icon17)
-        self.lsn_btn_remove_module.setIconSize(QSize(20, 25))
+        icon17.addFile(u"../Images/open_folders_icon.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.lsn_btn_see_lessons.setIcon(icon17)
+        self.lsn_btn_see_lessons.setIconSize(QSize(30, 30))
 
-        self.gridLayout_4.addWidget(self.lsn_btn_remove_module, 2, 1, 1, 1)
-
-        self.label = QLabel(self.mid_frame_4)
-        self.label.setObjectName(u"label")
-        font18 = QFont()
-        font18.setFamilies([u"Hind Siliguri Medium"])
-        font18.setPointSize(11)
-        font18.setBold(False)
-        self.label.setFont(font18)
-        self.label.setStyleSheet(u"color: rgb(132, 211, 184);\n"
-"background-color: rgb(0, 43, 91);\n"
-"padding: 5px;")
-        self.label.setAlignment(Qt.AlignCenter)
-        self.label.setWordWrap(True)
-
-        self.gridLayout_4.addWidget(self.label, 2, 0, 1, 1)
-
-        self.lsn_new_module_list_view = QListView(self.mid_frame_4)
-        self.lsn_new_module_list_view.setObjectName(u"lsn_new_module_list_view")
-        self.lsn_new_module_list_view.setMinimumSize(QSize(420, 501))
-        font19 = QFont()
-        font19.setPointSize(10)
-        self.lsn_new_module_list_view.setFont(font19)
-        self.lsn_new_module_list_view.setStyleSheet(u"color: rgb(143, 227, 190);")
-        self.lsn_new_module_list_view.setEditTriggers(QAbstractItemView.NoEditTriggers)
-        self.lsn_new_module_list_view.setDragEnabled(True)
-
-        self.gridLayout_4.addWidget(self.lsn_new_module_list_view, 1, 1, 1, 2)
-
-        self.lsn_tree_view = QTreeView(self.mid_frame_4)
-        self.lsn_tree_view.setObjectName(u"lsn_tree_view")
-        self.lsn_tree_view.setMinimumSize(QSize(378, 566))
-
-        self.gridLayout_4.addWidget(self.lsn_tree_view, 1, 3, 2, 1)
+        self.gridLayout_4.addWidget(self.lsn_btn_see_lessons, 9, 1, 2, 3)
 
 
         self.verticalLayout_9.addWidget(self.mid_frame_4)
@@ -1369,6 +1435,209 @@ class Ui_MainWindow(object):
         self.gridLayout_8.addWidget(self.frame, 0, 0, 1, 1)
 
         self.stackedWidget.addWidget(self.lesson_making_page)
+        self.lesson_assigning_page = QWidget()
+        self.lesson_assigning_page.setObjectName(u"lesson_assigning_page")
+        self.gridLayout_11 = QGridLayout(self.lesson_assigning_page)
+        self.gridLayout_11.setObjectName(u"gridLayout_11")
+        self.gridLayout_11.setContentsMargins(0, 0, 0, 0)
+        self.frame_2 = QFrame(self.lesson_assigning_page)
+        self.frame_2.setObjectName(u"frame_2")
+        self.frame_2.setFrameShape(QFrame.StyledPanel)
+        self.frame_2.setFrameShadow(QFrame.Raised)
+        self.gridLayout_9 = QGridLayout(self.frame_2)
+        self.gridLayout_9.setObjectName(u"gridLayout_9")
+        self.gridLayout_9.setContentsMargins(0, 0, -1, 0)
+        self.lesson_frame_3 = QFrame(self.frame_2)
+        self.lesson_frame_3.setObjectName(u"lesson_frame_3")
+        self.lesson_frame_3.setMinimumSize(QSize(1280, 720))
+        self.lesson_frame_3.setStyleSheet(u"")
+        self.lesson_frame_3.setFrameShape(QFrame.StyledPanel)
+        self.lesson_frame_3.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_6 = QVBoxLayout(self.lesson_frame_3)
+        self.verticalLayout_6.setSpacing(0)
+        self.verticalLayout_6.setObjectName(u"verticalLayout_6")
+        self.verticalLayout_6.setContentsMargins(0, 0, 0, 0)
+        self.top_frame_6 = QFrame(self.lesson_frame_3)
+        self.top_frame_6.setObjectName(u"top_frame_6")
+        self.top_frame_6.setMinimumSize(QSize(1278, 80))
+        self.top_frame_6.setMaximumSize(QSize(16777215, 80))
+        self.top_frame_6.setStyleSheet(u"background-color: #2B4865;")
+        self.top_frame_6.setFrameShape(QFrame.StyledPanel)
+        self.top_frame_6.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_25 = QHBoxLayout(self.top_frame_6)
+        self.horizontalLayout_25.setObjectName(u"horizontalLayout_25")
+        self.horizontalLayout_25.setContentsMargins(0, 0, 0, 0)
+        self.lsn_btn_back_to_home_4 = QPushButton(self.top_frame_6)
+        self.lsn_btn_back_to_home_4.setObjectName(u"lsn_btn_back_to_home_4")
+        sizePolicy.setHeightForWidth(self.lsn_btn_back_to_home_4.sizePolicy().hasHeightForWidth())
+        self.lsn_btn_back_to_home_4.setSizePolicy(sizePolicy)
+        self.lsn_btn_back_to_home_4.setMinimumSize(QSize(0, 60))
+        self.lsn_btn_back_to_home_4.setMaximumSize(QSize(60, 60))
+        self.lsn_btn_back_to_home_4.setBaseSize(QSize(0, 4))
+        self.lsn_btn_back_to_home_4.setFont(font1)
+        self.lsn_btn_back_to_home_4.setCursor(QCursor(Qt.PointingHandCursor))
+        self.lsn_btn_back_to_home_4.setMouseTracking(True)
+        self.lsn_btn_back_to_home_4.setStyleSheet(u"QPushButton {\n"
+"	background-color: #2B4865 #256D85;\n"
+"	border: none;\n"
+"}\n"
+"\n"
+"QPushButton:hover:!pressed\n"
+"{\n"
+"	background-color:  #256D85;\n"
+"	border-radius: 30px;\n"
+"}")
+        self.lsn_btn_back_to_home_4.setIcon(icon5)
+        self.lsn_btn_back_to_home_4.setIconSize(QSize(200, 200))
+        self.lsn_btn_back_to_home_4.setAutoDefault(False)
+        self.lsn_btn_back_to_home_4.setFlat(False)
+
+        self.horizontalLayout_25.addWidget(self.lsn_btn_back_to_home_4)
+
+        self.lsn_lbl_headline_5 = QLabel(self.top_frame_6)
+        self.lsn_lbl_headline_5.setObjectName(u"lsn_lbl_headline_5")
+        self.lsn_lbl_headline_5.setFont(font2)
+        self.lsn_lbl_headline_5.setStyleSheet(u"color: #8FE3CF")
+        self.lsn_lbl_headline_5.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+
+        self.horizontalLayout_25.addWidget(self.lsn_lbl_headline_5)
+
+
+        self.verticalLayout_6.addWidget(self.top_frame_6)
+
+        self.mid_frame_5 = QFrame(self.lesson_frame_3)
+        self.mid_frame_5.setObjectName(u"mid_frame_5")
+        self.mid_frame_5.setMinimumSize(QSize(1306, 641))
+        self.mid_frame_5.setStyleSheet(u"background-color:rgb(36, 105, 127);")
+        self.mid_frame_5.setFrameShape(QFrame.StyledPanel)
+        self.mid_frame_5.setFrameShadow(QFrame.Raised)
+        self.gridLayout_10 = QGridLayout(self.mid_frame_5)
+        self.gridLayout_10.setObjectName(u"gridLayout_10")
+        self.lsn_lbl_lessons_6 = QLabel(self.mid_frame_5)
+        self.lsn_lbl_lessons_6.setObjectName(u"lsn_lbl_lessons_6")
+        self.lsn_lbl_lessons_6.setMinimumSize(QSize(451, 36))
+        self.lsn_lbl_lessons_6.setFont(font19)
+        self.lsn_lbl_lessons_6.setStyleSheet(u"color: rgb(149, 236, 215);")
+        self.lsn_lbl_lessons_6.setAlignment(Qt.AlignCenter)
+
+        self.gridLayout_10.addWidget(self.lsn_lbl_lessons_6, 0, 1, 1, 1)
+
+        self.lsn_table_assigning_lessons = QTableWidget(self.mid_frame_5)
+        if (self.lsn_table_assigning_lessons.columnCount() < 4):
+            self.lsn_table_assigning_lessons.setColumnCount(4)
+        font21 = QFont()
+        font21.setPointSize(12)
+        font21.setBold(False)
+        __qtablewidgetitem8 = QTableWidgetItem()
+        __qtablewidgetitem8.setTextAlignment(Qt.AlignCenter);
+        __qtablewidgetitem8.setFont(font21);
+        self.lsn_table_assigning_lessons.setHorizontalHeaderItem(0, __qtablewidgetitem8)
+        font22 = QFont()
+        font22.setFamilies([u"Segoe UI"])
+        font22.setPointSize(12)
+        font22.setBold(False)
+        __qtablewidgetitem9 = QTableWidgetItem()
+        __qtablewidgetitem9.setTextAlignment(Qt.AlignCenter);
+        __qtablewidgetitem9.setFont(font22);
+        self.lsn_table_assigning_lessons.setHorizontalHeaderItem(1, __qtablewidgetitem9)
+        __qtablewidgetitem10 = QTableWidgetItem()
+        __qtablewidgetitem10.setTextAlignment(Qt.AlignCenter);
+        __qtablewidgetitem10.setFont(font22);
+        self.lsn_table_assigning_lessons.setHorizontalHeaderItem(2, __qtablewidgetitem10)
+        font23 = QFont()
+        font23.setPointSize(12)
+        __qtablewidgetitem11 = QTableWidgetItem()
+        __qtablewidgetitem11.setTextAlignment(Qt.AlignCenter);
+        __qtablewidgetitem11.setFont(font23);
+        self.lsn_table_assigning_lessons.setHorizontalHeaderItem(3, __qtablewidgetitem11)
+        self.lsn_table_assigning_lessons.setObjectName(u"lsn_table_assigning_lessons")
+        self.lsn_table_assigning_lessons.setMinimumSize(QSize(830, 511))
+        self.lsn_table_assigning_lessons.setFont(font23)
+        self.lsn_table_assigning_lessons.viewport().setProperty("cursor", QCursor(Qt.OpenHandCursor))
+        self.lsn_table_assigning_lessons.setStyleSheet(u"QHeaderView::section {\n"
+"	background-color: #002B5B;\n"
+"    color: rgb(143, 227, 207);\n"
+"}\n"
+"\n"
+"\n"
+"\n"
+"QTableWidget {\n"
+"	background-color: #256D85;\n"
+"	gridline-color: rgb(255, 255, 255);\n"
+"	color: #fff;\n"
+"	border: 2px solid rgb(0, 43, 91);\n"
+"}\n"
+"\n"
+"")
+        self.lsn_table_assigning_lessons.horizontalHeader().setMinimumSectionSize(50)
+        self.lsn_table_assigning_lessons.horizontalHeader().setDefaultSectionSize(180)
+        self.lsn_table_assigning_lessons.horizontalHeader().setStretchLastSection(True)
+
+        self.gridLayout_10.addWidget(self.lsn_table_assigning_lessons, 1, 1, 1, 1)
+
+        self.lsn_lbl_lessons_8 = QLabel(self.mid_frame_5)
+        self.lsn_lbl_lessons_8.setObjectName(u"lsn_lbl_lessons_8")
+        self.lsn_lbl_lessons_8.setMinimumSize(QSize(250, 36))
+        self.lsn_lbl_lessons_8.setFont(font19)
+        self.lsn_lbl_lessons_8.setStyleSheet(u"color: rgb(149, 236, 215);")
+        self.lsn_lbl_lessons_8.setAlignment(Qt.AlignCenter)
+
+        self.gridLayout_10.addWidget(self.lsn_lbl_lessons_8, 0, 0, 1, 1)
+
+        self.lsn_btn_assign_lesson = QPushButton(self.mid_frame_5)
+        self.lsn_btn_assign_lesson.setObjectName(u"lsn_btn_assign_lesson")
+        self.lsn_btn_assign_lesson.setEnabled(True)
+        sizePolicy1.setHeightForWidth(self.lsn_btn_assign_lesson.sizePolicy().hasHeightForWidth())
+        self.lsn_btn_assign_lesson.setSizePolicy(sizePolicy1)
+        self.lsn_btn_assign_lesson.setMinimumSize(QSize(200, 58))
+        self.lsn_btn_assign_lesson.setMaximumSize(QSize(200, 58))
+        self.lsn_btn_assign_lesson.setFont(font17)
+        self.lsn_btn_assign_lesson.setCursor(QCursor(Qt.PointingHandCursor))
+        self.lsn_btn_assign_lesson.setStyleSheet(u"QPushButton {\n"
+"background-color: rgb(160, 253, 230);\n"
+"color:  #256D85 ;\n"
+"border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton::hover {\n"
+"	\n"
+"	background-color: rgb(143, 227, 207);\n"
+"	color: #2B4865;\n"
+"\n"
+"}")
+        self.lsn_btn_assign_lesson.setIcon(icon16)
+        self.lsn_btn_assign_lesson.setIconSize(QSize(20, 25))
+
+        self.gridLayout_10.addWidget(self.lsn_btn_assign_lesson, 2, 0, 1, 1)
+
+        self.horizontalSpacer_8 = QSpacerItem(33, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
+
+        self.gridLayout_10.addItem(self.horizontalSpacer_8, 1, 2, 1, 1)
+
+        self.lsn_list_students = QListWidget(self.mid_frame_5)
+        self.lsn_list_students.setObjectName(u"lsn_list_students")
+        self.lsn_list_students.setMinimumSize(QSize(401, 509))
+        self.lsn_list_students.setMaximumSize(QSize(371, 16777215))
+        font24 = QFont()
+        font24.setPointSize(13)
+        self.lsn_list_students.setFont(font24)
+        self.lsn_list_students.setStyleSheet(u"color: rgb(143, 227, 190);\n"
+"border: 2px solid rgb(0, 43, 91);")
+        self.lsn_list_students.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        self.lsn_list_students.setDragEnabled(True)
+
+        self.gridLayout_10.addWidget(self.lsn_list_students, 1, 0, 1, 1)
+
+
+        self.verticalLayout_6.addWidget(self.mid_frame_5)
+
+
+        self.gridLayout_9.addWidget(self.lesson_frame_3, 0, 0, 1, 1)
+
+
+        self.gridLayout_11.addWidget(self.frame_2, 0, 0, 1, 1)
+
+        self.stackedWidget.addWidget(self.lesson_assigning_page)
 
         self.gridLayout_7.addWidget(self.stackedWidget, 0, 0, 1, 1)
 
@@ -1376,13 +1645,14 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(4)
+        self.stackedWidget.setCurrentIndex(5)
         self.std_btn_back_to_home.setDefault(False)
         self.mediaStackWidget.setCurrentIndex(0)
         self.lsn_btn_back_to_home.setDefault(False)
         self.task_btn_back_to_home.setDefault(False)
-        self.evalstackwidget.setCurrentIndex(0)
+        self.evalstackwidget.setCurrentIndex(2)
         self.lsn_btn_back_to_home_3.setDefault(False)
+        self.lsn_btn_back_to_home_4.setDefault(False)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1393,9 +1663,9 @@ class Ui_MainWindow(object):
         self.home_lbl_ban_picture.setText("")
         self.home_btn_student.setText("")
         self.home_btn_lesson.setText("")
+        self.home_btn_lesson_assigns.setText("")
         self.home_btn_quiz.setText("")
         self.home_btn_progress.setText("")
-        self.home_btn_settings.setText("")
         self.std_btn_back_to_home.setText("")
         self.std_lbl_headline.setText(QCoreApplication.translate("MainWindow", u"\u09b6\u09bf\u0995\u09cd\u09b7\u09be\u09b0\u09cd\u09a5\u09c0\u09b0 \u09a4\u09a5\u09cd\u09af\u09b8\u09ae\u09c2\u09b9 ", None))
         ___qtablewidgetitem = self.std_tableWidget.horizontalHeaderItem(0)
@@ -1433,25 +1703,43 @@ class Ui_MainWindow(object):
         self.lsn_lbl_headline.setText(QCoreApplication.translate("MainWindow", u"\u09aa\u09be\u09a0\u09b8\u09c2\u099a\u09bf", None))
         self.task_btn_back_to_home.setText("")
         self.lsn_lbl_headline_2.setText(QCoreApplication.translate("MainWindow", u"\u09aa\u09be\u09a0 \u09ae\u09c2\u09b2\u09cd\u09af\u09be\u09df\u09a8", None))
-        self.task_btn_mcq.setText(QCoreApplication.translate("MainWindow", u"\u09ac\u09b9\u09c1\u09a8\u09bf\u09b0\u09cd\u09ac\u099a\u09a8\u09c0", None))
         self.task_btn_matching.setText(QCoreApplication.translate("MainWindow", u"\u09b6\u09ac\u09cd\u09a6 \u09ae\u09bf\u09b2\u09be\u0987", None))
         self.task_btn_sequence.setText(QCoreApplication.translate("MainWindow", u"\u0995\u09cd\u09b0\u09ae\u09a7\u09be\u09b0\u09be", None))
         self.task_btn_puzzle.setText(QCoreApplication.translate("MainWindow", u"\u09a7\u09be\u0981\u09a7\u09be", None))
-        self.task_lbl_mcq.setText(QCoreApplication.translate("MainWindow", u"\u09ac\u09b9\u09c1 \u09a8\u09bf\u09b0\u09cd\u09ac\u099a\u09a8\u09c0 \u09aa\u09cd\u09b0\u09b6\u09cd\u09a8\u09cb\u09a4\u09cd\u09a4\u09b0", None))
         self.task_lbl_matching.setText(QCoreApplication.translate("MainWindow", u"\u09b6\u09ac\u09cd\u09a6 \u09ae\u09bf\u09b2\u09be\u0987", None))
         self.task_lbl_sequencing.setText(QCoreApplication.translate("MainWindow", u"\u0995\u09cd\u09b0\u09ae\u09a7\u09be\u09b0\u09be", None))
         self.task_lbl_puzzle.setText(QCoreApplication.translate("MainWindow", u"\u09a7\u09be\u0981\u09a7\u09be", None))
         self.lsn_btn_back_to_home_3.setText("")
         self.lsn_lbl_headline_4.setText(QCoreApplication.translate("MainWindow", u"\u09aa\u09be\u09a0\u09b8\u09c2\u099a\u09bf", None))
-        self.lsn_lbl_lessons_3.setText(QCoreApplication.translate("MainWindow", u"\u09ae\u09a1\u09bf\u0989\u09b2\u09c7\u09b0 \u09a4\u09be\u09b2\u09bf\u0995\u09be\u09b8\u09ae\u09c2\u09b9", None))
-        self.lsn_lbl_lessons_5.setText(QCoreApplication.translate("MainWindow", u"\u09a8\u09a4\u09c1\u09a8 \u09aa\u09be\u09a0\u09c7\u09b0 \u09ae\u09a1\u09bf\u0989\u09b2 \u09b8\u09ae\u09c2\u09b9", None))
-        self.lsn_lbl_lessons_4.setText(QCoreApplication.translate("MainWindow", u"\u09aa\u09be\u09a0\u09c7\u09b0 \u09a4\u09be\u09b2\u09bf\u0995\u09be\u09b8\u09ae\u09c2\u09b9", None))
+        self.label_4.setText(QCoreApplication.translate("MainWindow", u"\u09b8\u0995\u09b2 \u09aa\u09be\u09a0\u09b8\u09ae\u09c2\u09b9 \u09a6\u09c7\u0996\u09be\u09b0 \u099c\u09a8\u09cd\u09af \u09a8\u09bf\u099a\u09c7\u09b0 \u0986\u0987\u0995\u09a8\u09c7 \u0995\u09cd\u09b2\u09bf\u0995 \u0995\u09b0\u09c1\u09a8", None))
+        self.label_3.setText(QCoreApplication.translate("MainWindow", u"\u09ae\u09a1\u09bf\u0989\u09b2 \u09af\u09c1\u0995\u09cd\u09a4 \u0995\u09b0\u09be \u09b6\u09c7\u09b7 \u09b9\u09b2\u09c7 \"\u09aa\u09be\u09a0 \u09a4\u09c8\u09b0\u09bf \u09b8\u09ae\u09cd\u09aa\u09a8\u09cd\u09a8 \u0995\u09b0\u09c1\u09a8\" \u09ac\u09be\u099f\u09a8\u09c7 \u09aa\u09cd\u09b0\u09c7\u09b8 \u0995\u09b0\u09c1\u09a8", None))
+        self.label_2.setText(QCoreApplication.translate("MainWindow", u"\u09b8\u09bf\u09b2\u09c7\u0995\u09cd\u099f\u09c7\u09a1 \u0995\u09cb\u09a8 \u09ae\u09a1\u09bf\u0989\u09b2 \u09ac\u09be\u09a4\u09bf\u09b2 \u0995\u09b0\u09be\u09b0 \u0995\u09b0\u09be\u09b0 \u099c\u09a8\u09cd\u09af \u09a8\u09bf\u099a\u09c7\u09b0 \u0990 \u09ae\u09a1\u09bf\u0989\u09b2\u099f\u09bf \u09b8\u09bf\u09b2\u09c7\u0995\u09cd\u099f \u0995\u09b0\u09c7 \"\u09b8\u09bf\u09b2\u09c7\u0995\u09b6\u09a8 \u09ac\u09be\u09a4\u09bf\u09b2 \u0995\u09b0\u09c1\u09a8\" \u09ac\u09be\u099f\u09a8\u09c7 \u09aa\u09cd\u09b0\u09c7\u09b8 \u0995\u09b0\u09c1\u09a8", None))
         ___qtablewidgetitem6 = self.lsn_module_table_widget.horizontalHeaderItem(0)
         ___qtablewidgetitem6.setText(QCoreApplication.translate("MainWindow", u"\u09ae\u09a1\u09bf\u0989\u09b2\u09c7\u09b0 \u09a8\u09be\u09ae", None));
         ___qtablewidgetitem7 = self.lsn_module_table_widget.horizontalHeaderItem(1)
         ___qtablewidgetitem7.setText(QCoreApplication.translate("MainWindow", u"\u09ae\u09a1\u09bf\u0989\u09b2\u09c7\u09b0 \u09ac\u09bf\u09ac\u09b0\u09a3 ", None));
-        self.lsn_btn_finish_add_module.setText(QCoreApplication.translate("MainWindow", u"\u09aa\u09be\u09a0 \u09a4\u09c8\u09b0\u09bf \u09b8\u09ae\u09cd\u09aa\u09a8\u09cd\u09a8 \u0995\u09b0\u09c1\u09a8", None))
-        self.lsn_btn_remove_module.setText(QCoreApplication.translate("MainWindow", u"\u09b8\u09bf\u09b2\u09c7\u0995\u09b6\u09a8 \u09ac\u09be\u09a4\u09bf\u09b2 \u0995\u09b0\u09c1\u09a8", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"\u09a8\u09a4\u09c1\u09a8 \u09aa\u09be\u09a0\u09c7 \u09ae\u09a1\u09bf\u0989\u09b2 \u09af\u09c1\u0995\u09cd\u09a4 \u0995\u09b0\u09be\u09b0 \u099c\u09a8\u09cd\u09af \u09b6\u09c1\u09a7\u09c1\u09ae\u09be\u09a4\u09cd\u09b0 \"\u09ae\u09a1\u09bf\u0989\u09b2 \u09a8\u09be\u09ae\" \u098f\u09b0 \u0989\u09aa\u09b0 \u0995\u09cd\u09b2\u09bf\u0995 \u0995\u09b0\u09c7 \"\u09a8\u09a4\u09c1\u09a8 \u09aa\u09be\u09a0\u09c7\u09b0 \u09ae\u09a1\u09bf\u0989\u09b2 \u09b8\u09ae\u09c2\u09b9\"  \u0989\u0987\u09a8\u09cd\u09a1\u09cb\u09a4\u09c7 \u09a1\u09cd\u09b0\u09cd\u09af\u09be\u0997 \u0995\u09b0\u09c1\u09a8", None))
+        self.label_7.setText("")
+        self.lsn_btn_remove_module.setText(QCoreApplication.translate("MainWindow", u"\u09b8\u09bf\u09b2\u09c7\u0995\u09b6\u09a8 \u09ac\u09be\u09a4\u09bf\u09b2 \u0995\u09b0\u09c1\u09a8", None))
+        self.lsn_lbl_lessons_5.setText(QCoreApplication.translate("MainWindow", u"\u09a8\u09a4\u09c1\u09a8 \u09aa\u09be\u09a0\u09c7\u09b0 \u09ae\u09a1\u09bf\u0989\u09b2 \u09b8\u09ae\u09c2\u09b9", None))
+        self.label_6.setText("")
+        self.lsn_btn_finish_add_module.setText(QCoreApplication.translate("MainWindow", u"\u09aa\u09be\u09a0 \u09a4\u09c8\u09b0\u09bf \u09b8\u09ae\u09cd\u09aa\u09a8\u09cd\u09a8 \u0995\u09b0\u09c1\u09a8", None))
+        self.label_5.setText("")
+        self.lsn_lbl_lessons_3.setText(QCoreApplication.translate("MainWindow", u"\u09ae\u09a1\u09bf\u0989\u09b2\u09c7\u09b0 \u09a4\u09be\u09b2\u09bf\u0995\u09be\u09b8\u09ae\u09c2\u09b9", None))
+        self.lsn_lbl_lessons_4.setText(QCoreApplication.translate("MainWindow", u"\u09a8\u09a4\u09c1\u09a8 \u09aa\u09be\u09a0 \u09a4\u09c8\u09b0\u09bf\u09b0 \u09a8\u09bf\u09df\u09ae", None))
+        self.lsn_btn_see_lessons.setText(QCoreApplication.translate("MainWindow", u"\u09aa\u09be\u09a0\u09b8\u09ae\u09c2\u09b9 \u09a6\u09c7\u0996\u09c1\u09a8", None))
+        self.lsn_btn_back_to_home_4.setText("")
+        self.lsn_lbl_headline_5.setText(QCoreApplication.translate("MainWindow", u"\u09aa\u09be\u09a0 \u09aa\u09cd\u09b0\u09a6\u09be\u09a8\u09c7\u09b0 \u09b0\u09c7\u0995\u09b0\u09cd\u09a1", None))
+        self.lsn_lbl_lessons_6.setText(QCoreApplication.translate("MainWindow", u"\u09aa\u09be\u09a0 \u09aa\u09cd\u09b0\u09a6\u09be\u09a8\u09c7\u09b0 \u09ac\u09bf\u09b8\u09cd\u09a4\u09be\u09b0\u09bf\u09a4 \u09a4\u09be\u09b2\u09bf\u0995\u09be", None))
+        ___qtablewidgetitem8 = self.lsn_table_assigning_lessons.horizontalHeaderItem(0)
+        ___qtablewidgetitem8.setText(QCoreApplication.translate("MainWindow", u"\u09b6\u09bf\u0995\u09cd\u09b7\u09be\u09b0\u09cd\u09a5\u09c0\u09b0 \u0986\u0987\u09a1\u09bf ", None));
+        ___qtablewidgetitem9 = self.lsn_table_assigning_lessons.horizontalHeaderItem(1)
+        ___qtablewidgetitem9.setText(QCoreApplication.translate("MainWindow", u"\u09b6\u09bf\u0995\u09cd\u09b7\u09be\u09b0\u09cd\u09a5\u09c0\u09b0 \u09a8\u09be\u09ae", None));
+        ___qtablewidgetitem10 = self.lsn_table_assigning_lessons.horizontalHeaderItem(2)
+        ___qtablewidgetitem10.setText(QCoreApplication.translate("MainWindow", u"\u09aa\u09be\u09a0 \u09a8\u0982  ", None));
+        ___qtablewidgetitem11 = self.lsn_table_assigning_lessons.horizontalHeaderItem(3)
+        ___qtablewidgetitem11.setText(QCoreApplication.translate("MainWindow", u"\u09aa\u09be\u09a0 \u09aa\u09cd\u09b0\u09a6\u09be\u09a8\u09c7\u09b0 \u09b8\u09ae\u09df\u0995\u09be\u09b2", None));
+        self.lsn_lbl_lessons_8.setText(QCoreApplication.translate("MainWindow", u"\u09b6\u09bf\u0995\u09cd\u09b7\u09be\u09b0\u09cd\u09a5\u09c0\u09a6\u09c7\u09b0 \u09a4\u09be\u09b2\u09bf\u0995\u09be", None))
+        self.lsn_btn_assign_lesson.setText(QCoreApplication.translate("MainWindow", u"\u09aa\u09be\u09a0 \u09aa\u09cd\u09b0\u09a6\u09be\u09a8 \u0995\u09b0\u09c1\u09a8", None))
     # retranslateUi
 

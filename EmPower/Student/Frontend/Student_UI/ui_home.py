@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '.\Frontend\PyQT_UI\home_page.ui'
+# Form implementation generated from reading ui file '.\Frontend\PyQT_UI\home.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.4
 #
@@ -91,64 +91,48 @@ class Ui_MainWindow(object):
         self.gridLayout_3.setContentsMargins(0, 0, 0, 0)
         self.gridLayout_3.setObjectName("gridLayout_3")
         self.top_frame_2 = QtWidgets.QFrame(self.lesson_page)
-        self.top_frame_2.setMinimumSize(QtCore.QSize(1280, 84))
-        self.top_frame_2.setMaximumSize(QtCore.QSize(16777215, 80))
+        self.top_frame_2.setMinimumSize(QtCore.QSize(1280, 100))
+        self.top_frame_2.setMaximumSize(QtCore.QSize(16777215, 100))
         self.top_frame_2.setStyleSheet("background-color: #E07A5F;\n"
 "color: #3D405B; ")
         self.top_frame_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.top_frame_2.setFrameShadow(QtWidgets.QFrame.Raised)
         self.top_frame_2.setObjectName("top_frame_2")
-        self.horizontalLayout_4 = QtWidgets.QHBoxLayout(self.top_frame_2)
-        self.horizontalLayout_4.setObjectName("horizontalLayout_4")
-        self.btn_back_to_home = QtWidgets.QPushButton(self.top_frame_2)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.btn_back_to_home.sizePolicy().hasHeightForWidth())
-        self.btn_back_to_home.setSizePolicy(sizePolicy)
-        self.btn_back_to_home.setMinimumSize(QtCore.QSize(0, 60))
-        self.btn_back_to_home.setMaximumSize(QtCore.QSize(60, 60))
-        self.btn_back_to_home.setBaseSize(QtCore.QSize(0, 4))
-        font = QtGui.QFont()
-        font.setPointSize(11)
-        self.btn_back_to_home.setFont(font)
-        self.btn_back_to_home.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.btn_back_to_home.setMouseTracking(True)
-        self.btn_back_to_home.setStyleSheet("QPushButton {\n"
-"    background-color: ;\n"
-"    border: none;\n"
-"}\n"
-"\n"
-"QPushButton:hover:!pressed\n"
-"{\n"
-"    background-color: #F4F1DE;\n"
-"    border-radius: 30px;\n"
-"}")
-        self.btn_back_to_home.setText("")
-        icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap(".\\Frontend\\PyQT_UI\\../Images/back.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.btn_back_to_home.setIcon(icon1)
-        self.btn_back_to_home.setIconSize(QtCore.QSize(250, 250))
-        self.btn_back_to_home.setAutoDefault(False)
-        self.btn_back_to_home.setDefault(False)
-        self.btn_back_to_home.setFlat(False)
-        self.btn_back_to_home.setObjectName("btn_back_to_home")
-        self.horizontalLayout_4.addWidget(self.btn_back_to_home)
+        self.gridLayout_4 = QtWidgets.QGridLayout(self.top_frame_2)
+        self.gridLayout_4.setContentsMargins(11, 11, 0, 4)
+        self.gridLayout_4.setSpacing(0)
+        self.gridLayout_4.setObjectName("gridLayout_4")
         self.lbl_lesson_headline = QtWidgets.QLabel(self.top_frame_2)
-        self.lbl_lesson_headline.setMinimumSize(QtCore.QSize(0, 67))
+        self.lbl_lesson_headline.setMinimumSize(QtCore.QSize(1189, 58))
         font = QtGui.QFont()
         font.setFamily("Kalpurush")
-        font.setPointSize(30)
+        font.setPointSize(26)
         font.setBold(False)
         font.setItalic(False)
         font.setWeight(50)
         self.lbl_lesson_headline.setFont(font)
         self.lbl_lesson_headline.setStyleSheet("color: rgb(0, 0, 0);\n"
-"padding-left: 5px;\n"
-"font: 30pt \"Kalpurush\";")
+"font: 26pt \"Kalpurush\";")
         self.lbl_lesson_headline.setAlignment(QtCore.Qt.AlignCenter)
         self.lbl_lesson_headline.setObjectName("lbl_lesson_headline")
-        self.horizontalLayout_4.addWidget(self.lbl_lesson_headline)
+        self.gridLayout_4.addWidget(self.lbl_lesson_headline, 0, 0, 1, 1)
+        self.lbl_lesson_sub_heading = QtWidgets.QLabel(self.top_frame_2)
+        self.lbl_lesson_sub_heading.setMinimumSize(QtCore.QSize(1189, 30))
+        font = QtGui.QFont()
+        font.setFamily("Kalpurush")
+        font.setPointSize(12)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
+        self.lbl_lesson_sub_heading.setFont(font)
+        self.lbl_lesson_sub_heading.setStyleSheet("color: rgb(0, 0, 0);\n"
+"padding-left: 5px;\n"
+"font: 12pt \"Kalpurush\";")
+        self.lbl_lesson_sub_heading.setAlignment(QtCore.Qt.AlignCenter)
+        self.lbl_lesson_sub_heading.setObjectName("lbl_lesson_sub_heading")
+        self.gridLayout_4.addWidget(self.lbl_lesson_sub_heading, 1, 0, 1, 1)
+        self.lbl_lesson_headline.raise_()
+        self.lbl_lesson_sub_heading.raise_()
         self.gridLayout_3.addWidget(self.top_frame_2, 0, 0, 1, 1)
         self.frame = QtWidgets.QFrame(self.lesson_page)
         self.frame.setMinimumSize(QtCore.QSize(1280, 550))
@@ -160,7 +144,7 @@ class Ui_MainWindow(object):
         self.gridLayout.setContentsMargins(11, 0, -1, -1)
         self.gridLayout.setObjectName("gridLayout")
         self.btn_prev_lesson = QtWidgets.QPushButton(self.frame)
-        self.btn_prev_lesson.setMinimumSize(QtCore.QSize(70, 600))
+        self.btn_prev_lesson.setMinimumSize(QtCore.QSize(70, 500))
         self.btn_prev_lesson.setMaximumSize(QtCore.QSize(60, 16777215))
         self.btn_prev_lesson.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.btn_prev_lesson.setStyleSheet("QPushButton {\n"
@@ -173,14 +157,14 @@ class Ui_MainWindow(object):
 "color: #F4F1DE;\n"
 "}")
         self.btn_prev_lesson.setText("")
-        icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap(".\\Frontend\\PyQT_UI\\../Images/backward.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.btn_prev_lesson.setIcon(icon2)
+        icon1 = QtGui.QIcon()
+        icon1.addPixmap(QtGui.QPixmap(".\\Frontend\\PyQT_UI\\../Images/backward.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.btn_prev_lesson.setIcon(icon1)
         self.btn_prev_lesson.setIconSize(QtCore.QSize(150, 150))
         self.btn_prev_lesson.setObjectName("btn_prev_lesson")
         self.gridLayout.addWidget(self.btn_prev_lesson, 0, 0, 1, 1)
         self.middle_content_frame = QtWidgets.QFrame(self.frame)
-        self.middle_content_frame.setMinimumSize(QtCore.QSize(1100, 611))
+        self.middle_content_frame.setMinimumSize(QtCore.QSize(1100, 585))
         self.middle_content_frame.setStyleSheet("background-color: rgb(244, 241, 222);\n"
 "color: rgb(61, 64, 91);\n"
 "border: none;")
@@ -225,7 +209,7 @@ class Ui_MainWindow(object):
         self.lsn_lbl_lesson_topic.setMaximumSize(QtCore.QSize(500, 16777215))
         font = QtGui.QFont()
         font.setFamily("Kalpurush")
-        font.setPointSize(25)
+        font.setPointSize(40)
         self.lsn_lbl_lesson_topic.setFont(font)
         self.lsn_lbl_lesson_topic.setStyleSheet("border: 3px dotted rgb(227, 224, 207) ;\n"
 "color: rgb(61, 64, 91);")
@@ -235,7 +219,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_12.addWidget(self.lsn_lbl_lesson_topic)
         self.gridLayout.addWidget(self.middle_content_frame, 0, 1, 1, 1)
         self.btn_next_lesson = QtWidgets.QPushButton(self.frame)
-        self.btn_next_lesson.setMinimumSize(QtCore.QSize(70, 600))
+        self.btn_next_lesson.setMinimumSize(QtCore.QSize(70, 500))
         self.btn_next_lesson.setMaximumSize(QtCore.QSize(60, 16777215))
         self.btn_next_lesson.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.btn_next_lesson.setStyleSheet("QPushButton {\n"
@@ -248,9 +232,9 @@ class Ui_MainWindow(object):
 "color: #F4F1DE;\n"
 "}")
         self.btn_next_lesson.setText("")
-        icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap(".\\Frontend\\PyQT_UI\\../Images/forward.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.btn_next_lesson.setIcon(icon3)
+        icon2 = QtGui.QIcon()
+        icon2.addPixmap(QtGui.QPixmap(".\\Frontend\\PyQT_UI\\../Images/forward.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.btn_next_lesson.setIcon(icon2)
         self.btn_next_lesson.setIconSize(QtCore.QSize(150, 150))
         self.btn_next_lesson.setObjectName("btn_next_lesson")
         self.gridLayout.addWidget(self.btn_next_lesson, 0, 2, 1, 1)
@@ -267,7 +251,8 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.lbl_lesson_headline.setText(_translate("MainWindow", "নাম শিখন - পাঠ ১"))
+        self.lbl_lesson_headline.setText(_translate("MainWindow", "পাঠ ১"))
+        self.lbl_lesson_sub_heading.setText(_translate("MainWindow", "নাম শিখন - মডিউল ১"))
         self.lsn_lbl_image.setText(_translate("MainWindow", "ছবি"))
         self.lsn_lbl_lesson_topic.setText(_translate("MainWindow", "পরিচয়"))
 

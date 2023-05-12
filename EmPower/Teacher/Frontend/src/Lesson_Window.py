@@ -1,7 +1,7 @@
 from Frontend.Teacher_UI import ui_add_lesson, ui_sound_recorder
 from Backend.VideoPlayer.video_player import Window
 from Frontend.src.Document_Formatter import *
-from Backend.Database.lesson_db import lesson_data as ld
+from Backend.Database.module_db import module_data as ld
 from Backend.MediaRecorder import audioRecorder
 from PyQt5.QtCore import QTimer, QTime, Qt
 import os
@@ -210,7 +210,7 @@ class Lesson_Window(QMainWindow):  # Home extends QMainWindow
         """
             This function saves the lesson content to the database.
         """
-
+        
         # get & set lesson content name
         self.lesson_topic = self.form.edit_lesson_topic.text()
         self.lesson_window.lsn_lbl_lesson_topic.setText(self.lesson_topic)
@@ -274,6 +274,8 @@ class Lesson_Window(QMainWindow):  # Home extends QMainWindow
         data = [self.category_id, self.lesson_id,
                 self.lesson_topic, self.folder_location]
         ld().add_entry(data)
+        
+        show_success_message("সফলতা!!", "পাঠ সংরক্ষণ করা হয়েছে, এখন স্ক্রিনের নিচে থাকা রিলোড বাটনে ক্লিক করুন")
 
         childObj.hide()
 

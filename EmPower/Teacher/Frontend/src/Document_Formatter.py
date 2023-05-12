@@ -31,8 +31,13 @@ def show_warning_message(title, message):
     msg.setText(message)
     msg.setWindowTitle(title)
     msg.setWindowIcon(QIcon("Frontend\Images\warning_icon.png"))
-    msg.setStandardButtons(QMessageBox.Ok)
+    msg.setStandardButtons(QMessageBox.StandardButton.Ok | QMessageBox.StandardButton.Cancel)
     msg.exec_()
+    
+    if msg.clickedButton() == msg.button(QMessageBox.StandardButton.Ok):
+        return True
+    else: 
+        return False
     
 def show_success_message(title, message):
     msg = QMessageBox()
@@ -40,8 +45,27 @@ def show_success_message(title, message):
     msg.setText(message)
     msg.setWindowTitle(title)
     msg.setWindowIcon(QIcon("Frontend\Images\done.png"))
-    msg.setStandardButtons(QMessageBox.Ok)
+    msg.setStandardButtons(QMessageBox.StandardButton.Ok | QMessageBox.StandardButton.Cancel)
     msg.exec_()
+    
+    if msg.clickedButton() == msg.button(QMessageBox.StandardButton.Ok):
+        return True
+    else: 
+        return False
+    
+def show_confirmation_message(title, message):
+    msg = QMessageBox()
+    msg.setIcon(QMessageBox.Question)
+    msg.setText(message)
+    msg.setWindowTitle(title)
+    msg.setWindowIcon(QIcon("Frontend\Images\question_icon.png"))
+    msg.setStandardButtons(QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No)
+    msg.exec_()
+    
+    if msg.clickedButton() == msg.button(QMessageBox.StandardButton.Yes):
+        return True 
+    else: 
+        return False
 
 def restart():
     QCoreApplication.quit()

@@ -66,12 +66,7 @@ class student_data(Database_Manager, ABC):
     def update_entry(self, data) -> bool:
 
         try:
-
-            print("GOT the query...")
-
             query = "UPDATE student_info Set Std_ID=?, Std_Name=?, Std_Age=?, Std_Address=?, Guardian_Name=?, Contact_No=? Where Std_ID=?;"
-
-            print("Data: ", data)
 
             self.controller_db_cursor.execute(query, tuple(data))
             self.controller_db.commit()
