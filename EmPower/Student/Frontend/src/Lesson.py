@@ -38,10 +38,10 @@ class Lesson_Window(QMainWindow):
         self.music_player = None
         self.time_elapsed = 0
         
-        # # switch lesson in every 10 seconds
-        # self.timer = QTimer()
-        # self.timer.timeout.connect(self.load_next_lesson)
-        # self.timer.start(5000)  # rotate every 10 seconds
+        # switch lesson in every 10 seconds
+        self.timer = QTimer()
+        self.timer.timeout.connect(self.load_next_lesson)
+        self.timer.start(10000)  # rotate every 10 seconds
         
         # # start the timer to count the elapsed time
         # self.elapsed_timer = QTimer()
