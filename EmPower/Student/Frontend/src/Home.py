@@ -44,13 +44,12 @@ class Home(QMainWindow):  # Home extends QMainWindow
         self.home.btn_prev_lesson.clicked.connect(self.lesson_window.load_previous_lesson)
 
     def closeEvent(self, event):
-        # Add your close event code here
         # For example, you can show a message box asking the user if they really want to quit the application
         reply = QMessageBox.question(self, 'সফটওয়্যার বন্ধ করুন', 'আপনি কি সফটওয়্যারটি বন্ধ করতে চান?', QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
 
         if reply == QMessageBox.Yes:
             if self.lesson_window is not None:
-                self.lesson_window.stop_music()
+                self.lesson_window.quit_music()
             event.accept()
         else:
             event.ignore()

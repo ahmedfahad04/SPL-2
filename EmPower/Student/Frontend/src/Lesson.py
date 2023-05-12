@@ -28,6 +28,8 @@ class Lesson_Window(QMainWindow):
         self.lesson_list = os.listdir('Resources')
         self.total_lessons = len(self.lesson_list)
         self.current_lesson_id = 0
+        self.total_modules = 0
+        self.current_module_id = 0
         self.visual_file_content = None
         self.audio_file_path = None
         self.folder_path = None
@@ -36,15 +38,15 @@ class Lesson_Window(QMainWindow):
         self.music_player = None
         self.time_elapsed = 0
         
-        # switch lesson in every 10 seconds
-        self.timer = QTimer()
-        self.timer.timeout.connect(self.load_next_lesson)
-        self.timer.start(5000)  # rotate every 10 seconds
+        # # switch lesson in every 10 seconds
+        # self.timer = QTimer()
+        # self.timer.timeout.connect(self.load_next_lesson)
+        # self.timer.start(5000)  # rotate every 10 seconds
         
-        # start the timer to count the elapsed time
-        self.elapsed_timer = QTimer()
-        self.elapsed_timer.timeout.connect(self.update_elapsed_time)
-        self.elapsed_timer.start(1000)  # update every 1 second
+        # # start the timer to count the elapsed time
+        # self.elapsed_timer = QTimer()
+        # self.elapsed_timer.timeout.connect(self.update_elapsed_time)
+        # self.elapsed_timer.start(1000)  # update every 1 second
 
         # method
         self.display_lesson()
@@ -54,9 +56,17 @@ class Lesson_Window(QMainWindow):
         # read the file path and the folders
         self.folder_path = self.lesson_list[self.current_lesson_id]
         self.folder_path = os.path.join('Resources', self.folder_path)
+        folder_name = filter_data(self.folder_path.split('\\')[-1])
+        print("Folder Name: ", folder_name)
+        self.module_path = os.listdir(self.folder_path)[self.current_module_id]
+        self.module_path = os.path.join(self.folder_path, self.module_path)
+        self.module_path = os.path.join(os.getcwd(), self.module_path)
+        self.total_modules = len(os.listdir(self.folder_path))
+        module_name = filter_data(self.module_path.split('\\')[-1])
+        print("Module Name: ", module_name)
 
         # read audio/video file path
-        self.visual_file_content = glob.glob(self.folder_path+'/media.*')[0]
+        self.visual_file_content = glob.glob(self.module_path+'/media.*')[0]
         print("Visual File: ", self.visual_file_content)	
     
         # check if the file is audio or video
@@ -90,42 +100,45 @@ class Lesson_Window(QMainWindow):
 
 
             # audio load
-            self.audio_file_path = os.path.join(self.folder_path, "audio.wav")
+            audio_file_name = (glob.glob(self.module_path+'/audio.*')[0]).split('\\')[-1]
+            self.audio_file_path = os.path.join(self.module_path, audio_file_name)
             QSound(self.audio_file_path)
             self.music_player = MusicPlayer(self.audio_file_path)
             self.music_player.start_music()
 
         # read content json
-        json_file_path = os.path.join(self.folder_path, "content.json")
+        json_file_path = os.path.join(self.module_path, "content.json")
         with open(json_file_path, "r") as f:
             json_data = json.load(f)
 
         # set the description of the image
-        self.lesson_window.lsn_lbl_lesson_topic.setText(json_data["lesson_topic"])
+        self.lesson_window.lsn_lbl_lesson_topic.setText(json_data["module_topic"])
         content_type = self.categories[json_data["category_id"]]
-        lesson_name = content_type + '_' + 'পাঠ_' + str(json_data["lesson_id"])
-
+        lesson_name = content_type + '_' + 'মডিউল_' + str(json_data["module_id"])
+ 
         # read the lesson name
-        self.lesson_window.lbl_lesson_headline.setText(lesson_name)
+        self.lesson_window.lbl_lesson_headline.setText(folder_name)
+        self.lesson_window.lbl_lesson_sub_heading.setText(module_name)
+        
 
     def load_next_lesson(self):
-        self.current_lesson_id += 1
+        self.current_module_id += 1
 
-        if self.current_lesson_id >= self.total_lessons:
-            self.current_lesson_id = 0
+        if self.current_module_id >= self.total_modules:
+            self.current_module_id = 0
 
         self.reset_lesson_window()
         self.display_lesson()
 
     def load_previous_lesson(self):
 
-        if self.current_lesson_id > 0:
-            self.current_lesson_id -= 1
+        if self.current_module_id > 0:
+            self.current_module_id -= 1
             
         self.reset_lesson_window()
         self.display_lesson()
 
-    def stop_music(self):
+    def quit_music(self):
         if self.music_player is not None:
             self.music_player.stop_music()
 
@@ -133,7 +146,7 @@ class Lesson_Window(QMainWindow):
 
         self.visual_file_content = None
         self.audio_file_path = None
-        self.folder_path = None
+        self.module_path = None
         
     def update_elapsed_time(self):
         self.time_elapsed += 1

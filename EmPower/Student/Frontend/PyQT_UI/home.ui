@@ -224,13 +224,13 @@ color: #E07A5F;
           <property name="minimumSize">
            <size>
             <width>1280</width>
-            <height>84</height>
+            <height>100</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
             <width>16777215</width>
-            <height>80</height>
+            <height>100</height>
            </size>
           </property>
           <property name="styleSheet">
@@ -243,92 +243,66 @@ color: #3D405B; </string>
           <property name="frameShadow">
            <enum>QFrame::Raised</enum>
           </property>
-          <layout class="QHBoxLayout" name="horizontalLayout_4">
-           <item>
-            <widget class="QPushButton" name="btn_back_to_home">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>60</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>60</width>
-               <height>60</height>
-              </size>
-             </property>
-             <property name="baseSize">
-              <size>
-               <width>0</width>
-               <height>4</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <pointsize>11</pointsize>
-              </font>
-             </property>
-             <property name="cursor">
-              <cursorShape>PointingHandCursor</cursorShape>
-             </property>
-             <property name="mouseTracking">
-              <bool>true</bool>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">QPushButton {
-	background-color: ;
-	border: none;
-}
-
-QPushButton:hover:!pressed
-{
-	background-color: #F4F1DE;
-	border-radius: 30px;
-}</string>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="icon">
-              <iconset>
-               <normaloff>../Images/back.png</normaloff>../Images/back.png</iconset>
-             </property>
-             <property name="iconSize">
-              <size>
-               <width>250</width>
-               <height>250</height>
-              </size>
-             </property>
-             <property name="autoDefault">
-              <bool>false</bool>
-             </property>
-             <property name="default">
-              <bool>false</bool>
-             </property>
-             <property name="flat">
-              <bool>false</bool>
-             </property>
-            </widget>
-           </item>
-           <item>
+          <layout class="QGridLayout" name="gridLayout_4">
+           <property name="leftMargin">
+            <number>11</number>
+           </property>
+           <property name="topMargin">
+            <number>11</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>4</number>
+           </property>
+           <property name="spacing">
+            <number>0</number>
+           </property>
+           <item row="0" column="0">
             <widget class="QLabel" name="lbl_lesson_headline">
              <property name="minimumSize">
               <size>
-               <width>0</width>
-               <height>67</height>
+               <width>1189</width>
+               <height>58</height>
               </size>
              </property>
              <property name="font">
               <font>
                <family>Kalpurush</family>
-               <pointsize>30</pointsize>
+               <pointsize>26</pointsize>
+               <weight>50</weight>
+               <italic>false</italic>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(0, 0, 0);
+font: 26pt &quot;Kalpurush&quot;;</string>
+             </property>
+             <property name="text">
+              <string>পাঠ ১</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="margin">
+              <number>-10</number>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="lbl_lesson_sub_heading">
+             <property name="minimumSize">
+              <size>
+               <width>1189</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>Kalpurush</family>
+               <pointsize>12</pointsize>
                <weight>50</weight>
                <italic>false</italic>
                <bold>false</bold>
@@ -337,10 +311,10 @@ QPushButton:hover:!pressed
              <property name="styleSheet">
               <string notr="true">color: rgb(0, 0, 0);
 padding-left: 5px;
-font: 30pt &quot;Kalpurush&quot;;</string>
+font: 12pt &quot;Kalpurush&quot;;</string>
              </property>
              <property name="text">
-              <string>নাম শিখন - পাঠ ১</string>
+              <string>নাম শিখন - মডিউল ১</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -348,6 +322,8 @@ font: 30pt &quot;Kalpurush&quot;;</string>
             </widget>
            </item>
           </layout>
+          <zorder>lbl_lesson_headline</zorder>
+          <zorder>lbl_lesson_sub_heading</zorder>
          </widget>
         </item>
         <item row="1" column="0">
@@ -379,7 +355,7 @@ font: 30pt &quot;Kalpurush&quot;;</string>
              <property name="minimumSize">
               <size>
                <width>70</width>
-               <height>600</height>
+               <height>500</height>
               </size>
              </property>
              <property name="maximumSize">
@@ -422,7 +398,7 @@ color: #F4F1DE;
              <property name="minimumSize">
               <size>
                <width>1100</width>
-               <height>611</height>
+               <height>585</height>
               </size>
              </property>
              <property name="styleSheet">
@@ -453,12 +429,12 @@ border: none;</string>
                <widget class="QStackedWidget" name="mediaStackWidget">
                 <property name="minimumSize">
                  <size>
-                  <width>690</width>
-                  <height>400</height>
+                  <width>651</width>
+                  <height>565</height>
                  </size>
                 </property>
                 <property name="currentIndex">
-                 <number>0</number>
+                 <number>1</number>
                 </property>
                 <widget class="QWidget" name="image_page">
                  <layout class="QHBoxLayout" name="horizontalLayout_9">
@@ -527,20 +503,20 @@ color: rgb(61, 64, 91);</string>
                <widget class="QLabel" name="lsn_lbl_lesson_topic">
                 <property name="minimumSize">
                  <size>
-                  <width>380</width>
-                  <height>400</height>
+                  <width>434</width>
+                  <height>565</height>
                  </size>
                 </property>
                 <property name="maximumSize">
                  <size>
-                  <width>500</width>
+                  <width>800</width>
                   <height>16777215</height>
                  </size>
                 </property>
                 <property name="font">
                  <font>
                   <family>Kalpurush</family>
-                  <pointsize>35</pointsize>
+                  <pointsize>40</pointsize>
                  </font>
                 </property>
                 <property name="styleSheet">
@@ -566,7 +542,7 @@ color: rgb(61, 64, 91);</string>
              <property name="minimumSize">
               <size>
                <width>70</width>
-               <height>600</height>
+               <height>500</height>
               </size>
              </property>
              <property name="maximumSize">
