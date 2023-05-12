@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>puzzleMainWidget</class>
+ <widget class="QWidget" name="puzzleMainWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>786</width>
+    <height>562</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QWidget" name="gridLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>150</y>
+     <width>351</width>
+     <height>251</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <item row="0" column="0">
+     <widget class="QLabel" name="container_1">
+      <property name="styleSheet">
+       <string notr="true"> background-color: #f0f0f0;
+        border: 1px solid #dcdcdc;
+        border-radius: 4px;
+        padding: 4px;
+        margin: 1.5px;
+        font-size: 20px;
+        font-weight: bold;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QLabel" name="container_2">
+      <property name="styleSheet">
+       <string notr="true"> background-color: #f0f0f0;
+        border: 1px solid #dcdcdc;
+        border-radius: 4px;
+        padding: 4px;
+        margin: 1.5px;
+        font-size: 20px;
+        font-weight: bold;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QLabel" name="container_4">
+      <property name="styleSheet">
+       <string notr="true"> background-color: #f0f0f0;
+        border: 1px solid #dcdcdc;
+        border-radius: 4px;
+        padding: 4px;
+        margin: 1.5px;
+        font-size: 20px;
+        font-weight: bold;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="container_3">
+      <property name="styleSheet">
+       <string notr="true"> background-color: #f0f0f0;
+        border: 1px solid #dcdcdc;
+        border-radius: 4px;
+        padding: 4px;
+        margin: 1.5px;
+        font-size: 20px;
+        font-weight: bold;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
