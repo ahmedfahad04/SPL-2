@@ -75,7 +75,8 @@ class Lesson_Assigning_Window(QMainWindow):  # Home extends QMainWindow
 
         # get lesson data from table
         lesson_details = ld().load_table()
-        data = [x[1].split('/')[-1] for x in lesson_details]
+        print("Detials: ", lesson_details)
+        data = [str(x[1]).split('/')[-1] for x in lesson_details]
         self.form.lsn_cmb_lesson_list.addItems(data)
 
         # connect the buttons
