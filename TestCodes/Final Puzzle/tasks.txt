@@ -1,0 +1,5 @@
+To be fixed:
+
+1. While dragging any piece out of window it disappears
+2. Show customized message for success 
+3. Fit it into the Student UI and make teach to select just the image
