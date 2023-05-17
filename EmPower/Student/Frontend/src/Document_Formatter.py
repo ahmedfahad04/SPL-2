@@ -13,7 +13,37 @@ def align_elements(ui_object):
             item = ui_object.item(row, column)
             if item is not None:
                 item.setTextAlignment(Qt.AlignCenter)
-
+                
+def show_success_message(title, message):
+    msg = QMessageBox()
+    msg.setIcon(QMessageBox.Information)
+    msg.setText(message)
+    msg.setStyleSheet("QLabel{font-size: 20px;}")
+    msg.setWindowTitle(title)
+    msg.setWindowIcon(QIcon("Frontend\Images\done.png"))
+    msg.setStandardButtons(QMessageBox.StandardButton.Ok | QMessageBox.StandardButton.Cancel)
+    msg.exec_()
+    
+    
+    if msg.clickedButton() == msg.button(QMessageBox.StandardButton.Ok):
+        return True
+    else: 
+        return False
+    
+def show_warning_message(title, message):
+    msg = QMessageBox()
+    msg.setIcon(QMessageBox.Warning)
+    msg.setText(message)
+    msg.setStyleSheet("QLabel{font-size: 20px;}")
+    msg.setWindowTitle(title)
+    msg.setWindowIcon(QIcon("Frontend\Images\warning_icon.png"))
+    msg.setStandardButtons(QMessageBox.StandardButton.Ok | QMessageBox.StandardButton.Cancel)
+    msg.exec_()
+    
+    if msg.clickedButton() == msg.button(QMessageBox.StandardButton.Ok):
+        return True
+    else: 
+        return False
 
 # ==> Helper functions: Apply drop shadow effect to the buttons
 def set_drop_shadow(ui_object):
