@@ -15,6 +15,8 @@ from PyQt5.QtWidgets import (QFileDialog, QHBoxLayout,
                              QWidget)
 from Frontend.src.Document_Formatter import *
 
+saveUIObject = None # Global variable to track success of the puzzle
+
 class ImageManager:
 
     def __init__(self, image_path) -> None:
@@ -38,7 +40,7 @@ class ImageManager:
         # cv2.imshow('NEW IMAGE', adjusted_image)
 
         print(f"Modified image saved as {output_path}")
-        
+
     def draw_transparent_line(self, image_path):
 
         # Open the image
@@ -61,12 +63,14 @@ class ImageManager:
         line_width = 10
 
         # Draw the horizontal line
-        draw.line([line_start, line_end], fill=(0, 0, 0, 128), width=line_width)
+        draw.line([line_start, line_end], fill=(
+            0, 0, 0, 128), width=line_width)
 
         # Draw the vertical line
         line_start = (0, middle_y)
         line_end = (width, middle_y)
-        draw.line([line_start, line_end], fill=(0, 0, 0, 128), width=line_width)
+        draw.line([line_start, line_end], fill=(
+            0, 0, 0, 128), width=line_width)
 
         # Composite the transparent image with the original image
         result = Image.alpha_composite(image, transparent_image)
@@ -75,9 +79,11 @@ class ImageManager:
         result.save(str(self.input_image_path.split('.')[0])+'_light.png')
 
     def process_image(self):
-        
+
         self.adjust_brightness(self.input_image_path, 0.2)
-        self.draw_transparent_line(str(self.input_image_path.split('.')[0])+'_light.png')
+        self.draw_transparent_line(
+            str(self.input_image_path.split('.')[0])+'_light.png')
+
 
 class PuzzleWidget(QWidget):
 
@@ -95,18 +101,17 @@ class PuzzleWidget(QWidget):
         self.totalAttempts = 0
         self.correctAttempts = 0
         self.wrongAttempts = 0
-        
-        try: 
+
+        try:
             self.image_name = image_name.split('.')[0]
         except:
-            pass 
-        
+            pass
+
         # timers to track time elapsed
         self.timer = QTimer()
         self.timer.timeout.connect(self.updateTime)
         self.timeElapsed = 0
         self.startTimer()
-        
 
         self.setAcceptDrops(True)
         self.setMinimumSize(800, 800)
@@ -118,7 +123,7 @@ class PuzzleWidget(QWidget):
         self.pieceRects = []
         self.highlightedRect = QRect()
         self.inPlace = 0
-        
+
         self.timeElapsed = 0
         self.update()
 
@@ -126,7 +131,8 @@ class PuzzleWidget(QWidget):
         self.timeElapsed += 1
 
     def startTimer(self):
-        self.timer.start(1000)  # Timer updates every second (1000 milliseconds)
+        # Timer updates every second (1000 milliseconds)
+        self.timer.start(1000)
 
     def stopTimer(self):
         self.timer.stop()
@@ -158,7 +164,7 @@ class PuzzleWidget(QWidget):
         # self.update(updateRect)  # update after each placement of pieces
 
     def dropEvent(self, event):
-        
+
         if event.mimeData().hasFormat('image/x-puzzle-piece') and self.findPiece(self.targetSquare(event.pos())) == -1:
             self.totalAttempts += 1
             pieceData = event.mimeData().data('image/x-puzzle-piece')
@@ -183,27 +189,31 @@ class PuzzleWidget(QWidget):
                 self.alreadyPlacedLocation.append(location)
 
                 self.inPlace += 1
-                
+
                 # play music when a piece is placed successfully
                 QSound.play(r'Frontend\Audio_Track\small_clap_sound.wav')
-                
-                # count attemtps 
+
+                # count attemtps
                 self.correctAttempts += 1
-                
+
                 if self.inPlace == 4:
                     print('BINGO! You have completed the puzzle!')
-                    
+
                     # play music when puzzle is completed
                     QSound.play(r'Frontend\Audio_Track\clap_sound.wav')
-                    
+
                     # show total attempts
-                    print("Total Attempts: ", self.totalAttempts)	
+                    print("Total Attempts: ", self.totalAttempts)
                     print("Correct Attempts: ", self.correctAttempts)
                     print("Wrong Attempts: ", self.wrongAttempts)
-                    
+
                     # stop timer
                     self.stopTimer()
                     print("Time Elapsed: {} seconds".format(self.timeElapsed))
+                    
+                    # change to celebration page
+                    Puzzle_Window().change_page()
+                           
                     # show_success_message("অভিনন্দন!", "আপনি পাজল সমাধান করেছেন।" )
                     return
 
@@ -212,16 +222,16 @@ class PuzzleWidget(QWidget):
                 return
 
             else:
-                
+
                 # count attempts
                 self.wrongAttempts += 1
-                
+
                 QSound.play(r'Frontend\Audio_Track\mistake_sound.wav')
                 # show_warning_message("সতর্কতা!", "পাজল টি ভুল জায়গায় রাখা হয়েছে। সঠিক জায়গায় রাখুন।")
         else:
             self.highlightedRect = QRect()
             event.ignore()
-
+    
     def findPiece(self, pieceRect):
         try:
             return self.pieceRects.index(pieceRect)
@@ -387,20 +397,22 @@ class PiecesList(QListWidget):
 
 class MainWindow:
 
-    def __init__(self, image_name=None, frames=None, parent=None):
+    def __init__(self, image_name=None, frames=None, home_obj=None, parent=None):
 
         try:
             self.puzzleImage = QPixmap()
             self.image_name = image_name
-            self.frames = frames 
-            
+            self.frames = frames
+            self.home_object = home_obj
+            self.piece_frame_layout = None
+            self.widget_frame_layout = None
+
         except:
-            pass 
+            pass
 
         self.setupWidgets()
-        
+
         self.puzzleWidget = PuzzleWidget(self.image_name)
-        # self.puzzleWidget.puzzleCompleted.connect(self.setCompleted, Qt.QueuedConnection)
 
     def openImage(self, path=None):
         if not path:
@@ -419,6 +431,7 @@ class MainWindow:
             self.setupPuzzle()
 
     def setupPuzzle(self):
+        
         size = min(self.puzzleImage.width(), self.puzzleImage.height())
 
         self.puzzleImage = self.puzzleImage.copy(self.puzzleImage.width(), self.puzzleImage.height(
@@ -451,39 +464,49 @@ class MainWindow:
 
         piece_frame = self.frames[0]
         widget_frame = self.frames[1]
-        
-        piece_frame_layout = QHBoxLayout(piece_frame)
-        widget_frame_layout = QHBoxLayout(widget_frame)
+
+        self.piece_frame_layout = QHBoxLayout(piece_frame)
+        self.widget_frame_layout = QHBoxLayout(widget_frame)
 
         self.piecesList = PiecesList()
         self.puzzleWidget = PuzzleWidget(self.image_name)
 
-        piece_frame_layout.addWidget(self.piecesList)
-        widget_frame_layout.addWidget(self.puzzleWidget)
-
-        # self.puzzleWidget.puzzleCompleted.connect(self.setCompleted, Qt.QueuedConnection)
+        self.piece_frame_layout.addWidget(self.piecesList)
+        self.widget_frame_layout.addWidget(self.puzzleWidget)
+        
+    
 
 
 class Puzzle_Window:
 
-    # image_manager =  ImageManager()
-    # image_manager.adjust_brightness('fish1.png', 0.2)
+    def __init__(self, ui_object=None, puzzle_frames=None):
 
-    def __init__(self, ui_object):
-
-        self.evaluation_window = ui_object
+        global saveUIObject
         
+        # if saveUIObject is null, then set it to the ui_object
+        if saveUIObject == None:  
+            saveUIObject = ui_object
+                    
+        self.evaluation_window = saveUIObject
+        self.puzzle_frames = puzzle_frames
+
         #! TODO: Change the image dynamically
         self.puzzle_image = glob.glob('Resources\\Puzzle_Images\\'+'\*.png')[0]
-        print("IMG NEW PATH: ", self.puzzle_image)
 
     def launch_puzzle(self):
-        
-        puzzle_frames = [self.evaluation_window.puzzle_piece_frame, self.evaluation_window.puzzle_widget_frame]
-        
+
+
         img = ImageManager(self.puzzle_image)
         img.process_image()
-        
+
         # Create the main window for the puzzle
-        window = MainWindow(self.puzzle_image, puzzle_frames)
+        window = MainWindow(self.puzzle_image, self.puzzle_frames, self.evaluation_window)
         window.openImage(self.puzzle_image)
+        
+        
+    def change_page(self):
+        
+        self.evaluation_window.stackedWidget.setCurrentWidget(self.evaluation_window.celebration_page)
+        
+    
+        
