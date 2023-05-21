@@ -1,5 +1,6 @@
 
 
+import glob
 import random
 import cv2
 import os
@@ -26,24 +27,22 @@ class ImageManager:
     def adjust_brightness(self, image_path, brightness_factor):
         # Load the image
         image = cv2.imread(image_path)
-
         # Adjust the brightness
         adjusted_image = cv2.convertScaleAbs(image, alpha=brightness_factor)
 
         # Save the modified image
         # Modify the output filename as desired
-        output_path = 'Resources\মূল্যায়ন\\' + \
-            str(image_path.split('.')[0])+'_light.jpg'
+        output_path = str(image_path.split('.')[0])+'_light.png'
         print(output_path)
         cv2.imwrite(output_path, adjusted_image)
         # cv2.imshow('NEW IMAGE', adjusted_image)
 
         print(f"Modified image saved as {output_path}")
         
-    def draw_transparent_line(self):
+    def draw_transparent_line(self, image_path):
 
         # Open the image
-        image = Image.open(self.input_image_path).convert("RGBA")
+        image = Image.open(image_path).convert("RGBA")
 
         # Create a transparent image of the same size
         transparent_image = Image.new("RGBA", image.size, (0, 0, 0, 0))
@@ -73,12 +72,12 @@ class ImageManager:
         result = Image.alpha_composite(image, transparent_image)
 
         # Save the result image
-        result.save(self.input_image_path+'_light.jpg')
+        result.save(str(self.input_image_path.split('.')[0])+'_light.png')
 
     def process_image(self):
         
         self.adjust_brightness(self.input_image_path, 0.2)
-        self.draw_transparent_line()
+        self.draw_transparent_line(str(self.input_image_path.split('.')[0])+'_light.png')
 
 class PuzzleWidget(QWidget):
 
@@ -93,10 +92,21 @@ class PuzzleWidget(QWidget):
         self.alreadyPlacedLocation = []
         self.highlightedRect = QRect()
         self.inPlace = 0
+        self.totalAttempts = 0
+        self.correctAttempts = 0
+        self.wrongAttempts = 0
+        
         try: 
             self.image_name = image_name.split('.')[0]
         except:
             pass 
+        
+        # timers to track time elapsed
+        self.timer = QTimer()
+        self.timer.timeout.connect(self.updateTime)
+        self.timeElapsed = 0
+        self.startTimer()
+        
 
         self.setAcceptDrops(True)
         self.setMinimumSize(800, 800)
@@ -108,7 +118,18 @@ class PuzzleWidget(QWidget):
         self.pieceRects = []
         self.highlightedRect = QRect()
         self.inPlace = 0
+        
+        self.timeElapsed = 0
         self.update()
+
+    def updateTime(self):
+        self.timeElapsed += 1
+
+    def startTimer(self):
+        self.timer.start(1000)  # Timer updates every second (1000 milliseconds)
+
+    def stopTimer(self):
+        self.timer.stop()
 
     def dragEnterEvent(self, event):
         if event.mimeData().hasFormat('image/x-puzzle-piece'):
@@ -137,7 +158,9 @@ class PuzzleWidget(QWidget):
         # self.update(updateRect)  # update after each placement of pieces
 
     def dropEvent(self, event):
+        
         if event.mimeData().hasFormat('image/x-puzzle-piece') and self.findPiece(self.targetSquare(event.pos())) == -1:
+            self.totalAttempts += 1
             pieceData = event.mimeData().data('image/x-puzzle-piece')
             dataStream = QDataStream(pieceData, QIODevice.ReadOnly)
             square = self.targetSquare(event.pos())
@@ -164,9 +187,23 @@ class PuzzleWidget(QWidget):
                 # play music when a piece is placed successfully
                 QSound.play(r'Frontend\Audio_Track\small_clap_sound.wav')
                 
+                # count attemtps 
+                self.correctAttempts += 1
+                
                 if self.inPlace == 4:
                     print('BINGO! You have completed the puzzle!')
+                    
+                    # play music when puzzle is completed
                     QSound.play(r'Frontend\Audio_Track\clap_sound.wav')
+                    
+                    # show total attempts
+                    print("Total Attempts: ", self.totalAttempts)	
+                    print("Correct Attempts: ", self.correctAttempts)
+                    print("Wrong Attempts: ", self.wrongAttempts)
+                    
+                    # stop timer
+                    self.stopTimer()
+                    print("Time Elapsed: {} seconds".format(self.timeElapsed))
                     # show_success_message("অভিনন্দন!", "আপনি পাজল সমাধান করেছেন।" )
                     return
 
@@ -175,7 +212,11 @@ class PuzzleWidget(QWidget):
                 return
 
             else:
-                QSound.play(r'Frontend\Audio_Track\mistake_sound.mp3')
+                
+                # count attempts
+                self.wrongAttempts += 1
+                
+                QSound.play(r'Frontend\Audio_Track\mistake_sound.wav')
                 # show_warning_message("সতর্কতা!", "পাজল টি ভুল জায়গায় রাখা হয়েছে। সঠিক জায়গায় রাখুন।")
         else:
             self.highlightedRect = QRect()
@@ -235,7 +276,7 @@ class PuzzleWidget(QWidget):
         painter.fillRect(event.rect(), Qt.magenta)
 
         #! TODO: image should be light colored [DONE] and the the rect should not be resized.
-        image = QPixmap(self.image_name+'_light.jpg')
+        image = QPixmap(self.image_name+'_light.png')
         painter.drawPixmap(event.rect(), image)
 
         if self.highlightedRect.isValid():
@@ -433,7 +474,8 @@ class Puzzle_Window:
         self.evaluation_window = ui_object
         
         #! TODO: Change the image dynamically
-        self.puzzle_image = r'Resources\মূল্যায়ন\fish1.jpg'
+        self.puzzle_image = glob.glob('Resources\\Puzzle_Images\\'+'\*.png')[0]
+        print("IMG NEW PATH: ", self.puzzle_image)
 
     def launch_puzzle(self):
         
