@@ -90,8 +90,6 @@ class Home(QMainWindow):  # Home extends QMainWindow
         else:
             self.home.c_next_quiz.clicked.connect(self.sequencing_page)
 
-        
-        
     def closeEvent(self, event):
         # For example, you can show a message box asking the user if they really want to quit the application
         reply = QMessageBox.question(self, 'সফটওয়্যার বন্ধ করুন', 'আপনি কি সফটওয়্যারটি বন্ধ করতে চান?', QMessageBox.Yes | QMessageBox.No, QMessageBox.No)

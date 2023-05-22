@@ -9,6 +9,8 @@ from Backend.VideoPlayer import Window
 from Frontend.src.Document_Formatter import *
 from PyQt5.QtWidgets import QMainWindow
 import shutil
+
+
 # from pydub import AudioSegment
 
 class Lesson_Window(QMainWindow):
@@ -35,16 +37,16 @@ class Lesson_Window(QMainWindow):
         self.visual_file_content = None
         self.audio_file_path = None
         self.folder_path = None
-        self.video_file_formate = ['mp4', 'avi', 'mov', 'wmv', 'flv', 'mkv']  
-        self.video_player = None 
+        self.video_file_formate = ['mp4', 'avi', 'mov', 'wmv', 'flv', 'mkv']
+        self.video_player = None
         self.music_player = None
         self.time_elapsed = 0
-        
+
         # switch lesson in every 10 seconds
         # self.timer = QTimer()
         # self.timer.timeout.connect(self.load_next_lesson)
         # self.timer.start(10000)  # rotate every 10 seconds
-        
+
         # # start the timer to count the elapsed time
         # self.elapsed_timer = QTimer()
         # self.elapsed_timer.timeout.connect(self.update_elapsed_time)
@@ -59,8 +61,7 @@ class Lesson_Window(QMainWindow):
         self.folder_path = self.lesson_list[self.current_lesson_id]
         self.folder_path = os.path.join('Resources', self.folder_path)
         folder_name = filter_data(self.folder_path.split('\\')[-1])
-        
-        
+
         self.module_path = os.listdir(self.folder_path)[self.current_module_id]
         self.module_path = os.path.join(self.folder_path, self.module_path)
         self.module_path = os.path.join(os.getcwd(), self.module_path)
@@ -70,12 +71,12 @@ class Lesson_Window(QMainWindow):
         print("MODULEID :", self.current_module_id)
 
         # read audio/video file path
-        self.visual_file_content = glob.glob(self.module_path+'/media.*')[0]
-        print("Visual File: ", self.visual_file_content)	
-    
+        self.visual_file_content = glob.glob(self.module_path + '/media.*')[0]
+        print("Visual File: ", self.visual_file_content)
+
         # check if the file is audio or video
         if self.visual_file_content.split('.')[-1] in self.video_file_formate:
-                
+
             if self.lesson_window.video_player_widget.count() != 0:
                 self.lesson_window.video_player_widget.itemAt(0).widget().setParent(None)
 
@@ -83,36 +84,44 @@ class Lesson_Window(QMainWindow):
 
             self.video_player = Window(self.visual_file_content)
             self.lesson_window.video_player_widget.addWidget(self.video_player)
-            
+
             if self.music_player is not None:
-                self.music_player.stop_music()
+                if (self.audio_output_device):
+                    self.music_player.stop_music()
 
         else:
-            
+
             # stop the video player
-            if self.video_player: 
+            if self.video_player:
                 self.video_player.mediaPlayer.stop()
                 self.video_player.close()
-               
+
             self.lesson_window.mediaStackWidget.setCurrentWidget(self.lesson_window.image_page)
 
             # image load
             self.qt_image = QPixmap(self.visual_file_content)
-            self.qt_image = self.qt_image.scaledToWidth(self.lesson_window.lsn_lbl_image.width(), Qt.SmoothTransformation)
+            self.qt_image = self.qt_image.scaledToWidth(self.lesson_window.lsn_lbl_image.width(),
+                                                        Qt.SmoothTransformation)
             self.lesson_window.lsn_lbl_image.setPixmap(self.qt_image)
-            self.lesson_window.lsn_lbl_image.setFixedSize(self.lesson_window.lsn_lbl_image.width(), self.lesson_window.lsn_lbl_image.width())
-
+            self.lesson_window.lsn_lbl_image.setFixedSize(self.lesson_window.lsn_lbl_image.width(),
+                                                          self.lesson_window.lsn_lbl_image.width())
 
             # audio load
-            audio_file_name = (glob.glob(self.module_path+'/audio.*')[0]).split('\\')[-1]
+            audio_file_name = (glob.glob(self.module_path + '/audio.*')[0]).split('\\')[-1]
             audio_formate = audio_file_name.split('.')[-1]
-            
-            #! TODO: Renme audio file name to mp3            
-               
+
+            # ! TODO: Renme audio file name to mp3
+
             self.audio_file_path = os.path.join(self.module_path, audio_file_name)
             QSound(self.audio_file_path)
             self.music_player = MusicPlayer(self.audio_file_path)
-            self.music_player.start_music()
+
+            self.audio_output_device = False
+            if self.music_player.check_audio_devices():
+                self.audio_output_device = True
+
+            if (self.audio_output_device):
+                self.music_player.start_music()
 
         # read content json
         json_file_path = os.path.join(self.module_path, "content.json")
@@ -123,48 +132,45 @@ class Lesson_Window(QMainWindow):
         self.lesson_window.lsn_lbl_lesson_topic.setText(json_data["module_topic"])
         content_type = self.categories[json_data["category_id"]]
         lesson_name = content_type + '_' + 'মডিউল_' + str(json_data["module_id"])
- 
+
         # read the lesson name
         self.lesson_window.lbl_lesson_headline.setText(folder_name)
         self.lesson_window.lbl_lesson_sub_heading.setText(module_name)
-        
 
     def load_next_lesson(self):
-        
+
         self.current_module_id += 1
         finish = False
-        
+
         # change module when button pressed
         # the module of one lesson is done then change the lesson
         if self.current_module_id >= self.total_modules:
             self.current_module_id = 0
             self.current_lesson_id += 1
-            
-        
+
         # change lesson when button pressed
         # if all the lesson is done then change the lesson
         if self.current_lesson_id >= self.total_lessons:
             self.current_lesson_id = 0
             finish = True
             self.change_window()
-                     
 
         if finish == False:
             self.reset_lesson_window()
             self.display_lesson()
-        
 
     def load_previous_lesson(self):
 
         if self.current_module_id > 0:
             self.current_module_id -= 1
-            
+
         self.reset_lesson_window()
         self.display_lesson()
 
     def quit_music(self):
         if self.music_player is not None:
-            self.music_player.stop_music()
+            if (self.audio_output_device):
+                self.music_player.stop_music()
 
     def reset_lesson_window(self):
 
@@ -172,12 +178,12 @@ class Lesson_Window(QMainWindow):
         self.audio_file_path = None
         self.module_path = None
         self.time_elapsed = 0
-        
+
     def update_elapsed_time(self):
         print("TIME: ", self.time_elapsed)
         self.time_elapsed += 1
         print("Time elapsed:", self.time_elapsed, "seconds")
-        
+
     def change_window(self):
-        
+
         self.lesson_window.stackedWidget.setCurrentWidget(self.lesson_window.navigation_page) 
