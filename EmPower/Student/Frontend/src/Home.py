@@ -30,12 +30,15 @@ class Home(QMainWindow):  # Home extends QMainWindow
         self.setWindowIcon(QIcon("Frontend/Images/primary_logo.png"))
         self.setWindowTitle("শিখবে সবাই")
         set_drop_shadow(self.home.btn_lesson)
+        
+        # connect buttons
+        self.home.n_proceed_btn.clicked.connect(self.puzzle_page)
 
         # Navigate between pages
         self.home.stackedWidget.setCurrentWidget(self.home.home_page) 
 
         # Start a timer to load the lesson widget after 2 seconds
-        QTimer.singleShot(2000, self.puzzle_page)
+        QTimer.singleShot(2000, self.lesson_page)
 
     def lesson_page(self):
         
@@ -68,6 +71,8 @@ class Home(QMainWindow):  # Home extends QMainWindow
         pass
         
     def celebration_page(self):
+        
+        #! TODO: Mute Unmute Sound
                
         movie = QMovie(r"Frontend\Images\celebration.gif")
         self.home.c_gif.setMovie(movie)

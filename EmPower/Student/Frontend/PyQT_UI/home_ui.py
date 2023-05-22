@@ -28,9 +28,9 @@ class Ui_MainWindow(object):
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.centralwidget.setMinimumSize(QSize(1280, 700))
-        self.gridLayout_6 = QGridLayout(self.centralwidget)
-        self.gridLayout_6.setObjectName(u"gridLayout_6")
-        self.gridLayout_6.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_6 = QHBoxLayout(self.centralwidget)
+        self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
+        self.horizontalLayout_6.setContentsMargins(0, 0, 0, 0)
         self.stackedWidget = QStackedWidget(self.centralwidget)
         self.stackedWidget.setObjectName(u"stackedWidget")
         self.stackedWidget.setMinimumSize(QSize(1280, 700))
@@ -509,14 +509,114 @@ class Ui_MainWindow(object):
         self.gridLayout_9.addWidget(self.celebration_frame, 0, 0, 1, 1)
 
         self.stackedWidget.addWidget(self.celebration_page)
+        self.navigation_page = QWidget()
+        self.navigation_page.setObjectName(u"navigation_page")
+        self.horizontalLayout_7 = QHBoxLayout(self.navigation_page)
+        self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
+        self.horizontalLayout_7.setContentsMargins(0, 0, 0, 0)
+        self.navigation_frame = QFrame(self.navigation_page)
+        self.navigation_frame.setObjectName(u"navigation_frame")
+        self.navigation_frame.setMinimumSize(QSize(1280, 550))
+        self.navigation_frame.setStyleSheet(u"border: 3px dot-dash rgb(61, 64, 91);\n"
+"")
+        self.navigation_frame.setFrameShape(QFrame.StyledPanel)
+        self.navigation_frame.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_5 = QHBoxLayout(self.navigation_frame)
+        self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
+        self.n_middle_frame = QFrame(self.navigation_frame)
+        self.n_middle_frame.setObjectName(u"n_middle_frame")
+        self.n_middle_frame.setMinimumSize(QSize(623, 691))
+        self.n_middle_frame.setMaximumSize(QSize(623, 691))
+        self.n_middle_frame.setStyleSheet(u"border: none;")
+        self.n_middle_frame.setFrameShape(QFrame.StyledPanel)
+        self.n_middle_frame.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_7 = QVBoxLayout(self.n_middle_frame)
+        self.verticalLayout_7.setObjectName(u"verticalLayout_7")
+        self.n_message = QLabel(self.n_middle_frame)
+        self.n_message.setObjectName(u"n_message")
+        self.n_message.setMinimumSize(QSize(434, 194))
+        self.n_message.setMaximumSize(QSize(16777215, 300))
+        font6 = QFont()
+        font6.setFamilies([u"Kalpurush"])
+        font6.setPointSize(39)
+        font6.setBold(False)
+        self.n_message.setFont(font6)
+        self.n_message.setStyleSheet(u"background-color: none;")
+        self.n_message.setAlignment(Qt.AlignCenter)
+        self.n_message.setWordWrap(True)
 
-        self.gridLayout_6.addWidget(self.stackedWidget, 0, 0, 1, 1)
+        self.verticalLayout_7.addWidget(self.n_message)
+
+        self.n_icon = QLabel(self.n_middle_frame)
+        self.n_icon.setObjectName(u"n_icon")
+        self.n_icon.setMinimumSize(QSize(390, 475))
+        self.n_icon.setStyleSheet(u"background-color: none;\n"
+"border: none;")
+        self.n_icon.setPixmap(QPixmap(u"../Images/evaluation_icon.png"))
+        self.n_icon.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_7.addWidget(self.n_icon)
+
+
+        self.horizontalLayout_5.addWidget(self.n_middle_frame)
+
+        self.n_right_frame = QFrame(self.navigation_frame)
+        self.n_right_frame.setObjectName(u"n_right_frame")
+        self.n_right_frame.setMinimumSize(QSize(622, 691))
+        self.n_right_frame.setMaximumSize(QSize(630, 691))
+        self.n_right_frame.setStyleSheet(u"border: none;\n"
+"")
+        self.n_right_frame.setFrameShape(QFrame.StyledPanel)
+        self.n_right_frame.setFrameShadow(QFrame.Raised)
+        self.gridLayout_6 = QGridLayout(self.n_right_frame)
+        self.gridLayout_6.setObjectName(u"gridLayout_6")
+        self.n_type_lbl = QLabel(self.n_right_frame)
+        self.n_type_lbl.setObjectName(u"n_type_lbl")
+        self.n_type_lbl.setMinimumSize(QSize(520, 520))
+        self.n_type_lbl.setMaximumSize(QSize(520, 520))
+        font7 = QFont()
+        font7.setPointSize(55)
+        self.n_type_lbl.setFont(font7)
+        self.n_type_lbl.setStyleSheet(u"border: 3px solid rgb(61, 64, 91);")
+        self.n_type_lbl.setAlignment(Qt.AlignCenter)
+
+        self.gridLayout_6.addWidget(self.n_type_lbl, 0, 0, 1, 1)
+
+        self.n_proceed_btn = QPushButton(self.n_right_frame)
+        self.n_proceed_btn.setObjectName(u"n_proceed_btn")
+        self.n_proceed_btn.setMinimumSize(QSize(271, 101))
+        self.n_proceed_btn.setMaximumSize(QSize(353, 16777215))
+        self.n_proceed_btn.setCursor(QCursor(Qt.PointingHandCursor))
+        self.n_proceed_btn.setStyleSheet(u"QPushButton {\n"
+"border: 3px solid #E07A5F;\n"
+"border-radius: 20px;\n"
+"background-color:  rgb(61, 64, 91);\n"
+"}\n"
+"\n"
+"QPushButton:hover:!pressed {\n"
+"background-color: #3D405B;\n"
+"background-color:  rgb(35, 37, 53);\n"
+"}")
+        self.n_proceed_btn.setIcon(icon2)
+        self.n_proceed_btn.setIconSize(QSize(90, 80))
+
+        self.gridLayout_6.addWidget(self.n_proceed_btn, 1, 0, 1, 1)
+
+
+        self.horizontalLayout_5.addWidget(self.n_right_frame)
+
+
+        self.horizontalLayout_7.addWidget(self.navigation_frame)
+
+        self.stackedWidget.addWidget(self.navigation_page)
+
+        self.horizontalLayout_6.addWidget(self.stackedWidget)
 
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(2)
+        self.stackedWidget.setCurrentIndex(4)
         self.mediaStackWidget.setCurrentIndex(1)
 
 
@@ -533,6 +633,9 @@ class Ui_MainWindow(object):
         self.lsn_lbl_image.setText(QCoreApplication.translate("MainWindow", u"\u099b\u09ac\u09bf", None))
         self.lsn_lbl_lesson_topic.setText(QCoreApplication.translate("MainWindow", u"\u09aa\u09b0\u09bf\u099a\u09df", None))
         self.btn_next_lesson.setText("")
+#if QT_CONFIG(shortcut)
+        self.btn_next_lesson.setShortcut(QCoreApplication.translate("MainWindow", u"Space", None))
+#endif // QT_CONFIG(shortcut)
         self.lbl_lesson_headline_2.setText(QCoreApplication.translate("MainWindow", u"\u09a7\u09be\u0981\u09a7\u09be", None))
         self.lbl_lesson_sub_heading_2.setText(QCoreApplication.translate("MainWindow", u"\u09aa\u09be\u09a0 \u09ae\u09c2\u09b2\u09cd\u09af\u09be\u09df\u09a8", None))
         self.c_prev_quiz_lbl.setText(QCoreApplication.translate("MainWindow", u"\u09aa\u09c1\u09a8\u09b0\u09be\u09df \u0985\u0982\u09b6\u0997\u09cd\u09b0\u09b9\u09a3 \u0995\u09b0\u09c1\u09a8 ", None))
@@ -541,5 +644,12 @@ class Ui_MainWindow(object):
         self.c_gif.setText("")
         self.c_next_quiz_lbl.setText(QCoreApplication.translate("MainWindow", u"\u09aa\u09b0\u09ac\u09b0\u09cd\u09a4\u09c0 \u09ae\u09c2\u09b2\u09cd\u09af\u09be\u09df\u09a8", None))
         self.c_next_quiz.setText("")
+        self.n_message.setText(QCoreApplication.translate("MainWindow", u"\u0985\u09ad\u09bf\u09a8\u09a8\u09cd\u09a6\u09a8!!! \u09a4\u09c1\u09ae\u09bf \u09aa\u09be\u09a0\u09b8\u09ae\u09c2\u09b9 \u09b8\u09ae\u09cd\u09aa\u09a8\u09cd\u09a8 \u0995\u09b0\u09c7\u099b\u09cb", None))
+        self.n_icon.setText("")
+        self.n_type_lbl.setText(QCoreApplication.translate("MainWindow", u"\u09a7\u09be\u0981\u09a7\u09be", None))
+        self.n_proceed_btn.setText("")
+#if QT_CONFIG(shortcut)
+        self.n_proceed_btn.setShortcut(QCoreApplication.translate("MainWindow", u"Space", None))
+#endif // QT_CONFIG(shortcut)
     # retranslateUi
 

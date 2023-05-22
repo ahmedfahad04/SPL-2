@@ -1,13 +1,15 @@
 import glob
 import json
 import os
+import subprocess
 
 from PyQt5.QtMultimedia import QSound
 from Backend.AudioPlayer import MusicPlayer
 from Backend.VideoPlayer import Window
 from Frontend.src.Document_Formatter import *
 from PyQt5.QtWidgets import QMainWindow
-
+import shutil
+# from pydub import AudioSegment
 
 class Lesson_Window(QMainWindow):
 
@@ -25,7 +27,7 @@ class Lesson_Window(QMainWindow):
         }
 
         # class variables
-        self.lesson_list = os.listdir('Resources')
+        self.lesson_list = [folder for folder in os.listdir('Resources') if folder.startswith('পাঠ')]
         self.total_lessons = len(self.lesson_list)
         self.current_lesson_id = 0
         self.total_modules = 0
@@ -39,9 +41,9 @@ class Lesson_Window(QMainWindow):
         self.time_elapsed = 0
         
         # switch lesson in every 10 seconds
-        self.timer = QTimer()
-        self.timer.timeout.connect(self.load_next_lesson)
-        self.timer.start(10000)  # rotate every 10 seconds
+        # self.timer = QTimer()
+        # self.timer.timeout.connect(self.load_next_lesson)
+        # self.timer.start(10000)  # rotate every 10 seconds
         
         # # start the timer to count the elapsed time
         # self.elapsed_timer = QTimer()
@@ -57,13 +59,15 @@ class Lesson_Window(QMainWindow):
         self.folder_path = self.lesson_list[self.current_lesson_id]
         self.folder_path = os.path.join('Resources', self.folder_path)
         folder_name = filter_data(self.folder_path.split('\\')[-1])
-        print("Folder Name: ", folder_name)
+        
+        
         self.module_path = os.listdir(self.folder_path)[self.current_module_id]
         self.module_path = os.path.join(self.folder_path, self.module_path)
         self.module_path = os.path.join(os.getcwd(), self.module_path)
         self.total_modules = len(os.listdir(self.folder_path))
         module_name = filter_data(self.module_path.split('\\')[-1])
-        print("Module Name: ", module_name)
+        print("LESSONID :", self.current_lesson_id)
+        print("MODULEID :", self.current_module_id)
 
         # read audio/video file path
         self.visual_file_content = glob.glob(self.module_path+'/media.*')[0]
@@ -101,6 +105,10 @@ class Lesson_Window(QMainWindow):
 
             # audio load
             audio_file_name = (glob.glob(self.module_path+'/audio.*')[0]).split('\\')[-1]
+            audio_formate = audio_file_name.split('.')[-1]
+            
+            #! TODO: Renme audio file name to mp3            
+               
             self.audio_file_path = os.path.join(self.module_path, audio_file_name)
             QSound(self.audio_file_path)
             self.music_player = MusicPlayer(self.audio_file_path)
@@ -122,13 +130,29 @@ class Lesson_Window(QMainWindow):
         
 
     def load_next_lesson(self):
+        
         self.current_module_id += 1
-
+        finish = False
+        
+        # change module when button pressed
+        # the module of one lesson is done then change the lesson
         if self.current_module_id >= self.total_modules:
             self.current_module_id = 0
+            self.current_lesson_id += 1
+            
+        
+        # change lesson when button pressed
+        # if all the lesson is done then change the lesson
+        if self.current_lesson_id >= self.total_lessons:
+            self.current_lesson_id = 0
+            finish = True
+            self.change_window()
+                     
 
-        self.reset_lesson_window()
-        self.display_lesson()
+        if finish == False:
+            self.reset_lesson_window()
+            self.display_lesson()
+        
 
     def load_previous_lesson(self):
 
@@ -147,7 +171,13 @@ class Lesson_Window(QMainWindow):
         self.visual_file_content = None
         self.audio_file_path = None
         self.module_path = None
+        self.time_elapsed = 0
         
     def update_elapsed_time(self):
+        print("TIME: ", self.time_elapsed)
         self.time_elapsed += 1
         print("Time elapsed:", self.time_elapsed, "seconds")
+        
+    def change_window(self):
+        
+        self.lesson_window.stackedWidget.setCurrentWidget(self.lesson_window.navigation_page) 
