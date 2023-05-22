@@ -3,10 +3,14 @@ from Frontend.src.Home import Home
 from Frontend.src.Document_Formatter import *
 import sys 
 
-app = QApplication(sys.argv)
+if __name__ == '__main__':
+    
 
-window = Home()
-window.show()
+    app = QApplication(sys.argv)
 
-sys.exit(app.exec_()) 
+    window = Home()
+    window.showMaximized()
+    window.show()
+
+    sys.exit(app.exec_()) 
 
