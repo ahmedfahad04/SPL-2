@@ -1397,7 +1397,7 @@ padding-left: 10px;</string>
                     </size>
                    </property>
                    <property name="currentIndex">
-                    <number>0</number>
+                    <number>1</number>
                    </property>
                    <widget class="QWidget" name="image_page">
                     <layout class="QHBoxLayout" name="horizontalLayout_9">
@@ -2025,7 +2025,7 @@ QPushButton:hover:!pressed
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true"/>
+                 <string notr="true">border-right: 2px solid rgb(43, 72, 101);</string>
                 </property>
                 <property name="frameShape">
                  <enum>QFrame::StyledPanel</enum>
@@ -2328,7 +2328,7 @@ QPushButton::hover:!pressed {
                      <item row="0" column="0">
                       <widget class="QFrame" name="frame_3">
                        <property name="styleSheet">
-                        <string notr="true">border: 2px solid rgb(160, 253, 230);</string>
+                        <string notr="true"/>
                        </property>
                        <property name="frameShape">
                         <enum>QFrame::StyledPanel</enum>
@@ -2354,7 +2354,7 @@ QPushButton::hover:!pressed {
                            <string notr="true">color: rgb(0, 43, 91);</string>
                           </property>
                           <property name="text">
-                           <string>ধাঁধার জন্য প্রয়োজনীয় ছবিসমূহ এখানে নির্বাচন করুন(একাধিক ছবি নির্বাচন করা যাবে)</string>
+                           <string>ধাঁধার জন্য প্রয়োজনীয় ছবিসমূহ এখানে নির্বাচন করুন (একাধিক ছবি নির্বাচন করা যাবে)</string>
                           </property>
                           <property name="alignment">
                            <set>Qt::AlignCenter</set>
@@ -2363,22 +2363,6 @@ QPushButton::hover:!pressed {
                            <bool>true</bool>
                           </property>
                          </widget>
-                        </item>
-                        <item row="1" column="0">
-                         <spacer name="horizontalSpacer_22">
-                          <property name="orientation">
-                           <enum>Qt::Horizontal</enum>
-                          </property>
-                          <property name="sizeType">
-                           <enum>QSizePolicy::Fixed</enum>
-                          </property>
-                          <property name="sizeHint" stdset="0">
-                           <size>
-                            <width>108</width>
-                            <height>20</height>
-                           </size>
-                          </property>
-                         </spacer>
                         </item>
                         <item row="2" column="0" colspan="3">
                          <widget class="QLineEdit" name="task_puzzle_q_set_lbl">
@@ -2405,55 +2389,6 @@ color: black;</string>
                           </property>
                           <property name="placeholderText">
                            <string>সেট নম্বর দিন (যেমন set1)</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item row="1" column="4">
-                         <spacer name="horizontalSpacer_23">
-                          <property name="orientation">
-                           <enum>Qt::Horizontal</enum>
-                          </property>
-                          <property name="sizeType">
-                           <enum>QSizePolicy::Fixed</enum>
-                          </property>
-                          <property name="sizeHint" stdset="0">
-                           <size>
-                            <width>128</width>
-                            <height>20</height>
-                           </size>
-                          </property>
-                         </spacer>
-                        </item>
-                        <item row="1" column="3">
-                         <widget class="QPushButton" name="task_puzzle_show_set_btn">
-                          <property name="minimumSize">
-                           <size>
-                            <width>211</width>
-                            <height>61</height>
-                           </size>
-                          </property>
-                          <property name="font">
-                           <font>
-                            <family>Hind Siliguri Medium</family>
-                            <pointsize>10</pointsize>
-                           </font>
-                          </property>
-                          <property name="styleSheet">
-                           <string notr="true">QPushButton {
-background-color: rgb(160, 253, 230);
-color:  #256D85 ;
-border-radius: 15px;
-}
-
-QPushButton::hover:!pressed {
-	
-	background-color: rgb(143, 227, 207);
-	color: #2B4865;
-
-}</string>
-                          </property>
-                          <property name="text">
-                           <string>তৈরিকৃত ধাঁধার সেটগুলো দেখুন</string>
                           </property>
                          </widget>
                         </item>
@@ -2492,7 +2427,7 @@ QPushButton::hover:!pressed {
                           </property>
                          </widget>
                         </item>
-                        <item row="1" column="1">
+                        <item row="1" column="0">
                          <widget class="QPushButton" name="task_puzzle_select_img_btn">
                           <property name="minimumSize">
                            <size>
@@ -2527,12 +2462,48 @@ QPushButton::hover:!pressed {
                           </property>
                          </widget>
                         </item>
+                        <item row="1" column="1" colspan="2">
+                         <widget class="QPushButton" name="task_puzzle_show_set_btn">
+                          <property name="minimumSize">
+                           <size>
+                            <width>211</width>
+                            <height>61</height>
+                           </size>
+                          </property>
+                          <property name="font">
+                           <font>
+                            <family>Hind Siliguri Medium</family>
+                            <pointsize>13</pointsize>
+                           </font>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true">QPushButton {
+background-color: rgb(160, 253, 230);
+color:  #256D85 ;
+border-radius: 15px;
+}
+
+QPushButton::hover:!pressed {
+	
+	background-color: rgb(143, 227, 207);
+	color: #2B4865;
+
+}</string>
+                          </property>
+                          <property name="text">
+                           <string>তৈরিকৃত ধাঁধার সেটগুলো দেখুন</string>
+                          </property>
+                         </widget>
+                        </item>
                        </layout>
                       </widget>
                      </item>
                     </layout>
                    </widget>
                    <widget class="QWidget" name="sequence_page">
+                    <property name="styleSheet">
+                     <string notr="true"/>
+                    </property>
                     <layout class="QGridLayout" name="gridLayout_12">
                      <property name="leftMargin">
                       <number>11</number>
@@ -2547,23 +2518,7 @@ QPushButton::hover:!pressed {
                       <number>11</number>
                      </property>
                      <item row="0" column="0">
-                      <widget class="QLabel" name="task_lbl_sequencing">
-                       <property name="font">
-                        <font>
-                         <pointsize>28</pointsize>
-                        </font>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">color: rgb(160, 253, 230);
-border: 2px solid rgb(160, 253, 230)</string>
-                       </property>
-                       <property name="text">
-                        <string>ক্রমধারা</string>
-                       </property>
-                       <property name="alignment">
-                        <set>Qt::AlignCenter</set>
-                       </property>
-                      </widget>
+                      <layout class="QHBoxLayout" name="task_seq_video_frame_widget"/>
                      </item>
                     </layout>
                    </widget>

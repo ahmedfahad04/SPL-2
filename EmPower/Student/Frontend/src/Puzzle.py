@@ -114,8 +114,8 @@ class PuzzleWidget(QWidget):
         self.startTimer()
 
         self.setAcceptDrops(True)
-        self.setMinimumSize(800, 800)
-        self.setMaximumSize(800, 800)
+        self.setMinimumSize(700, 700)
+        self.setMaximumSize(700, 700)
 
     def clear(self):
         self.pieceLocations = []
@@ -173,6 +173,10 @@ class PuzzleWidget(QWidget):
             pixmap = QPixmap()
             location = QPoint()
             dataStream >> pixmap >> location
+            
+            print("LOCATION: ", location)
+            print("SQUARE: ", square.x(), square.y())
+            
 
             if location == QPoint(square.x() // 400, square.y() // 400) and location not in self.alreadyPlacedLocation:
                 self.pieceLocations.append(location)

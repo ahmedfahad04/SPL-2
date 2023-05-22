@@ -18,6 +18,7 @@ from Frontend.src.Lesson_Assigning_Window import Lesson_Assigning_Window
 from Backend.Database.module_db import module_data as md
 from Backend.Database.lesson_db import lesson_data as ld
 from Backend.Database.student_db import student_data as sd
+from Backend.ScreenShot.ImageCapture import ImageCaptureWidget
 import os
 import shutil
 
@@ -56,8 +57,7 @@ class Home(QMainWindow):  # Home extends QMainWindow
         self.home.home_btn_lesson.clicked.connect(self.lesson_page)
         self.home.home_btn_quiz.clicked.connect(self.task_page)
         self.home.home_btn_lesson_assigns.clicked.connect(self.lesson_assigning_page)
-        
-                   
+                         
     def student_page(self):
         
         # create table for student info
@@ -111,8 +111,7 @@ class Home(QMainWindow):  # Home extends QMainWindow
         self.home.lsn_btn_reload_window.clicked.connect(self.home_page)
         self.home.lsn_btn_make_lesson.clicked.connect(self.lesson_making_page)
         self.home.lsn_btn_back_to_home.clicked.connect(self.home_page)
-        
-       
+            
     def task_page(self):
         
         self.task_window = Task_Window(self.home)
@@ -129,7 +128,6 @@ class Home(QMainWindow):  # Home extends QMainWindow
         self.home.task_puzzle_select_img_btn.clicked.connect(self.select_puzzle_image)
         self.home.task_puzzle_save_set_btn.clicked.connect(self.save_puzzle_set)
         self.home.task_puzzle_show_set_btn.clicked.connect(self.show_puzzle_set)
-        
         
     def lesson_making_page(self):
         
@@ -199,6 +197,13 @@ class Home(QMainWindow):  # Home extends QMainWindow
         
         self.home.evalstackwidget.setCurrentWidget(self.home.sequence_page) 
         
+        if self.home.task_seq_video_frame_widget.count() != 0:
+            self.home.task_seq_video_frame_widget.itemAt(
+                0).widget().setParent(None)
+
+        image_capture_window = ImageCaptureWidget()
+        self.home.task_seq_video_frame_widget.addWidget(image_capture_window)
+        
     def puzzle_page(self):
         
         self.home.evalstackwidget.setCurrentWidget(self.home.puzzle_page)
@@ -222,8 +227,7 @@ class Home(QMainWindow):  # Home extends QMainWindow
             # create a temp folder 
             os.path.exists('Lessons/Puzzle_Images') or os.mkdir('Lessons/Puzzle_Images')
             os.path.exists('Lessons/Puzzle_Images/Temp') or os.mkdir('Lessons/Puzzle_Images/Temp')
-            
-            
+                        
         try: 
             
         # show file names in lbl
@@ -265,10 +269,10 @@ class Home(QMainWindow):  # Home extends QMainWindow
         
         else:
             show_warning_message("ফোল্ডার ইতোমধ্যে তৈরি করা হয়েছে", "{} ফোল্ডার ইতোমধ্যে তৈরি করা হয়েছে! নতুন সেট নম্বর নির্বাচন করুন".format(self.home.task_puzzle_q_set_lbl.text()))
-            
-        
-            
+                    
     def show_puzzle_set(self):
         
         # open lesson folder  
-        os.startfile('Lessons\Puzzle_Images')   
+        os.startfile('Lessons\Puzzle_Images') 
+        
+      
