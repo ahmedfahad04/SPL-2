@@ -1365,7 +1365,7 @@ class Ui_MainWindow(object):
 
         self.frame_5 = QFrame(self.puzzle_pic_frame)
         self.frame_5.setObjectName(u"frame_5")
-        self.frame_5.setMinimumSize(QSize(331, 280))
+        self.frame_5.setMinimumSize(QSize(331, 230))
         self.frame_5.setMaximumSize(QSize(16777215, 16777215))
         self.frame_5.setStyleSheet(u"border: 3px solid rgb(160, 253, 230);")
         self.frame_5.setFrameShape(QFrame.StyledPanel)
@@ -1436,7 +1436,7 @@ class Ui_MainWindow(object):
 
         self.task_matching_img_view_lbl_1 = QLabel(self.frame_5)
         self.task_matching_img_view_lbl_1.setObjectName(u"task_matching_img_view_lbl_1")
-        self.task_matching_img_view_lbl_1.setMinimumSize(QSize(301, 200))
+        self.task_matching_img_view_lbl_1.setMinimumSize(QSize(301, 140))
         self.task_matching_img_view_lbl_1.setFont(font22)
         self.task_matching_img_view_lbl_1.setStyleSheet(u"border: 2px dotted rgb(0, 43, 91);")
         self.task_matching_img_view_lbl_1.setPixmap(QPixmap(u"../Images/image_template.png"))
@@ -1449,7 +1449,7 @@ class Ui_MainWindow(object):
 
         self.frame_6 = QFrame(self.puzzle_pic_frame)
         self.frame_6.setObjectName(u"frame_6")
-        self.frame_6.setMinimumSize(QSize(331, 280))
+        self.frame_6.setMinimumSize(QSize(331, 230))
         self.frame_6.setMaximumSize(QSize(16777215, 16777215))
         self.frame_6.setStyleSheet(u"border: 3px solid rgb(160, 253, 230);")
         self.frame_6.setFrameShape(QFrame.StyledPanel)
@@ -1513,7 +1513,7 @@ class Ui_MainWindow(object):
 
         self.task_matching_img_view_lbl_2 = QLabel(self.frame_6)
         self.task_matching_img_view_lbl_2.setObjectName(u"task_matching_img_view_lbl_2")
-        self.task_matching_img_view_lbl_2.setMinimumSize(QSize(301, 200))
+        self.task_matching_img_view_lbl_2.setMinimumSize(QSize(301, 140))
         self.task_matching_img_view_lbl_2.setFont(font22)
         self.task_matching_img_view_lbl_2.setStyleSheet(u"border: 2px dotted rgb(0, 43, 91);")
         self.task_matching_img_view_lbl_2.setPixmap(QPixmap(u"../Images/image_template.png"))
@@ -1526,7 +1526,7 @@ class Ui_MainWindow(object):
 
         self.frame_7 = QFrame(self.puzzle_pic_frame)
         self.frame_7.setObjectName(u"frame_7")
-        self.frame_7.setMinimumSize(QSize(331, 280))
+        self.frame_7.setMinimumSize(QSize(331, 240))
         self.frame_7.setMaximumSize(QSize(16777215, 16777215))
         self.frame_7.setStyleSheet(u"border: 3px solid rgb(160, 253, 230);")
         self.frame_7.setFrameShape(QFrame.StyledPanel)
@@ -1590,7 +1590,7 @@ class Ui_MainWindow(object):
 
         self.task_matching_img_view_lbl_3 = QLabel(self.frame_7)
         self.task_matching_img_view_lbl_3.setObjectName(u"task_matching_img_view_lbl_3")
-        self.task_matching_img_view_lbl_3.setMinimumSize(QSize(301, 200))
+        self.task_matching_img_view_lbl_3.setMinimumSize(QSize(301, 155))
         self.task_matching_img_view_lbl_3.setFont(font22)
         self.task_matching_img_view_lbl_3.setStyleSheet(u"border: 2px dotted rgb(0, 43, 91);")
         self.task_matching_img_view_lbl_3.setPixmap(QPixmap(u"../Images/image_template.png"))
@@ -1603,7 +1603,7 @@ class Ui_MainWindow(object):
 
         self.frame_8 = QFrame(self.puzzle_pic_frame)
         self.frame_8.setObjectName(u"frame_8")
-        self.frame_8.setMinimumSize(QSize(331, 280))
+        self.frame_8.setMinimumSize(QSize(331, 240))
         self.frame_8.setMaximumSize(QSize(16777215, 16777215))
         self.frame_8.setStyleSheet(u"border: 3px solid rgb(160, 253, 230);")
         self.frame_8.setFrameShape(QFrame.StyledPanel)
@@ -1667,7 +1667,7 @@ class Ui_MainWindow(object):
 
         self.task_matching_img_view_lbl_4 = QLabel(self.frame_8)
         self.task_matching_img_view_lbl_4.setObjectName(u"task_matching_img_view_lbl_4")
-        self.task_matching_img_view_lbl_4.setMinimumSize(QSize(301, 200))
+        self.task_matching_img_view_lbl_4.setMinimumSize(QSize(301, 150))
         self.task_matching_img_view_lbl_4.setFont(font22)
         self.task_matching_img_view_lbl_4.setStyleSheet(u"border: 2px dotted rgb(0, 43, 91);")
         self.task_matching_img_view_lbl_4.setPixmap(QPixmap(u"../Images/image_template.png"))
@@ -2254,7 +2254,7 @@ class Ui_MainWindow(object):
         self.mediaStackWidget.setCurrentIndex(1)
         self.lsn_btn_back_to_home.setDefault(False)
         self.task_btn_back_to_home.setDefault(False)
-        self.evalstackwidget.setCurrentIndex(1)
+        self.evalstackwidget.setCurrentIndex(2)
         self.lsn_btn_back_to_home_3.setDefault(False)
         self.lsn_btn_back_to_home_4.setDefault(False)
 

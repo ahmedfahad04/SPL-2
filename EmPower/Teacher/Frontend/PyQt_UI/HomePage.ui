@@ -2324,7 +2324,7 @@ QPushButton::hover:!pressed {
                     <string notr="true"/>
                    </property>
                    <property name="currentIndex">
-                    <number>1</number>
+                    <number>2</number>
                    </property>
                    <widget class="QWidget" name="puzzle_page">
                     <layout class="QGridLayout" name="gridLayout_7">
@@ -2969,7 +2969,7 @@ QPushButton::hover:!pressed {
                           <property name="minimumSize">
                            <size>
                             <width>331</width>
-                            <height>280</height>
+                            <height>230</height>
                            </size>
                           </property>
                           <property name="maximumSize">
@@ -3107,7 +3107,7 @@ QPushButton::hover:!pressed {
                              <property name="minimumSize">
                               <size>
                                <width>301</width>
-                               <height>200</height>
+                               <height>140</height>
                               </size>
                              </property>
                              <property name="font">
@@ -3137,7 +3137,7 @@ QPushButton::hover:!pressed {
                           <property name="minimumSize">
                            <size>
                             <width>331</width>
-                            <height>280</height>
+                            <height>230</height>
                            </size>
                           </property>
                           <property name="maximumSize">
@@ -3275,7 +3275,7 @@ QPushButton::hover:!pressed {
                              <property name="minimumSize">
                               <size>
                                <width>301</width>
-                               <height>200</height>
+                               <height>140</height>
                               </size>
                              </property>
                              <property name="font">
@@ -3305,7 +3305,7 @@ QPushButton::hover:!pressed {
                           <property name="minimumSize">
                            <size>
                             <width>331</width>
-                            <height>280</height>
+                            <height>240</height>
                            </size>
                           </property>
                           <property name="maximumSize">
@@ -3443,7 +3443,7 @@ QPushButton::hover:!pressed {
                              <property name="minimumSize">
                               <size>
                                <width>301</width>
-                               <height>200</height>
+                               <height>155</height>
                               </size>
                              </property>
                              <property name="font">
@@ -3473,7 +3473,7 @@ QPushButton::hover:!pressed {
                           <property name="minimumSize">
                            <size>
                             <width>331</width>
-                            <height>280</height>
+                            <height>240</height>
                            </size>
                           </property>
                           <property name="maximumSize">
@@ -3611,7 +3611,7 @@ QPushButton::hover:!pressed {
                              <property name="minimumSize">
                               <size>
                                <width>301</width>
-                               <height>200</height>
+                               <height>150</height>
                               </size>
                              </property>
                              <property name="font">
