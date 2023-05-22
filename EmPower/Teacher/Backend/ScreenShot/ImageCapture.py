@@ -14,6 +14,7 @@ class ImageCaptureWidget(QWidget):
         super().__init__()
 
         self.ui_obj = ui_object
+        self.current_saved_file = None
 
         self.setWindowTitle("PyQt5 Media Player")
         self.setGeometry(350, 100, 800, 800)
@@ -60,6 +61,7 @@ class ImageCaptureWidget(QWidget):
 
         # create button for playing
         self.playBtn = QPushButton()
+        self.playBtn.setEnabled(False)
         self.playBtn.setFixedSize(50, 50)
         self.playBtn.setIcon(QIcon('Frontend\Images\play_btn.png'))
         self.playBtn.clicked.connect(self.play_video)
@@ -154,6 +156,7 @@ class ImageCaptureWidget(QWidget):
         if filename != '':
             self.mediaPlayer.setMedia(QMediaContent(QUrl.fromLocalFile(filename)))
             self.playBtn.setEnabled(True)
+            self.play_video()
 
     def play_video(self):
 
@@ -226,7 +229,7 @@ class ImageCaptureWidget(QWidget):
             print(snapshot_path)
             
         self.ui_obj.task_seq_img_view_lbl.setPixmap(QPixmap(snapshot_path))
-        
+        self.current_saved_file = snapshot_path
 
 
 # app = QApplication(sys.argv)

@@ -1178,7 +1178,7 @@ class Ui_MainWindow(object):
         self.task_seq_video_frame_widget = QHBoxLayout()
         self.task_seq_video_frame_widget.setObjectName(u"task_seq_video_frame_widget")
 
-        self.gridLayout_12.addLayout(self.task_seq_video_frame_widget, 2, 0, 1, 1)
+        self.gridLayout_12.addLayout(self.task_seq_video_frame_widget, 1, 0, 1, 1)
 
         self.frame_4 = QFrame(self.sequence_page)
         self.frame_4.setObjectName(u"frame_4")
@@ -1189,76 +1189,55 @@ class Ui_MainWindow(object):
         self.frame_4.setFrameShadow(QFrame.Raised)
         self.gridLayout_17 = QGridLayout(self.frame_4)
         self.gridLayout_17.setObjectName(u"gridLayout_17")
+        self.task_seq_img_seq_edit = QLineEdit(self.frame_4)
+        self.task_seq_img_seq_edit.setObjectName(u"task_seq_img_seq_edit")
+        self.task_seq_img_seq_edit.setMinimumSize(QSize(381, 51))
+        font20 = QFont()
+        font20.setFamilies([u"Segoe UI Semibold"])
+        font20.setPointSize(10)
+        self.task_seq_img_seq_edit.setFont(font20)
+        self.task_seq_img_seq_edit.setStyleSheet(u"background-color: rgb(137, 218, 199);\n"
+"border: 4px solid rgb(0, 43, 91);\n"
+"padding-left: 15px;\n"
+"border-radius: 10px;\n"
+"color: black;")
+
+        self.gridLayout_17.addWidget(self.task_seq_img_seq_edit, 3, 0, 1, 3)
+
         self.task_seq_img_desc_edit = QLineEdit(self.frame_4)
         self.task_seq_img_desc_edit.setObjectName(u"task_seq_img_desc_edit")
         self.task_seq_img_desc_edit.setMinimumSize(QSize(381, 51))
-        font20 = QFont()
-        font20.setFamilies([u"Hind Siliguri Medium"])
-        font20.setPointSize(10)
-        self.task_seq_img_desc_edit.setFont(font20)
-        self.task_seq_img_desc_edit.setStyleSheet(u"background-color:  rgb(43, 72, 101);\n"
-"border: 3px solid rgb(0, 43, 91);\n"
+        font21 = QFont()
+        font21.setFamilies([u"Hind Siliguri Medium"])
+        font21.setPointSize(10)
+        self.task_seq_img_desc_edit.setFont(font21)
+        self.task_seq_img_desc_edit.setStyleSheet(u"background-color: rgb(137, 218, 199);\n"
+"border: 4px solid rgb(0, 43, 91);\n"
 "padding-left: 15px;\n"
 "border-radius: 10px;\n"
-"color: rgb(160, 253, 230);")
+"color: black;")
 
         self.gridLayout_17.addWidget(self.task_seq_img_desc_edit, 2, 0, 1, 3)
 
         self.task_seq_img_view_lbl = QLabel(self.frame_4)
         self.task_seq_img_view_lbl.setObjectName(u"task_seq_img_view_lbl")
         self.task_seq_img_view_lbl.setMinimumSize(QSize(402, 229))
-        font21 = QFont()
-        font21.setPointSize(22)
-        self.task_seq_img_view_lbl.setFont(font21)
+        font22 = QFont()
+        font22.setPointSize(22)
+        self.task_seq_img_view_lbl.setFont(font22)
         self.task_seq_img_view_lbl.setStyleSheet(u"border: 2px dotted rgb(0, 43, 91);")
         self.task_seq_img_view_lbl.setPixmap(QPixmap(u"../Images/image_template.png"))
         self.task_seq_img_view_lbl.setAlignment(Qt.AlignCenter)
 
         self.gridLayout_17.addWidget(self.task_seq_img_view_lbl, 1, 0, 1, 3)
 
-        self.task_seq_img_seq_edit = QLineEdit(self.frame_4)
-        self.task_seq_img_seq_edit.setObjectName(u"task_seq_img_seq_edit")
-        self.task_seq_img_seq_edit.setMinimumSize(QSize(381, 51))
-        font22 = QFont()
-        font22.setFamilies([u"Segoe UI Semibold"])
-        font22.setPointSize(10)
-        self.task_seq_img_seq_edit.setFont(font22)
-        self.task_seq_img_seq_edit.setStyleSheet(u"background-color:  rgb(43, 72, 101);\n"
-"border: 3px solid rgb(0, 43, 91);\n"
-"padding-left: 15px;\n"
-"border-radius: 10px;\n"
-"color: rgb(160, 253, 230);")
-
-        self.gridLayout_17.addWidget(self.task_seq_img_seq_edit, 3, 0, 1, 3)
-
-        self.task_seq_instruction_lbl = QLabel(self.frame_4)
-        self.task_seq_instruction_lbl.setObjectName(u"task_seq_instruction_lbl")
-        self.task_seq_instruction_lbl.setMinimumSize(QSize(365, 50))
-        font23 = QFont()
-        font23.setFamilies([u"Hind Siliguri Medium"])
-        font23.setPointSize(11)
-        font23.setBold(False)
-        self.task_seq_instruction_lbl.setFont(font23)
-        self.task_seq_instruction_lbl.setStyleSheet(u"color: rgb(132, 211, 184);\n"
-"background-color: rgb(0, 43, 91);\n"
-"padding: 5px;\n"
-"border: none;")
-        self.task_seq_instruction_lbl.setAlignment(Qt.AlignCenter)
-        self.task_seq_instruction_lbl.setWordWrap(True)
-
-        self.gridLayout_17.addWidget(self.task_seq_instruction_lbl, 0, 0, 1, 3)
-
-        self.horizontalSpacer_22 = QSpacerItem(250, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
-
-        self.gridLayout_17.addItem(self.horizontalSpacer_22, 5, 0, 1, 1)
-
         self.task_seq_img_save_btn = QPushButton(self.frame_4)
         self.task_seq_img_save_btn.setObjectName(u"task_seq_img_save_btn")
         self.task_seq_img_save_btn.setMinimumSize(QSize(156, 52))
-        font24 = QFont()
-        font24.setPointSize(11)
-        font24.setBold(False)
-        self.task_seq_img_save_btn.setFont(font24)
+        font23 = QFont()
+        font23.setPointSize(11)
+        font23.setBold(False)
+        self.task_seq_img_save_btn.setFont(font23)
         self.task_seq_img_save_btn.setStyleSheet(u"QPushButton {\n"
 "background-color: rgb(160, 253, 230);\n"
 "color:  #256D85 ;\n"
@@ -1274,38 +1253,32 @@ class Ui_MainWindow(object):
 
         self.gridLayout_17.addWidget(self.task_seq_img_save_btn, 5, 1, 1, 1)
 
+        self.task_seq_instruction_lbl = QLabel(self.frame_4)
+        self.task_seq_instruction_lbl.setObjectName(u"task_seq_instruction_lbl")
+        self.task_seq_instruction_lbl.setMinimumSize(QSize(365, 50))
+        font24 = QFont()
+        font24.setFamilies([u"Hind Siliguri Medium"])
+        font24.setPointSize(11)
+        font24.setBold(False)
+        self.task_seq_instruction_lbl.setFont(font24)
+        self.task_seq_instruction_lbl.setStyleSheet(u"color: rgb(132, 211, 184);\n"
+"background-color: rgb(0, 43, 91);\n"
+"padding: 5px;\n"
+"border: none;")
+        self.task_seq_instruction_lbl.setAlignment(Qt.AlignCenter)
+        self.task_seq_instruction_lbl.setWordWrap(True)
+
+        self.gridLayout_17.addWidget(self.task_seq_instruction_lbl, 0, 0, 1, 3)
+
+        self.horizontalSpacer_22 = QSpacerItem(250, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
+
+        self.gridLayout_17.addItem(self.horizontalSpacer_22, 5, 0, 1, 1)
+
         self.horizontalSpacer_23 = QSpacerItem(250, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.gridLayout_17.addItem(self.horizontalSpacer_23, 5, 2, 1, 1)
 
-        self.verticalSpacer_7 = QSpacerItem(20, 33, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.gridLayout_17.addItem(self.verticalSpacer_7, 4, 1, 1, 1)
-
-
-        self.gridLayout_12.addWidget(self.frame_4, 2, 2, 1, 1)
-
-        self.task_seq_save_set_btn = QPushButton(self.sequence_page)
-        self.task_seq_save_set_btn.setObjectName(u"task_seq_save_set_btn")
-        self.task_seq_save_set_btn.setMinimumSize(QSize(100, 51))
-        self.task_seq_save_set_btn.setFont(font17)
-        self.task_seq_save_set_btn.setCursor(QCursor(Qt.PointingHandCursor))
-        self.task_seq_save_set_btn.setStyleSheet(u"QPushButton {\n"
-"background-color: rgb(160, 253, 230);\n"
-"color:  #256D85 ;\n"
-"border-radius: 15px;\n"
-"}\n"
-"\n"
-"QPushButton::hover:!pressed {\n"
-"	\n"
-"	background-color: rgb(143, 227, 207);\n"
-"	color: #2B4865;\n"
-"\n"
-"}")
-
-        self.gridLayout_12.addWidget(self.task_seq_save_set_btn, 1, 2, 1, 1)
-
-        self.task_seq_set_lbl = QLineEdit(self.sequence_page)
+        self.task_seq_set_lbl = QLineEdit(self.frame_4)
         self.task_seq_set_lbl.setObjectName(u"task_seq_set_lbl")
         self.task_seq_set_lbl.setMinimumSize(QSize(326, 51))
         self.task_seq_set_lbl.setFont(font16)
@@ -1315,7 +1288,10 @@ class Ui_MainWindow(object):
 "border-radius: 10px;\n"
 "color: black;")
 
-        self.gridLayout_12.addWidget(self.task_seq_set_lbl, 1, 0, 1, 1)
+        self.gridLayout_17.addWidget(self.task_seq_set_lbl, 4, 0, 1, 3)
+
+
+        self.gridLayout_12.addWidget(self.frame_4, 1, 2, 1, 1)
 
         self.label_8 = QLabel(self.sequence_page)
         self.label_8.setObjectName(u"label_8")
@@ -1422,7 +1398,7 @@ class Ui_MainWindow(object):
         self.task_matching_img_desc_edit_1 = QLineEdit(self.frame_5)
         self.task_matching_img_desc_edit_1.setObjectName(u"task_matching_img_desc_edit_1")
         self.task_matching_img_desc_edit_1.setMinimumSize(QSize(250, 51))
-        self.task_matching_img_desc_edit_1.setFont(font20)
+        self.task_matching_img_desc_edit_1.setFont(font21)
         self.task_matching_img_desc_edit_1.setStyleSheet(u"background-color:  rgb(43, 72, 101);\n"
 "border: 3px solid rgb(0, 43, 91);\n"
 "padding-left: 15px;\n"
@@ -1457,7 +1433,7 @@ class Ui_MainWindow(object):
         self.task_matching_img_view_lbl_1 = QLabel(self.frame_5)
         self.task_matching_img_view_lbl_1.setObjectName(u"task_matching_img_view_lbl_1")
         self.task_matching_img_view_lbl_1.setMinimumSize(QSize(301, 200))
-        self.task_matching_img_view_lbl_1.setFont(font21)
+        self.task_matching_img_view_lbl_1.setFont(font22)
         self.task_matching_img_view_lbl_1.setStyleSheet(u"border: 2px dotted rgb(0, 43, 91);")
         self.task_matching_img_view_lbl_1.setPixmap(QPixmap(u"../Images/image_template.png"))
         self.task_matching_img_view_lbl_1.setAlignment(Qt.AlignCenter)
@@ -1479,7 +1455,7 @@ class Ui_MainWindow(object):
         self.task_matching_img_desc_edit_2 = QLineEdit(self.frame_6)
         self.task_matching_img_desc_edit_2.setObjectName(u"task_matching_img_desc_edit_2")
         self.task_matching_img_desc_edit_2.setMinimumSize(QSize(250, 51))
-        self.task_matching_img_desc_edit_2.setFont(font20)
+        self.task_matching_img_desc_edit_2.setFont(font21)
         self.task_matching_img_desc_edit_2.setStyleSheet(u"background-color:  rgb(43, 72, 101);\n"
 "border: 3px solid rgb(0, 43, 91);\n"
 "padding-left: 15px;\n"
@@ -1534,7 +1510,7 @@ class Ui_MainWindow(object):
         self.task_matching_img_view_lbl_2 = QLabel(self.frame_6)
         self.task_matching_img_view_lbl_2.setObjectName(u"task_matching_img_view_lbl_2")
         self.task_matching_img_view_lbl_2.setMinimumSize(QSize(301, 200))
-        self.task_matching_img_view_lbl_2.setFont(font21)
+        self.task_matching_img_view_lbl_2.setFont(font22)
         self.task_matching_img_view_lbl_2.setStyleSheet(u"border: 2px dotted rgb(0, 43, 91);")
         self.task_matching_img_view_lbl_2.setPixmap(QPixmap(u"../Images/image_template.png"))
         self.task_matching_img_view_lbl_2.setAlignment(Qt.AlignCenter)
@@ -1556,7 +1532,7 @@ class Ui_MainWindow(object):
         self.task_matching_img_desc_edit_3 = QLineEdit(self.frame_7)
         self.task_matching_img_desc_edit_3.setObjectName(u"task_matching_img_desc_edit_3")
         self.task_matching_img_desc_edit_3.setMinimumSize(QSize(250, 51))
-        self.task_matching_img_desc_edit_3.setFont(font20)
+        self.task_matching_img_desc_edit_3.setFont(font21)
         self.task_matching_img_desc_edit_3.setStyleSheet(u"background-color:  rgb(43, 72, 101);\n"
 "border: 3px solid rgb(0, 43, 91);\n"
 "padding-left: 15px;\n"
@@ -1611,7 +1587,7 @@ class Ui_MainWindow(object):
         self.task_matching_img_view_lbl_3 = QLabel(self.frame_7)
         self.task_matching_img_view_lbl_3.setObjectName(u"task_matching_img_view_lbl_3")
         self.task_matching_img_view_lbl_3.setMinimumSize(QSize(301, 200))
-        self.task_matching_img_view_lbl_3.setFont(font21)
+        self.task_matching_img_view_lbl_3.setFont(font22)
         self.task_matching_img_view_lbl_3.setStyleSheet(u"border: 2px dotted rgb(0, 43, 91);")
         self.task_matching_img_view_lbl_3.setPixmap(QPixmap(u"../Images/image_template.png"))
         self.task_matching_img_view_lbl_3.setAlignment(Qt.AlignCenter)
@@ -1633,7 +1609,7 @@ class Ui_MainWindow(object):
         self.task_matching_img_desc_lbl_4 = QLineEdit(self.frame_8)
         self.task_matching_img_desc_lbl_4.setObjectName(u"task_matching_img_desc_lbl_4")
         self.task_matching_img_desc_lbl_4.setMinimumSize(QSize(250, 51))
-        self.task_matching_img_desc_lbl_4.setFont(font20)
+        self.task_matching_img_desc_lbl_4.setFont(font21)
         self.task_matching_img_desc_lbl_4.setStyleSheet(u"background-color:  rgb(43, 72, 101);\n"
 "border: 3px solid rgb(0, 43, 91);\n"
 "padding-left: 15px;\n"
@@ -1688,7 +1664,7 @@ class Ui_MainWindow(object):
         self.task_matching_img_view_lbl_4 = QLabel(self.frame_8)
         self.task_matching_img_view_lbl_4.setObjectName(u"task_matching_img_view_lbl_4")
         self.task_matching_img_view_lbl_4.setMinimumSize(QSize(301, 200))
-        self.task_matching_img_view_lbl_4.setFont(font21)
+        self.task_matching_img_view_lbl_4.setFont(font22)
         self.task_matching_img_view_lbl_4.setStyleSheet(u"border: 2px dotted rgb(0, 43, 91);")
         self.task_matching_img_view_lbl_4.setPixmap(QPixmap(u"../Images/image_template.png"))
         self.task_matching_img_view_lbl_4.setAlignment(Qt.AlignCenter)
@@ -1801,7 +1777,7 @@ class Ui_MainWindow(object):
         self.label_4 = QLabel(self.mid_frame_4)
         self.label_4.setObjectName(u"label_4")
         self.label_4.setMinimumSize(QSize(365, 68))
-        self.label_4.setFont(font23)
+        self.label_4.setFont(font24)
         self.label_4.setStyleSheet(u"color: rgb(132, 211, 184);\n"
 "background-color: rgb(0, 43, 91);\n"
 "padding: 5px;")
@@ -1820,7 +1796,7 @@ class Ui_MainWindow(object):
 
         self.label_3 = QLabel(self.mid_frame_4)
         self.label_3.setObjectName(u"label_3")
-        self.label_3.setFont(font23)
+        self.label_3.setFont(font24)
         self.label_3.setStyleSheet(u"color: rgb(132, 211, 184);\n"
 "background-color: rgb(0, 43, 91);\n"
 "padding: 5px;")
@@ -1831,7 +1807,7 @@ class Ui_MainWindow(object):
 
         self.label_2 = QLabel(self.mid_frame_4)
         self.label_2.setObjectName(u"label_2")
-        self.label_2.setFont(font23)
+        self.label_2.setFont(font24)
         self.label_2.setStyleSheet(u"color: rgb(132, 211, 184);\n"
 "background-color: rgb(0, 43, 91);\n"
 "padding: 5px;")
@@ -1880,7 +1856,7 @@ class Ui_MainWindow(object):
 
         self.label = QLabel(self.mid_frame_4)
         self.label.setObjectName(u"label")
-        self.label.setFont(font23)
+        self.label.setFont(font24)
         self.label.setStyleSheet(u"color: rgb(132, 211, 184);\n"
 "background-color: rgb(0, 43, 91);\n"
 "padding: 5px;")
@@ -2336,14 +2312,16 @@ class Ui_MainWindow(object):
         self.task_puzzle_image_lbl.setText(QCoreApplication.translate("MainWindow", u"\u09a7\u09be\u0981\u09a7\u09be\u09b0 \u099c\u09a8\u09cd\u09af \u09aa\u09cd\u09b0\u09df\u09cb\u099c\u09a8\u09c0\u09df \u099b\u09ac\u09bf\u09b8\u09ae\u09c2\u09b9 \u09a8\u09bf\u09b0\u09cd\u09ac\u09be\u099a\u09a8 \u0995\u09b0\u09c1\u09a8 (\u098f\u0995\u09be\u09a7\u09bf\u0995 \u099b\u09ac\u09bf \u09a8\u09bf\u09b0\u09cd\u09ac\u09be\u099a\u09a8 \u0995\u09b0\u09a4\u09c7 \u09aa\u09be\u09b0\u09ac\u09c7\u09a8)", None))
         self.task_puzzle_select_img_btn.setText(QCoreApplication.translate("MainWindow", u"\u099b\u09ac\u09bf \u09a8\u09bf\u09b0\u09cd\u09ac\u09be\u099a\u09a8 \u0995\u09b0\u09c1\u09a8", None))
         self.task_puzzle_show_set_btn.setText(QCoreApplication.translate("MainWindow", u"\u09a4\u09c8\u09b0\u09bf\u0995\u09c3\u09a4 \u09a7\u09be\u0981\u09a7\u09be\u09b0 \u09b8\u09c7\u099f\u0997\u09c1\u09b2\u09cb \u09a6\u09c7\u0996\u09c1\u09a8", None))
+        self.task_seq_img_seq_edit.setText("")
+        self.task_seq_img_seq_edit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"\u0995\u09cd\u09b0\u09ae\u09bf\u0995 \u09a8\u09ae\u09cd\u09ac\u09b0 (\u09af\u09c7\u09ae\u09a8\u0983 1/2)", None))
         self.task_seq_img_desc_edit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"\u099b\u09ac\u09bf\u09b0 \u09b8\u0982\u0995\u09cd\u09b7\u09bf\u09aa\u09cd\u09a4 \u09ac\u09bf\u09ac\u09b0\u09a3 (\u09e9-\u09eb \u09b6\u09ac\u09cd\u09a6\u09c7)", None))
         self.task_seq_img_view_lbl.setText("")
-        self.task_seq_img_seq_edit.setText("")
-        self.task_seq_img_seq_edit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"\u0995\u09cd\u09b0\u09ae\u09bf\u0995 \u09a8\u09ae\u09cd\u09ac\u09b0 (\u09af\u09c7\u09ae\u09a8\u0983 \u09e7/\u09e8)", None))
-        self.task_seq_instruction_lbl.setText(QCoreApplication.translate("MainWindow", u"\u09aa\u09cd\u09b0\u09a4\u09bf \u09b8\u09c7\u099f\u09c7\u09b0 \u099c\u09a8\u09cd\u09af \u0986\u09ae\u09b0\u09be \u09b8\u09b0\u09cd\u09ac\u09cb\u099a\u09cd\u099a \u09ea\u099f\u09bf \u099b\u09ac\u09bf \u09a8\u09bf\u09b0\u09cd\u09ac\u09be\u099a\u09a8 \u0995\u09b0\u09ac\u0964 \u099b\u09ac\u09bf\u09b0 \u09a8\u09bf\u099a\u09c7 \u09b8\u0982\u0995\u09cd\u09b7\u09bf\u09aa\u09cd\u09a4 \u09ac\u09bf\u09ac\u09b0\u09a3 \u098f\u09ac\u09a8 \u0995\u09cd\u09b0\u09ae\u09bf\u0995 \u09a8\u0982 \u0989\u09b2\u09cd\u09b2\u09c7\u0996 \u0995\u09b0\u09ac", None))
         self.task_seq_img_save_btn.setText(QCoreApplication.translate("MainWindow", u"\u09b8\u0982\u09b0\u0995\u09cd\u09b7\u09a8 \u0995\u09b0\u09c1\u09a8", None))
-        self.task_seq_save_set_btn.setText(QCoreApplication.translate("MainWindow", u"\u09b8\u0982\u09b0\u0995\u09cd\u09b7\u09a8 \u0995\u09b0\u09c1\u09a8", None))
-        self.task_seq_set_lbl.setPlaceholderText(QCoreApplication.translate("MainWindow", u"\u09b8\u09c7\u099f \u09a8\u09ae\u09cd\u09ac\u09b0 \u09a6\u09bf\u09a8 (\u09af\u09c7\u09ae\u09a8 set1)", None))
+#if QT_CONFIG(shortcut)
+        self.task_seq_img_save_btn.setShortcut(QCoreApplication.translate("MainWindow", u"Return", None))
+#endif // QT_CONFIG(shortcut)
+        self.task_seq_instruction_lbl.setText(QCoreApplication.translate("MainWindow", u"\u09aa\u09cd\u09b0\u09a4\u09bf \u09b8\u09c7\u099f\u09c7\u09b0 \u099c\u09a8\u09cd\u09af \u0986\u09ae\u09b0\u09be \u09b8\u09b0\u09cd\u09ac\u09cb\u099a\u09cd\u099a \u09ea\u099f\u09bf \u099b\u09ac\u09bf \u09a8\u09bf\u09b0\u09cd\u09ac\u09be\u099a\u09a8 \u0995\u09b0\u09ac\u0964 \u099b\u09ac\u09bf\u09b0 \u09a8\u09bf\u099a\u09c7 \u09b8\u0982\u0995\u09cd\u09b7\u09bf\u09aa\u09cd\u09a4 \u09ac\u09bf\u09ac\u09b0\u09a3 \u098f\u09ac\u09a8 \u0995\u09cd\u09b0\u09ae\u09bf\u0995 \u09a8\u0982 \u0989\u09b2\u09cd\u09b2\u09c7\u0996 \u0995\u09b0\u09ac", None))
+        self.task_seq_set_lbl.setPlaceholderText(QCoreApplication.translate("MainWindow", u"\u09a7\u09be\u09b0\u09be\u09b0 \u09ac\u09bf\u09b7\u09df\u09ac\u09b8\u09cd\u09a4\u09c1 \u09b2\u09bf\u0996\u09c1\u09a8 (\u09af\u09c7\u09ae\u09a8\u0983 \u09ab\u09c1\u09b2 \u0997\u09be\u099b\u09c7 \u09aa\u09be\u09a8\u09bf \u09a6\u09c7\u09df\u09be)", None))
         self.label_8.setText(QCoreApplication.translate("MainWindow", u"\u0995\u09cd\u09b0\u09ae\u09a7\u09be\u09b0\u09be ", None))
         self.label_10.setText(QCoreApplication.translate("MainWindow", u"\u09b6\u09ac\u09cd\u09a6 \u09ae\u09bf\u09b2\u09be\u0987", None))
         self.task_matching_set_edit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"\u09b8\u09c7\u099f \u09a8\u09ae\u09cd\u09ac\u09b0 \u09a6\u09bf\u09a8 (\u09af\u09c7\u09ae\u09a8 set1)", None))
