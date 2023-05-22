@@ -876,7 +876,7 @@ class Ui_MainWindow(object):
         self.eval_left_frame = QtWidgets.QFrame(self.body)
         self.eval_left_frame.setMinimumSize(QtCore.QSize(385, 636))
         self.eval_left_frame.setMaximumSize(QtCore.QSize(385, 636))
-        self.eval_left_frame.setStyleSheet("")
+        self.eval_left_frame.setStyleSheet("border-right: 2px solid rgb(43, 72, 101);")
         self.eval_left_frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.eval_left_frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.eval_left_frame.setObjectName("eval_left_frame")
@@ -999,7 +999,7 @@ class Ui_MainWindow(object):
         self.gridLayout_7 = QtWidgets.QGridLayout(self.puzzle_page)
         self.gridLayout_7.setObjectName("gridLayout_7")
         self.frame_3 = QtWidgets.QFrame(self.puzzle_page)
-        self.frame_3.setStyleSheet("border: 2px solid rgb(160, 253, 230);")
+        self.frame_3.setStyleSheet("")
         self.frame_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_3.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_3.setObjectName("frame_3")
@@ -1015,8 +1015,6 @@ class Ui_MainWindow(object):
         self.task_puzzle_image_lbl.setWordWrap(True)
         self.task_puzzle_image_lbl.setObjectName("task_puzzle_image_lbl")
         self.gridLayout_16.addWidget(self.task_puzzle_image_lbl, 0, 0, 1, 5)
-        spacerItem17 = QtWidgets.QSpacerItem(108, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout_16.addItem(spacerItem17, 1, 0, 1, 1)
         self.task_puzzle_q_set_lbl = QtWidgets.QLineEdit(self.frame_3)
         self.task_puzzle_q_set_lbl.setMinimumSize(QtCore.QSize(326, 51))
         font = QtGui.QFont()
@@ -1032,28 +1030,6 @@ class Ui_MainWindow(object):
 "color: black;")
         self.task_puzzle_q_set_lbl.setObjectName("task_puzzle_q_set_lbl")
         self.gridLayout_16.addWidget(self.task_puzzle_q_set_lbl, 2, 0, 1, 3)
-        spacerItem18 = QtWidgets.QSpacerItem(128, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout_16.addItem(spacerItem18, 1, 4, 1, 1)
-        self.task_puzzle_show_set_btn = QtWidgets.QPushButton(self.frame_3)
-        self.task_puzzle_show_set_btn.setMinimumSize(QtCore.QSize(211, 61))
-        font = QtGui.QFont()
-        font.setFamily("Hind Siliguri Medium")
-        font.setPointSize(10)
-        self.task_puzzle_show_set_btn.setFont(font)
-        self.task_puzzle_show_set_btn.setStyleSheet("QPushButton {\n"
-"background-color: rgb(160, 253, 230);\n"
-"color:  #256D85 ;\n"
-"border-radius: 15px;\n"
-"}\n"
-"\n"
-"QPushButton::hover:!pressed {\n"
-"    \n"
-"    background-color: rgb(143, 227, 207);\n"
-"    color: #2B4865;\n"
-"\n"
-"}")
-        self.task_puzzle_show_set_btn.setObjectName("task_puzzle_show_set_btn")
-        self.gridLayout_16.addWidget(self.task_puzzle_show_set_btn, 1, 3, 1, 1)
         self.task_puzzle_save_set_btn = QtWidgets.QPushButton(self.frame_3)
         self.task_puzzle_save_set_btn.setMinimumSize(QtCore.QSize(100, 51))
         font = QtGui.QFont()
@@ -1097,10 +1073,31 @@ class Ui_MainWindow(object):
 "\n"
 "}")
         self.task_puzzle_select_img_btn.setObjectName("task_puzzle_select_img_btn")
-        self.gridLayout_16.addWidget(self.task_puzzle_select_img_btn, 1, 1, 1, 1)
+        self.gridLayout_16.addWidget(self.task_puzzle_select_img_btn, 1, 0, 1, 1)
+        self.task_puzzle_show_set_btn = QtWidgets.QPushButton(self.frame_3)
+        self.task_puzzle_show_set_btn.setMinimumSize(QtCore.QSize(211, 61))
+        font = QtGui.QFont()
+        font.setFamily("Hind Siliguri Medium")
+        font.setPointSize(13)
+        self.task_puzzle_show_set_btn.setFont(font)
+        self.task_puzzle_show_set_btn.setStyleSheet("QPushButton {\n"
+"background-color: rgb(160, 253, 230);\n"
+"color:  #256D85 ;\n"
+"border-radius: 15px;\n"
+"}\n"
+"\n"
+"QPushButton::hover:!pressed {\n"
+"    \n"
+"    background-color: rgb(143, 227, 207);\n"
+"    color: #2B4865;\n"
+"\n"
+"}")
+        self.task_puzzle_show_set_btn.setObjectName("task_puzzle_show_set_btn")
+        self.gridLayout_16.addWidget(self.task_puzzle_show_set_btn, 1, 1, 1, 2)
         self.gridLayout_7.addWidget(self.frame_3, 0, 0, 1, 1)
         self.evalstackwidget.addWidget(self.puzzle_page)
         self.sequence_page = QtWidgets.QWidget()
+        self.sequence_page.setStyleSheet("")
         self.sequence_page.setObjectName("sequence_page")
         self.gridLayout_12 = QtWidgets.QGridLayout(self.sequence_page)
         self.gridLayout_12.setContentsMargins(11, 11, 11, 11)
@@ -1208,8 +1205,8 @@ class Ui_MainWindow(object):
         self.mid_frame_4.setObjectName("mid_frame_4")
         self.gridLayout_4 = QtWidgets.QGridLayout(self.mid_frame_4)
         self.gridLayout_4.setObjectName("gridLayout_4")
-        spacerItem19 = QtWidgets.QSpacerItem(20, 117, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.gridLayout_4.addItem(spacerItem19, 8, 6, 1, 1)
+        spacerItem17 = QtWidgets.QSpacerItem(20, 117, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.gridLayout_4.addItem(spacerItem17, 8, 6, 1, 1)
         self.label_4 = QtWidgets.QLabel(self.mid_frame_4)
         self.label_4.setMinimumSize(QtCore.QSize(365, 68))
         font = QtGui.QFont()
@@ -1225,10 +1222,10 @@ class Ui_MainWindow(object):
         self.label_4.setWordWrap(True)
         self.label_4.setObjectName("label_4")
         self.gridLayout_4.addWidget(self.label_4, 7, 1, 1, 3)
-        spacerItem20 = QtWidgets.QSpacerItem(160, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout_4.addItem(spacerItem20, 6, 1, 1, 1)
-        spacerItem21 = QtWidgets.QSpacerItem(159, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout_4.addItem(spacerItem21, 6, 3, 1, 1)
+        spacerItem18 = QtWidgets.QSpacerItem(160, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_4.addItem(spacerItem18, 6, 1, 1, 1)
+        spacerItem19 = QtWidgets.QSpacerItem(159, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_4.addItem(spacerItem19, 6, 3, 1, 1)
         self.label_3 = QtWidgets.QLabel(self.mid_frame_4)
         font = QtGui.QFont()
         font.setFamily("Hind Siliguri Medium")
@@ -1299,8 +1296,8 @@ class Ui_MainWindow(object):
         self.lsn_module_table_widget.horizontalHeader().setDefaultSectionSize(188)
         self.lsn_module_table_widget.horizontalHeader().setStretchLastSection(True)
         self.gridLayout_4.addWidget(self.lsn_module_table_widget, 1, 0, 8, 1)
-        spacerItem22 = QtWidgets.QSpacerItem(21, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout_4.addItem(spacerItem22, 4, 6, 1, 1)
+        spacerItem20 = QtWidgets.QSpacerItem(21, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_4.addItem(spacerItem20, 4, 6, 1, 1)
         self.label = QtWidgets.QLabel(self.mid_frame_4)
         font = QtGui.QFont()
         font.setFamily("Hind Siliguri Medium")
@@ -1410,8 +1407,8 @@ class Ui_MainWindow(object):
         self.lsn_btn_finish_add_module.setIconSize(QtCore.QSize(20, 25))
         self.lsn_btn_finish_add_module.setObjectName("lsn_btn_finish_add_module")
         self.gridLayout_4.addWidget(self.lsn_btn_finish_add_module, 10, 5, 1, 1)
-        spacerItem23 = QtWidgets.QSpacerItem(160, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout_4.addItem(spacerItem23, 2, 1, 1, 1)
+        spacerItem21 = QtWidgets.QSpacerItem(160, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_4.addItem(spacerItem21, 2, 1, 1, 1)
         self.label_5 = QtWidgets.QLabel(self.mid_frame_4)
         font = QtGui.QFont()
         font.setPointSize(7)
@@ -1420,10 +1417,10 @@ class Ui_MainWindow(object):
         self.label_5.setPixmap(QtGui.QPixmap(".\\Frontend\\PyQt_UI\\../Images/downward_icon.png"))
         self.label_5.setObjectName("label_5")
         self.gridLayout_4.addWidget(self.label_5, 2, 2, 1, 1)
-        spacerItem24 = QtWidgets.QSpacerItem(160, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout_4.addItem(spacerItem24, 4, 1, 1, 1)
-        spacerItem25 = QtWidgets.QSpacerItem(159, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout_4.addItem(spacerItem25, 2, 3, 1, 1)
+        spacerItem22 = QtWidgets.QSpacerItem(160, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_4.addItem(spacerItem22, 4, 1, 1, 1)
+        spacerItem23 = QtWidgets.QSpacerItem(159, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_4.addItem(spacerItem23, 2, 3, 1, 1)
         self.lsn_lbl_lessons_3 = QtWidgets.QLabel(self.mid_frame_4)
         self.lsn_lbl_lessons_3.setMinimumSize(QtCore.QSize(451, 36))
         font = QtGui.QFont()
@@ -1459,8 +1456,8 @@ class Ui_MainWindow(object):
         self.lsn_new_module_list_view.setDragEnabled(True)
         self.lsn_new_module_list_view.setObjectName("lsn_new_module_list_view")
         self.gridLayout_4.addWidget(self.lsn_new_module_list_view, 1, 4, 9, 2)
-        spacerItem26 = QtWidgets.QSpacerItem(159, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout_4.addItem(spacerItem26, 4, 3, 1, 1)
+        spacerItem24 = QtWidgets.QSpacerItem(159, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_4.addItem(spacerItem24, 4, 3, 1, 1)
         self.lsn_btn_see_lessons = QtWidgets.QPushButton(self.mid_frame_4)
         self.lsn_btn_see_lessons.setMinimumSize(QtCore.QSize(151, 41))
         font = QtGui.QFont()
@@ -1687,8 +1684,8 @@ class Ui_MainWindow(object):
         self.lsn_btn_assign_lesson.setIconSize(QtCore.QSize(20, 25))
         self.lsn_btn_assign_lesson.setObjectName("lsn_btn_assign_lesson")
         self.gridLayout_10.addWidget(self.lsn_btn_assign_lesson, 2, 0, 1, 1)
-        spacerItem27 = QtWidgets.QSpacerItem(33, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout_10.addItem(spacerItem27, 1, 2, 1, 1)
+        spacerItem25 = QtWidgets.QSpacerItem(33, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_10.addItem(spacerItem25, 1, 2, 1, 1)
         self.lsn_list_students = QtWidgets.QListWidget(self.mid_frame_5)
         self.lsn_list_students.setMinimumSize(QtCore.QSize(401, 509))
         self.lsn_list_students.setMaximumSize(QtCore.QSize(371, 16777215))
@@ -1711,7 +1708,7 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         self.stackedWidget.setCurrentIndex(3)
         self.mediaStackWidget.setCurrentIndex(1)
-        self.evalstackwidget.setCurrentIndex(1)
+        self.evalstackwidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -1754,9 +1751,9 @@ class Ui_MainWindow(object):
         self.task_btn_puzzle.setText(_translate("MainWindow", "ধাঁধা"))
         self.task_puzzle_image_lbl.setText(_translate("MainWindow", "ধাঁধার জন্য প্রয়োজনীয় ছবিসমূহ এখানে নির্বাচন করুন (একাধিক ছবি নির্বাচন করা যাবে)"))
         self.task_puzzle_q_set_lbl.setPlaceholderText(_translate("MainWindow", "সেট নম্বর দিন (যেমন set1)"))
-        self.task_puzzle_show_set_btn.setText(_translate("MainWindow", "তৈরিকৃত ধাঁধার সেটগুলো দেখুন"))
         self.task_puzzle_save_set_btn.setText(_translate("MainWindow", "সংরক্ষন করুন"))
         self.task_puzzle_select_img_btn.setText(_translate("MainWindow", "ছবি নির্বাচন করুন"))
+        self.task_puzzle_show_set_btn.setText(_translate("MainWindow", "তৈরিকৃত ধাঁধার সেটগুলো দেখুন"))
         self.lsn_lbl_headline_4.setText(_translate("MainWindow", "পাঠসূচি"))
         self.label_4.setText(_translate("MainWindow", "সকল পাঠসমূহ দেখার জন্য নিচের আইকনে ক্লিক করুন"))
         self.label_3.setText(_translate("MainWindow", "মডিউল যুক্ত করা শেষ হলে \"পাঠ তৈরি সম্পন্ন করুন\" বাটনে প্রেস করুন"))

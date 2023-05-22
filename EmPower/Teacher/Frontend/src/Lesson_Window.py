@@ -276,7 +276,9 @@ class Lesson_Window(QMainWindow):  # Home extends QMainWindow
         ld().add_entry(data)
         
         show_success_message("সফলতা!!", "পাঠ সংরক্ষণ করা হয়েছে, এখন স্ক্রিনের নিচে থাকা রিলোড বাটনে ক্লিক করুন")
-
+        
+        self.lesson_window.lsn_cmb_lessons.clear()
+        
         childObj.hide()
 
     def load_lessons(self):

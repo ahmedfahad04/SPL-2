@@ -6,7 +6,7 @@ from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QHBoxLayout, QVB
 from PyQt5.QtMultimedia import QMediaPlayer, QMediaContent
 from PyQt5.QtMultimediaWidgets import QVideoWidget
 from PyQt5.QtGui import QIcon, QPalette
-from PyQt5.QtCore import Qt, QUrl, QRect, QPoint, QFile
+from PyQt5.QtCore import Qt, QUrl, QRect, QPoint, QFile, QSize 
 
 
 class ImageCaptureWidget(QWidget):
@@ -33,26 +33,55 @@ class ImageCaptureWidget(QWidget):
 
         # create videowidget object
         self.videowidget = QVideoWidget()
-        self.videowidget.setStyleSheet("border: 2px solid rgb(0, 43, 91)")
+        # self.videowidget.setStyleSheet("QVideoWidget { border: 5px solid blue; }")
 
         # create open button
         openBtn = QPushButton('ফাইল ওপেন করুন')
+        openBtn.setFixedSize(150, 50)
+        openBtn.setIcon(QIcon('Frontend\Images\open_folder_v2.png'))
+        openBtn.setIconSize(QSize(20, 20))
         openBtn.clicked.connect(self.open_file)
+        openBtn.setStyleSheet("QPushButton {\n"
+"border: 3px solid rgb(43, 72, 101);\n"
+"border-radius: 10px;\n"
+"background-color: rgb(43, 72, 101);\n"
+"color: rgb(137, 218, 199)\n"
+"}\n"
+"\n"
+"QPushButton::hover:!pressed {\n"
+"background-color: rgb(0, 43, 91);\n"
+"border: 3px solid rgb(0, 43, 91); \n"
+"}")
 
         # create button for playing
         self.playBtn = QPushButton()
-        self.playBtn.setIcon(self.style().standardIcon(QStyle.SP_MediaPlay))
+        self.playBtn.setFixedSize(50, 50)
+        self.playBtn.setIcon(QIcon('Frontend\Images\play_btn.png'))
         self.playBtn.clicked.connect(self.play_video)
+        self.playBtn.setStyleSheet("QPushButton {\n"
+"border: 3px solid rgb(43, 72, 101);\n"
+"border-radius: 10px;\n"
+"background-color: rgb(43, 72, 101);\n"
+"color: rgb(137, 218, 199)\n"
+"}\n"
+"\n"
+"QPushButton::hover:!pressed {\n"
+"background-color: rgb(0, 43, 91);\n"
+"border: 3px solid rgb(0, 43, 91); \n"
+"}")
 
         # create slider
         self.slider = QSlider(Qt.Horizontal)
         self.slider.setRange(0, 0)
         self.slider.sliderMoved.connect(self.set_position)
+        self.slider.setStyleSheet("QSlider::handle:horizontal {background-color:#002B5B;}")
 
         # create volume slider
         self.volume_slider = QSlider(Qt.Horizontal)
         self.volume_slider.setRange(0, 100)
+        self.volume_slider.setFixedSize(150, 30)
         self.volume_slider.sliderMoved.connect(self.set_volume)
+        self.volume_slider.setStyleSheet("QSlider::handle:horizontal {background-color:#002B5B;}")
 
         # create label
         self.label = QLabel()
@@ -60,14 +89,28 @@ class ImageCaptureWidget(QWidget):
 
         # create volume label
         self.volume_lbl = QLabel("ভলিউম")
-        self.volume_lbl.setStyleSheet("color: white")
+        self.volume_lbl.setStyleSheet("color: black")
         self.volume_lbl.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
         self.volume_lbl.setMinimumSize(350, 0)
         self.volume_lbl.setSizePolicy(QSizePolicy.Preferred, QSizePolicy.Maximum)
 
         # create button for taking a snapshot
-        snapshotBtn = QPushButton('Take Snapshot')
+        snapshotBtn = QPushButton('স্ক্রিনশট নিন') 
+        snapshotBtn.setFixedSize(150, 50)
         snapshotBtn.clicked.connect(self.take_snapshot)
+        snapshotBtn.setIcon(QIcon('Frontend\Images\screenshot.png'))
+        snapshotBtn.setIconSize(QSize(30, 30))
+        snapshotBtn.setStyleSheet("QPushButton {\n"
+"border: 3px solid rgb(43, 72, 101);\n"
+"border-radius: 10px;\n"
+"background-color: rgb(43, 72, 101);\n"
+"color: rgb(137, 218, 199)\n"
+"}\n"
+"\n"
+"QPushButton::hover:!pressed {\n"
+"background-color: rgb(0, 43, 91);\n"
+"border: 3px solid rgb(0, 43, 91); \n"
+"}")
 
         # create hbox layout
         hboxLayout = QHBoxLayout()
@@ -94,13 +137,6 @@ class ImageCaptureWidget(QWidget):
 
         self.mediaPlayer.setVideoOutput(self.videowidget)
 
-        # filename = self.content_path
-
-        # if filename != '':
-        #     self.mediaPlayer.setMedia(QMediaContent(QUrl.fromLocalFile(filename)))
-
-        # media player signals
-
         self.mediaPlayer.stateChanged.connect(self.mediastate_changed)
         self.mediaPlayer.positionChanged.connect(self.position_changed)
         self.mediaPlayer.durationChanged.connect(self.duration_changed)
@@ -126,10 +162,7 @@ class ImageCaptureWidget(QWidget):
 
     def mediastate_changed(self, state):
         if self.mediaPlayer.state() == QMediaPlayer.PlayingState:
-            self.playBtn.setIcon(
-                self.style().standardIcon(QStyle.SP_MediaPause)
-
-            )
+            self.playBtn.setIcon(QIcon('Frontend\Images\pause_btn.png'))
 
         else:
             self.playBtn.setIcon(
@@ -170,10 +203,6 @@ class ImageCaptureWidget(QWidget):
         # Grab the contents of the video widget
         pixmap = QApplication.primaryScreen().grabWindow(0, grab_x, grab_y, grab_width, grab_height)
         
-    #     return pixmap 
-
-    # def save_snapshot(self, pixmap):
-        
         # Save the pixmap as an image file
         # Set the initial directory to the Desktop
         initial_directory = "Lessons\Sequence_Images"  # Replace with the path to your desktop
@@ -189,5 +218,5 @@ class ImageCaptureWidget(QWidget):
 
 
 # app = QApplication(sys.argv)
-# window = ImageCaptureWidget("sampleVideo.mp4")
+# window = ImageCaptureWidget()
 # sys.exit(app.exec_())

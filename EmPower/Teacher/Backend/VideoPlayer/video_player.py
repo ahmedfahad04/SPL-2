@@ -46,21 +46,34 @@ class Window(QWidget):
 
         #create button for playing
         self.playBtn = QPushButton()
-        self.playBtn.setIcon(self.style().standardIcon(QStyle.SP_MediaPlay))
+        self.playBtn.setIcon(QIcon('Frontend\Images\play_btn.png'))
+        self.playBtn.setFixedSize(150, 50)
         self.playBtn.clicked.connect(self.play_video)
+        self.playBtn.setStyleSheet("QPushButton {\n"
+"border: 3px solid rgb(43, 72, 101);\n"
+"border-radius: 10px;\n"
+"background-color: rgb(43, 72, 101);\n"
+"color: rgb(137, 218, 199)\n"
+"}\n"
+"\n"
+"QPushButton::hover:!pressed {\n"
+"background-color: rgb(0, 43, 91);\n"
+"border: 3px solid rgb(0, 43, 91); \n"
+"}")
 
 
         #create slider
         self.slider = QSlider(Qt.Horizontal)
         self.slider.setRange(0,0)
         self.slider.sliderMoved.connect(self.set_position)
-        
+        self.slider.setStyleSheet("QSlider::handle:horizontal {background-color:#002B5B;}")
         
         # create volume slider
         self.volume_slider = QSlider(Qt.Horizontal)
         self.volume_slider.setRange(0,100)
+        self.volume_slider.setFixedSize(150, 30)
         self.volume_slider.sliderMoved.connect(self.set_volume)
-
+        self.volume_slider.setStyleSheet("QSlider::handle:horizontal {background-color:#002B5B;}")
 
         #create label
         self.label = QLabel()
@@ -135,10 +148,7 @@ class Window(QWidget):
 
     def mediastate_changed(self, state):
         if self.mediaPlayer.state() == QMediaPlayer.PlayingState:
-            self.playBtn.setIcon(
-                self.style().standardIcon(QStyle.SP_MediaPause)
-
-            )
+            self.playBtn.setIcon(QIcon('Frontend\Images\pause_btn.png'))
 
         else:
             self.playBtn.setIcon(

@@ -227,8 +227,7 @@ class Home(QMainWindow):  # Home extends QMainWindow
             # create a temp folder 
             os.path.exists('Lessons/Puzzle_Images') or os.mkdir('Lessons/Puzzle_Images')
             os.path.exists('Lessons/Puzzle_Images/Temp') or os.mkdir('Lessons/Puzzle_Images/Temp')
-            
-            
+                        
         try: 
             
         # show file names in lbl
