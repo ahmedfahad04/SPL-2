@@ -1160,16 +1160,10 @@ class Ui_MainWindow(object):
         self.gridLayout_12 = QGridLayout(self.sequence_page)
         self.gridLayout_12.setObjectName(u"gridLayout_12")
         self.gridLayout_12.setContentsMargins(11, 11, 11, 11)
-        self.task_lbl_sequencing = QLabel(self.sequence_page)
-        self.task_lbl_sequencing.setObjectName(u"task_lbl_sequencing")
-        font19 = QFont()
-        font19.setPointSize(28)
-        self.task_lbl_sequencing.setFont(font19)
-        self.task_lbl_sequencing.setStyleSheet(u"color: rgb(160, 253, 230);\n"
-"border: 2px solid rgb(160, 253, 230)")
-        self.task_lbl_sequencing.setAlignment(Qt.AlignCenter)
+        self.task_seq_video_frame_widget = QHBoxLayout()
+        self.task_seq_video_frame_widget.setObjectName(u"task_seq_video_frame_widget")
 
-        self.gridLayout_12.addWidget(self.task_lbl_sequencing, 0, 0, 1, 1)
+        self.gridLayout_12.addLayout(self.task_seq_video_frame_widget, 0, 0, 1, 1)
 
         self.evalstackwidget.addWidget(self.sequence_page)
         self.matching_page = QWidget()
@@ -1284,11 +1278,11 @@ class Ui_MainWindow(object):
         self.label_4 = QLabel(self.mid_frame_4)
         self.label_4.setObjectName(u"label_4")
         self.label_4.setMinimumSize(QSize(365, 68))
-        font20 = QFont()
-        font20.setFamilies([u"Hind Siliguri Medium"])
-        font20.setPointSize(11)
-        font20.setBold(False)
-        self.label_4.setFont(font20)
+        font19 = QFont()
+        font19.setFamilies([u"Hind Siliguri Medium"])
+        font19.setPointSize(11)
+        font19.setBold(False)
+        self.label_4.setFont(font19)
         self.label_4.setStyleSheet(u"color: rgb(132, 211, 184);\n"
 "background-color: rgb(0, 43, 91);\n"
 "padding: 5px;")
@@ -1307,7 +1301,7 @@ class Ui_MainWindow(object):
 
         self.label_3 = QLabel(self.mid_frame_4)
         self.label_3.setObjectName(u"label_3")
-        self.label_3.setFont(font20)
+        self.label_3.setFont(font19)
         self.label_3.setStyleSheet(u"color: rgb(132, 211, 184);\n"
 "background-color: rgb(0, 43, 91);\n"
 "padding: 5px;")
@@ -1318,7 +1312,7 @@ class Ui_MainWindow(object):
 
         self.label_2 = QLabel(self.mid_frame_4)
         self.label_2.setObjectName(u"label_2")
-        self.label_2.setFont(font20)
+        self.label_2.setFont(font19)
         self.label_2.setStyleSheet(u"color: rgb(132, 211, 184);\n"
 "background-color: rgb(0, 43, 91);\n"
 "padding: 5px;")
@@ -1367,7 +1361,7 @@ class Ui_MainWindow(object):
 
         self.label = QLabel(self.mid_frame_4)
         self.label.setObjectName(u"label")
-        self.label.setFont(font20)
+        self.label.setFont(font19)
         self.label.setStyleSheet(u"color: rgb(132, 211, 184);\n"
 "background-color: rgb(0, 43, 91);\n"
 "padding: 5px;")
@@ -1378,9 +1372,9 @@ class Ui_MainWindow(object):
 
         self.label_7 = QLabel(self.mid_frame_4)
         self.label_7.setObjectName(u"label_7")
-        font21 = QFont()
-        font21.setPointSize(7)
-        self.label_7.setFont(font21)
+        font20 = QFont()
+        font20.setPointSize(7)
+        self.label_7.setFont(font20)
         self.label_7.setPixmap(QPixmap(u"../Images/downward_icon.png"))
 
         self.gridLayout_4.addWidget(self.label_7, 6, 2, 1, 1)
@@ -1415,11 +1409,11 @@ class Ui_MainWindow(object):
         self.lsn_lbl_lessons_5 = QLabel(self.mid_frame_4)
         self.lsn_lbl_lessons_5.setObjectName(u"lsn_lbl_lessons_5")
         self.lsn_lbl_lessons_5.setMinimumSize(QSize(371, 36))
-        font22 = QFont()
-        font22.setFamilies([u"Hind Siliguri Medium"])
-        font22.setPointSize(16)
-        font22.setBold(False)
-        self.lsn_lbl_lessons_5.setFont(font22)
+        font21 = QFont()
+        font21.setFamilies([u"Hind Siliguri Medium"])
+        font21.setPointSize(16)
+        font21.setBold(False)
+        self.lsn_lbl_lessons_5.setFont(font21)
         self.lsn_lbl_lessons_5.setStyleSheet(u"color: rgb(149, 236, 215);")
         self.lsn_lbl_lessons_5.setAlignment(Qt.AlignCenter)
 
@@ -1427,7 +1421,7 @@ class Ui_MainWindow(object):
 
         self.label_6 = QLabel(self.mid_frame_4)
         self.label_6.setObjectName(u"label_6")
-        self.label_6.setFont(font21)
+        self.label_6.setFont(font20)
         self.label_6.setPixmap(QPixmap(u"../Images/downward_icon.png"))
 
         self.gridLayout_4.addWidget(self.label_6, 4, 2, 1, 1)
@@ -1466,7 +1460,7 @@ class Ui_MainWindow(object):
 
         self.label_5 = QLabel(self.mid_frame_4)
         self.label_5.setObjectName(u"label_5")
-        self.label_5.setFont(font21)
+        self.label_5.setFont(font20)
         self.label_5.setPixmap(QPixmap(u"../Images/downward_icon.png"))
 
         self.gridLayout_4.addWidget(self.label_5, 2, 2, 1, 1)
@@ -1482,7 +1476,7 @@ class Ui_MainWindow(object):
         self.lsn_lbl_lessons_3 = QLabel(self.mid_frame_4)
         self.lsn_lbl_lessons_3.setObjectName(u"lsn_lbl_lessons_3")
         self.lsn_lbl_lessons_3.setMinimumSize(QSize(451, 36))
-        self.lsn_lbl_lessons_3.setFont(font22)
+        self.lsn_lbl_lessons_3.setFont(font21)
         self.lsn_lbl_lessons_3.setStyleSheet(u"color: rgb(149, 236, 215);")
         self.lsn_lbl_lessons_3.setAlignment(Qt.AlignCenter)
 
@@ -1491,7 +1485,7 @@ class Ui_MainWindow(object):
         self.lsn_lbl_lessons_4 = QLabel(self.mid_frame_4)
         self.lsn_lbl_lessons_4.setObjectName(u"lsn_lbl_lessons_4")
         self.lsn_lbl_lessons_4.setMinimumSize(QSize(361, 36))
-        self.lsn_lbl_lessons_4.setFont(font22)
+        self.lsn_lbl_lessons_4.setFont(font21)
         self.lsn_lbl_lessons_4.setStyleSheet(u"color: rgb(149, 236, 215);")
         self.lsn_lbl_lessons_4.setAlignment(Qt.AlignCenter)
 
@@ -1500,9 +1494,9 @@ class Ui_MainWindow(object):
         self.lsn_new_module_list_view = QListView(self.mid_frame_4)
         self.lsn_new_module_list_view.setObjectName(u"lsn_new_module_list_view")
         self.lsn_new_module_list_view.setMinimumSize(QSize(424, 509))
-        font23 = QFont()
-        font23.setPointSize(10)
-        self.lsn_new_module_list_view.setFont(font23)
+        font22 = QFont()
+        font22.setPointSize(10)
+        self.lsn_new_module_list_view.setFont(font22)
         self.lsn_new_module_list_view.setStyleSheet(u"color: rgb(143, 227, 190);\n"
 "border: 2px solid rgb(0, 43, 91);")
         self.lsn_new_module_list_view.setEditTriggers(QAbstractItemView.NoEditTriggers)
@@ -1629,7 +1623,7 @@ class Ui_MainWindow(object):
         self.lsn_lbl_lessons_6 = QLabel(self.mid_frame_5)
         self.lsn_lbl_lessons_6.setObjectName(u"lsn_lbl_lessons_6")
         self.lsn_lbl_lessons_6.setMinimumSize(QSize(451, 36))
-        self.lsn_lbl_lessons_6.setFont(font22)
+        self.lsn_lbl_lessons_6.setFont(font21)
         self.lsn_lbl_lessons_6.setStyleSheet(u"color: rgb(149, 236, 215);")
         self.lsn_lbl_lessons_6.setAlignment(Qt.AlignCenter)
 
@@ -1638,34 +1632,34 @@ class Ui_MainWindow(object):
         self.lsn_table_assigning_lessons = QTableWidget(self.mid_frame_5)
         if (self.lsn_table_assigning_lessons.columnCount() < 4):
             self.lsn_table_assigning_lessons.setColumnCount(4)
-        font24 = QFont()
-        font24.setPointSize(12)
-        font24.setBold(False)
+        font23 = QFont()
+        font23.setPointSize(12)
+        font23.setBold(False)
         __qtablewidgetitem8 = QTableWidgetItem()
         __qtablewidgetitem8.setTextAlignment(Qt.AlignCenter);
-        __qtablewidgetitem8.setFont(font24);
+        __qtablewidgetitem8.setFont(font23);
         self.lsn_table_assigning_lessons.setHorizontalHeaderItem(0, __qtablewidgetitem8)
-        font25 = QFont()
-        font25.setFamilies([u"Segoe UI"])
-        font25.setPointSize(12)
-        font25.setBold(False)
+        font24 = QFont()
+        font24.setFamilies([u"Segoe UI"])
+        font24.setPointSize(12)
+        font24.setBold(False)
         __qtablewidgetitem9 = QTableWidgetItem()
         __qtablewidgetitem9.setTextAlignment(Qt.AlignCenter);
-        __qtablewidgetitem9.setFont(font25);
+        __qtablewidgetitem9.setFont(font24);
         self.lsn_table_assigning_lessons.setHorizontalHeaderItem(1, __qtablewidgetitem9)
         __qtablewidgetitem10 = QTableWidgetItem()
         __qtablewidgetitem10.setTextAlignment(Qt.AlignCenter);
-        __qtablewidgetitem10.setFont(font25);
+        __qtablewidgetitem10.setFont(font24);
         self.lsn_table_assigning_lessons.setHorizontalHeaderItem(2, __qtablewidgetitem10)
-        font26 = QFont()
-        font26.setPointSize(12)
+        font25 = QFont()
+        font25.setPointSize(12)
         __qtablewidgetitem11 = QTableWidgetItem()
         __qtablewidgetitem11.setTextAlignment(Qt.AlignCenter);
-        __qtablewidgetitem11.setFont(font26);
+        __qtablewidgetitem11.setFont(font25);
         self.lsn_table_assigning_lessons.setHorizontalHeaderItem(3, __qtablewidgetitem11)
         self.lsn_table_assigning_lessons.setObjectName(u"lsn_table_assigning_lessons")
         self.lsn_table_assigning_lessons.setMinimumSize(QSize(830, 511))
-        self.lsn_table_assigning_lessons.setFont(font26)
+        self.lsn_table_assigning_lessons.setFont(font25)
         self.lsn_table_assigning_lessons.viewport().setProperty("cursor", QCursor(Qt.OpenHandCursor))
         self.lsn_table_assigning_lessons.setStyleSheet(u"QHeaderView::section {\n"
 "	background-color: #002B5B;\n"
@@ -1691,7 +1685,7 @@ class Ui_MainWindow(object):
         self.lsn_lbl_lessons_8 = QLabel(self.mid_frame_5)
         self.lsn_lbl_lessons_8.setObjectName(u"lsn_lbl_lessons_8")
         self.lsn_lbl_lessons_8.setMinimumSize(QSize(250, 36))
-        self.lsn_lbl_lessons_8.setFont(font22)
+        self.lsn_lbl_lessons_8.setFont(font21)
         self.lsn_lbl_lessons_8.setStyleSheet(u"color: rgb(149, 236, 215);")
         self.lsn_lbl_lessons_8.setAlignment(Qt.AlignCenter)
 
@@ -1731,9 +1725,9 @@ class Ui_MainWindow(object):
         self.lsn_list_students.setObjectName(u"lsn_list_students")
         self.lsn_list_students.setMinimumSize(QSize(401, 509))
         self.lsn_list_students.setMaximumSize(QSize(371, 16777215))
-        font27 = QFont()
-        font27.setPointSize(13)
-        self.lsn_list_students.setFont(font27)
+        font26 = QFont()
+        font26.setPointSize(13)
+        self.lsn_list_students.setFont(font26)
         self.lsn_list_students.setStyleSheet(u"color: rgb(143, 227, 190);\n"
 "border: 2px solid rgb(0, 43, 91);")
         self.lsn_list_students.setEditTriggers(QAbstractItemView.NoEditTriggers)
@@ -1760,10 +1754,10 @@ class Ui_MainWindow(object):
 
         self.stackedWidget.setCurrentIndex(3)
         self.std_btn_back_to_home.setDefault(False)
-        self.mediaStackWidget.setCurrentIndex(0)
+        self.mediaStackWidget.setCurrentIndex(1)
         self.lsn_btn_back_to_home.setDefault(False)
         self.task_btn_back_to_home.setDefault(False)
-        self.evalstackwidget.setCurrentIndex(0)
+        self.evalstackwidget.setCurrentIndex(1)
         self.lsn_btn_back_to_home_3.setDefault(False)
         self.lsn_btn_back_to_home_4.setDefault(False)
 
@@ -1819,12 +1813,11 @@ class Ui_MainWindow(object):
         self.task_btn_matching.setText(QCoreApplication.translate("MainWindow", u"\u09b6\u09ac\u09cd\u09a6 \u09ae\u09bf\u09b2\u09be\u0987", None))
         self.task_btn_sequence.setText(QCoreApplication.translate("MainWindow", u"\u0995\u09cd\u09b0\u09ae\u09a7\u09be\u09b0\u09be", None))
         self.task_btn_puzzle.setText(QCoreApplication.translate("MainWindow", u"\u09a7\u09be\u0981\u09a7\u09be", None))
-        self.task_puzzle_image_lbl.setText(QCoreApplication.translate("MainWindow", u"\u09a7\u09be\u0981\u09a7\u09be\u09b0 \u099c\u09a8\u09cd\u09af \u09aa\u09cd\u09b0\u09df\u09cb\u099c\u09a8\u09c0\u09df \u099b\u09ac\u09bf\u09b8\u09ae\u09c2\u09b9 \u098f\u0996\u09be\u09a8\u09c7 \u09a8\u09bf\u09b0\u09cd\u09ac\u09be\u099a\u09a8 \u0995\u09b0\u09c1\u09a8(\u098f\u0995\u09be\u09a7\u09bf\u0995 \u099b\u09ac\u09bf \u09a8\u09bf\u09b0\u09cd\u09ac\u09be\u099a\u09a8 \u0995\u09b0\u09be \u09af\u09be\u09ac\u09c7)", None))
+        self.task_puzzle_image_lbl.setText(QCoreApplication.translate("MainWindow", u"\u09a7\u09be\u0981\u09a7\u09be\u09b0 \u099c\u09a8\u09cd\u09af \u09aa\u09cd\u09b0\u09df\u09cb\u099c\u09a8\u09c0\u09df \u099b\u09ac\u09bf\u09b8\u09ae\u09c2\u09b9 \u098f\u0996\u09be\u09a8\u09c7 \u09a8\u09bf\u09b0\u09cd\u09ac\u09be\u099a\u09a8 \u0995\u09b0\u09c1\u09a8 (\u098f\u0995\u09be\u09a7\u09bf\u0995 \u099b\u09ac\u09bf \u09a8\u09bf\u09b0\u09cd\u09ac\u09be\u099a\u09a8 \u0995\u09b0\u09be \u09af\u09be\u09ac\u09c7)", None))
         self.task_puzzle_q_set_lbl.setPlaceholderText(QCoreApplication.translate("MainWindow", u"\u09b8\u09c7\u099f \u09a8\u09ae\u09cd\u09ac\u09b0 \u09a6\u09bf\u09a8 (\u09af\u09c7\u09ae\u09a8 set1)", None))
         self.task_puzzle_show_set_btn.setText(QCoreApplication.translate("MainWindow", u"\u09a4\u09c8\u09b0\u09bf\u0995\u09c3\u09a4 \u09a7\u09be\u0981\u09a7\u09be\u09b0 \u09b8\u09c7\u099f\u0997\u09c1\u09b2\u09cb \u09a6\u09c7\u0996\u09c1\u09a8", None))
         self.task_puzzle_save_set_btn.setText(QCoreApplication.translate("MainWindow", u"\u09b8\u0982\u09b0\u0995\u09cd\u09b7\u09a8 \u0995\u09b0\u09c1\u09a8", None))
         self.task_puzzle_select_img_btn.setText(QCoreApplication.translate("MainWindow", u"\u099b\u09ac\u09bf \u09a8\u09bf\u09b0\u09cd\u09ac\u09be\u099a\u09a8 \u0995\u09b0\u09c1\u09a8", None))
-        self.task_lbl_sequencing.setText(QCoreApplication.translate("MainWindow", u"\u0995\u09cd\u09b0\u09ae\u09a7\u09be\u09b0\u09be", None))
         self.lsn_btn_back_to_home_3.setText("")
         self.lsn_lbl_headline_4.setText(QCoreApplication.translate("MainWindow", u"\u09aa\u09be\u09a0\u09b8\u09c2\u099a\u09bf", None))
         self.label_4.setText(QCoreApplication.translate("MainWindow", u"\u09b8\u0995\u09b2 \u09aa\u09be\u09a0\u09b8\u09ae\u09c2\u09b9 \u09a6\u09c7\u0996\u09be\u09b0 \u099c\u09a8\u09cd\u09af \u09a8\u09bf\u099a\u09c7\u09b0 \u0986\u0987\u0995\u09a8\u09c7 \u0995\u09cd\u09b2\u09bf\u0995 \u0995\u09b0\u09c1\u09a8", None))

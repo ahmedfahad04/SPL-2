@@ -1397,7 +1397,7 @@ padding-left: 10px;</string>
                     </size>
                    </property>
                    <property name="currentIndex">
-                    <number>0</number>
+                    <number>1</number>
                    </property>
                    <widget class="QWidget" name="image_page">
                     <layout class="QHBoxLayout" name="horizontalLayout_9">
@@ -2321,7 +2321,7 @@ QPushButton::hover:!pressed {
                  <item row="0" column="0">
                   <widget class="QStackedWidget" name="evalstackwidget">
                    <property name="currentIndex">
-                    <number>0</number>
+                    <number>1</number>
                    </property>
                    <widget class="QWidget" name="puzzle_page">
                     <layout class="QGridLayout" name="gridLayout_7">
@@ -2354,7 +2354,7 @@ QPushButton::hover:!pressed {
                            <string notr="true">color: rgb(0, 43, 91);</string>
                           </property>
                           <property name="text">
-                           <string>ধাঁধার জন্য প্রয়োজনীয় ছবিসমূহ এখানে নির্বাচন করুন(একাধিক ছবি নির্বাচন করা যাবে)</string>
+                           <string>ধাঁধার জন্য প্রয়োজনীয় ছবিসমূহ এখানে নির্বাচন করুন (একাধিক ছবি নির্বাচন করা যাবে)</string>
                           </property>
                           <property name="alignment">
                            <set>Qt::AlignCenter</set>
@@ -2547,23 +2547,7 @@ QPushButton::hover:!pressed {
                       <number>11</number>
                      </property>
                      <item row="0" column="0">
-                      <widget class="QLabel" name="task_lbl_sequencing">
-                       <property name="font">
-                        <font>
-                         <pointsize>28</pointsize>
-                        </font>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">color: rgb(160, 253, 230);
-border: 2px solid rgb(160, 253, 230)</string>
-                       </property>
-                       <property name="text">
-                        <string>ক্রমধারা</string>
-                       </property>
-                       <property name="alignment">
-                        <set>Qt::AlignCenter</set>
-                       </property>
-                      </widget>
+                      <layout class="QHBoxLayout" name="task_seq_video_frame_widget"/>
                      </item>
                     </layout>
                    </widget>

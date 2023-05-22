@@ -355,8 +355,7 @@ class Lesson_Window(QMainWindow):  # Home extends QMainWindow
                         self.lesson_window.video_page)
 
                     video_player = Window(media_loc)
-                    self.lesson_window.video_player_widget.addWidget(
-                        video_player)
+                    self.lesson_window.video_player_widget.addWidget(video_player)
 
                 else:
                     self.lesson_window.mediaStackWidget.setCurrentWidget(
