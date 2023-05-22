@@ -26,7 +26,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1280, 840)
+        MainWindow.resize(1280, 720)
         MainWindow.setMinimumSize(QSize(1280, 720))
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
@@ -908,8 +908,8 @@ class Ui_MainWindow(object):
         self.horizontalLayout_16.setContentsMargins(0, 0, 0, 0)
         self.eval_left_frame = QFrame(self.body)
         self.eval_left_frame.setObjectName(u"eval_left_frame")
-        self.eval_left_frame.setMinimumSize(QSize(385, 636))
-        self.eval_left_frame.setMaximumSize(QSize(385, 636))
+        self.eval_left_frame.setMinimumSize(QSize(300, 636))
+        self.eval_left_frame.setMaximumSize(QSize(300, 636))
         self.eval_left_frame.setStyleSheet(u"")
         self.eval_left_frame.setFrameShape(QFrame.StyledPanel)
         self.eval_left_frame.setFrameShadow(QFrame.Raised)
@@ -1191,7 +1191,7 @@ class Ui_MainWindow(object):
         self.gridLayout_17.setObjectName(u"gridLayout_17")
         self.task_seq_img_seq_edit = QLineEdit(self.frame_4)
         self.task_seq_img_seq_edit.setObjectName(u"task_seq_img_seq_edit")
-        self.task_seq_img_seq_edit.setMinimumSize(QSize(381, 51))
+        self.task_seq_img_seq_edit.setMinimumSize(QSize(300, 51))
         font20 = QFont()
         font20.setFamilies([u"Segoe UI Semibold"])
         font20.setPointSize(10)
@@ -1202,11 +1202,11 @@ class Ui_MainWindow(object):
 "border-radius: 10px;\n"
 "color: black;")
 
-        self.gridLayout_17.addWidget(self.task_seq_img_seq_edit, 3, 0, 1, 3)
+        self.gridLayout_17.addWidget(self.task_seq_img_seq_edit, 4, 0, 1, 3)
 
         self.task_seq_img_desc_edit = QLineEdit(self.frame_4)
         self.task_seq_img_desc_edit.setObjectName(u"task_seq_img_desc_edit")
-        self.task_seq_img_desc_edit.setMinimumSize(QSize(381, 51))
+        self.task_seq_img_desc_edit.setMinimumSize(QSize(300, 51))
         font21 = QFont()
         font21.setFamilies([u"Hind Siliguri Medium"])
         font21.setPointSize(10)
@@ -1217,11 +1217,11 @@ class Ui_MainWindow(object):
 "border-radius: 10px;\n"
 "color: black;")
 
-        self.gridLayout_17.addWidget(self.task_seq_img_desc_edit, 2, 0, 1, 3)
+        self.gridLayout_17.addWidget(self.task_seq_img_desc_edit, 3, 0, 1, 3)
 
         self.task_seq_img_view_lbl = QLabel(self.frame_4)
         self.task_seq_img_view_lbl.setObjectName(u"task_seq_img_view_lbl")
-        self.task_seq_img_view_lbl.setMinimumSize(QSize(402, 229))
+        self.task_seq_img_view_lbl.setMinimumSize(QSize(300, 180))
         font22 = QFont()
         font22.setPointSize(22)
         self.task_seq_img_view_lbl.setFont(font22)
@@ -1251,7 +1251,7 @@ class Ui_MainWindow(object):
 "\n"
 "}")
 
-        self.gridLayout_17.addWidget(self.task_seq_img_save_btn, 5, 1, 1, 1)
+        self.gridLayout_17.addWidget(self.task_seq_img_save_btn, 6, 1, 1, 1)
 
         self.task_seq_instruction_lbl = QLabel(self.frame_4)
         self.task_seq_instruction_lbl.setObjectName(u"task_seq_instruction_lbl")
@@ -1272,15 +1272,15 @@ class Ui_MainWindow(object):
 
         self.horizontalSpacer_22 = QSpacerItem(250, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
 
-        self.gridLayout_17.addItem(self.horizontalSpacer_22, 5, 0, 1, 1)
+        self.gridLayout_17.addItem(self.horizontalSpacer_22, 6, 0, 1, 1)
 
         self.horizontalSpacer_23 = QSpacerItem(250, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.gridLayout_17.addItem(self.horizontalSpacer_23, 5, 2, 1, 1)
+        self.gridLayout_17.addItem(self.horizontalSpacer_23, 6, 2, 1, 1)
 
         self.task_seq_set_lbl = QLineEdit(self.frame_4)
         self.task_seq_set_lbl.setObjectName(u"task_seq_set_lbl")
-        self.task_seq_set_lbl.setMinimumSize(QSize(326, 51))
+        self.task_seq_set_lbl.setMinimumSize(QSize(300, 51))
         self.task_seq_set_lbl.setFont(font16)
         self.task_seq_set_lbl.setStyleSheet(u"background-color: rgb(137, 218, 199);\n"
 "border: 4px solid rgb(0, 43, 91);\n"
@@ -1288,7 +1288,11 @@ class Ui_MainWindow(object):
 "border-radius: 10px;\n"
 "color: black;")
 
-        self.gridLayout_17.addWidget(self.task_seq_set_lbl, 4, 0, 1, 3)
+        self.gridLayout_17.addWidget(self.task_seq_set_lbl, 5, 0, 1, 3)
+
+        self.verticalSpacer_6 = QSpacerItem(10, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.gridLayout_17.addItem(self.verticalSpacer_6, 2, 0, 1, 1)
 
 
         self.gridLayout_12.addWidget(self.frame_4, 1, 2, 1, 1)
