@@ -1189,14 +1189,6 @@ class Ui_MainWindow(object):
         self.frame_4.setFrameShadow(QFrame.Raised)
         self.gridLayout_17 = QGridLayout(self.frame_4)
         self.gridLayout_17.setObjectName(u"gridLayout_17")
-        self.verticalSpacer_7 = QSpacerItem(20, 33, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.gridLayout_17.addItem(self.verticalSpacer_7, 6, 1, 1, 1)
-
-        self.verticalSpacer_6 = QSpacerItem(20, 33, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.gridLayout_17.addItem(self.verticalSpacer_6, 4, 1, 1, 1)
-
         self.task_seq_img_desc_edit = QLineEdit(self.frame_4)
         self.task_seq_img_desc_edit.setObjectName(u"task_seq_img_desc_edit")
         self.task_seq_img_desc_edit.setMinimumSize(QSize(381, 51))
@@ -1210,11 +1202,11 @@ class Ui_MainWindow(object):
 "border-radius: 10px;\n"
 "color: rgb(160, 253, 230);")
 
-        self.gridLayout_17.addWidget(self.task_seq_img_desc_edit, 3, 0, 1, 3)
+        self.gridLayout_17.addWidget(self.task_seq_img_desc_edit, 2, 0, 1, 3)
 
         self.task_seq_img_view_lbl = QLabel(self.frame_4)
         self.task_seq_img_view_lbl.setObjectName(u"task_seq_img_view_lbl")
-        self.task_seq_img_view_lbl.setMinimumSize(QSize(391, 150))
+        self.task_seq_img_view_lbl.setMinimumSize(QSize(402, 229))
         font21 = QFont()
         font21.setPointSize(22)
         self.task_seq_img_view_lbl.setFont(font21)
@@ -1237,7 +1229,7 @@ class Ui_MainWindow(object):
 "border-radius: 10px;\n"
 "color: rgb(160, 253, 230);")
 
-        self.gridLayout_17.addWidget(self.task_seq_img_seq_edit, 5, 0, 1, 3)
+        self.gridLayout_17.addWidget(self.task_seq_img_seq_edit, 3, 0, 1, 3)
 
         self.task_seq_instruction_lbl = QLabel(self.frame_4)
         self.task_seq_instruction_lbl.setObjectName(u"task_seq_instruction_lbl")
@@ -1258,15 +1250,7 @@ class Ui_MainWindow(object):
 
         self.horizontalSpacer_22 = QSpacerItem(250, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
 
-        self.gridLayout_17.addItem(self.horizontalSpacer_22, 7, 0, 1, 1)
-
-        self.verticalSpacer_8 = QSpacerItem(20, 33, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.gridLayout_17.addItem(self.verticalSpacer_8, 2, 1, 1, 1)
-
-        self.horizontalSpacer_23 = QSpacerItem(250, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.gridLayout_17.addItem(self.horizontalSpacer_23, 7, 2, 1, 1)
+        self.gridLayout_17.addItem(self.horizontalSpacer_22, 5, 0, 1, 1)
 
         self.task_seq_img_save_btn = QPushButton(self.frame_4)
         self.task_seq_img_save_btn.setObjectName(u"task_seq_img_save_btn")
@@ -1288,7 +1272,15 @@ class Ui_MainWindow(object):
 "\n"
 "}")
 
-        self.gridLayout_17.addWidget(self.task_seq_img_save_btn, 7, 1, 1, 1)
+        self.gridLayout_17.addWidget(self.task_seq_img_save_btn, 5, 1, 1, 1)
+
+        self.horizontalSpacer_23 = QSpacerItem(250, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_17.addItem(self.horizontalSpacer_23, 5, 2, 1, 1)
+
+        self.verticalSpacer_7 = QSpacerItem(20, 33, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.gridLayout_17.addItem(self.verticalSpacer_7, 4, 1, 1, 1)
 
 
         self.gridLayout_12.addWidget(self.frame_4, 2, 2, 1, 1)

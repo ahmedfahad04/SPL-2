@@ -38,7 +38,7 @@ class Home(QMainWindow):  # Home extends QMainWindow
         self.home.stackedWidget.setCurrentWidget(self.home.home_page) 
 
         # Start a timer to load the lesson widget after 2 seconds
-        QTimer.singleShot(2000, self.lesson_page)
+        QTimer.singleShot(1000, self.lesson_page)
 
     def lesson_page(self):
         

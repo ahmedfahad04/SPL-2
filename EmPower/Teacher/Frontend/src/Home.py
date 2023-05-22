@@ -201,7 +201,6 @@ class Home(QMainWindow):  # Home extends QMainWindow
     def sequence_page(self):
         
         self.home.evalstackwidget.setCurrentWidget(self.home.sequence_page) 
-        self.home.task_btn_sequence.setDefault(True)
         
         if self.home.task_seq_video_frame_widget.count() != 0:
             self.home.task_seq_video_frame_widget.itemAt(

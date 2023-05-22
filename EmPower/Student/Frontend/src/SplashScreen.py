@@ -10,12 +10,12 @@ class SplashScreen(QSplashScreen):
         super(QSplashScreen, self).__init__()
         loadUi("Frontend/PyQT_UI/splash.ui", self)
         self.setWindowFlag(Qt.FramelessWindowHint)
-        self.setWindowOpacity(0.8)
         # Center the splash screen window on the screen using style commands
         self.setStyleSheet('''
            QSplashScreen {
                background-color: rgba(255,228,196, 0.8);
                background-position: center;
+               border-radius: 15px;
            }
        ''')
 
