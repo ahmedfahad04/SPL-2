@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1280</width>
-    <height>720</height>
+    <height>840</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -2025,7 +2025,7 @@ QPushButton:hover:!pressed
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">border-right: 2px solid rgb(43, 72, 101);</string>
+                 <string notr="true"/>
                 </property>
                 <property name="frameShape">
                  <enum>QFrame::StyledPanel</enum>
@@ -2184,6 +2184,32 @@ QPushButton::hover:!pressed {
                    </property>
                   </spacer>
                  </item>
+                 <item row="2" column="0">
+                  <spacer name="horizontalSpacer_11">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>40</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item row="4" column="1">
+                  <spacer name="verticalSpacer_4">
+                   <property name="orientation">
+                    <enum>Qt::Vertical</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>20</width>
+                     <height>163</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
                  <item row="3" column="1">
                   <widget class="QPushButton" name="task_btn_puzzle">
                    <property name="minimumSize">
@@ -2233,32 +2259,6 @@ QPushButton::hover:!pressed {
                    </property>
                   </widget>
                  </item>
-                 <item row="3" column="2">
-                  <spacer name="horizontalSpacer_15">
-                   <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
-                   </property>
-                   <property name="sizeHint" stdset="0">
-                    <size>
-                     <width>40</width>
-                     <height>20</height>
-                    </size>
-                   </property>
-                  </spacer>
-                 </item>
-                 <item row="2" column="0">
-                  <spacer name="horizontalSpacer_11">
-                   <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
-                   </property>
-                   <property name="sizeHint" stdset="0">
-                    <size>
-                     <width>40</width>
-                     <height>20</height>
-                    </size>
-                   </property>
-                  </spacer>
-                 </item>
                  <item row="3" column="0">
                   <spacer name="horizontalSpacer_12">
                    <property name="orientation">
@@ -2272,15 +2272,15 @@ QPushButton::hover:!pressed {
                    </property>
                   </spacer>
                  </item>
-                 <item row="4" column="1">
-                  <spacer name="verticalSpacer_4">
+                 <item row="3" column="2">
+                  <spacer name="horizontalSpacer_15">
                    <property name="orientation">
-                    <enum>Qt::Vertical</enum>
+                    <enum>Qt::Horizontal</enum>
                    </property>
                    <property name="sizeHint" stdset="0">
                     <size>
-                     <width>20</width>
-                     <height>163</height>
+                     <width>40</width>
+                     <height>20</height>
                     </size>
                    </property>
                   </spacer>
@@ -2318,10 +2318,13 @@ QPushButton::hover:!pressed {
                  <property name="bottomMargin">
                   <number>0</number>
                  </property>
-                 <item row="0" column="0">
+                 <item row="1" column="0">
                   <widget class="QStackedWidget" name="evalstackwidget">
+                   <property name="styleSheet">
+                    <string notr="true"/>
+                   </property>
                    <property name="currentIndex">
-                    <number>0</number>
+                    <number>1</number>
                    </property>
                    <widget class="QWidget" name="puzzle_page">
                     <layout class="QGridLayout" name="gridLayout_7">
@@ -2337,34 +2340,38 @@ QPushButton::hover:!pressed {
                         <enum>QFrame::Raised</enum>
                        </property>
                        <layout class="QGridLayout" name="gridLayout_16">
-                        <item row="0" column="0" colspan="5">
-                         <widget class="QLabel" name="task_puzzle_image_lbl">
+                        <item row="0" column="0" colspan="2">
+                         <widget class="QLabel" name="label_9">
                           <property name="minimumSize">
                            <size>
-                            <width>481</width>
-                            <height>384</height>
+                            <width>0</width>
+                            <height>50</height>
+                           </size>
+                          </property>
+                          <property name="maximumSize">
+                           <size>
+                            <width>16777215</width>
+                            <height>50</height>
                            </size>
                           </property>
                           <property name="font">
                            <font>
-                            <pointsize>15</pointsize>
+                            <pointsize>21</pointsize>
                            </font>
                           </property>
                           <property name="styleSheet">
-                           <string notr="true">color: rgb(0, 43, 91);</string>
+                           <string notr="true">color: rgb(159, 251, 228);
+background-color: rgb(0, 43, 91);</string>
                           </property>
                           <property name="text">
-                           <string>ধাঁধার জন্য প্রয়োজনীয় ছবিসমূহ এখানে নির্বাচন করুন (একাধিক ছবি নির্বাচন করা যাবে)</string>
+                           <string>ধাঁধা</string>
                           </property>
                           <property name="alignment">
                            <set>Qt::AlignCenter</set>
                           </property>
-                          <property name="wordWrap">
-                           <bool>true</bool>
-                          </property>
                          </widget>
                         </item>
-                        <item row="2" column="0" colspan="3">
+                        <item row="1" column="0">
                          <widget class="QLineEdit" name="task_puzzle_q_set_lbl">
                           <property name="minimumSize">
                            <size>
@@ -2392,7 +2399,7 @@ color: black;</string>
                           </property>
                          </widget>
                         </item>
-                        <item row="2" column="3" colspan="2">
+                        <item row="1" column="1">
                          <widget class="QPushButton" name="task_puzzle_save_set_btn">
                           <property name="minimumSize">
                            <size>
@@ -2407,6 +2414,9 @@ color: black;</string>
                             <weight>50</weight>
                             <bold>false</bold>
                            </font>
+                          </property>
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
                           </property>
                           <property name="styleSheet">
                            <string notr="true">QPushButton {
@@ -2427,7 +2437,35 @@ QPushButton::hover:!pressed {
                           </property>
                          </widget>
                         </item>
-                        <item row="1" column="0">
+                        <item row="2" column="0" colspan="2">
+                         <widget class="QLabel" name="task_puzzle_image_lbl">
+                          <property name="minimumSize">
+                           <size>
+                            <width>481</width>
+                            <height>384</height>
+                           </size>
+                          </property>
+                          <property name="font">
+                           <font>
+                            <pointsize>14</pointsize>
+                           </font>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true">color: rgb(0, 43, 91);
+border: 2px solid rgb(43, 72, 101);</string>
+                          </property>
+                          <property name="text">
+                           <string>ধাঁধার জন্য প্রয়োজনীয় ছবিসমূহ নির্বাচন করুন (একাধিক ছবি নির্বাচন করতে পারবেন)</string>
+                          </property>
+                          <property name="alignment">
+                           <set>Qt::AlignCenter</set>
+                          </property>
+                          <property name="wordWrap">
+                           <bool>true</bool>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="3" column="0">
                          <widget class="QPushButton" name="task_puzzle_select_img_btn">
                           <property name="minimumSize">
                            <size>
@@ -2442,6 +2480,9 @@ QPushButton::hover:!pressed {
                             <weight>50</weight>
                             <bold>false</bold>
                            </font>
+                          </property>
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
                           </property>
                           <property name="styleSheet">
                            <string notr="true">QPushButton {
@@ -2462,7 +2503,7 @@ QPushButton::hover:!pressed {
                           </property>
                          </widget>
                         </item>
-                        <item row="1" column="1" colspan="2">
+                        <item row="3" column="1">
                          <widget class="QPushButton" name="task_puzzle_show_set_btn">
                           <property name="minimumSize">
                            <size>
@@ -2473,11 +2514,16 @@ QPushButton::hover:!pressed {
                           <property name="font">
                            <font>
                             <family>Hind Siliguri Medium</family>
-                            <pointsize>13</pointsize>
+                            <pointsize>11</pointsize>
                            </font>
+                          </property>
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
                           </property>
                           <property name="styleSheet">
                            <string notr="true">QPushButton {
+padding-left: 15px;
+padding-right: 15px;
 background-color: rgb(160, 253, 230);
 color:  #256D85 ;
 border-radius: 15px;
@@ -2485,6 +2531,8 @@ border-radius: 15px;
 
 QPushButton::hover:!pressed {
 	
+	padding-left: 15px;
+	padding-right: 15px;
 	background-color: rgb(143, 227, 207);
 	color: #2B4865;
 
@@ -2517,8 +2565,352 @@ QPushButton::hover:!pressed {
                      <property name="bottomMargin">
                       <number>11</number>
                      </property>
-                     <item row="0" column="0">
+                     <item row="2" column="0">
                       <layout class="QHBoxLayout" name="task_seq_video_frame_widget"/>
+                     </item>
+                     <item row="2" column="2">
+                      <widget class="QFrame" name="frame_4">
+                       <property name="minimumSize">
+                        <size>
+                         <width>390</width>
+                         <height>500</height>
+                        </size>
+                       </property>
+                       <property name="maximumSize">
+                        <size>
+                         <width>430</width>
+                         <height>612</height>
+                        </size>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">border: 3px solid rgb(160, 253, 230);</string>
+                       </property>
+                       <property name="frameShape">
+                        <enum>QFrame::StyledPanel</enum>
+                       </property>
+                       <property name="frameShadow">
+                        <enum>QFrame::Raised</enum>
+                       </property>
+                       <layout class="QGridLayout" name="gridLayout_17">
+                        <item row="6" column="1">
+                         <spacer name="verticalSpacer_7">
+                          <property name="orientation">
+                           <enum>Qt::Vertical</enum>
+                          </property>
+                          <property name="sizeHint" stdset="0">
+                           <size>
+                            <width>20</width>
+                            <height>33</height>
+                           </size>
+                          </property>
+                         </spacer>
+                        </item>
+                        <item row="4" column="1">
+                         <spacer name="verticalSpacer_6">
+                          <property name="orientation">
+                           <enum>Qt::Vertical</enum>
+                          </property>
+                          <property name="sizeHint" stdset="0">
+                           <size>
+                            <width>20</width>
+                            <height>33</height>
+                           </size>
+                          </property>
+                         </spacer>
+                        </item>
+                        <item row="3" column="0" colspan="3">
+                         <widget class="QLineEdit" name="task_seq_img_desc_edit">
+                          <property name="minimumSize">
+                           <size>
+                            <width>381</width>
+                            <height>51</height>
+                           </size>
+                          </property>
+                          <property name="font">
+                           <font>
+                            <family>Hind Siliguri Medium</family>
+                            <pointsize>10</pointsize>
+                           </font>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true">background-color:  rgb(43, 72, 101);
+border: 3px solid rgb(0, 43, 91);
+padding-left: 15px;
+border-radius: 10px;
+color: rgb(160, 253, 230);</string>
+                          </property>
+                          <property name="placeholderText">
+                           <string>ছবির সংক্ষিপ্ত বিবরণ (৩-৫ শব্দে)</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="1" column="0" colspan="3">
+                         <widget class="QLabel" name="task_seq_img_view_lbl">
+                          <property name="minimumSize">
+                           <size>
+                            <width>391</width>
+                            <height>150</height>
+                           </size>
+                          </property>
+                          <property name="font">
+                           <font>
+                            <pointsize>22</pointsize>
+                           </font>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true">border: 2px dotted rgb(0, 43, 91);</string>
+                          </property>
+                          <property name="text">
+                           <string/>
+                          </property>
+                          <property name="pixmap">
+                           <pixmap>../Images/image_template.png</pixmap>
+                          </property>
+                          <property name="alignment">
+                           <set>Qt::AlignCenter</set>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="5" column="0" colspan="3">
+                         <widget class="QLineEdit" name="task_seq_img_seq_edit">
+                          <property name="minimumSize">
+                           <size>
+                            <width>381</width>
+                            <height>51</height>
+                           </size>
+                          </property>
+                          <property name="font">
+                           <font>
+                            <family>Segoe UI Semibold</family>
+                            <pointsize>10</pointsize>
+                           </font>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true">background-color:  rgb(43, 72, 101);
+border: 3px solid rgb(0, 43, 91);
+padding-left: 15px;
+border-radius: 10px;
+color: rgb(160, 253, 230);</string>
+                          </property>
+                          <property name="text">
+                           <string/>
+                          </property>
+                          <property name="placeholderText">
+                           <string>ক্রমিক নম্বর (যেমনঃ ১/২)</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="0" column="0" colspan="3">
+                         <widget class="QLabel" name="task_seq_instruction_lbl">
+                          <property name="minimumSize">
+                           <size>
+                            <width>365</width>
+                            <height>50</height>
+                           </size>
+                          </property>
+                          <property name="font">
+                           <font>
+                            <family>Hind Siliguri Medium</family>
+                            <pointsize>11</pointsize>
+                            <weight>50</weight>
+                            <bold>false</bold>
+                           </font>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true">color: rgb(132, 211, 184);
+background-color: rgb(0, 43, 91);
+padding: 5px;
+border: none;</string>
+                          </property>
+                          <property name="text">
+                           <string>প্রতি সেটের জন্য আমরা সর্বোচ্চ ৪টি ছবি নির্বাচন করব। ছবির নিচে সংক্ষিপ্ত বিবরণ এবন ক্রমিক নং উল্লেখ করব</string>
+                          </property>
+                          <property name="alignment">
+                           <set>Qt::AlignCenter</set>
+                          </property>
+                          <property name="wordWrap">
+                           <bool>true</bool>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="7" column="0">
+                         <spacer name="horizontalSpacer_22">
+                          <property name="orientation">
+                           <enum>Qt::Horizontal</enum>
+                          </property>
+                          <property name="sizeType">
+                           <enum>QSizePolicy::Fixed</enum>
+                          </property>
+                          <property name="sizeHint" stdset="0">
+                           <size>
+                            <width>250</width>
+                            <height>20</height>
+                           </size>
+                          </property>
+                         </spacer>
+                        </item>
+                        <item row="2" column="1">
+                         <spacer name="verticalSpacer_8">
+                          <property name="orientation">
+                           <enum>Qt::Vertical</enum>
+                          </property>
+                          <property name="sizeHint" stdset="0">
+                           <size>
+                            <width>20</width>
+                            <height>33</height>
+                           </size>
+                          </property>
+                         </spacer>
+                        </item>
+                        <item row="7" column="2">
+                         <spacer name="horizontalSpacer_23">
+                          <property name="orientation">
+                           <enum>Qt::Horizontal</enum>
+                          </property>
+                          <property name="sizeType">
+                           <enum>QSizePolicy::Expanding</enum>
+                          </property>
+                          <property name="sizeHint" stdset="0">
+                           <size>
+                            <width>250</width>
+                            <height>20</height>
+                           </size>
+                          </property>
+                         </spacer>
+                        </item>
+                        <item row="7" column="1">
+                         <widget class="QPushButton" name="task_seq_img_save_btn">
+                          <property name="minimumSize">
+                           <size>
+                            <width>156</width>
+                            <height>52</height>
+                           </size>
+                          </property>
+                          <property name="font">
+                           <font>
+                            <pointsize>11</pointsize>
+                            <weight>50</weight>
+                            <bold>false</bold>
+                           </font>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true">QPushButton {
+background-color: rgb(160, 253, 230);
+color:  #256D85 ;
+border-radius: 15px;
+}
+
+QPushButton::hover:!pressed {
+	
+	background-color: rgb(143, 227, 207);
+	color: #2B4865;
+
+}</string>
+                          </property>
+                          <property name="text">
+                           <string>সংরক্ষন করুন</string>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                     <item row="1" column="2">
+                      <widget class="QPushButton" name="task_seq_save_set_btn">
+                       <property name="minimumSize">
+                        <size>
+                         <width>100</width>
+                         <height>51</height>
+                        </size>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <family>Hind Siliguri Medium</family>
+                         <pointsize>10</pointsize>
+                         <weight>50</weight>
+                         <bold>false</bold>
+                        </font>
+                       </property>
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">QPushButton {
+background-color: rgb(160, 253, 230);
+color:  #256D85 ;
+border-radius: 15px;
+}
+
+QPushButton::hover:!pressed {
+	
+	background-color: rgb(143, 227, 207);
+	color: #2B4865;
+
+}</string>
+                       </property>
+                       <property name="text">
+                        <string>সংরক্ষন করুন</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="1" column="0">
+                      <widget class="QLineEdit" name="task_seq_set_lbl">
+                       <property name="minimumSize">
+                        <size>
+                         <width>326</width>
+                         <height>51</height>
+                        </size>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <family>Hind Siliguri</family>
+                         <pointsize>9</pointsize>
+                         <weight>50</weight>
+                         <bold>false</bold>
+                        </font>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-color: rgb(137, 218, 199);
+border: 4px solid rgb(0, 43, 91);
+padding-left: 15px;
+border-radius: 10px;
+color: black;</string>
+                       </property>
+                       <property name="placeholderText">
+                        <string>সেট নম্বর দিন (যেমন set1)</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="0" colspan="3">
+                      <widget class="QLabel" name="label_8">
+                       <property name="minimumSize">
+                        <size>
+                         <width>867</width>
+                         <height>50</height>
+                        </size>
+                       </property>
+                       <property name="maximumSize">
+                        <size>
+                         <width>16777215</width>
+                         <height>50</height>
+                        </size>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <pointsize>21</pointsize>
+                        </font>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">color: rgb(159, 251, 228);
+background-color: rgb(0, 43, 91);</string>
+                       </property>
+                       <property name="text">
+                        <string>ক্রমধারা </string>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignCenter</set>
+                       </property>
+                      </widget>
                      </item>
                     </layout>
                    </widget>
@@ -2527,7 +2919,7 @@ QPushButton::hover:!pressed {
                      <item row="0" column="0">
                       <widget class="QFrame" name="puzzle_pic_frame">
                        <property name="styleSheet">
-                        <string notr="true">border: 2px solid rgb(160, 253, 230);</string>
+                        <string notr="true"/>
                        </property>
                        <property name="frameShape">
                         <enum>QFrame::StyledPanel</enum>
@@ -2535,6 +2927,777 @@ QPushButton::hover:!pressed {
                        <property name="frameShadow">
                         <enum>QFrame::Raised</enum>
                        </property>
+                       <layout class="QGridLayout" name="gridLayout_22">
+                        <item row="0" column="0" colspan="2">
+                         <widget class="QLabel" name="label_10">
+                          <property name="minimumSize">
+                           <size>
+                            <width>0</width>
+                            <height>50</height>
+                           </size>
+                          </property>
+                          <property name="maximumSize">
+                           <size>
+                            <width>16777215</width>
+                            <height>50</height>
+                           </size>
+                          </property>
+                          <property name="font">
+                           <font>
+                            <pointsize>21</pointsize>
+                           </font>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true">color: rgb(159, 251, 228);
+background-color: rgb(0, 43, 91);</string>
+                          </property>
+                          <property name="text">
+                           <string>শব্দ মিলাই</string>
+                          </property>
+                          <property name="alignment">
+                           <set>Qt::AlignCenter</set>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="1" column="0">
+                         <widget class="QLineEdit" name="task_matching_set_edit">
+                          <property name="minimumSize">
+                           <size>
+                            <width>326</width>
+                            <height>51</height>
+                           </size>
+                          </property>
+                          <property name="font">
+                           <font>
+                            <family>Hind Siliguri</family>
+                            <pointsize>9</pointsize>
+                            <weight>50</weight>
+                            <bold>false</bold>
+                           </font>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true">background-color: rgb(137, 218, 199);
+border: 4px solid rgb(0, 43, 91);
+padding-left: 15px;
+border-radius: 10px;
+color: black;</string>
+                          </property>
+                          <property name="placeholderText">
+                           <string>সেট নম্বর দিন (যেমন set1)</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="1" column="1">
+                         <widget class="QPushButton" name="task_matching_save_set_btn">
+                          <property name="minimumSize">
+                           <size>
+                            <width>100</width>
+                            <height>51</height>
+                           </size>
+                          </property>
+                          <property name="font">
+                           <font>
+                            <family>Hind Siliguri Medium</family>
+                            <pointsize>10</pointsize>
+                            <weight>50</weight>
+                            <bold>false</bold>
+                           </font>
+                          </property>
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true">QPushButton {
+background-color: rgb(160, 253, 230);
+color:  #256D85 ;
+border-radius: 15px;
+}
+
+QPushButton::hover:!pressed {
+	
+	background-color: rgb(143, 227, 207);
+	color: #2B4865;
+
+}</string>
+                          </property>
+                          <property name="text">
+                           <string>সংরক্ষন করুন</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="2" column="0">
+                         <widget class="QFrame" name="frame_5">
+                          <property name="minimumSize">
+                           <size>
+                            <width>331</width>
+                            <height>280</height>
+                           </size>
+                          </property>
+                          <property name="maximumSize">
+                           <size>
+                            <width>16777215</width>
+                            <height>16777215</height>
+                           </size>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true">border: 3px solid rgb(160, 253, 230);</string>
+                          </property>
+                          <property name="frameShape">
+                           <enum>QFrame::StyledPanel</enum>
+                          </property>
+                          <property name="frameShadow">
+                           <enum>QFrame::Raised</enum>
+                          </property>
+                          <layout class="QGridLayout" name="gridLayout_18">
+                           <item row="1" column="1">
+                            <widget class="QPushButton" name="task_matching_img_save_btn_1">
+                             <property name="minimumSize">
+                              <size>
+                               <width>50</width>
+                               <height>50</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <pointsize>18</pointsize>
+                               <weight>75</weight>
+                               <bold>true</bold>
+                              </font>
+                             </property>
+                             <property name="cursor">
+                              <cursorShape>PointingHandCursor</cursorShape>
+                             </property>
+                             <property name="styleSheet">
+                              <string notr="true">QPushButton {
+background-color: rgb(160, 253, 230);
+color:  #256D85 ;
+border-radius: 15px;
+}
+
+QPushButton::hover:!pressed {
+	
+	background-color: rgb(143, 227, 207);
+	color: #2B4865;
+
+}</string>
+                             </property>
+                             <property name="text">
+                              <string/>
+                             </property>
+                             <property name="icon">
+                              <iconset>
+                               <normaloff>../Images/add_image_2.png</normaloff>../Images/add_image_2.png</iconset>
+                             </property>
+                             <property name="iconSize">
+                              <size>
+                               <width>40</width>
+                               <height>30</height>
+                              </size>
+                             </property>
+                            </widget>
+                           </item>
+                           <item row="1" column="0">
+                            <widget class="QLineEdit" name="task_matching_img_desc_edit_1">
+                             <property name="minimumSize">
+                              <size>
+                               <width>250</width>
+                               <height>51</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <family>Hind Siliguri Medium</family>
+                               <pointsize>10</pointsize>
+                              </font>
+                             </property>
+                             <property name="styleSheet">
+                              <string notr="true">background-color:  rgb(43, 72, 101);
+border: 3px solid rgb(0, 43, 91);
+padding-left: 15px;
+border-radius: 10px;
+color: rgb(160, 253, 230);</string>
+                             </property>
+                             <property name="placeholderText">
+                              <string>ছবির সংক্ষিপ্ত বিবরণ (৩-৫ শব্দে)</string>
+                             </property>
+                            </widget>
+                           </item>
+                           <item row="1" column="2">
+                            <widget class="QPushButton" name="task_matching_img_done_btn_1">
+                             <property name="minimumSize">
+                              <size>
+                               <width>50</width>
+                               <height>50</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <pointsize>18</pointsize>
+                               <weight>75</weight>
+                               <bold>true</bold>
+                              </font>
+                             </property>
+                             <property name="cursor">
+                              <cursorShape>PointingHandCursor</cursorShape>
+                             </property>
+                             <property name="styleSheet">
+                              <string notr="true">QPushButton {
+background-color: rgb(160, 253, 230);
+color:  #256D85 ;
+border-radius: 15px;
+}
+
+QPushButton::hover:!pressed {
+	
+	background-color: rgb(143, 227, 207);
+	color: #2B4865;
+
+}</string>
+                             </property>
+                             <property name="text">
+                              <string/>
+                             </property>
+                             <property name="icon">
+                              <iconset>
+                               <normaloff>../Images/done.png</normaloff>../Images/done.png</iconset>
+                             </property>
+                            </widget>
+                           </item>
+                           <item row="0" column="0" colspan="3">
+                            <widget class="QLabel" name="task_matching_img_view_lbl_1">
+                             <property name="minimumSize">
+                              <size>
+                               <width>301</width>
+                               <height>200</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <pointsize>22</pointsize>
+                              </font>
+                             </property>
+                             <property name="styleSheet">
+                              <string notr="true">border: 2px dotted rgb(0, 43, 91);</string>
+                             </property>
+                             <property name="text">
+                              <string/>
+                             </property>
+                             <property name="pixmap">
+                              <pixmap>../Images/image_template.png</pixmap>
+                             </property>
+                             <property name="alignment">
+                              <set>Qt::AlignCenter</set>
+                             </property>
+                            </widget>
+                           </item>
+                          </layout>
+                         </widget>
+                        </item>
+                        <item row="2" column="1">
+                         <widget class="QFrame" name="frame_6">
+                          <property name="minimumSize">
+                           <size>
+                            <width>331</width>
+                            <height>280</height>
+                           </size>
+                          </property>
+                          <property name="maximumSize">
+                           <size>
+                            <width>16777215</width>
+                            <height>16777215</height>
+                           </size>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true">border: 3px solid rgb(160, 253, 230);</string>
+                          </property>
+                          <property name="frameShape">
+                           <enum>QFrame::StyledPanel</enum>
+                          </property>
+                          <property name="frameShadow">
+                           <enum>QFrame::Raised</enum>
+                          </property>
+                          <layout class="QGridLayout" name="gridLayout_19">
+                           <item row="1" column="0">
+                            <widget class="QLineEdit" name="task_matching_img_desc_edit_2">
+                             <property name="minimumSize">
+                              <size>
+                               <width>250</width>
+                               <height>51</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <family>Hind Siliguri Medium</family>
+                               <pointsize>10</pointsize>
+                              </font>
+                             </property>
+                             <property name="styleSheet">
+                              <string notr="true">background-color:  rgb(43, 72, 101);
+border: 3px solid rgb(0, 43, 91);
+padding-left: 15px;
+border-radius: 10px;
+color: rgb(160, 253, 230);</string>
+                             </property>
+                             <property name="placeholderText">
+                              <string>ছবির সংক্ষিপ্ত বিবরণ (৩-৫ শব্দে)</string>
+                             </property>
+                            </widget>
+                           </item>
+                           <item row="1" column="1">
+                            <widget class="QPushButton" name="task_matching_img_save_btn_2">
+                             <property name="minimumSize">
+                              <size>
+                               <width>50</width>
+                               <height>50</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <pointsize>18</pointsize>
+                               <weight>75</weight>
+                               <bold>true</bold>
+                              </font>
+                             </property>
+                             <property name="cursor">
+                              <cursorShape>PointingHandCursor</cursorShape>
+                             </property>
+                             <property name="styleSheet">
+                              <string notr="true">QPushButton {
+background-color: rgb(160, 253, 230);
+color:  #256D85 ;
+border-radius: 15px;
+}
+
+QPushButton::hover:!pressed {
+	
+	background-color: rgb(143, 227, 207);
+	color: #2B4865;
+
+}</string>
+                             </property>
+                             <property name="text">
+                              <string/>
+                             </property>
+                             <property name="icon">
+                              <iconset>
+                               <normaloff>../Images/add_image_2.png</normaloff>../Images/add_image_2.png</iconset>
+                             </property>
+                             <property name="iconSize">
+                              <size>
+                               <width>30</width>
+                               <height>30</height>
+                              </size>
+                             </property>
+                            </widget>
+                           </item>
+                           <item row="1" column="2">
+                            <widget class="QPushButton" name="task_matching_img_done_btn_2">
+                             <property name="minimumSize">
+                              <size>
+                               <width>50</width>
+                               <height>50</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <pointsize>18</pointsize>
+                               <weight>75</weight>
+                               <bold>true</bold>
+                              </font>
+                             </property>
+                             <property name="cursor">
+                              <cursorShape>PointingHandCursor</cursorShape>
+                             </property>
+                             <property name="styleSheet">
+                              <string notr="true">QPushButton {
+background-color: rgb(160, 253, 230);
+color:  #256D85 ;
+border-radius: 15px;
+}
+
+QPushButton::hover:!pressed {
+	
+	background-color: rgb(143, 227, 207);
+	color: #2B4865;
+
+}</string>
+                             </property>
+                             <property name="text">
+                              <string/>
+                             </property>
+                             <property name="icon">
+                              <iconset>
+                               <normaloff>../Images/done.png</normaloff>../Images/done.png</iconset>
+                             </property>
+                            </widget>
+                           </item>
+                           <item row="0" column="0" colspan="3">
+                            <widget class="QLabel" name="task_matching_img_view_lbl_2">
+                             <property name="minimumSize">
+                              <size>
+                               <width>301</width>
+                               <height>200</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <pointsize>22</pointsize>
+                              </font>
+                             </property>
+                             <property name="styleSheet">
+                              <string notr="true">border: 2px dotted rgb(0, 43, 91);</string>
+                             </property>
+                             <property name="text">
+                              <string/>
+                             </property>
+                             <property name="pixmap">
+                              <pixmap>../Images/image_template.png</pixmap>
+                             </property>
+                             <property name="alignment">
+                              <set>Qt::AlignCenter</set>
+                             </property>
+                            </widget>
+                           </item>
+                          </layout>
+                         </widget>
+                        </item>
+                        <item row="3" column="0">
+                         <widget class="QFrame" name="frame_7">
+                          <property name="minimumSize">
+                           <size>
+                            <width>331</width>
+                            <height>280</height>
+                           </size>
+                          </property>
+                          <property name="maximumSize">
+                           <size>
+                            <width>16777215</width>
+                            <height>16777215</height>
+                           </size>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true">border: 3px solid rgb(160, 253, 230);</string>
+                          </property>
+                          <property name="frameShape">
+                           <enum>QFrame::StyledPanel</enum>
+                          </property>
+                          <property name="frameShadow">
+                           <enum>QFrame::Raised</enum>
+                          </property>
+                          <layout class="QGridLayout" name="gridLayout_20">
+                           <item row="1" column="0">
+                            <widget class="QLineEdit" name="task_matching_img_desc_edit_3">
+                             <property name="minimumSize">
+                              <size>
+                               <width>250</width>
+                               <height>51</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <family>Hind Siliguri Medium</family>
+                               <pointsize>10</pointsize>
+                              </font>
+                             </property>
+                             <property name="styleSheet">
+                              <string notr="true">background-color:  rgb(43, 72, 101);
+border: 3px solid rgb(0, 43, 91);
+padding-left: 15px;
+border-radius: 10px;
+color: rgb(160, 253, 230);</string>
+                             </property>
+                             <property name="placeholderText">
+                              <string>ছবির সংক্ষিপ্ত বিবরণ (৩-৫ শব্দে)</string>
+                             </property>
+                            </widget>
+                           </item>
+                           <item row="1" column="1">
+                            <widget class="QPushButton" name="task_matching_img_save_btn_3">
+                             <property name="minimumSize">
+                              <size>
+                               <width>50</width>
+                               <height>50</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <pointsize>18</pointsize>
+                               <weight>75</weight>
+                               <bold>true</bold>
+                              </font>
+                             </property>
+                             <property name="cursor">
+                              <cursorShape>PointingHandCursor</cursorShape>
+                             </property>
+                             <property name="styleSheet">
+                              <string notr="true">QPushButton {
+background-color: rgb(160, 253, 230);
+color:  #256D85 ;
+border-radius: 15px;
+}
+
+QPushButton::hover:!pressed {
+	
+	background-color: rgb(143, 227, 207);
+	color: #2B4865;
+
+}</string>
+                             </property>
+                             <property name="text">
+                              <string/>
+                             </property>
+                             <property name="icon">
+                              <iconset>
+                               <normaloff>../Images/add_image_2.png</normaloff>../Images/add_image_2.png</iconset>
+                             </property>
+                             <property name="iconSize">
+                              <size>
+                               <width>30</width>
+                               <height>30</height>
+                              </size>
+                             </property>
+                            </widget>
+                           </item>
+                           <item row="1" column="2">
+                            <widget class="QPushButton" name="task_matching_img_done_btn_3">
+                             <property name="minimumSize">
+                              <size>
+                               <width>50</width>
+                               <height>50</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <pointsize>18</pointsize>
+                               <weight>75</weight>
+                               <bold>true</bold>
+                              </font>
+                             </property>
+                             <property name="cursor">
+                              <cursorShape>PointingHandCursor</cursorShape>
+                             </property>
+                             <property name="styleSheet">
+                              <string notr="true">QPushButton {
+background-color: rgb(160, 253, 230);
+color:  #256D85 ;
+border-radius: 15px;
+}
+
+QPushButton::hover:!pressed {
+	
+	background-color: rgb(143, 227, 207);
+	color: #2B4865;
+
+}</string>
+                             </property>
+                             <property name="text">
+                              <string/>
+                             </property>
+                             <property name="icon">
+                              <iconset>
+                               <normaloff>../Images/done.png</normaloff>../Images/done.png</iconset>
+                             </property>
+                            </widget>
+                           </item>
+                           <item row="0" column="0" colspan="3">
+                            <widget class="QLabel" name="task_matching_img_view_lbl_3">
+                             <property name="minimumSize">
+                              <size>
+                               <width>301</width>
+                               <height>200</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <pointsize>22</pointsize>
+                              </font>
+                             </property>
+                             <property name="styleSheet">
+                              <string notr="true">border: 2px dotted rgb(0, 43, 91);</string>
+                             </property>
+                             <property name="text">
+                              <string/>
+                             </property>
+                             <property name="pixmap">
+                              <pixmap>../Images/image_template.png</pixmap>
+                             </property>
+                             <property name="alignment">
+                              <set>Qt::AlignCenter</set>
+                             </property>
+                            </widget>
+                           </item>
+                          </layout>
+                         </widget>
+                        </item>
+                        <item row="3" column="1">
+                         <widget class="QFrame" name="frame_8">
+                          <property name="minimumSize">
+                           <size>
+                            <width>331</width>
+                            <height>280</height>
+                           </size>
+                          </property>
+                          <property name="maximumSize">
+                           <size>
+                            <width>16777215</width>
+                            <height>16777215</height>
+                           </size>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true">border: 3px solid rgb(160, 253, 230);</string>
+                          </property>
+                          <property name="frameShape">
+                           <enum>QFrame::StyledPanel</enum>
+                          </property>
+                          <property name="frameShadow">
+                           <enum>QFrame::Raised</enum>
+                          </property>
+                          <layout class="QGridLayout" name="gridLayout_21">
+                           <item row="1" column="0">
+                            <widget class="QLineEdit" name="task_matching_img_desc_lbl_4">
+                             <property name="minimumSize">
+                              <size>
+                               <width>250</width>
+                               <height>51</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <family>Hind Siliguri Medium</family>
+                               <pointsize>10</pointsize>
+                              </font>
+                             </property>
+                             <property name="styleSheet">
+                              <string notr="true">background-color:  rgb(43, 72, 101);
+border: 3px solid rgb(0, 43, 91);
+padding-left: 15px;
+border-radius: 10px;
+color: rgb(160, 253, 230);</string>
+                             </property>
+                             <property name="placeholderText">
+                              <string>ছবির সংক্ষিপ্ত বিবরণ (৩-৫ শব্দে)</string>
+                             </property>
+                            </widget>
+                           </item>
+                           <item row="1" column="2">
+                            <widget class="QPushButton" name="task_matching_img_done_btn_4">
+                             <property name="minimumSize">
+                              <size>
+                               <width>50</width>
+                               <height>50</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <pointsize>18</pointsize>
+                               <weight>75</weight>
+                               <bold>true</bold>
+                              </font>
+                             </property>
+                             <property name="cursor">
+                              <cursorShape>PointingHandCursor</cursorShape>
+                             </property>
+                             <property name="styleSheet">
+                              <string notr="true">QPushButton {
+background-color: rgb(160, 253, 230);
+color:  #256D85 ;
+border-radius: 15px;
+}
+
+QPushButton::hover:!pressed {
+	
+	background-color: rgb(143, 227, 207);
+	color: #2B4865;
+
+}</string>
+                             </property>
+                             <property name="text">
+                              <string/>
+                             </property>
+                             <property name="icon">
+                              <iconset>
+                               <normaloff>../Images/done.png</normaloff>../Images/done.png</iconset>
+                             </property>
+                            </widget>
+                           </item>
+                           <item row="1" column="1">
+                            <widget class="QPushButton" name="task_matching_img_save_btn_4">
+                             <property name="minimumSize">
+                              <size>
+                               <width>50</width>
+                               <height>50</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <pointsize>18</pointsize>
+                               <weight>75</weight>
+                               <bold>true</bold>
+                              </font>
+                             </property>
+                             <property name="cursor">
+                              <cursorShape>PointingHandCursor</cursorShape>
+                             </property>
+                             <property name="styleSheet">
+                              <string notr="true">QPushButton {
+background-color: rgb(160, 253, 230);
+color:  #256D85 ;
+border-radius: 15px;
+}
+
+QPushButton::hover:!pressed {
+	
+	background-color: rgb(143, 227, 207);
+	color: #2B4865;
+
+}</string>
+                             </property>
+                             <property name="text">
+                              <string/>
+                             </property>
+                             <property name="icon">
+                              <iconset>
+                               <normaloff>../Images/add_image_2.png</normaloff>../Images/add_image_2.png</iconset>
+                             </property>
+                             <property name="iconSize">
+                              <size>
+                               <width>30</width>
+                               <height>30</height>
+                              </size>
+                             </property>
+                            </widget>
+                           </item>
+                           <item row="0" column="0" colspan="3">
+                            <widget class="QLabel" name="task_matching_img_view_lbl_4">
+                             <property name="minimumSize">
+                              <size>
+                               <width>301</width>
+                               <height>200</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <pointsize>22</pointsize>
+                              </font>
+                             </property>
+                             <property name="styleSheet">
+                              <string notr="true">border: 2px dotted rgb(0, 43, 91);</string>
+                             </property>
+                             <property name="text">
+                              <string/>
+                             </property>
+                             <property name="pixmap">
+                              <pixmap>../Images/image_template.png</pixmap>
+                             </property>
+                             <property name="alignment">
+                              <set>Qt::AlignCenter</set>
+                             </property>
+                            </widget>
+                           </item>
+                          </layout>
+                         </widget>
+                        </item>
+                       </layout>
                       </widget>
                      </item>
                     </layout>

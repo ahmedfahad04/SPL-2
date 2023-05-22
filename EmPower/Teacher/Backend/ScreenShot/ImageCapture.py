@@ -1,18 +1,19 @@
 import sys
 
-from PyQt5.QtGui import QPixmap, QImage, QPainter
 from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QHBoxLayout, QVBoxLayout, QLabel, \
-    QSlider, QStyle, QSizePolicy, QFileDialog
+    QSlider, QStyle, QSizePolicy, QFileDialog, QFrame 
 from PyQt5.QtMultimedia import QMediaPlayer, QMediaContent
 from PyQt5.QtMultimediaWidgets import QVideoWidget
-from PyQt5.QtGui import QIcon, QPalette
-from PyQt5.QtCore import Qt, QUrl, QRect, QPoint, QFile, QSize 
+from PyQt5.QtGui import QIcon, QPalette, QPixmap
+from PyQt5.QtCore import Qt, QUrl, QRect, QPoint, QFile, QSize
 
 
 class ImageCaptureWidget(QWidget):
 
-    def __init__(self):
+    def __init__(self, ui_object):
         super().__init__()
+
+        self.ui_obj = ui_object
 
         self.setWindowTitle("PyQt5 Media Player")
         self.setGeometry(350, 100, 800, 800)
@@ -33,7 +34,11 @@ class ImageCaptureWidget(QWidget):
 
         # create videowidget object
         self.videowidget = QVideoWidget()
-        # self.videowidget.setStyleSheet("QVideoWidget { border: 5px solid blue; }")
+        
+        video_frame = QFrame()
+        video_frame.setStyleSheet("border: 2px solid #002B5B;")
+        video_layout = QVBoxLayout(video_frame)
+        video_layout.addWidget(self.videowidget)
 
         # create open button
         openBtn = QPushButton('ফাইল ওপেন করুন')
@@ -128,7 +133,7 @@ class ImageCaptureWidget(QWidget):
 
         # create vbox layout
         vboxLayout = QVBoxLayout()
-        vboxLayout.addWidget(self.videowidget)
+        vboxLayout.addWidget(video_frame)  # Use the wrapped video widget
         vboxLayout.addLayout(hboxLayout)
         vboxLayout.addLayout(hbox2)
         vboxLayout.addWidget(self.label)
@@ -205,6 +210,8 @@ class ImageCaptureWidget(QWidget):
         
         # Save the pixmap as an image file
         # Set the initial directory to the Desktop
+        
+        
         initial_directory = "Lessons\Sequence_Images"  # Replace with the path to your desktop
 
         # Open the save file dialog
@@ -215,6 +222,11 @@ class ImageCaptureWidget(QWidget):
             pixmap.save(snapshot_path, "PNG")
             QFile(snapshot_path).flush()
             print("Screenshot saved successfully")
+            
+            print(snapshot_path)
+            
+        self.ui_obj.task_seq_img_view_lbl.setPixmap(QPixmap(snapshot_path))
+        
 
 
 # app = QApplication(sys.argv)

@@ -118,6 +118,7 @@ class Home(QMainWindow):  # Home extends QMainWindow
         
         # Navigate between windows
         self.home.stackedWidget.setCurrentWidget(self.home.task_page)
+        self.home.evalstackwidget.setCurrentWidget(self.home.matching_page)
         self.home.task_btn_back_to_home.clicked.connect(self.home_page)
         
         # Connecting Task window buttons
@@ -128,6 +129,10 @@ class Home(QMainWindow):  # Home extends QMainWindow
         self.home.task_puzzle_select_img_btn.clicked.connect(self.select_puzzle_image)
         self.home.task_puzzle_save_set_btn.clicked.connect(self.save_puzzle_set)
         self.home.task_puzzle_show_set_btn.clicked.connect(self.show_puzzle_set)
+               
+    def on_label_clicked(self):
+        
+        show_confirmation_message("Level clicked", "Level clicked")
         
     def lesson_making_page(self):
         
@@ -196,12 +201,13 @@ class Home(QMainWindow):  # Home extends QMainWindow
     def sequence_page(self):
         
         self.home.evalstackwidget.setCurrentWidget(self.home.sequence_page) 
+        self.home.task_btn_sequence.setDefault(True)
         
         if self.home.task_seq_video_frame_widget.count() != 0:
             self.home.task_seq_video_frame_widget.itemAt(
                 0).widget().setParent(None)
 
-        image_capture_window = ImageCaptureWidget()
+        image_capture_window = ImageCaptureWidget(self.home)
         self.home.task_seq_video_frame_widget.addWidget(image_capture_window)
         
     def puzzle_page(self):

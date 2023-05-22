@@ -26,7 +26,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1280, 720)
+        MainWindow.resize(1280, 840)
         MainWindow.setMinimumSize(QSize(1280, 720))
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
@@ -910,7 +910,7 @@ class Ui_MainWindow(object):
         self.eval_left_frame.setObjectName(u"eval_left_frame")
         self.eval_left_frame.setMinimumSize(QSize(385, 636))
         self.eval_left_frame.setMaximumSize(QSize(385, 636))
-        self.eval_left_frame.setStyleSheet(u"border-right: 2px solid rgb(43, 72, 101);")
+        self.eval_left_frame.setStyleSheet(u"")
         self.eval_left_frame.setFrameShape(QFrame.StyledPanel)
         self.eval_left_frame.setFrameShadow(QFrame.Raised)
         self.gridLayout_5 = QGridLayout(self.eval_left_frame)
@@ -985,6 +985,14 @@ class Ui_MainWindow(object):
 
         self.gridLayout_5.addItem(self.horizontalSpacer_14, 2, 2, 1, 1)
 
+        self.horizontalSpacer_11 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_5.addItem(self.horizontalSpacer_11, 2, 0, 1, 1)
+
+        self.verticalSpacer_4 = QSpacerItem(20, 163, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.gridLayout_5.addItem(self.verticalSpacer_4, 4, 1, 1, 1)
+
         self.task_btn_puzzle = QPushButton(self.eval_left_frame)
         self.task_btn_puzzle.setObjectName(u"task_btn_puzzle")
         self.task_btn_puzzle.setMinimumSize(QSize(261, 61))
@@ -1010,21 +1018,13 @@ class Ui_MainWindow(object):
 
         self.gridLayout_5.addWidget(self.task_btn_puzzle, 3, 1, 1, 1)
 
-        self.horizontalSpacer_15 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.gridLayout_5.addItem(self.horizontalSpacer_15, 3, 2, 1, 1)
-
-        self.horizontalSpacer_11 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.gridLayout_5.addItem(self.horizontalSpacer_11, 2, 0, 1, 1)
-
         self.horizontalSpacer_12 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.gridLayout_5.addItem(self.horizontalSpacer_12, 3, 0, 1, 1)
 
-        self.verticalSpacer_4 = QSpacerItem(20, 163, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.horizontalSpacer_15 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.gridLayout_5.addItem(self.verticalSpacer_4, 4, 1, 1, 1)
+        self.gridLayout_5.addItem(self.horizontalSpacer_15, 3, 2, 1, 1)
 
 
         self.horizontalLayout_16.addWidget(self.eval_left_frame)
@@ -1040,6 +1040,7 @@ class Ui_MainWindow(object):
         self.gridLayout_6.setContentsMargins(0, 0, 0, 0)
         self.evalstackwidget = QStackedWidget(self.eval_right_frame)
         self.evalstackwidget.setObjectName(u"evalstackwidget")
+        self.evalstackwidget.setStyleSheet(u"")
         self.puzzle_page = QWidget()
         self.puzzle_page.setObjectName(u"puzzle_page")
         self.gridLayout_7 = QGridLayout(self.puzzle_page)
@@ -1051,17 +1052,18 @@ class Ui_MainWindow(object):
         self.frame_3.setFrameShadow(QFrame.Raised)
         self.gridLayout_16 = QGridLayout(self.frame_3)
         self.gridLayout_16.setObjectName(u"gridLayout_16")
-        self.task_puzzle_image_lbl = QLabel(self.frame_3)
-        self.task_puzzle_image_lbl.setObjectName(u"task_puzzle_image_lbl")
-        self.task_puzzle_image_lbl.setMinimumSize(QSize(481, 384))
+        self.label_9 = QLabel(self.frame_3)
+        self.label_9.setObjectName(u"label_9")
+        self.label_9.setMinimumSize(QSize(0, 50))
+        self.label_9.setMaximumSize(QSize(16777215, 50))
         font15 = QFont()
-        font15.setPointSize(15)
-        self.task_puzzle_image_lbl.setFont(font15)
-        self.task_puzzle_image_lbl.setStyleSheet(u"color: rgb(0, 43, 91);")
-        self.task_puzzle_image_lbl.setAlignment(Qt.AlignCenter)
-        self.task_puzzle_image_lbl.setWordWrap(True)
+        font15.setPointSize(21)
+        self.label_9.setFont(font15)
+        self.label_9.setStyleSheet(u"color: rgb(159, 251, 228);\n"
+"background-color: rgb(0, 43, 91);")
+        self.label_9.setAlignment(Qt.AlignCenter)
 
-        self.gridLayout_16.addWidget(self.task_puzzle_image_lbl, 0, 0, 1, 5)
+        self.gridLayout_16.addWidget(self.label_9, 0, 0, 1, 2)
 
         self.task_puzzle_q_set_lbl = QLineEdit(self.frame_3)
         self.task_puzzle_q_set_lbl.setObjectName(u"task_puzzle_q_set_lbl")
@@ -1077,7 +1079,7 @@ class Ui_MainWindow(object):
 "border-radius: 10px;\n"
 "color: black;")
 
-        self.gridLayout_16.addWidget(self.task_puzzle_q_set_lbl, 2, 0, 1, 3)
+        self.gridLayout_16.addWidget(self.task_puzzle_q_set_lbl, 1, 0, 1, 1)
 
         self.task_puzzle_save_set_btn = QPushButton(self.frame_3)
         self.task_puzzle_save_set_btn.setObjectName(u"task_puzzle_save_set_btn")
@@ -1087,6 +1089,7 @@ class Ui_MainWindow(object):
         font17.setPointSize(10)
         font17.setBold(False)
         self.task_puzzle_save_set_btn.setFont(font17)
+        self.task_puzzle_save_set_btn.setCursor(QCursor(Qt.PointingHandCursor))
         self.task_puzzle_save_set_btn.setStyleSheet(u"QPushButton {\n"
 "background-color: rgb(160, 253, 230);\n"
 "color:  #256D85 ;\n"
@@ -1100,12 +1103,26 @@ class Ui_MainWindow(object):
 "\n"
 "}")
 
-        self.gridLayout_16.addWidget(self.task_puzzle_save_set_btn, 2, 3, 1, 2)
+        self.gridLayout_16.addWidget(self.task_puzzle_save_set_btn, 1, 1, 1, 1)
+
+        self.task_puzzle_image_lbl = QLabel(self.frame_3)
+        self.task_puzzle_image_lbl.setObjectName(u"task_puzzle_image_lbl")
+        self.task_puzzle_image_lbl.setMinimumSize(QSize(481, 384))
+        font18 = QFont()
+        font18.setPointSize(14)
+        self.task_puzzle_image_lbl.setFont(font18)
+        self.task_puzzle_image_lbl.setStyleSheet(u"color: rgb(0, 43, 91);\n"
+"border: 2px solid rgb(43, 72, 101);")
+        self.task_puzzle_image_lbl.setAlignment(Qt.AlignCenter)
+        self.task_puzzle_image_lbl.setWordWrap(True)
+
+        self.gridLayout_16.addWidget(self.task_puzzle_image_lbl, 2, 0, 1, 2)
 
         self.task_puzzle_select_img_btn = QPushButton(self.frame_3)
         self.task_puzzle_select_img_btn.setObjectName(u"task_puzzle_select_img_btn")
         self.task_puzzle_select_img_btn.setMinimumSize(QSize(211, 61))
         self.task_puzzle_select_img_btn.setFont(font12)
+        self.task_puzzle_select_img_btn.setCursor(QCursor(Qt.PointingHandCursor))
         self.task_puzzle_select_img_btn.setStyleSheet(u"QPushButton {\n"
 "background-color: rgb(160, 253, 230);\n"
 "color:  #256D85 ;\n"
@@ -1119,13 +1136,19 @@ class Ui_MainWindow(object):
 "\n"
 "}")
 
-        self.gridLayout_16.addWidget(self.task_puzzle_select_img_btn, 1, 0, 1, 1)
+        self.gridLayout_16.addWidget(self.task_puzzle_select_img_btn, 3, 0, 1, 1)
 
         self.task_puzzle_show_set_btn = QPushButton(self.frame_3)
         self.task_puzzle_show_set_btn.setObjectName(u"task_puzzle_show_set_btn")
         self.task_puzzle_show_set_btn.setMinimumSize(QSize(211, 61))
-        self.task_puzzle_show_set_btn.setFont(font3)
+        font19 = QFont()
+        font19.setFamilies([u"Hind Siliguri Medium"])
+        font19.setPointSize(11)
+        self.task_puzzle_show_set_btn.setFont(font19)
+        self.task_puzzle_show_set_btn.setCursor(QCursor(Qt.PointingHandCursor))
         self.task_puzzle_show_set_btn.setStyleSheet(u"QPushButton {\n"
+"padding-left: 15px;\n"
+"padding-right: 15px;\n"
 "background-color: rgb(160, 253, 230);\n"
 "color:  #256D85 ;\n"
 "border-radius: 15px;\n"
@@ -1133,12 +1156,14 @@ class Ui_MainWindow(object):
 "\n"
 "QPushButton::hover:!pressed {\n"
 "	\n"
+"	padding-left: 15px;\n"
+"	padding-right: 15px;\n"
 "	background-color: rgb(143, 227, 207);\n"
 "	color: #2B4865;\n"
 "\n"
 "}")
 
-        self.gridLayout_16.addWidget(self.task_puzzle_show_set_btn, 1, 1, 1, 2)
+        self.gridLayout_16.addWidget(self.task_puzzle_show_set_btn, 3, 1, 1, 1)
 
 
         self.gridLayout_7.addWidget(self.frame_3, 0, 0, 1, 1)
@@ -1153,7 +1178,163 @@ class Ui_MainWindow(object):
         self.task_seq_video_frame_widget = QHBoxLayout()
         self.task_seq_video_frame_widget.setObjectName(u"task_seq_video_frame_widget")
 
-        self.gridLayout_12.addLayout(self.task_seq_video_frame_widget, 0, 0, 1, 1)
+        self.gridLayout_12.addLayout(self.task_seq_video_frame_widget, 2, 0, 1, 1)
+
+        self.frame_4 = QFrame(self.sequence_page)
+        self.frame_4.setObjectName(u"frame_4")
+        self.frame_4.setMinimumSize(QSize(390, 500))
+        self.frame_4.setMaximumSize(QSize(430, 612))
+        self.frame_4.setStyleSheet(u"border: 3px solid rgb(160, 253, 230);")
+        self.frame_4.setFrameShape(QFrame.StyledPanel)
+        self.frame_4.setFrameShadow(QFrame.Raised)
+        self.gridLayout_17 = QGridLayout(self.frame_4)
+        self.gridLayout_17.setObjectName(u"gridLayout_17")
+        self.verticalSpacer_7 = QSpacerItem(20, 33, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.gridLayout_17.addItem(self.verticalSpacer_7, 6, 1, 1, 1)
+
+        self.verticalSpacer_6 = QSpacerItem(20, 33, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.gridLayout_17.addItem(self.verticalSpacer_6, 4, 1, 1, 1)
+
+        self.task_seq_img_desc_edit = QLineEdit(self.frame_4)
+        self.task_seq_img_desc_edit.setObjectName(u"task_seq_img_desc_edit")
+        self.task_seq_img_desc_edit.setMinimumSize(QSize(381, 51))
+        font20 = QFont()
+        font20.setFamilies([u"Hind Siliguri Medium"])
+        font20.setPointSize(10)
+        self.task_seq_img_desc_edit.setFont(font20)
+        self.task_seq_img_desc_edit.setStyleSheet(u"background-color:  rgb(43, 72, 101);\n"
+"border: 3px solid rgb(0, 43, 91);\n"
+"padding-left: 15px;\n"
+"border-radius: 10px;\n"
+"color: rgb(160, 253, 230);")
+
+        self.gridLayout_17.addWidget(self.task_seq_img_desc_edit, 3, 0, 1, 3)
+
+        self.task_seq_img_view_lbl = QLabel(self.frame_4)
+        self.task_seq_img_view_lbl.setObjectName(u"task_seq_img_view_lbl")
+        self.task_seq_img_view_lbl.setMinimumSize(QSize(391, 150))
+        font21 = QFont()
+        font21.setPointSize(22)
+        self.task_seq_img_view_lbl.setFont(font21)
+        self.task_seq_img_view_lbl.setStyleSheet(u"border: 2px dotted rgb(0, 43, 91);")
+        self.task_seq_img_view_lbl.setPixmap(QPixmap(u"../Images/image_template.png"))
+        self.task_seq_img_view_lbl.setAlignment(Qt.AlignCenter)
+
+        self.gridLayout_17.addWidget(self.task_seq_img_view_lbl, 1, 0, 1, 3)
+
+        self.task_seq_img_seq_edit = QLineEdit(self.frame_4)
+        self.task_seq_img_seq_edit.setObjectName(u"task_seq_img_seq_edit")
+        self.task_seq_img_seq_edit.setMinimumSize(QSize(381, 51))
+        font22 = QFont()
+        font22.setFamilies([u"Segoe UI Semibold"])
+        font22.setPointSize(10)
+        self.task_seq_img_seq_edit.setFont(font22)
+        self.task_seq_img_seq_edit.setStyleSheet(u"background-color:  rgb(43, 72, 101);\n"
+"border: 3px solid rgb(0, 43, 91);\n"
+"padding-left: 15px;\n"
+"border-radius: 10px;\n"
+"color: rgb(160, 253, 230);")
+
+        self.gridLayout_17.addWidget(self.task_seq_img_seq_edit, 5, 0, 1, 3)
+
+        self.task_seq_instruction_lbl = QLabel(self.frame_4)
+        self.task_seq_instruction_lbl.setObjectName(u"task_seq_instruction_lbl")
+        self.task_seq_instruction_lbl.setMinimumSize(QSize(365, 50))
+        font23 = QFont()
+        font23.setFamilies([u"Hind Siliguri Medium"])
+        font23.setPointSize(11)
+        font23.setBold(False)
+        self.task_seq_instruction_lbl.setFont(font23)
+        self.task_seq_instruction_lbl.setStyleSheet(u"color: rgb(132, 211, 184);\n"
+"background-color: rgb(0, 43, 91);\n"
+"padding: 5px;\n"
+"border: none;")
+        self.task_seq_instruction_lbl.setAlignment(Qt.AlignCenter)
+        self.task_seq_instruction_lbl.setWordWrap(True)
+
+        self.gridLayout_17.addWidget(self.task_seq_instruction_lbl, 0, 0, 1, 3)
+
+        self.horizontalSpacer_22 = QSpacerItem(250, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
+
+        self.gridLayout_17.addItem(self.horizontalSpacer_22, 7, 0, 1, 1)
+
+        self.verticalSpacer_8 = QSpacerItem(20, 33, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.gridLayout_17.addItem(self.verticalSpacer_8, 2, 1, 1, 1)
+
+        self.horizontalSpacer_23 = QSpacerItem(250, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_17.addItem(self.horizontalSpacer_23, 7, 2, 1, 1)
+
+        self.task_seq_img_save_btn = QPushButton(self.frame_4)
+        self.task_seq_img_save_btn.setObjectName(u"task_seq_img_save_btn")
+        self.task_seq_img_save_btn.setMinimumSize(QSize(156, 52))
+        font24 = QFont()
+        font24.setPointSize(11)
+        font24.setBold(False)
+        self.task_seq_img_save_btn.setFont(font24)
+        self.task_seq_img_save_btn.setStyleSheet(u"QPushButton {\n"
+"background-color: rgb(160, 253, 230);\n"
+"color:  #256D85 ;\n"
+"border-radius: 15px;\n"
+"}\n"
+"\n"
+"QPushButton::hover:!pressed {\n"
+"	\n"
+"	background-color: rgb(143, 227, 207);\n"
+"	color: #2B4865;\n"
+"\n"
+"}")
+
+        self.gridLayout_17.addWidget(self.task_seq_img_save_btn, 7, 1, 1, 1)
+
+
+        self.gridLayout_12.addWidget(self.frame_4, 2, 2, 1, 1)
+
+        self.task_seq_save_set_btn = QPushButton(self.sequence_page)
+        self.task_seq_save_set_btn.setObjectName(u"task_seq_save_set_btn")
+        self.task_seq_save_set_btn.setMinimumSize(QSize(100, 51))
+        self.task_seq_save_set_btn.setFont(font17)
+        self.task_seq_save_set_btn.setCursor(QCursor(Qt.PointingHandCursor))
+        self.task_seq_save_set_btn.setStyleSheet(u"QPushButton {\n"
+"background-color: rgb(160, 253, 230);\n"
+"color:  #256D85 ;\n"
+"border-radius: 15px;\n"
+"}\n"
+"\n"
+"QPushButton::hover:!pressed {\n"
+"	\n"
+"	background-color: rgb(143, 227, 207);\n"
+"	color: #2B4865;\n"
+"\n"
+"}")
+
+        self.gridLayout_12.addWidget(self.task_seq_save_set_btn, 1, 2, 1, 1)
+
+        self.task_seq_set_lbl = QLineEdit(self.sequence_page)
+        self.task_seq_set_lbl.setObjectName(u"task_seq_set_lbl")
+        self.task_seq_set_lbl.setMinimumSize(QSize(326, 51))
+        self.task_seq_set_lbl.setFont(font16)
+        self.task_seq_set_lbl.setStyleSheet(u"background-color: rgb(137, 218, 199);\n"
+"border: 4px solid rgb(0, 43, 91);\n"
+"padding-left: 15px;\n"
+"border-radius: 10px;\n"
+"color: black;")
+
+        self.gridLayout_12.addWidget(self.task_seq_set_lbl, 1, 0, 1, 1)
+
+        self.label_8 = QLabel(self.sequence_page)
+        self.label_8.setObjectName(u"label_8")
+        self.label_8.setMinimumSize(QSize(867, 50))
+        self.label_8.setMaximumSize(QSize(16777215, 50))
+        self.label_8.setFont(font15)
+        self.label_8.setStyleSheet(u"color: rgb(159, 251, 228);\n"
+"background-color: rgb(0, 43, 91);")
+        self.label_8.setAlignment(Qt.AlignCenter)
+
+        self.gridLayout_12.addWidget(self.label_8, 0, 0, 1, 3)
 
         self.evalstackwidget.addWidget(self.sequence_page)
         self.matching_page = QWidget()
@@ -1162,15 +1343,375 @@ class Ui_MainWindow(object):
         self.gridLayout_14.setObjectName(u"gridLayout_14")
         self.puzzle_pic_frame = QFrame(self.matching_page)
         self.puzzle_pic_frame.setObjectName(u"puzzle_pic_frame")
-        self.puzzle_pic_frame.setStyleSheet(u"border: 2px solid rgb(160, 253, 230);")
+        self.puzzle_pic_frame.setStyleSheet(u"")
         self.puzzle_pic_frame.setFrameShape(QFrame.StyledPanel)
         self.puzzle_pic_frame.setFrameShadow(QFrame.Raised)
+        self.gridLayout_22 = QGridLayout(self.puzzle_pic_frame)
+        self.gridLayout_22.setObjectName(u"gridLayout_22")
+        self.label_10 = QLabel(self.puzzle_pic_frame)
+        self.label_10.setObjectName(u"label_10")
+        self.label_10.setMinimumSize(QSize(0, 50))
+        self.label_10.setMaximumSize(QSize(16777215, 50))
+        self.label_10.setFont(font15)
+        self.label_10.setStyleSheet(u"color: rgb(159, 251, 228);\n"
+"background-color: rgb(0, 43, 91);")
+        self.label_10.setAlignment(Qt.AlignCenter)
+
+        self.gridLayout_22.addWidget(self.label_10, 0, 0, 1, 2)
+
+        self.task_matching_set_edit = QLineEdit(self.puzzle_pic_frame)
+        self.task_matching_set_edit.setObjectName(u"task_matching_set_edit")
+        self.task_matching_set_edit.setMinimumSize(QSize(326, 51))
+        self.task_matching_set_edit.setFont(font16)
+        self.task_matching_set_edit.setStyleSheet(u"background-color: rgb(137, 218, 199);\n"
+"border: 4px solid rgb(0, 43, 91);\n"
+"padding-left: 15px;\n"
+"border-radius: 10px;\n"
+"color: black;")
+
+        self.gridLayout_22.addWidget(self.task_matching_set_edit, 1, 0, 1, 1)
+
+        self.task_matching_save_set_btn = QPushButton(self.puzzle_pic_frame)
+        self.task_matching_save_set_btn.setObjectName(u"task_matching_save_set_btn")
+        self.task_matching_save_set_btn.setMinimumSize(QSize(100, 51))
+        self.task_matching_save_set_btn.setFont(font17)
+        self.task_matching_save_set_btn.setCursor(QCursor(Qt.PointingHandCursor))
+        self.task_matching_save_set_btn.setStyleSheet(u"QPushButton {\n"
+"background-color: rgb(160, 253, 230);\n"
+"color:  #256D85 ;\n"
+"border-radius: 15px;\n"
+"}\n"
+"\n"
+"QPushButton::hover:!pressed {\n"
+"	\n"
+"	background-color: rgb(143, 227, 207);\n"
+"	color: #2B4865;\n"
+"\n"
+"}")
+
+        self.gridLayout_22.addWidget(self.task_matching_save_set_btn, 1, 1, 1, 1)
+
+        self.frame_5 = QFrame(self.puzzle_pic_frame)
+        self.frame_5.setObjectName(u"frame_5")
+        self.frame_5.setMinimumSize(QSize(331, 280))
+        self.frame_5.setMaximumSize(QSize(16777215, 16777215))
+        self.frame_5.setStyleSheet(u"border: 3px solid rgb(160, 253, 230);")
+        self.frame_5.setFrameShape(QFrame.StyledPanel)
+        self.frame_5.setFrameShadow(QFrame.Raised)
+        self.gridLayout_18 = QGridLayout(self.frame_5)
+        self.gridLayout_18.setObjectName(u"gridLayout_18")
+        self.task_matching_img_save_btn_1 = QPushButton(self.frame_5)
+        self.task_matching_img_save_btn_1.setObjectName(u"task_matching_img_save_btn_1")
+        self.task_matching_img_save_btn_1.setMinimumSize(QSize(50, 50))
+        font25 = QFont()
+        font25.setPointSize(18)
+        font25.setBold(True)
+        self.task_matching_img_save_btn_1.setFont(font25)
+        self.task_matching_img_save_btn_1.setCursor(QCursor(Qt.PointingHandCursor))
+        self.task_matching_img_save_btn_1.setStyleSheet(u"QPushButton {\n"
+"background-color: rgb(160, 253, 230);\n"
+"color:  #256D85 ;\n"
+"border-radius: 15px;\n"
+"}\n"
+"\n"
+"QPushButton::hover:!pressed {\n"
+"	\n"
+"	background-color: rgb(143, 227, 207);\n"
+"	color: #2B4865;\n"
+"\n"
+"}")
+        icon15 = QIcon()
+        icon15.addFile(u"../Images/add_image_2.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.task_matching_img_save_btn_1.setIcon(icon15)
+        self.task_matching_img_save_btn_1.setIconSize(QSize(40, 30))
+
+        self.gridLayout_18.addWidget(self.task_matching_img_save_btn_1, 1, 1, 1, 1)
+
+        self.task_matching_img_desc_edit_1 = QLineEdit(self.frame_5)
+        self.task_matching_img_desc_edit_1.setObjectName(u"task_matching_img_desc_edit_1")
+        self.task_matching_img_desc_edit_1.setMinimumSize(QSize(250, 51))
+        self.task_matching_img_desc_edit_1.setFont(font20)
+        self.task_matching_img_desc_edit_1.setStyleSheet(u"background-color:  rgb(43, 72, 101);\n"
+"border: 3px solid rgb(0, 43, 91);\n"
+"padding-left: 15px;\n"
+"border-radius: 10px;\n"
+"color: rgb(160, 253, 230);")
+
+        self.gridLayout_18.addWidget(self.task_matching_img_desc_edit_1, 1, 0, 1, 1)
+
+        self.task_matching_img_done_btn_1 = QPushButton(self.frame_5)
+        self.task_matching_img_done_btn_1.setObjectName(u"task_matching_img_done_btn_1")
+        self.task_matching_img_done_btn_1.setMinimumSize(QSize(50, 50))
+        self.task_matching_img_done_btn_1.setFont(font25)
+        self.task_matching_img_done_btn_1.setCursor(QCursor(Qt.PointingHandCursor))
+        self.task_matching_img_done_btn_1.setStyleSheet(u"QPushButton {\n"
+"background-color: rgb(160, 253, 230);\n"
+"color:  #256D85 ;\n"
+"border-radius: 15px;\n"
+"}\n"
+"\n"
+"QPushButton::hover:!pressed {\n"
+"	\n"
+"	background-color: rgb(143, 227, 207);\n"
+"	color: #2B4865;\n"
+"\n"
+"}")
+        icon16 = QIcon()
+        icon16.addFile(u"../Images/done.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.task_matching_img_done_btn_1.setIcon(icon16)
+
+        self.gridLayout_18.addWidget(self.task_matching_img_done_btn_1, 1, 2, 1, 1)
+
+        self.task_matching_img_view_lbl_1 = QLabel(self.frame_5)
+        self.task_matching_img_view_lbl_1.setObjectName(u"task_matching_img_view_lbl_1")
+        self.task_matching_img_view_lbl_1.setMinimumSize(QSize(301, 200))
+        self.task_matching_img_view_lbl_1.setFont(font21)
+        self.task_matching_img_view_lbl_1.setStyleSheet(u"border: 2px dotted rgb(0, 43, 91);")
+        self.task_matching_img_view_lbl_1.setPixmap(QPixmap(u"../Images/image_template.png"))
+        self.task_matching_img_view_lbl_1.setAlignment(Qt.AlignCenter)
+
+        self.gridLayout_18.addWidget(self.task_matching_img_view_lbl_1, 0, 0, 1, 3)
+
+
+        self.gridLayout_22.addWidget(self.frame_5, 2, 0, 1, 1)
+
+        self.frame_6 = QFrame(self.puzzle_pic_frame)
+        self.frame_6.setObjectName(u"frame_6")
+        self.frame_6.setMinimumSize(QSize(331, 280))
+        self.frame_6.setMaximumSize(QSize(16777215, 16777215))
+        self.frame_6.setStyleSheet(u"border: 3px solid rgb(160, 253, 230);")
+        self.frame_6.setFrameShape(QFrame.StyledPanel)
+        self.frame_6.setFrameShadow(QFrame.Raised)
+        self.gridLayout_19 = QGridLayout(self.frame_6)
+        self.gridLayout_19.setObjectName(u"gridLayout_19")
+        self.task_matching_img_desc_edit_2 = QLineEdit(self.frame_6)
+        self.task_matching_img_desc_edit_2.setObjectName(u"task_matching_img_desc_edit_2")
+        self.task_matching_img_desc_edit_2.setMinimumSize(QSize(250, 51))
+        self.task_matching_img_desc_edit_2.setFont(font20)
+        self.task_matching_img_desc_edit_2.setStyleSheet(u"background-color:  rgb(43, 72, 101);\n"
+"border: 3px solid rgb(0, 43, 91);\n"
+"padding-left: 15px;\n"
+"border-radius: 10px;\n"
+"color: rgb(160, 253, 230);")
+
+        self.gridLayout_19.addWidget(self.task_matching_img_desc_edit_2, 1, 0, 1, 1)
+
+        self.task_matching_img_save_btn_2 = QPushButton(self.frame_6)
+        self.task_matching_img_save_btn_2.setObjectName(u"task_matching_img_save_btn_2")
+        self.task_matching_img_save_btn_2.setMinimumSize(QSize(50, 50))
+        self.task_matching_img_save_btn_2.setFont(font25)
+        self.task_matching_img_save_btn_2.setCursor(QCursor(Qt.PointingHandCursor))
+        self.task_matching_img_save_btn_2.setStyleSheet(u"QPushButton {\n"
+"background-color: rgb(160, 253, 230);\n"
+"color:  #256D85 ;\n"
+"border-radius: 15px;\n"
+"}\n"
+"\n"
+"QPushButton::hover:!pressed {\n"
+"	\n"
+"	background-color: rgb(143, 227, 207);\n"
+"	color: #2B4865;\n"
+"\n"
+"}")
+        self.task_matching_img_save_btn_2.setIcon(icon15)
+        self.task_matching_img_save_btn_2.setIconSize(QSize(30, 30))
+
+        self.gridLayout_19.addWidget(self.task_matching_img_save_btn_2, 1, 1, 1, 1)
+
+        self.task_matching_img_done_btn_2 = QPushButton(self.frame_6)
+        self.task_matching_img_done_btn_2.setObjectName(u"task_matching_img_done_btn_2")
+        self.task_matching_img_done_btn_2.setMinimumSize(QSize(50, 50))
+        self.task_matching_img_done_btn_2.setFont(font25)
+        self.task_matching_img_done_btn_2.setCursor(QCursor(Qt.PointingHandCursor))
+        self.task_matching_img_done_btn_2.setStyleSheet(u"QPushButton {\n"
+"background-color: rgb(160, 253, 230);\n"
+"color:  #256D85 ;\n"
+"border-radius: 15px;\n"
+"}\n"
+"\n"
+"QPushButton::hover:!pressed {\n"
+"	\n"
+"	background-color: rgb(143, 227, 207);\n"
+"	color: #2B4865;\n"
+"\n"
+"}")
+        self.task_matching_img_done_btn_2.setIcon(icon16)
+
+        self.gridLayout_19.addWidget(self.task_matching_img_done_btn_2, 1, 2, 1, 1)
+
+        self.task_matching_img_view_lbl_2 = QLabel(self.frame_6)
+        self.task_matching_img_view_lbl_2.setObjectName(u"task_matching_img_view_lbl_2")
+        self.task_matching_img_view_lbl_2.setMinimumSize(QSize(301, 200))
+        self.task_matching_img_view_lbl_2.setFont(font21)
+        self.task_matching_img_view_lbl_2.setStyleSheet(u"border: 2px dotted rgb(0, 43, 91);")
+        self.task_matching_img_view_lbl_2.setPixmap(QPixmap(u"../Images/image_template.png"))
+        self.task_matching_img_view_lbl_2.setAlignment(Qt.AlignCenter)
+
+        self.gridLayout_19.addWidget(self.task_matching_img_view_lbl_2, 0, 0, 1, 3)
+
+
+        self.gridLayout_22.addWidget(self.frame_6, 2, 1, 1, 1)
+
+        self.frame_7 = QFrame(self.puzzle_pic_frame)
+        self.frame_7.setObjectName(u"frame_7")
+        self.frame_7.setMinimumSize(QSize(331, 280))
+        self.frame_7.setMaximumSize(QSize(16777215, 16777215))
+        self.frame_7.setStyleSheet(u"border: 3px solid rgb(160, 253, 230);")
+        self.frame_7.setFrameShape(QFrame.StyledPanel)
+        self.frame_7.setFrameShadow(QFrame.Raised)
+        self.gridLayout_20 = QGridLayout(self.frame_7)
+        self.gridLayout_20.setObjectName(u"gridLayout_20")
+        self.task_matching_img_desc_edit_3 = QLineEdit(self.frame_7)
+        self.task_matching_img_desc_edit_3.setObjectName(u"task_matching_img_desc_edit_3")
+        self.task_matching_img_desc_edit_3.setMinimumSize(QSize(250, 51))
+        self.task_matching_img_desc_edit_3.setFont(font20)
+        self.task_matching_img_desc_edit_3.setStyleSheet(u"background-color:  rgb(43, 72, 101);\n"
+"border: 3px solid rgb(0, 43, 91);\n"
+"padding-left: 15px;\n"
+"border-radius: 10px;\n"
+"color: rgb(160, 253, 230);")
+
+        self.gridLayout_20.addWidget(self.task_matching_img_desc_edit_3, 1, 0, 1, 1)
+
+        self.task_matching_img_save_btn_3 = QPushButton(self.frame_7)
+        self.task_matching_img_save_btn_3.setObjectName(u"task_matching_img_save_btn_3")
+        self.task_matching_img_save_btn_3.setMinimumSize(QSize(50, 50))
+        self.task_matching_img_save_btn_3.setFont(font25)
+        self.task_matching_img_save_btn_3.setCursor(QCursor(Qt.PointingHandCursor))
+        self.task_matching_img_save_btn_3.setStyleSheet(u"QPushButton {\n"
+"background-color: rgb(160, 253, 230);\n"
+"color:  #256D85 ;\n"
+"border-radius: 15px;\n"
+"}\n"
+"\n"
+"QPushButton::hover:!pressed {\n"
+"	\n"
+"	background-color: rgb(143, 227, 207);\n"
+"	color: #2B4865;\n"
+"\n"
+"}")
+        self.task_matching_img_save_btn_3.setIcon(icon15)
+        self.task_matching_img_save_btn_3.setIconSize(QSize(30, 30))
+
+        self.gridLayout_20.addWidget(self.task_matching_img_save_btn_3, 1, 1, 1, 1)
+
+        self.task_matching_img_done_btn_3 = QPushButton(self.frame_7)
+        self.task_matching_img_done_btn_3.setObjectName(u"task_matching_img_done_btn_3")
+        self.task_matching_img_done_btn_3.setMinimumSize(QSize(50, 50))
+        self.task_matching_img_done_btn_3.setFont(font25)
+        self.task_matching_img_done_btn_3.setCursor(QCursor(Qt.PointingHandCursor))
+        self.task_matching_img_done_btn_3.setStyleSheet(u"QPushButton {\n"
+"background-color: rgb(160, 253, 230);\n"
+"color:  #256D85 ;\n"
+"border-radius: 15px;\n"
+"}\n"
+"\n"
+"QPushButton::hover:!pressed {\n"
+"	\n"
+"	background-color: rgb(143, 227, 207);\n"
+"	color: #2B4865;\n"
+"\n"
+"}")
+        self.task_matching_img_done_btn_3.setIcon(icon16)
+
+        self.gridLayout_20.addWidget(self.task_matching_img_done_btn_3, 1, 2, 1, 1)
+
+        self.task_matching_img_view_lbl_3 = QLabel(self.frame_7)
+        self.task_matching_img_view_lbl_3.setObjectName(u"task_matching_img_view_lbl_3")
+        self.task_matching_img_view_lbl_3.setMinimumSize(QSize(301, 200))
+        self.task_matching_img_view_lbl_3.setFont(font21)
+        self.task_matching_img_view_lbl_3.setStyleSheet(u"border: 2px dotted rgb(0, 43, 91);")
+        self.task_matching_img_view_lbl_3.setPixmap(QPixmap(u"../Images/image_template.png"))
+        self.task_matching_img_view_lbl_3.setAlignment(Qt.AlignCenter)
+
+        self.gridLayout_20.addWidget(self.task_matching_img_view_lbl_3, 0, 0, 1, 3)
+
+
+        self.gridLayout_22.addWidget(self.frame_7, 3, 0, 1, 1)
+
+        self.frame_8 = QFrame(self.puzzle_pic_frame)
+        self.frame_8.setObjectName(u"frame_8")
+        self.frame_8.setMinimumSize(QSize(331, 280))
+        self.frame_8.setMaximumSize(QSize(16777215, 16777215))
+        self.frame_8.setStyleSheet(u"border: 3px solid rgb(160, 253, 230);")
+        self.frame_8.setFrameShape(QFrame.StyledPanel)
+        self.frame_8.setFrameShadow(QFrame.Raised)
+        self.gridLayout_21 = QGridLayout(self.frame_8)
+        self.gridLayout_21.setObjectName(u"gridLayout_21")
+        self.task_matching_img_desc_lbl_4 = QLineEdit(self.frame_8)
+        self.task_matching_img_desc_lbl_4.setObjectName(u"task_matching_img_desc_lbl_4")
+        self.task_matching_img_desc_lbl_4.setMinimumSize(QSize(250, 51))
+        self.task_matching_img_desc_lbl_4.setFont(font20)
+        self.task_matching_img_desc_lbl_4.setStyleSheet(u"background-color:  rgb(43, 72, 101);\n"
+"border: 3px solid rgb(0, 43, 91);\n"
+"padding-left: 15px;\n"
+"border-radius: 10px;\n"
+"color: rgb(160, 253, 230);")
+
+        self.gridLayout_21.addWidget(self.task_matching_img_desc_lbl_4, 1, 0, 1, 1)
+
+        self.task_matching_img_done_btn_4 = QPushButton(self.frame_8)
+        self.task_matching_img_done_btn_4.setObjectName(u"task_matching_img_done_btn_4")
+        self.task_matching_img_done_btn_4.setMinimumSize(QSize(50, 50))
+        self.task_matching_img_done_btn_4.setFont(font25)
+        self.task_matching_img_done_btn_4.setCursor(QCursor(Qt.PointingHandCursor))
+        self.task_matching_img_done_btn_4.setStyleSheet(u"QPushButton {\n"
+"background-color: rgb(160, 253, 230);\n"
+"color:  #256D85 ;\n"
+"border-radius: 15px;\n"
+"}\n"
+"\n"
+"QPushButton::hover:!pressed {\n"
+"	\n"
+"	background-color: rgb(143, 227, 207);\n"
+"	color: #2B4865;\n"
+"\n"
+"}")
+        self.task_matching_img_done_btn_4.setIcon(icon16)
+
+        self.gridLayout_21.addWidget(self.task_matching_img_done_btn_4, 1, 2, 1, 1)
+
+        self.task_matching_img_save_btn_4 = QPushButton(self.frame_8)
+        self.task_matching_img_save_btn_4.setObjectName(u"task_matching_img_save_btn_4")
+        self.task_matching_img_save_btn_4.setMinimumSize(QSize(50, 50))
+        self.task_matching_img_save_btn_4.setFont(font25)
+        self.task_matching_img_save_btn_4.setCursor(QCursor(Qt.PointingHandCursor))
+        self.task_matching_img_save_btn_4.setStyleSheet(u"QPushButton {\n"
+"background-color: rgb(160, 253, 230);\n"
+"color:  #256D85 ;\n"
+"border-radius: 15px;\n"
+"}\n"
+"\n"
+"QPushButton::hover:!pressed {\n"
+"	\n"
+"	background-color: rgb(143, 227, 207);\n"
+"	color: #2B4865;\n"
+"\n"
+"}")
+        self.task_matching_img_save_btn_4.setIcon(icon15)
+        self.task_matching_img_save_btn_4.setIconSize(QSize(30, 30))
+
+        self.gridLayout_21.addWidget(self.task_matching_img_save_btn_4, 1, 1, 1, 1)
+
+        self.task_matching_img_view_lbl_4 = QLabel(self.frame_8)
+        self.task_matching_img_view_lbl_4.setObjectName(u"task_matching_img_view_lbl_4")
+        self.task_matching_img_view_lbl_4.setMinimumSize(QSize(301, 200))
+        self.task_matching_img_view_lbl_4.setFont(font21)
+        self.task_matching_img_view_lbl_4.setStyleSheet(u"border: 2px dotted rgb(0, 43, 91);")
+        self.task_matching_img_view_lbl_4.setPixmap(QPixmap(u"../Images/image_template.png"))
+        self.task_matching_img_view_lbl_4.setAlignment(Qt.AlignCenter)
+
+        self.gridLayout_21.addWidget(self.task_matching_img_view_lbl_4, 0, 0, 1, 3)
+
+
+        self.gridLayout_22.addWidget(self.frame_8, 3, 1, 1, 1)
+
 
         self.gridLayout_14.addWidget(self.puzzle_pic_frame, 0, 0, 1, 1)
 
         self.evalstackwidget.addWidget(self.matching_page)
 
-        self.gridLayout_6.addWidget(self.evalstackwidget, 0, 0, 1, 1)
+        self.gridLayout_6.addWidget(self.evalstackwidget, 1, 0, 1, 1)
 
 
         self.horizontalLayout_16.addWidget(self.eval_right_frame)
@@ -1268,11 +1809,7 @@ class Ui_MainWindow(object):
         self.label_4 = QLabel(self.mid_frame_4)
         self.label_4.setObjectName(u"label_4")
         self.label_4.setMinimumSize(QSize(365, 68))
-        font18 = QFont()
-        font18.setFamilies([u"Hind Siliguri Medium"])
-        font18.setPointSize(11)
-        font18.setBold(False)
-        self.label_4.setFont(font18)
+        self.label_4.setFont(font23)
         self.label_4.setStyleSheet(u"color: rgb(132, 211, 184);\n"
 "background-color: rgb(0, 43, 91);\n"
 "padding: 5px;")
@@ -1291,7 +1828,7 @@ class Ui_MainWindow(object):
 
         self.label_3 = QLabel(self.mid_frame_4)
         self.label_3.setObjectName(u"label_3")
-        self.label_3.setFont(font18)
+        self.label_3.setFont(font23)
         self.label_3.setStyleSheet(u"color: rgb(132, 211, 184);\n"
 "background-color: rgb(0, 43, 91);\n"
 "padding: 5px;")
@@ -1302,7 +1839,7 @@ class Ui_MainWindow(object):
 
         self.label_2 = QLabel(self.mid_frame_4)
         self.label_2.setObjectName(u"label_2")
-        self.label_2.setFont(font18)
+        self.label_2.setFont(font23)
         self.label_2.setStyleSheet(u"color: rgb(132, 211, 184);\n"
 "background-color: rgb(0, 43, 91);\n"
 "padding: 5px;")
@@ -1351,7 +1888,7 @@ class Ui_MainWindow(object):
 
         self.label = QLabel(self.mid_frame_4)
         self.label.setObjectName(u"label")
-        self.label.setFont(font18)
+        self.label.setFont(font23)
         self.label.setStyleSheet(u"color: rgb(132, 211, 184);\n"
 "background-color: rgb(0, 43, 91);\n"
 "padding: 5px;")
@@ -1362,9 +1899,9 @@ class Ui_MainWindow(object):
 
         self.label_7 = QLabel(self.mid_frame_4)
         self.label_7.setObjectName(u"label_7")
-        font19 = QFont()
-        font19.setPointSize(7)
-        self.label_7.setFont(font19)
+        font26 = QFont()
+        font26.setPointSize(7)
+        self.label_7.setFont(font26)
         self.label_7.setPixmap(QPixmap(u"../Images/downward_icon.png"))
 
         self.gridLayout_4.addWidget(self.label_7, 6, 2, 1, 1)
@@ -1389,9 +1926,9 @@ class Ui_MainWindow(object):
 "	color: #2B4865;\n"
 "\n"
 "}")
-        icon15 = QIcon()
-        icon15.addFile(u"../Images/remove_icon.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.lsn_btn_remove_module.setIcon(icon15)
+        icon17 = QIcon()
+        icon17.addFile(u"../Images/remove_icon.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.lsn_btn_remove_module.setIcon(icon17)
         self.lsn_btn_remove_module.setIconSize(QSize(20, 25))
 
         self.gridLayout_4.addWidget(self.lsn_btn_remove_module, 10, 4, 1, 1)
@@ -1399,11 +1936,11 @@ class Ui_MainWindow(object):
         self.lsn_lbl_lessons_5 = QLabel(self.mid_frame_4)
         self.lsn_lbl_lessons_5.setObjectName(u"lsn_lbl_lessons_5")
         self.lsn_lbl_lessons_5.setMinimumSize(QSize(371, 36))
-        font20 = QFont()
-        font20.setFamilies([u"Hind Siliguri Medium"])
-        font20.setPointSize(16)
-        font20.setBold(False)
-        self.lsn_lbl_lessons_5.setFont(font20)
+        font27 = QFont()
+        font27.setFamilies([u"Hind Siliguri Medium"])
+        font27.setPointSize(16)
+        font27.setBold(False)
+        self.lsn_lbl_lessons_5.setFont(font27)
         self.lsn_lbl_lessons_5.setStyleSheet(u"color: rgb(149, 236, 215);")
         self.lsn_lbl_lessons_5.setAlignment(Qt.AlignCenter)
 
@@ -1411,7 +1948,7 @@ class Ui_MainWindow(object):
 
         self.label_6 = QLabel(self.mid_frame_4)
         self.label_6.setObjectName(u"label_6")
-        self.label_6.setFont(font19)
+        self.label_6.setFont(font26)
         self.label_6.setPixmap(QPixmap(u"../Images/downward_icon.png"))
 
         self.gridLayout_4.addWidget(self.label_6, 4, 2, 1, 1)
@@ -1437,8 +1974,6 @@ class Ui_MainWindow(object):
 "	color: #2B4865;\n"
 "\n"
 "}")
-        icon16 = QIcon()
-        icon16.addFile(u"../Images/done.png", QSize(), QIcon.Normal, QIcon.Off)
         self.lsn_btn_finish_add_module.setIcon(icon16)
         self.lsn_btn_finish_add_module.setIconSize(QSize(20, 25))
 
@@ -1450,7 +1985,7 @@ class Ui_MainWindow(object):
 
         self.label_5 = QLabel(self.mid_frame_4)
         self.label_5.setObjectName(u"label_5")
-        self.label_5.setFont(font19)
+        self.label_5.setFont(font26)
         self.label_5.setPixmap(QPixmap(u"../Images/downward_icon.png"))
 
         self.gridLayout_4.addWidget(self.label_5, 2, 2, 1, 1)
@@ -1466,7 +2001,7 @@ class Ui_MainWindow(object):
         self.lsn_lbl_lessons_3 = QLabel(self.mid_frame_4)
         self.lsn_lbl_lessons_3.setObjectName(u"lsn_lbl_lessons_3")
         self.lsn_lbl_lessons_3.setMinimumSize(QSize(451, 36))
-        self.lsn_lbl_lessons_3.setFont(font20)
+        self.lsn_lbl_lessons_3.setFont(font27)
         self.lsn_lbl_lessons_3.setStyleSheet(u"color: rgb(149, 236, 215);")
         self.lsn_lbl_lessons_3.setAlignment(Qt.AlignCenter)
 
@@ -1475,7 +2010,7 @@ class Ui_MainWindow(object):
         self.lsn_lbl_lessons_4 = QLabel(self.mid_frame_4)
         self.lsn_lbl_lessons_4.setObjectName(u"lsn_lbl_lessons_4")
         self.lsn_lbl_lessons_4.setMinimumSize(QSize(361, 36))
-        self.lsn_lbl_lessons_4.setFont(font20)
+        self.lsn_lbl_lessons_4.setFont(font27)
         self.lsn_lbl_lessons_4.setStyleSheet(u"color: rgb(149, 236, 215);")
         self.lsn_lbl_lessons_4.setAlignment(Qt.AlignCenter)
 
@@ -1484,9 +2019,9 @@ class Ui_MainWindow(object):
         self.lsn_new_module_list_view = QListView(self.mid_frame_4)
         self.lsn_new_module_list_view.setObjectName(u"lsn_new_module_list_view")
         self.lsn_new_module_list_view.setMinimumSize(QSize(424, 509))
-        font21 = QFont()
-        font21.setPointSize(10)
-        self.lsn_new_module_list_view.setFont(font21)
+        font28 = QFont()
+        font28.setPointSize(10)
+        self.lsn_new_module_list_view.setFont(font28)
         self.lsn_new_module_list_view.setStyleSheet(u"color: rgb(143, 227, 190);\n"
 "border: 2px solid rgb(0, 43, 91);")
         self.lsn_new_module_list_view.setEditTriggers(QAbstractItemView.NoEditTriggers)
@@ -1515,9 +2050,9 @@ class Ui_MainWindow(object):
 "	color: #2B4865;\n"
 "\n"
 "}")
-        icon17 = QIcon()
-        icon17.addFile(u"../Images/open_folders_icon.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.lsn_btn_see_lessons.setIcon(icon17)
+        icon18 = QIcon()
+        icon18.addFile(u"../Images/open_folders_icon.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.lsn_btn_see_lessons.setIcon(icon18)
         self.lsn_btn_see_lessons.setIconSize(QSize(30, 30))
 
         self.gridLayout_4.addWidget(self.lsn_btn_see_lessons, 9, 1, 2, 3)
@@ -1613,7 +2148,7 @@ class Ui_MainWindow(object):
         self.lsn_lbl_lessons_6 = QLabel(self.mid_frame_5)
         self.lsn_lbl_lessons_6.setObjectName(u"lsn_lbl_lessons_6")
         self.lsn_lbl_lessons_6.setMinimumSize(QSize(451, 36))
-        self.lsn_lbl_lessons_6.setFont(font20)
+        self.lsn_lbl_lessons_6.setFont(font27)
         self.lsn_lbl_lessons_6.setStyleSheet(u"color: rgb(149, 236, 215);")
         self.lsn_lbl_lessons_6.setAlignment(Qt.AlignCenter)
 
@@ -1622,34 +2157,34 @@ class Ui_MainWindow(object):
         self.lsn_table_assigning_lessons = QTableWidget(self.mid_frame_5)
         if (self.lsn_table_assigning_lessons.columnCount() < 4):
             self.lsn_table_assigning_lessons.setColumnCount(4)
-        font22 = QFont()
-        font22.setPointSize(12)
-        font22.setBold(False)
+        font29 = QFont()
+        font29.setPointSize(12)
+        font29.setBold(False)
         __qtablewidgetitem8 = QTableWidgetItem()
         __qtablewidgetitem8.setTextAlignment(Qt.AlignCenter);
-        __qtablewidgetitem8.setFont(font22);
+        __qtablewidgetitem8.setFont(font29);
         self.lsn_table_assigning_lessons.setHorizontalHeaderItem(0, __qtablewidgetitem8)
-        font23 = QFont()
-        font23.setFamilies([u"Segoe UI"])
-        font23.setPointSize(12)
-        font23.setBold(False)
+        font30 = QFont()
+        font30.setFamilies([u"Segoe UI"])
+        font30.setPointSize(12)
+        font30.setBold(False)
         __qtablewidgetitem9 = QTableWidgetItem()
         __qtablewidgetitem9.setTextAlignment(Qt.AlignCenter);
-        __qtablewidgetitem9.setFont(font23);
+        __qtablewidgetitem9.setFont(font30);
         self.lsn_table_assigning_lessons.setHorizontalHeaderItem(1, __qtablewidgetitem9)
         __qtablewidgetitem10 = QTableWidgetItem()
         __qtablewidgetitem10.setTextAlignment(Qt.AlignCenter);
-        __qtablewidgetitem10.setFont(font23);
+        __qtablewidgetitem10.setFont(font30);
         self.lsn_table_assigning_lessons.setHorizontalHeaderItem(2, __qtablewidgetitem10)
-        font24 = QFont()
-        font24.setPointSize(12)
+        font31 = QFont()
+        font31.setPointSize(12)
         __qtablewidgetitem11 = QTableWidgetItem()
         __qtablewidgetitem11.setTextAlignment(Qt.AlignCenter);
-        __qtablewidgetitem11.setFont(font24);
+        __qtablewidgetitem11.setFont(font31);
         self.lsn_table_assigning_lessons.setHorizontalHeaderItem(3, __qtablewidgetitem11)
         self.lsn_table_assigning_lessons.setObjectName(u"lsn_table_assigning_lessons")
         self.lsn_table_assigning_lessons.setMinimumSize(QSize(830, 511))
-        self.lsn_table_assigning_lessons.setFont(font24)
+        self.lsn_table_assigning_lessons.setFont(font31)
         self.lsn_table_assigning_lessons.viewport().setProperty("cursor", QCursor(Qt.OpenHandCursor))
         self.lsn_table_assigning_lessons.setStyleSheet(u"QHeaderView::section {\n"
 "	background-color: #002B5B;\n"
@@ -1675,7 +2210,7 @@ class Ui_MainWindow(object):
         self.lsn_lbl_lessons_8 = QLabel(self.mid_frame_5)
         self.lsn_lbl_lessons_8.setObjectName(u"lsn_lbl_lessons_8")
         self.lsn_lbl_lessons_8.setMinimumSize(QSize(250, 36))
-        self.lsn_lbl_lessons_8.setFont(font20)
+        self.lsn_lbl_lessons_8.setFont(font27)
         self.lsn_lbl_lessons_8.setStyleSheet(u"color: rgb(149, 236, 215);")
         self.lsn_lbl_lessons_8.setAlignment(Qt.AlignCenter)
 
@@ -1715,9 +2250,9 @@ class Ui_MainWindow(object):
         self.lsn_list_students.setObjectName(u"lsn_list_students")
         self.lsn_list_students.setMinimumSize(QSize(401, 509))
         self.lsn_list_students.setMaximumSize(QSize(371, 16777215))
-        font25 = QFont()
-        font25.setPointSize(13)
-        self.lsn_list_students.setFont(font25)
+        font32 = QFont()
+        font32.setPointSize(13)
+        self.lsn_list_students.setFont(font32)
         self.lsn_list_students.setStyleSheet(u"color: rgb(143, 227, 190);\n"
 "border: 2px solid rgb(0, 43, 91);")
         self.lsn_list_students.setEditTriggers(QAbstractItemView.NoEditTriggers)
@@ -1747,7 +2282,7 @@ class Ui_MainWindow(object):
         self.mediaStackWidget.setCurrentIndex(1)
         self.lsn_btn_back_to_home.setDefault(False)
         self.task_btn_back_to_home.setDefault(False)
-        self.evalstackwidget.setCurrentIndex(0)
+        self.evalstackwidget.setCurrentIndex(1)
         self.lsn_btn_back_to_home_3.setDefault(False)
         self.lsn_btn_back_to_home_4.setDefault(False)
 
@@ -1803,11 +2338,40 @@ class Ui_MainWindow(object):
         self.task_btn_matching.setText(QCoreApplication.translate("MainWindow", u"\u09b6\u09ac\u09cd\u09a6 \u09ae\u09bf\u09b2\u09be\u0987", None))
         self.task_btn_sequence.setText(QCoreApplication.translate("MainWindow", u"\u0995\u09cd\u09b0\u09ae\u09a7\u09be\u09b0\u09be", None))
         self.task_btn_puzzle.setText(QCoreApplication.translate("MainWindow", u"\u09a7\u09be\u0981\u09a7\u09be", None))
-        self.task_puzzle_image_lbl.setText(QCoreApplication.translate("MainWindow", u"\u09a7\u09be\u0981\u09a7\u09be\u09b0 \u099c\u09a8\u09cd\u09af \u09aa\u09cd\u09b0\u09df\u09cb\u099c\u09a8\u09c0\u09df \u099b\u09ac\u09bf\u09b8\u09ae\u09c2\u09b9 \u098f\u0996\u09be\u09a8\u09c7 \u09a8\u09bf\u09b0\u09cd\u09ac\u09be\u099a\u09a8 \u0995\u09b0\u09c1\u09a8 (\u098f\u0995\u09be\u09a7\u09bf\u0995 \u099b\u09ac\u09bf \u09a8\u09bf\u09b0\u09cd\u09ac\u09be\u099a\u09a8 \u0995\u09b0\u09be \u09af\u09be\u09ac\u09c7)", None))
+        self.label_9.setText(QCoreApplication.translate("MainWindow", u"\u09a7\u09be\u0981\u09a7\u09be", None))
         self.task_puzzle_q_set_lbl.setPlaceholderText(QCoreApplication.translate("MainWindow", u"\u09b8\u09c7\u099f \u09a8\u09ae\u09cd\u09ac\u09b0 \u09a6\u09bf\u09a8 (\u09af\u09c7\u09ae\u09a8 set1)", None))
         self.task_puzzle_save_set_btn.setText(QCoreApplication.translate("MainWindow", u"\u09b8\u0982\u09b0\u0995\u09cd\u09b7\u09a8 \u0995\u09b0\u09c1\u09a8", None))
+        self.task_puzzle_image_lbl.setText(QCoreApplication.translate("MainWindow", u"\u09a7\u09be\u0981\u09a7\u09be\u09b0 \u099c\u09a8\u09cd\u09af \u09aa\u09cd\u09b0\u09df\u09cb\u099c\u09a8\u09c0\u09df \u099b\u09ac\u09bf\u09b8\u09ae\u09c2\u09b9 \u09a8\u09bf\u09b0\u09cd\u09ac\u09be\u099a\u09a8 \u0995\u09b0\u09c1\u09a8 (\u098f\u0995\u09be\u09a7\u09bf\u0995 \u099b\u09ac\u09bf \u09a8\u09bf\u09b0\u09cd\u09ac\u09be\u099a\u09a8 \u0995\u09b0\u09a4\u09c7 \u09aa\u09be\u09b0\u09ac\u09c7\u09a8)", None))
         self.task_puzzle_select_img_btn.setText(QCoreApplication.translate("MainWindow", u"\u099b\u09ac\u09bf \u09a8\u09bf\u09b0\u09cd\u09ac\u09be\u099a\u09a8 \u0995\u09b0\u09c1\u09a8", None))
         self.task_puzzle_show_set_btn.setText(QCoreApplication.translate("MainWindow", u"\u09a4\u09c8\u09b0\u09bf\u0995\u09c3\u09a4 \u09a7\u09be\u0981\u09a7\u09be\u09b0 \u09b8\u09c7\u099f\u0997\u09c1\u09b2\u09cb \u09a6\u09c7\u0996\u09c1\u09a8", None))
+        self.task_seq_img_desc_edit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"\u099b\u09ac\u09bf\u09b0 \u09b8\u0982\u0995\u09cd\u09b7\u09bf\u09aa\u09cd\u09a4 \u09ac\u09bf\u09ac\u09b0\u09a3 (\u09e9-\u09eb \u09b6\u09ac\u09cd\u09a6\u09c7)", None))
+        self.task_seq_img_view_lbl.setText("")
+        self.task_seq_img_seq_edit.setText("")
+        self.task_seq_img_seq_edit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"\u0995\u09cd\u09b0\u09ae\u09bf\u0995 \u09a8\u09ae\u09cd\u09ac\u09b0 (\u09af\u09c7\u09ae\u09a8\u0983 \u09e7/\u09e8)", None))
+        self.task_seq_instruction_lbl.setText(QCoreApplication.translate("MainWindow", u"\u09aa\u09cd\u09b0\u09a4\u09bf \u09b8\u09c7\u099f\u09c7\u09b0 \u099c\u09a8\u09cd\u09af \u0986\u09ae\u09b0\u09be \u09b8\u09b0\u09cd\u09ac\u09cb\u099a\u09cd\u099a \u09ea\u099f\u09bf \u099b\u09ac\u09bf \u09a8\u09bf\u09b0\u09cd\u09ac\u09be\u099a\u09a8 \u0995\u09b0\u09ac\u0964 \u099b\u09ac\u09bf\u09b0 \u09a8\u09bf\u099a\u09c7 \u09b8\u0982\u0995\u09cd\u09b7\u09bf\u09aa\u09cd\u09a4 \u09ac\u09bf\u09ac\u09b0\u09a3 \u098f\u09ac\u09a8 \u0995\u09cd\u09b0\u09ae\u09bf\u0995 \u09a8\u0982 \u0989\u09b2\u09cd\u09b2\u09c7\u0996 \u0995\u09b0\u09ac", None))
+        self.task_seq_img_save_btn.setText(QCoreApplication.translate("MainWindow", u"\u09b8\u0982\u09b0\u0995\u09cd\u09b7\u09a8 \u0995\u09b0\u09c1\u09a8", None))
+        self.task_seq_save_set_btn.setText(QCoreApplication.translate("MainWindow", u"\u09b8\u0982\u09b0\u0995\u09cd\u09b7\u09a8 \u0995\u09b0\u09c1\u09a8", None))
+        self.task_seq_set_lbl.setPlaceholderText(QCoreApplication.translate("MainWindow", u"\u09b8\u09c7\u099f \u09a8\u09ae\u09cd\u09ac\u09b0 \u09a6\u09bf\u09a8 (\u09af\u09c7\u09ae\u09a8 set1)", None))
+        self.label_8.setText(QCoreApplication.translate("MainWindow", u"\u0995\u09cd\u09b0\u09ae\u09a7\u09be\u09b0\u09be ", None))
+        self.label_10.setText(QCoreApplication.translate("MainWindow", u"\u09b6\u09ac\u09cd\u09a6 \u09ae\u09bf\u09b2\u09be\u0987", None))
+        self.task_matching_set_edit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"\u09b8\u09c7\u099f \u09a8\u09ae\u09cd\u09ac\u09b0 \u09a6\u09bf\u09a8 (\u09af\u09c7\u09ae\u09a8 set1)", None))
+        self.task_matching_save_set_btn.setText(QCoreApplication.translate("MainWindow", u"\u09b8\u0982\u09b0\u0995\u09cd\u09b7\u09a8 \u0995\u09b0\u09c1\u09a8", None))
+        self.task_matching_img_save_btn_1.setText("")
+        self.task_matching_img_desc_edit_1.setPlaceholderText(QCoreApplication.translate("MainWindow", u"\u099b\u09ac\u09bf\u09b0 \u09b8\u0982\u0995\u09cd\u09b7\u09bf\u09aa\u09cd\u09a4 \u09ac\u09bf\u09ac\u09b0\u09a3 (\u09e9-\u09eb \u09b6\u09ac\u09cd\u09a6\u09c7)", None))
+        self.task_matching_img_done_btn_1.setText("")
+        self.task_matching_img_view_lbl_1.setText("")
+        self.task_matching_img_desc_edit_2.setPlaceholderText(QCoreApplication.translate("MainWindow", u"\u099b\u09ac\u09bf\u09b0 \u09b8\u0982\u0995\u09cd\u09b7\u09bf\u09aa\u09cd\u09a4 \u09ac\u09bf\u09ac\u09b0\u09a3 (\u09e9-\u09eb \u09b6\u09ac\u09cd\u09a6\u09c7)", None))
+        self.task_matching_img_save_btn_2.setText("")
+        self.task_matching_img_done_btn_2.setText("")
+        self.task_matching_img_view_lbl_2.setText("")
+        self.task_matching_img_desc_edit_3.setPlaceholderText(QCoreApplication.translate("MainWindow", u"\u099b\u09ac\u09bf\u09b0 \u09b8\u0982\u0995\u09cd\u09b7\u09bf\u09aa\u09cd\u09a4 \u09ac\u09bf\u09ac\u09b0\u09a3 (\u09e9-\u09eb \u09b6\u09ac\u09cd\u09a6\u09c7)", None))
+        self.task_matching_img_save_btn_3.setText("")
+        self.task_matching_img_done_btn_3.setText("")
+        self.task_matching_img_view_lbl_3.setText("")
+        self.task_matching_img_desc_lbl_4.setPlaceholderText(QCoreApplication.translate("MainWindow", u"\u099b\u09ac\u09bf\u09b0 \u09b8\u0982\u0995\u09cd\u09b7\u09bf\u09aa\u09cd\u09a4 \u09ac\u09bf\u09ac\u09b0\u09a3 (\u09e9-\u09eb \u09b6\u09ac\u09cd\u09a6\u09c7)", None))
+        self.task_matching_img_done_btn_4.setText("")
+        self.task_matching_img_save_btn_4.setText("")
+        self.task_matching_img_view_lbl_4.setText("")
         self.lsn_btn_back_to_home_3.setText("")
         self.lsn_lbl_headline_4.setText(QCoreApplication.translate("MainWindow", u"\u09aa\u09be\u09a0\u09b8\u09c2\u099a\u09bf", None))
         self.label_4.setText(QCoreApplication.translate("MainWindow", u"\u09b8\u0995\u09b2 \u09aa\u09be\u09a0\u09b8\u09ae\u09c2\u09b9 \u09a6\u09c7\u0996\u09be\u09b0 \u099c\u09a8\u09cd\u09af \u09a8\u09bf\u099a\u09c7\u09b0 \u0986\u0987\u0995\u09a8\u09c7 \u0995\u09cd\u09b2\u09bf\u0995 \u0995\u09b0\u09c1\u09a8", None))
