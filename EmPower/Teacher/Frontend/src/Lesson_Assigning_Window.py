@@ -14,11 +14,17 @@ class Lesson_Assigning_Window(QMainWindow):  # Home extends QMainWindow
         # window
         self.lesson_assinging_window = ui_object
         self.form = None
+        self.table_data = None
+        self.rows = None
+        self.columns = None
 
         self.populate_student_list()
         self.populate_lesson_assigning_table()
 
     def populate_student_list(self):
+        
+        # clear the list before populating
+        self.lesson_assinging_window.lsn_list_students.clear()
 
         student_details = sd().load_table()
         data = [(x[0], x[1]) for x in student_details]
@@ -29,16 +35,20 @@ class Lesson_Assigning_Window(QMainWindow):  # Home extends QMainWindow
         
     def populate_lesson_assigning_table(self):
         
-        table_data = lad().load_table()
-        rows = len(table_data)
-        columns = self.lesson_assinging_window.lsn_table_assigning_lessons.columnCount()
-        print(rows, columns, table_data)
+        # clear previous data before populating
+        self.lesson_assinging_window.lsn_table_assigning_lessons.clearContents()
+        self.lesson_assinging_window.lsn_table_assigning_lessons.setRowCount(0)
         
-        for row in range(rows):
+        self.table_data = lad().load_table()
+        self.rows = len(self.table_data)
+        self.columns = self.lesson_assinging_window.lsn_table_assigning_lessons.columnCount()
+        print(self.rows, self.columns, self.table_data)
+        
+        for row in range(self.rows):
             self.lesson_assinging_window.lsn_table_assigning_lessons.insertRow(row)
-            for col in range(columns):
-                print(row, col, table_data[row][col])
-                self.lesson_assinging_window.lsn_table_assigning_lessons.setItem(row, col, QTableWidgetItem(str(table_data[row][col])))
+            for col in range(self.columns):
+                print(row, col, self.table_data[row][col])
+                self.lesson_assinging_window.lsn_table_assigning_lessons.setItem(row, col, QTableWidgetItem(str(self.table_data[row][col])))
         
     def assign_lesson(self):
                 

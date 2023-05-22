@@ -19,19 +19,25 @@ from Backend.Database.module_db import module_data as md
 from Backend.Database.lesson_db import lesson_data as ld
 from Backend.Database.student_db import student_data as sd
 import os
+import shutil
 
 class Home(QMainWindow):  # Home extends QMainWindow
 
     def __init__(self):
         super(QMainWindow, self).__init__()
+        
+        self.home = None
 
         self.home_page()
+        
         
     def home_page(self):
         
         # load & set up the HOME page
-        self.home = ui_home_page.Ui_MainWindow()
-        self.home.setupUi(self)
+        
+        if self.home is None:
+            self.home = ui_home_page.Ui_MainWindow()
+            self.home.setupUi(self)
         
         # set window icon and title
         # TODO: Show the window at the middle of the screen
@@ -44,12 +50,14 @@ class Home(QMainWindow):  # Home extends QMainWindow
         set_drop_shadow(self.home.home_btn_progress)
         set_drop_shadow(self.home.home_btn_lesson_assigns)
         
+        # connect buttons
         self.home.stackedWidget.setCurrentWidget(self.home.home_page)
         self.home.home_btn_student.clicked.connect(self.student_page)
         self.home.home_btn_lesson.clicked.connect(self.lesson_page)
         self.home.home_btn_quiz.clicked.connect(self.task_page)
         self.home.home_btn_lesson_assigns.clicked.connect(self.lesson_assigning_page)
-               
+        
+                   
     def student_page(self):
         
         # create table for student info
@@ -94,7 +102,7 @@ class Home(QMainWindow):  # Home extends QMainWindow
         # Navigate between windows
         self.home.mediaStackWidget.setCurrentWidget(self.home.image_page)
         self.home.stackedWidget.setCurrentWidget(self.home.lesson_page)
-        self.home.lsn_btn_back_to_home.clicked.connect(self.home_page)
+        
                 
         # Connecting Lesson window buttons
         self.home.lsn_btn_add_lessons.clicked.connect(self.lesson_window.create_lesson)
@@ -102,6 +110,8 @@ class Home(QMainWindow):  # Home extends QMainWindow
         self.home.lsn_cmb_lessons.currentIndexChanged.connect(self.lesson_window.on_lesson_changed)
         self.home.lsn_btn_reload_window.clicked.connect(self.home_page)
         self.home.lsn_btn_make_lesson.clicked.connect(self.lesson_making_page)
+        self.home.lsn_btn_back_to_home.clicked.connect(self.home_page)
+        
        
     def task_page(self):
         
@@ -113,10 +123,13 @@ class Home(QMainWindow):  # Home extends QMainWindow
         
         # Connecting Task window buttons
         # !need to move on Task Window Page
-        # self.home.task_btn_mcq.clicked.connect(self.mcq_page)
         self.home.task_btn_matching.clicked.connect(self.matching_page)
         self.home.task_btn_sequence.clicked.connect(self.sequence_page)
         self.home.task_btn_puzzle.clicked.connect(self.puzzle_page)
+        self.home.task_puzzle_select_img_btn.clicked.connect(self.select_puzzle_image)
+        self.home.task_puzzle_save_set_btn.clicked.connect(self.save_puzzle_set)
+        self.home.task_puzzle_show_set_btn.clicked.connect(self.show_puzzle_set)
+        
         
     def lesson_making_page(self):
         
@@ -144,7 +157,6 @@ class Home(QMainWindow):  # Home extends QMainWindow
         self.home.lsn_btn_remove_module.clicked.connect(self.lesson_making_window.remove_list_item)
         self.home.lsn_btn_finish_add_module.clicked.connect(self.lesson_making_window.make_lesson)
         self.home.lsn_btn_see_lessons.clicked.connect(self.lesson_making_window.show_lessons)
-        self.home.lsn_table_assigning_lessons
     
     def lesson_assigning_page(self):
         
@@ -178,11 +190,10 @@ class Home(QMainWindow):  # Home extends QMainWindow
             event.accept()
         else: 
             event.ignore()
-        
-                
+                        
     def matching_page(self):
         
-        self.home.evalstackwidget.setCurrentWidget(self.home.dragdrop_page)
+        self.home.evalstackwidget.setCurrentWidget(self.home.matching_page)
         
     def sequence_page(self):
         
@@ -190,5 +201,74 @@ class Home(QMainWindow):  # Home extends QMainWindow
         
     def puzzle_page(self):
         
-        self.home.evalstackwidget.setCurrentWidget(self.home.puzzle_page) 
-         
+        self.home.evalstackwidget.setCurrentWidget(self.home.puzzle_page)
+        
+        # select multiple image files using diaglog box 
+                            
+    def select_puzzle_image(self):
+        
+        print("Selecting puzzle image"	)
+        # self.home.task_puzzle_image_lbl.setText("")
+        file_names = None 
+        
+        # Open dialog box to select multiple files
+        dialog = QFileDialog()
+        dialog.setFileMode(QFileDialog.ExistingFiles)
+        dialog.setNameFilter("Image Files (*.png);")
+        if dialog.exec_():
+            
+            file_names = dialog.selectedFiles()
+            
+            # create a temp folder 
+            os.path.exists('Lessons/Puzzle_Images') or os.mkdir('Lessons/Puzzle_Images')
+            os.path.exists('Lessons/Puzzle_Images/Temp') or os.mkdir('Lessons/Puzzle_Images/Temp')
+            
+            
+        try: 
+            
+        # show file names in lbl
+            names = ""
+            for file_name in file_names:
+                names += file_name.split("/")[-1] + "\n"
+                
+            names += "ছবি সংরক্ষন করার জন্য নিচে সেট নম্বর লিখুন এবং \'সংরক্ষন করুন\' বাটনে ক্লিক করুন।"
+            self.home.task_puzzle_image_lbl.setText(names)
+                
+            # copy image files
+            for file_name in file_names: 
+                
+                # if self.home.task_puzzle_q_set_lbl.text() != "":
+                #     folder_name = self.home.task_puzzle_q_set_lbl.text()
+                #     try:
+                #         shutil.copy2(file_name, 'Lessons/Puzzle_Images/{}/'.format(folder_name))
+                #         self.home.task_puzzle_image_lbl.setText("ছবি {} ফোল্ডারে সংরক্ষণ করা হয়েছে।{} নতুন ফোল্ডারে সংরক্ষণের জন্য পুনরায় ছবি নির্বাচন করুন.".format(folder_name,'\n'))
+                        
+                #     except:
+                #         os.mkdir('Lessons/Puzzle_Images/{}'.format(folder_name))
+                #         shutil.copy2(file_name, 'Lessons/Puzzle_Images/{}/'.format(folder_name))
+                #         self.home.task_puzzle_image_lbl.setText("ছবি {} ফোল্ডারে সংরক্ষণ করা হয়েছে।{} নতুন ফোল্ডারে সংরক্ষণের জন্য পুনরায় ছবি নির্বাচন করুন.".format(folder_name,'\n'))
+                # else:
+                shutil.copy2(file_name, 'Lessons/Puzzle_Images/Temp')
+                
+        except:
+            pass 
+
+    def save_puzzle_set(self):
+        
+        # rename folder Temp
+        if os.path.exists('Lessons/Puzzle_Images/{}'.format(self.home.task_puzzle_q_set_lbl.text())) == False:
+            os.rename('Lessons/Puzzle_Images/Temp', 'Lessons/Puzzle_Images/{}'.format(self.home.task_puzzle_q_set_lbl.text()))
+            self.home.task_puzzle_image_lbl.setText("ছবি {} ফোল্ডারে সংরক্ষণ করা হয়েছে।{} নতুন ফোল্ডারে সংরক্ষণের জন্য পুনরায় ছবি নির্বাচন করুন".format(self.home.task_puzzle_q_set_lbl.text(), '\n'))	
+            
+            self.home.task_puzzle_q_set_lbl.clear()
+            show_success_message("ছবি সংরক্ষন সম্পন্ন হয়েছে", "সংরক্ষন সম্পন্ন")
+        
+        else:
+            show_warning_message("ফোল্ডার ইতোমধ্যে তৈরি করা হয়েছে", "{} ফোল্ডার ইতোমধ্যে তৈরি করা হয়েছে! নতুন সেট নম্বর নির্বাচন করুন".format(self.home.task_puzzle_q_set_lbl.text()))
+            
+        
+            
+    def show_puzzle_set(self):
+        
+        # open lesson folder  
+        os.startfile('Lessons\Puzzle_Images')   

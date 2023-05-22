@@ -26,7 +26,7 @@
      <height>720</height>
     </size>
    </property>
-   <layout class="QGridLayout" name="gridLayout_7">
+   <layout class="QGridLayout" name="gridLayout_15">
     <property name="leftMargin">
      <number>0</number>
     </property>
@@ -48,7 +48,7 @@
        </size>
       </property>
       <property name="currentIndex">
-       <number>5</number>
+       <number>3</number>
       </property>
       <widget class="QWidget" name="home_page">
        <property name="minimumSize">
@@ -1815,7 +1815,7 @@ QPushButton:hover:!pressed
        </layout>
       </widget>
       <widget class="QWidget" name="task_page">
-       <layout class="QVBoxLayout" name="verticalLayout_7">
+       <layout class="QGridLayout" name="gridLayout_13">
         <property name="leftMargin">
          <number>0</number>
         </property>
@@ -1828,7 +1828,7 @@ QPushButton:hover:!pressed
         <property name="bottomMargin">
          <number>0</number>
         </property>
-        <item>
+        <item row="0" column="0">
          <widget class="QFrame" name="evaluation_frame">
           <property name="frameShape">
            <enum>QFrame::StyledPanel</enum>
@@ -2013,6 +2013,12 @@ QPushButton:hover:!pressed
               <item>
                <widget class="QFrame" name="eval_left_frame">
                 <property name="minimumSize">
+                 <size>
+                  <width>385</width>
+                  <height>636</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
                  <size>
                   <width>385</width>
                   <height>636</height>
@@ -2315,85 +2321,268 @@ QPushButton::hover:!pressed {
                  <item row="0" column="0">
                   <widget class="QStackedWidget" name="evalstackwidget">
                    <property name="currentIndex">
-                    <number>2</number>
+                    <number>0</number>
                    </property>
-                   <widget class="QWidget" name="dragdrop_page">
-                    <widget class="QLabel" name="task_lbl_matching">
-                     <property name="geometry">
-                      <rect>
-                       <x>30</x>
-                       <y>10</y>
-                       <width>841</width>
-                       <height>581</height>
-                      </rect>
-                     </property>
-                     <property name="font">
-                      <font>
-                       <pointsize>28</pointsize>
-                      </font>
-                     </property>
-                     <property name="styleSheet">
-                      <string notr="true">color: rgb(160, 253, 230);</string>
-                     </property>
-                     <property name="text">
-                      <string>শব্দ মিলাই</string>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignCenter</set>
-                     </property>
-                    </widget>
+                   <widget class="QWidget" name="puzzle_page">
+                    <layout class="QGridLayout" name="gridLayout_7">
+                     <item row="0" column="0">
+                      <widget class="QFrame" name="frame_3">
+                       <property name="styleSheet">
+                        <string notr="true">border: 2px solid rgb(160, 253, 230);</string>
+                       </property>
+                       <property name="frameShape">
+                        <enum>QFrame::StyledPanel</enum>
+                       </property>
+                       <property name="frameShadow">
+                        <enum>QFrame::Raised</enum>
+                       </property>
+                       <layout class="QGridLayout" name="gridLayout_16">
+                        <item row="0" column="0" colspan="5">
+                         <widget class="QLabel" name="task_puzzle_image_lbl">
+                          <property name="minimumSize">
+                           <size>
+                            <width>481</width>
+                            <height>384</height>
+                           </size>
+                          </property>
+                          <property name="font">
+                           <font>
+                            <pointsize>15</pointsize>
+                           </font>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true">color: rgb(0, 43, 91);</string>
+                          </property>
+                          <property name="text">
+                           <string>ধাঁধার জন্য প্রয়োজনীয় ছবিসমূহ এখানে নির্বাচন করুন(একাধিক ছবি নির্বাচন করা যাবে)</string>
+                          </property>
+                          <property name="alignment">
+                           <set>Qt::AlignCenter</set>
+                          </property>
+                          <property name="wordWrap">
+                           <bool>true</bool>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="1" column="0">
+                         <spacer name="horizontalSpacer_22">
+                          <property name="orientation">
+                           <enum>Qt::Horizontal</enum>
+                          </property>
+                          <property name="sizeType">
+                           <enum>QSizePolicy::Fixed</enum>
+                          </property>
+                          <property name="sizeHint" stdset="0">
+                           <size>
+                            <width>108</width>
+                            <height>20</height>
+                           </size>
+                          </property>
+                         </spacer>
+                        </item>
+                        <item row="2" column="0" colspan="3">
+                         <widget class="QLineEdit" name="task_puzzle_q_set_lbl">
+                          <property name="minimumSize">
+                           <size>
+                            <width>326</width>
+                            <height>51</height>
+                           </size>
+                          </property>
+                          <property name="font">
+                           <font>
+                            <family>Hind Siliguri</family>
+                            <pointsize>9</pointsize>
+                            <weight>50</weight>
+                            <bold>false</bold>
+                           </font>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true">background-color: rgb(137, 218, 199);
+border: 4px solid rgb(0, 43, 91);
+padding-left: 15px;
+border-radius: 10px;
+color: black;</string>
+                          </property>
+                          <property name="placeholderText">
+                           <string>সেট নম্বর দিন (যেমন set1)</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="1" column="4">
+                         <spacer name="horizontalSpacer_23">
+                          <property name="orientation">
+                           <enum>Qt::Horizontal</enum>
+                          </property>
+                          <property name="sizeType">
+                           <enum>QSizePolicy::Fixed</enum>
+                          </property>
+                          <property name="sizeHint" stdset="0">
+                           <size>
+                            <width>128</width>
+                            <height>20</height>
+                           </size>
+                          </property>
+                         </spacer>
+                        </item>
+                        <item row="1" column="3">
+                         <widget class="QPushButton" name="task_puzzle_show_set_btn">
+                          <property name="minimumSize">
+                           <size>
+                            <width>211</width>
+                            <height>61</height>
+                           </size>
+                          </property>
+                          <property name="font">
+                           <font>
+                            <family>Hind Siliguri Medium</family>
+                            <pointsize>10</pointsize>
+                           </font>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true">QPushButton {
+background-color: rgb(160, 253, 230);
+color:  #256D85 ;
+border-radius: 15px;
+}
+
+QPushButton::hover:!pressed {
+	
+	background-color: rgb(143, 227, 207);
+	color: #2B4865;
+
+}</string>
+                          </property>
+                          <property name="text">
+                           <string>তৈরিকৃত ধাঁধার সেটগুলো দেখুন</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="2" column="3" colspan="2">
+                         <widget class="QPushButton" name="task_puzzle_save_set_btn">
+                          <property name="minimumSize">
+                           <size>
+                            <width>100</width>
+                            <height>51</height>
+                           </size>
+                          </property>
+                          <property name="font">
+                           <font>
+                            <family>Hind Siliguri Medium</family>
+                            <pointsize>10</pointsize>
+                            <weight>50</weight>
+                            <bold>false</bold>
+                           </font>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true">QPushButton {
+background-color: rgb(160, 253, 230);
+color:  #256D85 ;
+border-radius: 15px;
+}
+
+QPushButton::hover:!pressed {
+	
+	background-color: rgb(143, 227, 207);
+	color: #2B4865;
+
+}</string>
+                          </property>
+                          <property name="text">
+                           <string>সংরক্ষন করুন</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="1" column="1">
+                         <widget class="QPushButton" name="task_puzzle_select_img_btn">
+                          <property name="minimumSize">
+                           <size>
+                            <width>211</width>
+                            <height>61</height>
+                           </size>
+                          </property>
+                          <property name="font">
+                           <font>
+                            <family>Hind Siliguri Medium</family>
+                            <pointsize>13</pointsize>
+                            <weight>50</weight>
+                            <bold>false</bold>
+                           </font>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true">QPushButton {
+background-color: rgb(160, 253, 230);
+color:  #256D85 ;
+border-radius: 15px;
+}
+
+QPushButton::hover:!pressed {
+	
+	background-color: rgb(143, 227, 207);
+	color: #2B4865;
+
+}</string>
+                          </property>
+                          <property name="text">
+                           <string>ছবি নির্বাচন করুন</string>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                    </layout>
                    </widget>
                    <widget class="QWidget" name="sequence_page">
-                    <widget class="QLabel" name="task_lbl_sequencing">
-                     <property name="geometry">
-                      <rect>
-                       <x>30</x>
-                       <y>40</y>
-                       <width>841</width>
-                       <height>581</height>
-                      </rect>
+                    <layout class="QGridLayout" name="gridLayout_12">
+                     <property name="leftMargin">
+                      <number>11</number>
                      </property>
-                     <property name="font">
-                      <font>
-                       <pointsize>28</pointsize>
-                      </font>
+                     <property name="topMargin">
+                      <number>11</number>
                      </property>
-                     <property name="styleSheet">
-                      <string notr="true">color: rgb(160, 253, 230);</string>
+                     <property name="rightMargin">
+                      <number>11</number>
                      </property>
-                     <property name="text">
-                      <string>ক্রমধারা</string>
+                     <property name="bottomMargin">
+                      <number>11</number>
                      </property>
-                     <property name="alignment">
-                      <set>Qt::AlignCenter</set>
-                     </property>
-                    </widget>
+                     <item row="0" column="0">
+                      <widget class="QLabel" name="task_lbl_sequencing">
+                       <property name="font">
+                        <font>
+                         <pointsize>28</pointsize>
+                        </font>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">color: rgb(160, 253, 230);
+border: 2px solid rgb(160, 253, 230)</string>
+                       </property>
+                       <property name="text">
+                        <string>ক্রমধারা</string>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignCenter</set>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
                    </widget>
-                   <widget class="QWidget" name="puzzle_page">
-                    <widget class="QLabel" name="task_lbl_puzzle">
-                     <property name="geometry">
-                      <rect>
-                       <x>20</x>
-                       <y>30</y>
-                       <width>841</width>
-                       <height>581</height>
-                      </rect>
-                     </property>
-                     <property name="font">
-                      <font>
-                       <pointsize>28</pointsize>
-                      </font>
-                     </property>
-                     <property name="styleSheet">
-                      <string notr="true">color: rgb(160, 253, 230);</string>
-                     </property>
-                     <property name="text">
-                      <string>ধাঁধা</string>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignCenter</set>
-                     </property>
-                    </widget>
+                   <widget class="QWidget" name="matching_page">
+                    <layout class="QGridLayout" name="gridLayout_14">
+                     <item row="0" column="0">
+                      <widget class="QFrame" name="puzzle_pic_frame">
+                       <property name="styleSheet">
+                        <string notr="true">border: 2px solid rgb(160, 253, 230);</string>
+                       </property>
+                       <property name="frameShape">
+                        <enum>QFrame::StyledPanel</enum>
+                       </property>
+                       <property name="frameShadow">
+                        <enum>QFrame::Raised</enum>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
                    </widget>
                   </widget>
                  </item>

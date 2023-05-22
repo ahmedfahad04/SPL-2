@@ -10,3 +10,5 @@ then the imported file will be executed. Thus,
     we can put such commands on that file, so that when other users execute that file, if the
     imported package is absent then it'll be automatically installed.
 """
+
+print("I am starting...")
