@@ -3,6 +3,7 @@ import threading
 import pygame
 import time
 
+import pyaudio
 
 class MusicPlayer:
 
@@ -17,12 +18,20 @@ class MusicPlayer:
             print("no audio device")
 
     def check_audio_devices(self):
-        pygame.mixer.get_init()
-        try:
-            pygame.mixer.get_num_channels()
+        p = pyaudio.PyAudio()
+        info = p.get_host_api_info_by_index(0)
+        num_devices = info.get('deviceCount')
+
+        output_devices = []
+        for i in range(num_devices):
+            device_info = p.get_device_info_by_host_api_device_index(0, i)
+            if device_info.get('maxOutputChannels') > 0:
+                output_devices.append(device_info.get('name'))
+
+        if output_devices:
             print("Audio output device found.")
             return True
-        except pygame.error:
+        else:
             print("No audio output device found. Connect an audio device and try again.")
             return False
 
