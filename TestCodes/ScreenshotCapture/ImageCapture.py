@@ -15,7 +15,7 @@ class Window(QWidget):
         super().__init__()
 
         self.setWindowTitle("PyQt5 Media Player")
-        self.setGeometry(350, 100, 600, 300)
+        self.setGeometry(350, 100, 800, 800)
         self.setWindowIcon(QIcon('player.png'))
         self.content_path = filename
 
