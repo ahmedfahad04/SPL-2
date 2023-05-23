@@ -296,7 +296,7 @@ class Home(QMainWindow):  # Home extends QMainWindow
             image_name = '{}/{}.png'.format(image_set,image_description)
             self.sequence_details[image_sequence] = image_name
             self.sequence_details['creation_date'] = datetime.datetime.now().strftime("%d/%m/%Y")    
-            self.sequence_details['time'] = datetime.datetime.now().strftime("%H:%M:%S")
+            self.sequence_details['creation_time'] = datetime.datetime.now().strftime("%H:%M:%S")
             json_file_path = 'Lessons/Sequence_Images/{}/image_data.json'.format(image_set)
             with open(json_file_path, 'w') as json_file:
                 json.dump(self.sequence_details, json_file)
@@ -322,7 +322,7 @@ class Home(QMainWindow):  # Home extends QMainWindow
         self.home.evalstackwidget.setCurrentWidget(self.home.puzzle_page)
         
         # check if Puzzle_Images folder exists or not
-        os.exists('Lessons/Puzzle_Images') or os.mkdir('Lessons/Puzzle_Images')
+        os.path.exists('Lessons/Puzzle_Images') or os.mkdir('Lessons/Puzzle_Images')
                             
     def select_puzzle_image(self):
         
