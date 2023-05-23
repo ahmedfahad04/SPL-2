@@ -38,7 +38,7 @@ class Home(QMainWindow):  # Home extends QMainWindow
         self.home.stackedWidget.setCurrentWidget(self.home.home_page) 
 
         # Start a timer to load the lesson widget after 2 seconds
-        QTimer.singleShot(1000, self.lesson_page)
+        QTimer.singleShot(1000, self.sequencing_page)
 
     def lesson_page(self):
         
@@ -63,12 +63,13 @@ class Home(QMainWindow):  # Home extends QMainWindow
         self.puzzle_window.launch_puzzle()
         
     def matching_page(self):
-        print("Matching page")
+        
+        self.home.stackedWidget.setCurrentWidget(self.home.matching_page)
         pass 
     
     def sequencing_page(self):
-        print("Sequencing page")
-        pass
+        
+        self.home.stackedWidget.setCurrentWidget(self.home.sequence_page)
         
     def celebration_page(self):
         
