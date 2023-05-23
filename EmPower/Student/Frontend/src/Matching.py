@@ -1,3 +1,4 @@
+import datetime
 import glob
 import json
 import os
@@ -108,6 +109,7 @@ class Matching_Window(QWidget):
         self.correct_matches = 0
         self.start_time = time.time()
         self.end_time = 0
+        self.performance = {}
 
     def load_matching_images(self):
 
@@ -276,6 +278,14 @@ class Matching_Window(QWidget):
             self.end_time = time.time()
             time_taken = self.end_time - self.start_time
             print("Total time taken:", round(time_taken,2), "seconds")
+            
+            # write total moves, time and date into a json file
+            self.performance['moves'] = moves
+            self.performance['time'] = round(time_taken,2)
+            self.performance['date'] = datetime.datetime.now().strftime("%Y-%m-%d")
+            
+            with open('Performance' + "/matching_results.json", "w+") as json_file:
+                json.dump(self.performance, json_file)
   
     def img_drop_value(self, frame_id):
         

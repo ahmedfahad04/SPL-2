@@ -34,6 +34,9 @@ class Home(QMainWindow):  # Home extends QMainWindow
         self.setWindowTitle("শিখবে সবাই")
         set_drop_shadow(self.home.btn_lesson)
         
+        # create folders 
+        os.path.exists('Performance') or os.makedirs('Performance')
+        
         # connect buttons
         self.home.n_proceed_btn.clicked.connect(self.puzzle_page)
 
