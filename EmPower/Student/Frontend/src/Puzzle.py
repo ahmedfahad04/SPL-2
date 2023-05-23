@@ -114,8 +114,8 @@ class PuzzleWidget(QWidget):
         self.startTimer()
 
         self.setAcceptDrops(True)
-        self.setMinimumSize(700, 700)
-        self.setMaximumSize(700, 700)
+        self.setMinimumSize(800, 800)
+        self.setMaximumSize(800, 800)
 
     def clear(self):
         self.pieceLocations = []
