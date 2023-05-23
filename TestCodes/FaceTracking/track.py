@@ -56,6 +56,12 @@ while True:
 cap.release()
 cv2.destroyAllWindows()
 
+# Calculate the final screen time if the screen is still on at the end
+if screen_on:
+    end_time = datetime.datetime.now()
+    print("Ending time: ", end_time)
+    screen_time = end_time - start_time
+    total_screen_time += screen_time
 
 # Print the total screen time
 print("Total screen time:", total_screen_time)

@@ -1,0 +1,6 @@
+Student
+
+1. Check if it is correctly importing the Relative path of the file.
+2. Try again feature for puzzle
+3. Font should be locally imported
+4. Fix the puzzle image size ** [need to do some mathematics]
