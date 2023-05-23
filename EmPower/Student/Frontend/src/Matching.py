@@ -11,7 +11,10 @@ from Frontend.src.Lesson import Lesson_Window
 from Frontend.src.Puzzle import Puzzle_Window
 
 
+
 class DraggableLabel(QLabel):
+    
+    matchSuccessful = pyqtSignal(str)  # Define a custom signal
 
     def __init__(self, text):
         super().__init__(text)
@@ -41,14 +44,20 @@ class DraggableLabel(QLabel):
 
         # Start the drag operation
         drag.exec_(Qt.MoveAction)
+        
+        print("DRAG TEXT: ", self.text())
 
 
 class DroppableLabel(QLabel):
+    
+    matchSuccessful = pyqtSignal(str)  # Define a custom signal
 
-    def __init__(self, image_labels):
+    def __init__(self, image_frame , image_labels):
         super().__init__()
 
         self.images_labels = image_labels
+        self.image_frame = image_frame
+        self.already_matched = False 
         self.setAcceptDrops(True)  # Enable drop events
 
     def dragEnterEvent(self, event: QDragEnterEvent):
@@ -60,35 +69,42 @@ class DroppableLabel(QLabel):
             event.acceptProposedAction()
 
     def dropEvent(self, event: QDropEvent):
-        if event.mimeData().hasText():
+        
+        if event.mimeData().hasText() and len(self.text()) == 0:
             text = event.mimeData().text()
             self.setText(text)
 
             print("Dropped: ", text)
             print("ANS: ", self.images_labels)
-            # ? Check if the dropped image is correct
-            if self.images_labels == text:
+            
+            if self.images_labels == text and text != " ":
                 self.setStyleSheet("background-color: green; border: none;")
                 QSound.play("Frontend\Audio_Track\small_clap_sound.wav")
-
+                self.matchSuccessful.emit(text)
+                self.already_matched = True
             else:
-                # ? If the dropped image is incorrect, play sound
                 QSound.play("Frontend\Audio_Track\mistake_sound.wav")
                 self.setStyleSheet("background-color: red; border: none;")
-                
+                self.image_frame.layout().itemAt(0).widget().setText("")
+                self.already_matched = False 
                 event.ignore()
+                
+        else: 
+            event.ignore()
+            
+        print("TEXT: ", self.text())
+        print("MATCHED: ", self.already_matched)
 
 
 class Matching_Window(QWidget):
 
     def __init__(self, home_ui):
         super().__init__()
+        
         self.home_ui = home_ui
-        self.folder_images = []
+        self.images = []
         self.image_tag_dict = {}
         self.image_tags = []
-
-        # Other code...
 
     def load_matching_images(self):
 
@@ -98,7 +114,7 @@ class Matching_Window(QWidget):
         matching_folder = glob.glob(folder_pattern)[0]
         folder_set_name = matching_folder.split("\\")[-1].split("_")[-1]
         folder_files = os.listdir(matching_folder)
-        self.folder_images = [file for file in folder_files if file.endswith(".png")]
+        self.images = [file for file in folder_files if file.endswith(".png")]
 
         # read image tags from json file
         with open(matching_folder + "/image_data.json", "r") as json_file:
@@ -109,12 +125,12 @@ class Matching_Window(QWidget):
             print("DICT: ", self.image_tag_dict)
 
             # include only those values that are images
-            self.image_tag_dict = {key: value for key, value in self.image_tag_dict.items() if key in self.folder_images}
+            self.image_tag_dict = {key: value for key, value in self.image_tag_dict.items() if key in self.images}
 
             # fill the image tags
             self.image_tags = list(self.image_tag_dict.values())
             
-        print("IMG: ", self.folder_images)
+        print("IMG: ", self.images)
         print("LABEL: ", self.image_tags)
        
 
@@ -124,15 +140,15 @@ class Matching_Window(QWidget):
         self.home_ui.mat_img_lbl_3.setScaledContents(True)
         self.home_ui.mat_img_lbl_4.setScaledContents(True)
         
-        self.home_ui.mat_img_lbl_1.setProperty("image",self.folder_images[0])
-        self.home_ui.mat_img_lbl_2.setProperty("image",self.folder_images[1])
-        self.home_ui.mat_img_lbl_3.setProperty("image",self.folder_images[2])
-        self.home_ui.mat_img_lbl_4.setProperty("image",self.folder_images[3])
+        self.home_ui.mat_img_lbl_1.setProperty("image",self.images[0])
+        self.home_ui.mat_img_lbl_2.setProperty("image",self.images[1])
+        self.home_ui.mat_img_lbl_3.setProperty("image",self.images[2])
+        self.home_ui.mat_img_lbl_4.setProperty("image",self.images[3])
         
         # fill the image labels with images
         
         self.home_ui.mat_img_lbl_1.setPixmap(
-            QPixmap(matching_folder + "/" + self.folder_images[0]).scaled(
+            QPixmap(matching_folder + "/" + self.images[0]).scaled(
                 self.home_ui.mat_img_lbl_1.size(), 
                 Qt.AspectRatioMode.KeepAspectRatio,
                 Qt.TransformationMode.SmoothTransformation
@@ -140,7 +156,7 @@ class Matching_Window(QWidget):
         )
         
         self.home_ui.mat_img_lbl_2.setPixmap(
-            QPixmap(matching_folder + "/" + self.folder_images[1]).scaled(
+            QPixmap(matching_folder + "/" + self.images[1]).scaled(
                 self.home_ui.mat_img_lbl_1.size(), 
                 Qt.AspectRatioMode.KeepAspectRatio,
                 Qt.TransformationMode.SmoothTransformation
@@ -148,7 +164,7 @@ class Matching_Window(QWidget):
         )
         
         self.home_ui.mat_img_lbl_3.setPixmap(
-            QPixmap(matching_folder + "/" + self.folder_images[2]).scaled(
+            QPixmap(matching_folder + "/" + self.images[2]).scaled(
                 self.home_ui.mat_img_lbl_1.size(), 
                 Qt.AspectRatioMode.KeepAspectRatio,
                 Qt.TransformationMode.SmoothTransformation
@@ -156,7 +172,7 @@ class Matching_Window(QWidget):
         )
         
         self.home_ui.mat_img_lbl_4.setPixmap(
-            QPixmap(matching_folder + "/" + self.folder_images[3]).scaled(
+            QPixmap(matching_folder + "/" + self.images[3]).scaled(
                 self.home_ui.mat_img_lbl_1.size(), 
                 Qt.AspectRatioMode.KeepAspectRatio,
                 Qt.TransformationMode.SmoothTransformation
@@ -167,18 +183,25 @@ class Matching_Window(QWidget):
         
         # Shuffle the image tags and folder images in the same order
         random.shuffle(self.image_tags)
-        random.shuffle(self.folder_images)
+        random.shuffle(self.images)
+        
+        # list of option_frames 
+        option_frames = [
+            self.home_ui.mat_option_1_frame,
+            self.home_ui.mat_option_2_frame,
+            self.home_ui.mat_option_3_frame,
+            self.home_ui.mat_option_4_frame
+        ]
         
         self.set_option_label(self.home_ui.mat_option_1_frame, self.image_tags[0])
         self.set_option_label(self.home_ui.mat_option_2_frame, self.image_tags[1])
         self.set_option_label(self.home_ui.mat_option_3_frame, self.image_tags[2])
         self.set_option_label(self.home_ui.mat_option_4_frame, self.image_tags[3])
-
         
-        self.set_drop_label(self.home_ui.mat_txt_lbl_1_frame, self.img_drop_value(1))
-        self.set_drop_label(self.home_ui.mat_txt_lbl_2_frame, self.img_drop_value(2))
-        self.set_drop_label(self.home_ui.mat_txt_lbl_3_frame, self.img_drop_value(3))
-        self.set_drop_label(self.home_ui.mat_txt_lbl_4_frame, self.img_drop_value(4))
+        self.set_drop_label(self.home_ui.mat_txt_lbl_1_frame, option_frames, self.img_drop_value(1))
+        self.set_drop_label(self.home_ui.mat_txt_lbl_2_frame, option_frames, self.img_drop_value(2))
+        self.set_drop_label(self.home_ui.mat_txt_lbl_3_frame, option_frames, self.img_drop_value(3))
+        self.set_drop_label(self.home_ui.mat_txt_lbl_4_frame, option_frames, self.img_drop_value(4))
         
         ##################################   
         
@@ -192,29 +215,54 @@ class Matching_Window(QWidget):
         draggable_label_1.setFont(QtGui.QFont("Arial", 10))
         draggable_label_1.setStyleSheet("border: none;")
         draggable_label_1.setAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter)
-
+        draggable_label_1.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        
         # add the label to the layout
         layout_1.addWidget(draggable_label_1)
+        
+        # # Connect the matchSuccessful signal from the draggable label to a slot
+        draggable_label_1.matchSuccessful.connect(lambda: self.handle_match_successful(label_frame))
 
         # Set the layout of the frame
         label_frame.setLayout(layout_1)
         
-    def set_drop_label(self, label_frame, label_text):
+    def set_drop_label(self, drag_label_frame, drop_label_frame, label_text):
         
         compare_layout_1 = QVBoxLayout()
 
         # Create draggable labels and add them to the layout
-        draggable_compare_label_1 = DroppableLabel(label_text)
+        draggable_compare_label_1 = DroppableLabel(drag_label_frame, label_text)
         draggable_compare_label_1.setFont(QtGui.QFont("Arial", 15))
         draggable_compare_label_1.setStyleSheet("border: none; background-color: none;")
         draggable_compare_label_1.setAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter)
-
+        draggable_compare_label_1.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        
         # add the label to the layout
         compare_layout_1.addWidget(draggable_compare_label_1)
+        
+        # # Connect the matchSuccessful signal from the droppable label to a slot
+        draggable_compare_label_1.matchSuccessful.connect(lambda: self.handle_match_successful(drop_label_frame, label_text))
 
         # Set the layout of the frame
-        label_frame.setLayout(compare_layout_1)
+        drag_label_frame.setLayout(compare_layout_1)
         
+    def handle_match_successful(self, option_label_frames, matched_text):
+        
+        # Slot to handle the matchSuccessful signal
+       
+        print("MATCHED!")
+        
+        # search through all labels in which the text is matched
+        for option_frame in option_label_frames:
+            
+            text = option_frame.layout().itemAt(0).widget().text()
+            
+            if text == matched_text:
+                
+                # remove the label text from the frame
+                option_frame.layout().itemAt(0).widget().setText("")
+                break
+  
     def img_drop_value(self, frame_id):
         
         if frame_id == 1:
