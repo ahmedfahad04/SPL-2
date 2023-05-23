@@ -8,6 +8,8 @@
     6. Implement the functions of the new class (in Frontend.src) [remember to pass reference of current parent obj, otherwise widget window might not be shown]
 '''
 
+import datetime
+import json
 from Frontend.Teacher_UI import ui_home_page
 from Frontend.src.Document_Formatter import *
 from Frontend.src.Student_Window import Student_Window
@@ -29,10 +31,11 @@ class Home(QMainWindow):  # Home extends QMainWindow
         
         self.home = None
         self.sequence_image_count = 0
+        self.current_matching_set = []
+        self.current_matching_image_count = 0
 
         self.home_page()
-        
-        
+                
     def home_page(self):
         
         # load & set up the HOME page
@@ -121,6 +124,7 @@ class Home(QMainWindow):  # Home extends QMainWindow
         self.home.stackedWidget.setCurrentWidget(self.home.task_page)
         self.home.evalstackwidget.setCurrentWidget(self.home.matching_page)
         self.home.task_btn_back_to_home.clicked.connect(self.home_page)
+        self.matching_page()
         
         # Connecting Task window buttons
         # !need to move on Task Window Page
@@ -131,7 +135,29 @@ class Home(QMainWindow):  # Home extends QMainWindow
         self.home.task_puzzle_save_set_btn.clicked.connect(self.save_puzzle_set)
         self.home.task_puzzle_show_set_btn.clicked.connect(self.show_puzzle_set)
         self.home.task_seq_img_save_btn.clicked.connect(self.save_sequence_details)
-               
+        
+        # remove temp folder
+        os.path.exists('Lessons/Matching_Images/.temp') and shutil.rmtree('Lessons/Matching_Images/.temp')
+        
+        # connecting Matching Page buttons
+        self.home.task_matching_img_add_btn_1.clicked.connect(
+            lambda: self.matching_process(
+                self.home.task_matching_img_view_lbl_1
+        ))
+        self.home.task_matching_img_add_btn_2.clicked.connect(
+            lambda: self.matching_process(
+                self.home.task_matching_img_view_lbl_2
+        ))
+        self.home.task_matching_img_add_btn_3.clicked.connect(
+            lambda: self.matching_process(
+                self.home.task_matching_img_view_lbl_3
+        ))
+        self.home.task_matching_img_add_btn_4.clicked.connect(
+            lambda: self.matching_process(
+                self.home.task_matching_img_view_lbl_4
+        ))
+        self.home.task_matching_save_set_btn.clicked.connect(self.save_matching_set)
+                       
     def on_label_clicked(self):
         
         show_confirmation_message("Level clicked", "Level clicked")
@@ -179,7 +205,7 @@ class Home(QMainWindow):  # Home extends QMainWindow
         # connect buttons    
         self.home.lsn_btn_assign_lesson.clicked.connect(self.lesson_assinging_window.assign_lesson)    
     
-    #! only module related text to be dragged [TODO]
+    #! TODO: only module related text to be dragged 
     def dragEnterEvent(self, event):
         event.accept() if event.mimeData().hasText() else event.ignore()
                 
@@ -200,9 +226,16 @@ class Home(QMainWindow):  # Home extends QMainWindow
         
         self.home.evalstackwidget.setCurrentWidget(self.home.matching_page)
         
+        # check if Matching_Images folder exists or not
+        os.path.exists('Lessons/Matching_Images') or os.mkdir('Lessons/Matching_Images')
+    
+    #! TODO: Will move this method to separate class if we got times    
     def sequence_page(self):
         
         self.home.evalstackwidget.setCurrentWidget(self.home.sequence_page) 
+        
+        # check if Sequence_Images folder exists or not
+        os.path.exists('Lessons/Sequence_Images') or os.mkdir('Lessons/Sequence_Images')
         
         # setup the video widget into layout
         if self.home.task_seq_video_frame_widget.count() != 0:
@@ -211,8 +244,7 @@ class Home(QMainWindow):  # Home extends QMainWindow
 
         self.image_capture_window = ImageCaptureWidget(self.home)
         self.home.task_seq_video_frame_widget.addWidget(self.image_capture_window)
-        
-        
+              
     def save_sequence_details(self):
         
         # read folder to track the folder names 
@@ -231,8 +263,7 @@ class Home(QMainWindow):  # Home extends QMainWindow
         if image_description == "" or image_sequence == "" or image_set == "":
             show_warning_message("ফিল্ড অসম্পূর্ণ", "সব ফিল্ড পূরণ করুন")
             return
-        
-        
+                
         # make a directory mentioned in image_set 
         if not os.path.exists('Lessons/Sequence_Images/{}'.format(image_set)) and not image_set in existing_folders: 
             os.mkdir('Lessons/Sequence_Images/{}'.format(image_set))
@@ -268,13 +299,14 @@ class Home(QMainWindow):  # Home extends QMainWindow
             # save images to specific set
             shutil.move(current_saved_image_path, 'Lessons/Sequence_Images/{}/{}_{}.png'.format(image_set, image_sequence, image_description))
             show_warning_message("ছবি নির্বাচন করা হয়নি", "আরো {} ছবি নির্বাচন করতে হবে".format(4 - self.sequence_image_count))
-
     
+    #! TODO: Will move this method to separate class if we got times
     def puzzle_page(self):
         
         self.home.evalstackwidget.setCurrentWidget(self.home.puzzle_page)
         
-        # select multiple image files using diaglog box 
+        # check if Puzzle_Images folder exists or not
+        os.exists('Lessons/Puzzle_Images') or os.mkdir('Lessons/Puzzle_Images')
                             
     def select_puzzle_image(self):
         
@@ -291,7 +323,7 @@ class Home(QMainWindow):  # Home extends QMainWindow
             
             # create a temp folder 
             os.path.exists('Lessons/Puzzle_Images') or os.mkdir('Lessons/Puzzle_Images')
-            os.path.exists('Lessons/Puzzle_Images/Temp') or os.mkdir('Lessons/Puzzle_Images/Temp')
+            os.path.exists('Lessons/Puzzle_Images/.temp') or os.mkdir('Lessons/Puzzle_Images/.temp')
                         
         try: 
             
@@ -317,7 +349,7 @@ class Home(QMainWindow):  # Home extends QMainWindow
                 #         shutil.copy2(file_name, 'Lessons/Puzzle_Images/{}/'.format(folder_name))
                 #         self.home.task_puzzle_image_lbl.setText("ছবি {} ফোল্ডারে সংরক্ষণ করা হয়েছে।{} নতুন ফোল্ডারে সংরক্ষণের জন্য পুনরায় ছবি নির্বাচন করুন.".format(folder_name,'\n'))
                 # else:
-                shutil.copy2(file_name, 'Lessons/Puzzle_Images/Temp')
+                shutil.copy2(file_name, 'Lessons/Puzzle_Images/.temp')
                 
         except:
             pass 
@@ -326,7 +358,7 @@ class Home(QMainWindow):  # Home extends QMainWindow
         
         # rename folder Temp
         if os.path.exists('Lessons/Puzzle_Images/{}'.format(self.home.task_puzzle_q_set_lbl.text())) == False:
-            os.rename('Lessons/Puzzle_Images/Temp', 'Lessons/Puzzle_Images/{}'.format(self.home.task_puzzle_q_set_lbl.text()))
+            os.rename('Lessons/Puzzle_Images/.temp', 'Lessons/Puzzle_Images/{}'.format(self.home.task_puzzle_q_set_lbl.text()))
             self.home.task_puzzle_image_lbl.setText("ছবি {} ফোল্ডারে সংরক্ষণ করা হয়েছে।{} নতুন ফোল্ডারে সংরক্ষণের জন্য পুনরায় ছবি নির্বাচন করুন".format(self.home.task_puzzle_q_set_lbl.text(), '\n'))	
             
             self.home.task_puzzle_q_set_lbl.clear()
@@ -340,4 +372,159 @@ class Home(QMainWindow):  # Home extends QMainWindow
         # open lesson folder  
         os.startfile('Lessons\Puzzle_Images') 
         
-      
+    def matching_process(self, frame_name):
+        
+        # paths
+        file_path = ""
+        image_path = ""
+        
+        # check if .temp file is in Matching_Images folder
+        if os.path.exists('Lessons/Matching_Images/.temp') == False:
+            os.mkdir('Lessons/Matching_Images/.temp')
+                
+        # open file diaglog box to select image
+        dialog = QFileDialog()
+        dialog.setFileMode(QFileDialog.ExistingFile)
+        
+        # accepts png, jpg, jpged files
+        dialog.setNameFilter("Image Files (*.png);")
+        
+        if dialog.exec_() == QFileDialog.Accepted:
+            
+            file_path = dialog.selectedFiles()[0]
+            image_path = 'Lesson/Matching_Images/.temp/{}'.format(file_path.split('/')[-1])
+            image_name = file_path.split('/')[-1]
+            
+            pixmap = QPixmap()
+            pixmap.load(file_path)
+
+            # replace frame_name with actal frame
+            if not pixmap.isNull():         
+                scaled_pixmap = pixmap.scaled(frame_name.size(), Qt.KeepAspectRatio, Qt.SmoothTransformation)
+                frame_name.setPixmap(scaled_pixmap)
+            else:
+                print("Failed to load the image:", image_path)
+                
+            # copy the image into temp folder
+            shutil.copy2(file_path, 'Lessons/Matching_Images/.temp')
+            
+            # rename the image
+            try:
+                os.rename(
+                'Lessons/Matching_Images/.temp/{}'.format(image_name), 
+                'Lessons/Matching_Images/.temp/{}_{}.png'.format(image_name.split('.')[0], frame_name.objectName()[-1])
+                )
+                self.current_matching_set.append('Lessons/Matching_Images/.temp/{}_{}.png'.format(image_name.split('.')[0], frame_name.objectName()[-1]))
+             
+            except:  
+                print("File already exists")
+            
+    def save_matching_set(self):
+        
+        # dictionary to store image description
+        image_data = {}
+        
+        img_desc_1 = self.home.task_matching_img_desc_edit_1.text()
+        img_desc_2 = self.home.task_matching_img_desc_edit_2.text()
+        img_desc_3 = self.home.task_matching_img_desc_edit_3.text()
+        img_desc_4 = self.home.task_matching_img_desc_edit_4.text()
+        
+        # check if corresponding images's description are filledup
+        for item in self.current_matching_set:
+            
+            set_id = item.split('_')[-1].split('.')[0]
+            
+            if set_id == '1':
+                if img_desc_1 == "":
+                    show_warning_message("বর্ণনা পূরণ করুন", "{} নং ছবির সংক্ষিপ্ত বর্ণনা পূরণ করুন".format(set_id))
+                    return False
+            elif set_id == '2':
+                if img_desc_2 == "":
+                    show_warning_message("বর্ণনা পূরণ করুন", "{} নং ছবির সংক্ষিপ্ত বর্ণনা পূরণ করুন".format(set_id))
+                    return False
+            elif set_id == '3':
+                if img_desc_3 == "":
+                    show_warning_message("বর্ণনা পূরণ করুন", "{} নং ছবির সংক্ষিপ্ত বর্ণনা পূরণ করুন".format(set_id))
+                    return False
+            elif set_id == '4':
+                if img_desc_4 == "":
+                    show_warning_message("বর্ণনা পূরণ করুন", "{} নং ছবির সংক্ষিপ্ত বর্ণনা পূরণ করুন".format(set_id))
+                    return False
+                
+        # create a new folder according to set name provided
+        matching_set_name = self.home.task_matching_set_edit.text()
+        
+        # check if set name is provided
+        if matching_set_name == "":
+            show_warning_message("সেট নাম পূরণ করুন", "সেট নাম পূরণ করুন")
+            return False
+        
+        # check if set name already exists
+        if os.path.exists('Lessons/Matching_Images/{}'.format(matching_set_name)):
+            show_warning_message("সেট নাম পুনরায় লিখুন", "এই নামে একটি সেট আগে থেকেই রয়েছে")
+            return False
+        else:
+            os.mkdir('Lessons/Matching_Images/{}'.format(matching_set_name))
+        
+        # copy images from temp folder to new folder
+        for item in self.current_matching_set:
+            
+            # get the set id
+            set_id = item.split('_')[-1].split('.')[0]
+            image_name = item.split('/')[-1]
+            
+            # move images to new folder
+            shutil.move(item, 'Lessons/Matching_Images/{}'.format(matching_set_name))
+            item = 'Lessons/Matching_Images/{}/{}'.format(matching_set_name, image_name)
+            item = item.replace('Lessons/Matching_Images/', '')
+                        
+            # Get the image description based on the set ID
+            if set_id == '1':
+                image_desc = img_desc_1
+            elif set_id == '2':
+                image_desc = img_desc_2
+            elif set_id == '3':
+                image_desc = img_desc_3
+            elif set_id == '4':
+                image_desc = img_desc_4
+            else:
+                image_desc = ""
+
+            # Add the image name and description to the dictionary
+            image_data[item] = image_desc
+
+        image_data['creation_date'] = datetime.datetime.now().strftime("%d/%m/%Y")
+        image_data['creation_time'] = datetime.datetime.now().strftime("%H:%M:%S")
+        
+        # Save the image data as a JSON file
+        json_file_path = 'Lessons/Matching_Images/{}/image_data.json'.format(matching_set_name)
+        with open(json_file_path, 'w') as json_file:
+            json.dump(image_data, json_file)
+            
+        # clear lbls and edits
+        self.home.task_matching_img_desc_edit_1.clear()
+        self.home.task_matching_img_desc_edit_2.clear()
+        self.home.task_matching_img_desc_edit_3.clear()
+        self.home.task_matching_img_desc_edit_4.clear()
+        
+        self.home.task_matching_img_view_lbl_1.clear()
+        self.home.task_matching_img_view_lbl_2.clear()
+        self.home.task_matching_img_view_lbl_3.clear()
+        self.home.task_matching_img_view_lbl_4.clear()
+        
+        
+        # show success message
+        set_items = len(os.listdir('Lessons/Matching_Images/{}'.format(matching_set_name)))
+        if set_items <= 1:
+            show_warning_message("সেটে কমপক্ষে ২টি ছবি থাকতে হবে", "সেটে কমপক্ষে ২টি ছবি থাকতে হবে")
+            shutil.rmtree('Lessons/Matching_Images/{}'.format(matching_set_name))
+        else:
+            show_success_message("সেট সংরক্ষণ সম্পন্ন", "{} সেট সংরক্ষণ সম্পন্ন হয়েছে".format(matching_set_name))
+            os.startfile('Lessons\Matching_Images\{}'.format(matching_set_name)) #! always use \ for relative path
+            self.home.task_matching_set_edit.clear()
+            
+            
+        
+        
+        
+    

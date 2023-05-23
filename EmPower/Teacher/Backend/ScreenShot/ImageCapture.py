@@ -225,13 +225,12 @@ class ImageCaptureWidget(QWidget):
             pixmap.save(snapshot_path, "PNG")
             QFile(snapshot_path).flush()
             print("Screenshot saved successfully")
-            
-            print(snapshot_path)
-            
+                        
         # scale the image to fit the label
         self.ui_obj.task_seq_img_view_lbl.setScaledContents(True)
         self.ui_obj.task_seq_img_view_lbl.setPixmap(QPixmap(snapshot_path))
         self.current_saved_file = snapshot_path
+        print("Snap: ", snapshot_path)
 
 
 # app = QApplication(sys.argv)
