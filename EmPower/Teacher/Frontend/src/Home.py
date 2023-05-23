@@ -31,6 +31,7 @@ class Home(QMainWindow):  # Home extends QMainWindow
         
         self.home = None
         self.sequence_image_count = 0
+        self.sequence_details = {}
         self.current_matching_set = []
         self.current_matching_image_count = 0
 
@@ -291,14 +292,29 @@ class Home(QMainWindow):  # Home extends QMainWindow
             self.home.task_seq_img_view_lbl.clear()
             self.sequence_image_count = 0
             
+            # save data to json
+            image_name = '{}/{}.png'.format(image_set,image_description)
+            self.sequence_details[image_sequence] = image_name
+            self.sequence_details['creation_date'] = datetime.datetime.now().strftime("%d/%m/%Y")    
+            self.sequence_details['time'] = datetime.datetime.now().strftime("%H:%M:%S")
+            json_file_path = 'Lessons/Sequence_Images/{}/image_data.json'.format(image_set)
+            with open(json_file_path, 'w') as json_file:
+                json.dump(self.sequence_details, json_file)
+            
+            self.sequence_details = {}
+            
         else: 
             
             # count number of image for each set 
             self.sequence_image_count += 1
             
-            # save images to specific set
+            # save images to specific set 
             shutil.move(current_saved_image_path, 'Lessons/Sequence_Images/{}/{}_{}.png'.format(image_set, image_sequence, image_description))
-            show_warning_message("ছবি নির্বাচন করা হয়নি", "আরো {} ছবি নির্বাচন করতে হবে".format(4 - self.sequence_image_count))
+            show_warning_message("ছবি নির্বাচন শেষ হয়নি", "আরো {} ছবি নির্বাচন করতে হবে".format(4 - self.sequence_image_count))
+            
+            # save data to json 
+            image_name = '{}/{}.png'.format(image_set,image_description)
+            self.sequence_details[image_sequence] = image_name
     
     #! TODO: Will move this method to separate class if we got times
     def puzzle_page(self):
