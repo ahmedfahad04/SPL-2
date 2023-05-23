@@ -841,9 +841,14 @@ class Ui_MainWindow(object):
         self.mat_txt_option_4 = QLabel(self.frame_6)
         self.mat_txt_option_4.setObjectName(u"mat_txt_option_4")
         self.mat_txt_option_4.setMinimumSize(QSize(201, 61))
+        font9 = QFont()
+        font9.setPointSize(10)
+        self.mat_txt_option_4.setFont(font9)
+        self.mat_txt_option_4.setCursor(QCursor(Qt.PointingHandCursor))
         self.mat_txt_option_4.setStyleSheet(u"border: 2px dotted rgb(0, 43, 91);\n"
 "background-color: rgb(236, 233, 215);\n"
 "border-radius: 25px;")
+        self.mat_txt_option_4.setAlignment(Qt.AlignCenter)
 
         self.gridLayout_12.addWidget(self.mat_txt_option_4, 1, 8, 1, 1)
 
@@ -854,9 +859,12 @@ class Ui_MainWindow(object):
         self.mat_txt_option_1 = QLabel(self.frame_6)
         self.mat_txt_option_1.setObjectName(u"mat_txt_option_1")
         self.mat_txt_option_1.setMinimumSize(QSize(201, 61))
+        self.mat_txt_option_1.setFont(font9)
+        self.mat_txt_option_1.setCursor(QCursor(Qt.PointingHandCursor))
         self.mat_txt_option_1.setStyleSheet(u"border: 2px dotted rgb(0, 43, 91);\n"
 "background-color: rgb(236, 233, 215);\n"
 "border-radius: 25px;")
+        self.mat_txt_option_1.setAlignment(Qt.AlignCenter)
 
         self.gridLayout_12.addWidget(self.mat_txt_option_1, 1, 1, 1, 1)
 
@@ -875,9 +883,12 @@ class Ui_MainWindow(object):
         self.mat_txt_option_2 = QLabel(self.frame_6)
         self.mat_txt_option_2.setObjectName(u"mat_txt_option_2")
         self.mat_txt_option_2.setMinimumSize(QSize(201, 61))
+        self.mat_txt_option_2.setFont(font9)
+        self.mat_txt_option_2.setCursor(QCursor(Qt.PointingHandCursor))
         self.mat_txt_option_2.setStyleSheet(u"border: 2px dotted rgb(0, 43, 91);\n"
 "background-color: rgb(236, 233, 215);\n"
 "border-radius: 25px;")
+        self.mat_txt_option_2.setAlignment(Qt.AlignCenter)
 
         self.gridLayout_12.addWidget(self.mat_txt_option_2, 1, 3, 1, 2)
 
@@ -888,9 +899,12 @@ class Ui_MainWindow(object):
         self.mat_txt_option_3 = QLabel(self.frame_6)
         self.mat_txt_option_3.setObjectName(u"mat_txt_option_3")
         self.mat_txt_option_3.setMinimumSize(QSize(201, 61))
+        self.mat_txt_option_3.setFont(font9)
+        self.mat_txt_option_3.setCursor(QCursor(Qt.PointingHandCursor))
         self.mat_txt_option_3.setStyleSheet(u"border: 2px dotted rgb(0, 43, 91);\n"
 "background-color: rgb(236, 233, 215);\n"
 "border-radius: 25px;")
+        self.mat_txt_option_3.setAlignment(Qt.AlignCenter)
 
         self.gridLayout_12.addWidget(self.mat_txt_option_3, 1, 6, 1, 1)
 
@@ -1143,7 +1157,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(6)
+        self.stackedWidget.setCurrentIndex(5)
         self.mediaStackWidget.setCurrentIndex(1)
 
 

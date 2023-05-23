@@ -22,7 +22,7 @@ splash.show()
 splash.progress()
 
 window = Home()
-window.showMaximized()
+# window.showMaximized()
 window.show()
 
 splash.finish(window)

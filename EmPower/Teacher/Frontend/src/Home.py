@@ -297,6 +297,7 @@ class Home(QMainWindow):  # Home extends QMainWindow
             self.sequence_details[image_sequence] = image_name
             self.sequence_details['creation_date'] = datetime.datetime.now().strftime("%d/%m/%Y")    
             self.sequence_details['creation_time'] = datetime.datetime.now().strftime("%H:%M:%S")
+            self.sequence_details['topic'] = self.home.task_seq_set_lbl.text()
             json_file_path = 'Lessons/Sequence_Images/{}/image_data.json'.format(image_set)
             with open(json_file_path, 'w') as json_file:
                 json.dump(self.sequence_details, json_file)
@@ -371,7 +372,7 @@ class Home(QMainWindow):  # Home extends QMainWindow
             pass 
 
     def save_puzzle_set(self):
-        
+                
         # rename folder Temp
         if os.path.exists('Lessons/Puzzle_Images/{}'.format(self.home.task_puzzle_q_set_lbl.text())) == False:
             os.rename('Lessons/Puzzle_Images/.temp', 'Lessons/Puzzle_Images/{}'.format(self.home.task_puzzle_q_set_lbl.text()))
@@ -531,8 +532,8 @@ class Home(QMainWindow):  # Home extends QMainWindow
         
         # show success message
         set_items = len(os.listdir('Lessons/Matching_Images/{}'.format(matching_set_name)))
-        if set_items <= 1:
-            show_warning_message("সেটে কমপক্ষে ২টি ছবি থাকতে হবে", "সেটে কমপক্ষে ২টি ছবি থাকতে হবে")
+        if set_items <= 1: 
+            show_warning_message("পর্যাপ্ত ছবি নেই", "সেটে ৪টি ছবি থাকতে হবে")
             shutil.rmtree('Lessons/Matching_Images/{}'.format(matching_set_name))
         else:
             show_success_message("সেট সংরক্ষণ সম্পন্ন", "{} সেট সংরক্ষণ সম্পন্ন হয়েছে".format(matching_set_name))

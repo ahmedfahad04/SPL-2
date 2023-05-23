@@ -51,7 +51,7 @@
        <string notr="true">background-color: #F4F1DE;</string>
       </property>
       <property name="currentIndex">
-       <number>6</number>
+       <number>5</number>
       </property>
       <widget class="QWidget" name="home_page">
        <property name="minimumSize">
@@ -1952,6 +1952,14 @@ background-color: rgb(200, 198, 182);</string>
                   <height>61</height>
                  </size>
                 </property>
+                <property name="font">
+                 <font>
+                  <pointsize>10</pointsize>
+                 </font>
+                </property>
+                <property name="cursor">
+                 <cursorShape>PointingHandCursor</cursorShape>
+                </property>
                 <property name="styleSheet">
                  <string notr="true">border: 2px dotted rgb(0, 43, 91);
 background-color: rgb(236, 233, 215);
@@ -1959,6 +1967,9 @@ border-radius: 25px;</string>
                 </property>
                 <property name="text">
                  <string/>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
                 </property>
                </widget>
               </item>
@@ -1983,6 +1994,14 @@ border-radius: 25px;</string>
                   <height>61</height>
                  </size>
                 </property>
+                <property name="font">
+                 <font>
+                  <pointsize>10</pointsize>
+                 </font>
+                </property>
+                <property name="cursor">
+                 <cursorShape>PointingHandCursor</cursorShape>
+                </property>
                 <property name="styleSheet">
                  <string notr="true">border: 2px dotted rgb(0, 43, 91);
 background-color: rgb(236, 233, 215);
@@ -1990,6 +2009,9 @@ border-radius: 25px;</string>
                 </property>
                 <property name="text">
                  <string/>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
                 </property>
                </widget>
               </item>
@@ -2040,6 +2062,14 @@ border-radius: 25px;</string>
                   <height>61</height>
                  </size>
                 </property>
+                <property name="font">
+                 <font>
+                  <pointsize>10</pointsize>
+                 </font>
+                </property>
+                <property name="cursor">
+                 <cursorShape>PointingHandCursor</cursorShape>
+                </property>
                 <property name="styleSheet">
                  <string notr="true">border: 2px dotted rgb(0, 43, 91);
 background-color: rgb(236, 233, 215);
@@ -2047,6 +2077,9 @@ border-radius: 25px;</string>
                 </property>
                 <property name="text">
                  <string/>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
                 </property>
                </widget>
               </item>
@@ -2071,6 +2104,14 @@ border-radius: 25px;</string>
                   <height>61</height>
                  </size>
                 </property>
+                <property name="font">
+                 <font>
+                  <pointsize>10</pointsize>
+                 </font>
+                </property>
+                <property name="cursor">
+                 <cursorShape>PointingHandCursor</cursorShape>
+                </property>
                 <property name="styleSheet">
                  <string notr="true">border: 2px dotted rgb(0, 43, 91);
 background-color: rgb(236, 233, 215);
@@ -2078,6 +2119,9 @@ border-radius: 25px;</string>
                 </property>
                 <property name="text">
                  <string/>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
                 </property>
                </widget>
               </item>
