@@ -1,9 +1,6 @@
-
-
 import glob
 import random
 import cv2
-import os
 from PIL import Image, ImageDraw
 
 from PyQt5.QtMultimedia import QSound
@@ -477,9 +474,7 @@ class MainWindow:
 
         self.piece_frame_layout.addWidget(self.piecesList)
         self.widget_frame_layout.addWidget(self.puzzleWidget)
-        
-    
-
+       
 
 class Puzzle_Window:
 
@@ -511,6 +506,4 @@ class Puzzle_Window:
     def change_page(self):
         
         self.evaluation_window.stackedWidget.setCurrentWidget(self.evaluation_window.celebration_page)
-        
     
-        

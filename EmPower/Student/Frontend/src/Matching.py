@@ -2,6 +2,7 @@ import glob
 import json
 import os
 import random
+import time
 from PyQt5 import QtGui, QtCore, QtWidgets
 from PyQt5.QtMultimedia import QSound
 from Backend.AudioPlayer import MusicPlayer
@@ -10,7 +11,7 @@ from Frontend.src.Document_Formatter import *
 from Frontend.src.Lesson import Lesson_Window
 from Frontend.src.Puzzle import Puzzle_Window
 
-
+moves = 0
 
 class DraggableLabel(QLabel):
     
@@ -44,9 +45,6 @@ class DraggableLabel(QLabel):
 
         # Start the drag operation
         drag.exec_(Qt.MoveAction)
-        
-        print("DRAG TEXT: ", self.text())
-
 
 class DroppableLabel(QLabel):
     
@@ -58,6 +56,7 @@ class DroppableLabel(QLabel):
         self.images_labels = image_labels
         self.image_frame = image_frame
         self.already_matched = False 
+        
         self.setAcceptDrops(True)  # Enable drop events
 
     def dragEnterEvent(self, event: QDragEnterEvent):
@@ -82,19 +81,20 @@ class DroppableLabel(QLabel):
                 QSound.play("Frontend\Audio_Track\small_clap_sound.wav")
                 self.matchSuccessful.emit(text)
                 self.already_matched = True
+                global moves 
+                moves += 1
+                print("Moves: ", moves)
             else:
                 QSound.play("Frontend\Audio_Track\mistake_sound.wav")
                 self.setStyleSheet("background-color: red; border: none;")
                 self.image_frame.layout().itemAt(0).widget().setText("")
                 self.already_matched = False 
+                moves += 1
+                print("Moves: ", moves)
                 event.ignore()
                 
         else: 
             event.ignore()
-            
-        print("TEXT: ", self.text())
-        print("MATCHED: ", self.already_matched)
-
 
 class Matching_Window(QWidget):
 
@@ -105,6 +105,9 @@ class Matching_Window(QWidget):
         self.images = []
         self.image_tag_dict = {}
         self.image_tags = []
+        self.correct_matches = 0
+        self.start_time = time.time()
+        self.end_time = 0
 
     def load_matching_images(self):
 
@@ -249,9 +252,11 @@ class Matching_Window(QWidget):
     def handle_match_successful(self, option_label_frames, matched_text):
         
         # Slot to handle the matchSuccessful signal
+        
+        self.correct_matches += 1
        
         print("MATCHED!")
-        
+                
         # search through all labels in which the text is matched
         for option_frame in option_label_frames:
             
@@ -262,6 +267,15 @@ class Matching_Window(QWidget):
                 # remove the label text from the frame
                 option_frame.layout().itemAt(0).widget().setText("")
                 break
+            
+        if self.correct_matches == 4:
+              
+            global moves 
+            print("ALL MATCHED!, Total Moves: ", moves)
+            
+            self.end_time = time.time()
+            time_taken = self.end_time - self.start_time
+            print("Total time taken:", round(time_taken,2), "seconds")
   
     def img_drop_value(self, frame_id):
         
@@ -289,7 +303,4 @@ class Matching_Window(QWidget):
             image_tag = self.image_tag_dict[image_name]
             return image_tag
         
-            
-    
-        
-        
+

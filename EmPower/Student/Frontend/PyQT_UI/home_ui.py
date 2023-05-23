@@ -23,7 +23,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1280, 744)
+        MainWindow.resize(1280, 710)
         MainWindow.setMinimumSize(QSize(1280, 710))
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
@@ -694,7 +694,7 @@ class Ui_MainWindow(object):
         self.mat_txt_lbl_3_frame = QFrame(self.frame_4)
         self.mat_txt_lbl_3_frame.setObjectName(u"mat_txt_lbl_3_frame")
         self.mat_txt_lbl_3_frame.setMinimumSize(QSize(238, 171))
-        self.mat_txt_lbl_3_frame.setStyleSheet(u"border: 2px dotted rgb(0, 43, 91);\n"
+        self.mat_txt_lbl_3_frame.setStyleSheet(u"border: 3px dashed rgb(0, 43, 91);\n"
 "background-color: rgb(200, 198, 182);")
         self.mat_txt_lbl_3_frame.setFrameShape(QFrame.StyledPanel)
         self.mat_txt_lbl_3_frame.setFrameShadow(QFrame.Raised)
@@ -704,13 +704,10 @@ class Ui_MainWindow(object):
 
         self.gridLayout_10.addWidget(self.frame_4, 1, 0, 1, 1)
 
-        self.verticalSpacer_2 = QSpacerItem(20, 31, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.gridLayout_10.addItem(self.verticalSpacer_2, 2, 0, 1, 2)
-
         self.frame_6 = QFrame(self.puzzle_widget_frame_2)
         self.frame_6.setObjectName(u"frame_6")
-        self.frame_6.setMinimumSize(QSize(1254, 131))
+        self.frame_6.setMinimumSize(QSize(1254, 139))
+        self.frame_6.setMaximumSize(QSize(16777215, 139))
         self.frame_6.setStyleSheet(u"border: 2px dashed rgb(0, 43, 91);")
         self.frame_6.setFrameShape(QFrame.StyledPanel)
         self.frame_6.setFrameShadow(QFrame.Raised)
@@ -823,7 +820,7 @@ class Ui_MainWindow(object):
         self.gridLayout_12.addItem(self.verticalSpacer_11, 2, 9, 1, 1)
 
 
-        self.gridLayout_10.addWidget(self.frame_6, 3, 0, 1, 2)
+        self.gridLayout_10.addWidget(self.frame_6, 2, 0, 1, 2)
 
         self.frame_5 = QFrame(self.puzzle_widget_frame_2)
         self.frame_5.setObjectName(u"frame_5")
@@ -854,7 +851,7 @@ class Ui_MainWindow(object):
         self.mat_txt_lbl_4_frame = QFrame(self.frame_5)
         self.mat_txt_lbl_4_frame.setObjectName(u"mat_txt_lbl_4_frame")
         self.mat_txt_lbl_4_frame.setMinimumSize(QSize(238, 171))
-        self.mat_txt_lbl_4_frame.setStyleSheet(u"border: 2px dotted rgb(0, 43, 91);\n"
+        self.mat_txt_lbl_4_frame.setStyleSheet(u"border: 3px dashed rgb(0, 43, 91);\n"
 "background-color: rgb(200, 198, 182);")
         self.mat_txt_lbl_4_frame.setFrameShape(QFrame.StyledPanel)
         self.mat_txt_lbl_4_frame.setFrameShadow(QFrame.Raised)
@@ -893,7 +890,7 @@ class Ui_MainWindow(object):
         self.mat_txt_lbl_1_frame = QFrame(self.frame_2)
         self.mat_txt_lbl_1_frame.setObjectName(u"mat_txt_lbl_1_frame")
         self.mat_txt_lbl_1_frame.setMinimumSize(QSize(238, 171))
-        self.mat_txt_lbl_1_frame.setStyleSheet(u"border: 2px dotted rgb(0, 43, 91);\n"
+        self.mat_txt_lbl_1_frame.setStyleSheet(u"border: 3px dashed rgb(0, 43, 91);\n"
 "background-color: rgb(200, 198, 182);")
         self.mat_txt_lbl_1_frame.setFrameShape(QFrame.StyledPanel)
         self.mat_txt_lbl_1_frame.setFrameShadow(QFrame.Raised)
@@ -932,7 +929,7 @@ class Ui_MainWindow(object):
         self.mat_txt_lbl_2_frame = QFrame(self.frame_3)
         self.mat_txt_lbl_2_frame.setObjectName(u"mat_txt_lbl_2_frame")
         self.mat_txt_lbl_2_frame.setMinimumSize(QSize(238, 171))
-        self.mat_txt_lbl_2_frame.setStyleSheet(u"border: 2px dotted rgb(0, 43, 91);\n"
+        self.mat_txt_lbl_2_frame.setStyleSheet(u"border: 3px dashed rgb(0, 43, 91);\n"
 "background-color: rgb(200, 198, 182);")
         self.mat_txt_lbl_2_frame.setFrameShape(QFrame.StyledPanel)
         self.mat_txt_lbl_2_frame.setFrameShadow(QFrame.Raised)
@@ -1007,68 +1004,71 @@ class Ui_MainWindow(object):
         self.frame_8.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_6 = QHBoxLayout(self.frame_8)
         self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
-        self.seq_lbl_1 = QLabel(self.frame_8)
-        self.seq_lbl_1.setObjectName(u"seq_lbl_1")
-        self.seq_lbl_1.setStyleSheet(u"border: 2px dotted rgb(0, 43, 91);\n"
+        self.seq_lbl_frame_1 = QFrame(self.frame_8)
+        self.seq_lbl_frame_1.setObjectName(u"seq_lbl_frame_1")
+        self.seq_lbl_frame_1.setStyleSheet(u"border: 3px dashed rgb(0, 43, 91);\n"
 "background-color: rgb(200, 198, 182);")
-        self.seq_lbl_1.setAlignment(Qt.AlignCenter)
+        self.seq_lbl_frame_1.setFrameShape(QFrame.StyledPanel)
+        self.seq_lbl_frame_1.setFrameShadow(QFrame.Raised)
 
-        self.horizontalLayout_6.addWidget(self.seq_lbl_1)
+        self.horizontalLayout_6.addWidget(self.seq_lbl_frame_1)
 
         self.label_8 = QLabel(self.frame_8)
         self.label_8.setObjectName(u"label_8")
         self.label_8.setMinimumSize(QSize(71, 51))
         self.label_8.setMaximumSize(QSize(71, 51))
         self.label_8.setStyleSheet(u"border: none;")
-        self.label_8.setPixmap(QPixmap(u"C:/Users/Fahad/.designer/Images/right_arrow.png"))
+        self.label_8.setPixmap(QPixmap(u"../Images/right_arrow.png"))
         self.label_8.setAlignment(Qt.AlignCenter)
 
         self.horizontalLayout_6.addWidget(self.label_8)
 
-        self.seq_lbl_2 = QLabel(self.frame_8)
-        self.seq_lbl_2.setObjectName(u"seq_lbl_2")
-        self.seq_lbl_2.setStyleSheet(u"border: 2px dotted rgb(0, 43, 91);\n"
+        self.seq_lbl_frame_2 = QFrame(self.frame_8)
+        self.seq_lbl_frame_2.setObjectName(u"seq_lbl_frame_2")
+        self.seq_lbl_frame_2.setStyleSheet(u"border: 3px dashed rgb(0, 43, 91);\n"
 "background-color: rgb(200, 198, 182);")
-        self.seq_lbl_2.setAlignment(Qt.AlignCenter)
+        self.seq_lbl_frame_2.setFrameShape(QFrame.StyledPanel)
+        self.seq_lbl_frame_2.setFrameShadow(QFrame.Raised)
 
-        self.horizontalLayout_6.addWidget(self.seq_lbl_2)
+        self.horizontalLayout_6.addWidget(self.seq_lbl_frame_2)
 
         self.label_10 = QLabel(self.frame_8)
         self.label_10.setObjectName(u"label_10")
         self.label_10.setMinimumSize(QSize(71, 51))
         self.label_10.setMaximumSize(QSize(71, 51))
         self.label_10.setStyleSheet(u"border: none;")
-        self.label_10.setPixmap(QPixmap(u"C:/Users/Fahad/.designer/Images/right_arrow.png"))
+        self.label_10.setPixmap(QPixmap(u"../Images/right_arrow.png"))
         self.label_10.setAlignment(Qt.AlignCenter)
 
         self.horizontalLayout_6.addWidget(self.label_10)
 
-        self.seq_lbl_3 = QLabel(self.frame_8)
-        self.seq_lbl_3.setObjectName(u"seq_lbl_3")
-        self.seq_lbl_3.setStyleSheet(u"border: 2px dotted rgb(0, 43, 91);\n"
-"background-color: rgb(200, 198, 182);\n"
-"")
-        self.seq_lbl_3.setAlignment(Qt.AlignCenter)
+        self.seq_lbl_frame_3 = QFrame(self.frame_8)
+        self.seq_lbl_frame_3.setObjectName(u"seq_lbl_frame_3")
+        self.seq_lbl_frame_3.setStyleSheet(u"border: 3px dashed rgb(0, 43, 91);\n"
+"background-color: rgb(200, 198, 182);")
+        self.seq_lbl_frame_3.setFrameShape(QFrame.StyledPanel)
+        self.seq_lbl_frame_3.setFrameShadow(QFrame.Raised)
 
-        self.horizontalLayout_6.addWidget(self.seq_lbl_3)
+        self.horizontalLayout_6.addWidget(self.seq_lbl_frame_3)
 
         self.label_11 = QLabel(self.frame_8)
         self.label_11.setObjectName(u"label_11")
         self.label_11.setMinimumSize(QSize(71, 51))
         self.label_11.setMaximumSize(QSize(71, 51))
         self.label_11.setStyleSheet(u"border: none;")
-        self.label_11.setPixmap(QPixmap(u"C:/Users/Fahad/.designer/Images/right_arrow.png"))
+        self.label_11.setPixmap(QPixmap(u"../Images/right_arrow.png"))
         self.label_11.setAlignment(Qt.AlignCenter)
 
         self.horizontalLayout_6.addWidget(self.label_11)
 
-        self.seq_lbl_4 = QLabel(self.frame_8)
-        self.seq_lbl_4.setObjectName(u"seq_lbl_4")
-        self.seq_lbl_4.setStyleSheet(u"border: 2px dotted rgb(0, 43, 91);\n"
+        self.seq_lbl_frame_4 = QFrame(self.frame_8)
+        self.seq_lbl_frame_4.setObjectName(u"seq_lbl_frame_4")
+        self.seq_lbl_frame_4.setStyleSheet(u"border: 3px dashed rgb(0, 43, 91);\n"
 "background-color: rgb(200, 198, 182);")
-        self.seq_lbl_4.setAlignment(Qt.AlignCenter)
+        self.seq_lbl_frame_4.setFrameShape(QFrame.StyledPanel)
+        self.seq_lbl_frame_4.setFrameShadow(QFrame.Raised)
 
-        self.horizontalLayout_6.addWidget(self.seq_lbl_4)
+        self.horizontalLayout_6.addWidget(self.seq_lbl_frame_4)
 
 
         self.gridLayout_14.addWidget(self.frame_8, 0, 0, 1, 2)
@@ -1081,7 +1081,6 @@ class Ui_MainWindow(object):
         self.frame_9.setFrameShadow(QFrame.Raised)
         self.verticalLayout_9 = QVBoxLayout(self.frame_9)
         self.verticalLayout_9.setObjectName(u"verticalLayout_9")
-        self.verticalLayout_9.setContentsMargins(5, 5, 5, 0)
         self.seq_hint_lbl = QLabel(self.frame_9)
         self.seq_hint_lbl.setObjectName(u"seq_hint_lbl")
         self.seq_hint_lbl.setMinimumSize(QSize(891, 101))
@@ -1090,54 +1089,49 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_9.addWidget(self.seq_hint_lbl)
 
-        self.verticalSpacer_12 = QSpacerItem(20, 28, QSizePolicy.Minimum, QSizePolicy.Fixed)
-
-        self.verticalLayout_9.addItem(self.verticalSpacer_12)
-
         self.frame_10 = QFrame(self.frame_9)
         self.frame_10.setObjectName(u"frame_10")
+        self.frame_10.setMinimumSize(QSize(911, 211))
         self.frame_10.setStyleSheet(u"border: none;")
         self.frame_10.setFrameShape(QFrame.StyledPanel)
         self.frame_10.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_14 = QHBoxLayout(self.frame_10)
-        self.horizontalLayout_14.setSpacing(11)
         self.horizontalLayout_14.setObjectName(u"horizontalLayout_14")
-        self.horizontalLayout_14.setContentsMargins(0, 0, 0, 0)
-        self.seq_img_lbl_1 = QLabel(self.frame_10)
-        self.seq_img_lbl_1.setObjectName(u"seq_img_lbl_1")
-        self.seq_img_lbl_1.setMinimumSize(QSize(201, 171))
-        self.seq_img_lbl_1.setStyleSheet(u"border: 2px solid rgb(0, 43, 91);\n"
+        self.seq_img_frame_lbl_1 = QFrame(self.frame_10)
+        self.seq_img_frame_lbl_1.setObjectName(u"seq_img_frame_lbl_1")
+        self.seq_img_frame_lbl_1.setStyleSheet(u"border: 2px solid rgb(0, 43, 91);\n"
 "background-color: rgb(200, 198, 182);")
-        self.seq_img_lbl_1.setAlignment(Qt.AlignCenter)
+        self.seq_img_frame_lbl_1.setFrameShape(QFrame.StyledPanel)
+        self.seq_img_frame_lbl_1.setFrameShadow(QFrame.Raised)
 
-        self.horizontalLayout_14.addWidget(self.seq_img_lbl_1)
+        self.horizontalLayout_14.addWidget(self.seq_img_frame_lbl_1)
 
-        self.seq_img_lbl_2 = QLabel(self.frame_10)
-        self.seq_img_lbl_2.setObjectName(u"seq_img_lbl_2")
-        self.seq_img_lbl_2.setMinimumSize(QSize(201, 171))
-        self.seq_img_lbl_2.setStyleSheet(u"border: 2px solid rgb(0, 43, 91);\n"
+        self.seq_img_frame_lbl_2 = QFrame(self.frame_10)
+        self.seq_img_frame_lbl_2.setObjectName(u"seq_img_frame_lbl_2")
+        self.seq_img_frame_lbl_2.setStyleSheet(u"border: 2px solid rgb(0, 43, 91);\n"
 "background-color: rgb(200, 198, 182);")
-        self.seq_img_lbl_2.setAlignment(Qt.AlignCenter)
+        self.seq_img_frame_lbl_2.setFrameShape(QFrame.StyledPanel)
+        self.seq_img_frame_lbl_2.setFrameShadow(QFrame.Raised)
 
-        self.horizontalLayout_14.addWidget(self.seq_img_lbl_2)
+        self.horizontalLayout_14.addWidget(self.seq_img_frame_lbl_2)
 
-        self.seq_img_lbl_3 = QLabel(self.frame_10)
-        self.seq_img_lbl_3.setObjectName(u"seq_img_lbl_3")
-        self.seq_img_lbl_3.setMinimumSize(QSize(201, 171))
-        self.seq_img_lbl_3.setStyleSheet(u"border: 2px solid rgb(0, 43, 91);\n"
+        self.seq_img_frame_lbl_3 = QFrame(self.frame_10)
+        self.seq_img_frame_lbl_3.setObjectName(u"seq_img_frame_lbl_3")
+        self.seq_img_frame_lbl_3.setStyleSheet(u"border: 2px solid rgb(0, 43, 91);\n"
 "background-color: rgb(200, 198, 182);")
-        self.seq_img_lbl_3.setAlignment(Qt.AlignCenter)
+        self.seq_img_frame_lbl_3.setFrameShape(QFrame.StyledPanel)
+        self.seq_img_frame_lbl_3.setFrameShadow(QFrame.Raised)
 
-        self.horizontalLayout_14.addWidget(self.seq_img_lbl_3)
+        self.horizontalLayout_14.addWidget(self.seq_img_frame_lbl_3)
 
-        self.seq_img_lbl_4 = QLabel(self.frame_10)
-        self.seq_img_lbl_4.setObjectName(u"seq_img_lbl_4")
-        self.seq_img_lbl_4.setMinimumSize(QSize(201, 201))
-        self.seq_img_lbl_4.setStyleSheet(u"border: 2px solid rgb(0, 43, 91);\n"
+        self.seq_img_frame_lbl_4 = QFrame(self.frame_10)
+        self.seq_img_frame_lbl_4.setObjectName(u"seq_img_frame_lbl_4")
+        self.seq_img_frame_lbl_4.setStyleSheet(u"border: 2px solid rgb(0, 43, 91);\n"
 "background-color: rgb(200, 198, 182);")
-        self.seq_img_lbl_4.setAlignment(Qt.AlignCenter)
+        self.seq_img_frame_lbl_4.setFrameShape(QFrame.StyledPanel)
+        self.seq_img_frame_lbl_4.setFrameShadow(QFrame.Raised)
 
-        self.horizontalLayout_14.addWidget(self.seq_img_lbl_4)
+        self.horizontalLayout_14.addWidget(self.seq_img_frame_lbl_4)
 
 
         self.verticalLayout_9.addWidget(self.frame_10)
@@ -1166,7 +1160,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(5)
+        self.stackedWidget.setCurrentIndex(6)
         self.mediaStackWidget.setCurrentIndex(1)
 
 
@@ -1214,18 +1208,10 @@ class Ui_MainWindow(object):
         self.label_6.setText("")
         self.lbl_lesson_headline_4.setText(QCoreApplication.translate("MainWindow", u"\u09a7\u09be\u09b0\u09be \u09ae\u09bf\u09b2\u09be\u0993", None))
         self.lbl_lesson_sub_heading_4.setText(QCoreApplication.translate("MainWindow", u"\u09aa\u09be\u09a0 \u09ae\u09c2\u09b2\u09cd\u09af\u09be\u09df\u09a8", None))
-        self.seq_lbl_1.setText("")
         self.label_8.setText("")
-        self.seq_lbl_2.setText("")
         self.label_10.setText("")
-        self.seq_lbl_3.setText("")
         self.label_11.setText("")
-        self.seq_lbl_4.setText("")
-        self.seq_hint_lbl.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
-        self.seq_img_lbl_1.setText("")
-        self.seq_img_lbl_2.setText("")
-        self.seq_img_lbl_3.setText("")
-        self.seq_img_lbl_4.setText("")
+        self.seq_hint_lbl.setText("")
         self.label_17.setText("")
     # retranslateUi
 

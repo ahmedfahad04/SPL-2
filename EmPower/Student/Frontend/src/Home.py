@@ -9,6 +9,7 @@ from Frontend.src.Document_Formatter import *
 from Frontend.src.Lesson import Lesson_Window
 from Frontend.src.Matching import Matching_Window
 from Frontend.src.Puzzle import Puzzle_Window
+from Frontend.src.Sequence import Sequence_Window
 
 class Home(QMainWindow):  # Home extends QMainWindow
 
@@ -72,63 +73,14 @@ class Home(QMainWindow):  # Home extends QMainWindow
         # make object of Matching Window
         self.matching_window = Matching_Window(self.home)
         self.matching_window.load_matching_images()
-        
-        # load all images
-        # self.load_matching_images()
-        
-    def load_matching_images(self):
-        
-        folder_pattern = "Resources/m_*"  # Pattern to match folders starting with "m_"
-        folder_images = []
-        image_tag_dict = {}
-        image_tags = []
-        
-
-        # Get a list of matching folder paths
-        matching_folder = glob.glob(folder_pattern)[0]
-        folder_files = os.listdir(matching_folder)
-        folder_images = [file for file in folder_files if file.endswith(".png")]
-        
-        # read image tags from json file
-        with open(matching_folder + "/image_data.json", "r") as json_file:
-            image_tag_dict = json.load(json_file)
-            
-            #? update the keys of image_tag_dict to remove set6/ from the key
-            image_tag_dict = {key.replace("set6/", ""): value for key, value in image_tag_dict.items()}
-            
-            # include only those values that are images 
-            image_tag_dict = {key: value for key, value in image_tag_dict.items() if key in folder_images}
-            
-            # fill the image tags 
-            image_tags = list(image_tag_dict.values())
-            
-        # fill the image option labels with image_tags 
-        self.home.mat_txt_option_1.setText(image_tags[0])
-        self.home.mat_txt_option_2.setText(image_tags[1])
-        self.home.mat_txt_option_3.setText(image_tags[2])
-        self.home.mat_txt_option_4.setText(image_tags[3]) 
-        
-        # fill the image labels with images
-        
-        # change the aspect ration so that it fit any kind of lable
-        self.home.mat_img_lbl_1.setScaledContents(True)
-        self.home.mat_img_lbl_2.setScaledContents(True)
-        self.home.mat_img_lbl_3.setScaledContents(True)
-        self.home.mat_img_lbl_4.setScaledContents(True)
-        
-        
-        self.home.mat_img_lbl_1.setPixmap(QPixmap(matching_folder + "/" + folder_images[0]))
-        self.home.mat_img_lbl_2.setPixmap(QPixmap(matching_folder + "/" + folder_images[1]))
-        self.home.mat_img_lbl_3.setPixmap(QPixmap(matching_folder + "/" + folder_images[2]))
-        self.home.mat_img_lbl_4.setPixmap(QPixmap(matching_folder + "/" + folder_images[3]))          
-        
-        print(folder_images)
-       
-
     
     def sequencing_page(self):
         
         self.home.stackedWidget.setCurrentWidget(self.home.sequence_page)
+        
+        # load the files from the folder
+        self.sequence_window = Sequence_Window(self.home) 
+        self.sequence_window.load_sequence_file()       
         
     def celebration_page(self):
         
