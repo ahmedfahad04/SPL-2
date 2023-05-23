@@ -508,7 +508,7 @@ class Home(QMainWindow):  # Home extends QMainWindow
                 image_desc = ""
 
             # Add the image name and description to the dictionary
-            image_data[item] = image_desc
+            image_data[image_desc] = item 
 
         image_data['creation_date'] = datetime.datetime.now().strftime("%d/%m/%Y")
         image_data['creation_time'] = datetime.datetime.now().strftime("%H:%M:%S")
