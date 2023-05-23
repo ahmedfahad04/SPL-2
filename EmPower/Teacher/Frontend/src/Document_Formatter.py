@@ -59,7 +59,7 @@ def show_confirmation_message(title, message):
     msg.setText(message)
     msg.setWindowTitle(title)
     msg.setWindowIcon(QIcon("Frontend\Images\question_icon.png"))
-    msg.setStandardButtons(QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No)
+    msg.setStandardButtons(QMessageBox.StandardButton.Ok | QMessageBox.StandardButton.Cancel)
     msg.exec_()
     
     if msg.clickedButton() == msg.button(QMessageBox.StandardButton.Yes):

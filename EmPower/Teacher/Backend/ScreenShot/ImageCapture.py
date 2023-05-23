@@ -14,6 +14,7 @@ class ImageCaptureWidget(QWidget):
         super().__init__()
 
         self.ui_obj = ui_object
+        self.current_saved_file = None
 
         self.setWindowTitle("PyQt5 Media Player")
         self.setGeometry(350, 100, 800, 800)
@@ -41,8 +42,8 @@ class ImageCaptureWidget(QWidget):
         video_layout.addWidget(self.videowidget)
 
         # create open button
-        openBtn = QPushButton('ফাইল ওপেন করুন')
-        openBtn.setFixedSize(150, 50)
+        openBtn = QPushButton('ফাইল খুলুন')
+        openBtn.setFixedSize(100, 50)
         openBtn.setIcon(QIcon('Frontend\Images\open_folder_v2.png'))
         openBtn.setIconSize(QSize(20, 20))
         openBtn.clicked.connect(self.open_file)
@@ -60,6 +61,7 @@ class ImageCaptureWidget(QWidget):
 
         # create button for playing
         self.playBtn = QPushButton()
+        self.playBtn.setEnabled(False)
         self.playBtn.setFixedSize(50, 50)
         self.playBtn.setIcon(QIcon('Frontend\Images\play_btn.png'))
         self.playBtn.clicked.connect(self.play_video)
@@ -84,7 +86,7 @@ class ImageCaptureWidget(QWidget):
         # create volume slider
         self.volume_slider = QSlider(Qt.Horizontal)
         self.volume_slider.setRange(0, 100)
-        self.volume_slider.setFixedSize(150, 30)
+        self.volume_slider.setFixedSize(100, 30)
         self.volume_slider.sliderMoved.connect(self.set_volume)
         self.volume_slider.setStyleSheet("QSlider::handle:horizontal {background-color:#002B5B;}")
 
@@ -96,12 +98,12 @@ class ImageCaptureWidget(QWidget):
         self.volume_lbl = QLabel("ভলিউম")
         self.volume_lbl.setStyleSheet("color: black")
         self.volume_lbl.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
-        self.volume_lbl.setMinimumSize(350, 0)
+        self.volume_lbl.setMinimumSize(250, 0)
         self.volume_lbl.setSizePolicy(QSizePolicy.Preferred, QSizePolicy.Maximum)
 
         # create button for taking a snapshot
         snapshotBtn = QPushButton('স্ক্রিনশট নিন') 
-        snapshotBtn.setFixedSize(150, 50)
+        snapshotBtn.setFixedSize(100, 50)
         snapshotBtn.clicked.connect(self.take_snapshot)
         snapshotBtn.setIcon(QIcon('Frontend\Images\screenshot.png'))
         snapshotBtn.setIconSize(QSize(30, 30))
@@ -154,6 +156,7 @@ class ImageCaptureWidget(QWidget):
         if filename != '':
             self.mediaPlayer.setMedia(QMediaContent(QUrl.fromLocalFile(filename)))
             self.playBtn.setEnabled(True)
+            self.play_video()
 
     def play_video(self):
 
@@ -225,8 +228,10 @@ class ImageCaptureWidget(QWidget):
             
             print(snapshot_path)
             
+        # scale the image to fit the label
+        self.ui_obj.task_seq_img_view_lbl.setScaledContents(True)
         self.ui_obj.task_seq_img_view_lbl.setPixmap(QPixmap(snapshot_path))
-        
+        self.current_saved_file = snapshot_path
 
 
 # app = QApplication(sys.argv)

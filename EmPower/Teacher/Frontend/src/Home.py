@@ -28,6 +28,7 @@ class Home(QMainWindow):  # Home extends QMainWindow
         super(QMainWindow, self).__init__()
         
         self.home = None
+        self.sequence_image_count = 0
 
         self.home_page()
         
@@ -129,6 +130,7 @@ class Home(QMainWindow):  # Home extends QMainWindow
         self.home.task_puzzle_select_img_btn.clicked.connect(self.select_puzzle_image)
         self.home.task_puzzle_save_set_btn.clicked.connect(self.save_puzzle_set)
         self.home.task_puzzle_show_set_btn.clicked.connect(self.show_puzzle_set)
+        self.home.task_seq_img_save_btn.clicked.connect(self.save_sequence_details)
                
     def on_label_clicked(self):
         
@@ -202,13 +204,72 @@ class Home(QMainWindow):  # Home extends QMainWindow
         
         self.home.evalstackwidget.setCurrentWidget(self.home.sequence_page) 
         
+        # setup the video widget into layout
         if self.home.task_seq_video_frame_widget.count() != 0:
             self.home.task_seq_video_frame_widget.itemAt(
                 0).widget().setParent(None)
 
-        image_capture_window = ImageCaptureWidget(self.home)
-        self.home.task_seq_video_frame_widget.addWidget(image_capture_window)
+        self.image_capture_window = ImageCaptureWidget(self.home)
+        self.home.task_seq_video_frame_widget.addWidget(self.image_capture_window)
         
+        
+    def save_sequence_details(self):
+        
+        # read folder to track the folder names 
+        existing_folders = os.listdir('Lessons/Sequence_Images')
+        
+        # save image to log file as json
+        image_description = self.home.task_seq_img_desc_edit.text()
+        image_sequence = self.home.task_seq_img_seq_edit.text()
+        image_set = self.home.task_seq_set_lbl.text()
+        current_saved_image_path = self.image_capture_window.current_saved_file
+        
+        # convert all spaces with _
+        image_description = image_description.replace(" ", "_")
+        
+        # check if any filed is empty 
+        if image_description == "" or image_sequence == "" or image_set == "":
+            show_warning_message("ফিল্ড অসম্পূর্ণ", "সব ফিল্ড পূরণ করুন")
+            return
+        
+        
+        # make a directory mentioned in image_set 
+        if not os.path.exists('Lessons/Sequence_Images/{}'.format(image_set)) and not image_set in existing_folders: 
+            os.mkdir('Lessons/Sequence_Images/{}'.format(image_set))
+            
+        elif image_set in existing_folders and self.sequence_image_count == 0:
+            show_warning_message("সেট নাম ইতিমধ্যে ব্যবহৃত", "এই নামের একটি সেট ইতিমধ্যে ব্যবহৃত হয়েছে, অন্য নাম ব্যবহার করুন")
+            return
+            
+        # check if given serial is already exists in set 
+        existing_files = os.listdir('Lessons/Sequence_Images/{}'.format(image_set))
+        for file in existing_files:
+            if image_sequence in file:
+                show_warning_message("ভুল সিকোয়েন্স", "{} এই সিকোয়েন্স ইতিমধ্যে ব্যবহৃত হয়েছে".format(image_sequence))
+                return 
+            
+        # check if 4 image is selected or not
+        if self.sequence_image_count >= 3:
+            shutil.move(current_saved_image_path, 'Lessons/Sequence_Images/{}/{}_{}.png'.format(image_set, image_sequence, image_description))
+            show_confirmation_message("সম্পূর্ণ হয়েছে", "{} সেটের ৪ টি ছবি নির্বাচন করা হয়েছে, নতুন ছবি অন্য সেটে যোগ করতে পারেন".format(image_set))
+            
+            # reset all fields
+            self.home.task_seq_img_desc_edit.clear()
+            self.home.task_seq_img_seq_edit.clear()
+            self.home.task_seq_set_lbl.clear()
+            self.home.task_seq_img_view_lbl.clear()
+            self.sequence_image_count = 0
+            
+        else: 
+            
+            # count number of image for each set 
+            self.sequence_image_count += 1
+            
+            # save images to specific set
+            shutil.move(current_saved_image_path, 'Lessons/Sequence_Images/{}/{}_{}.png'.format(image_set, image_sequence, image_description))
+            show_warning_message("ছবি নির্বাচন করা হয়নি", "আরো {} ছবি নির্বাচন করতে হবে".format(4 - self.sequence_image_count))
+
+    
     def puzzle_page(self):
         
         self.home.evalstackwidget.setCurrentWidget(self.home.puzzle_page)
@@ -218,7 +279,6 @@ class Home(QMainWindow):  # Home extends QMainWindow
     def select_puzzle_image(self):
         
         print("Selecting puzzle image"	)
-        # self.home.task_puzzle_image_lbl.setText("")
         file_names = None 
         
         # Open dialog box to select multiple files
@@ -240,9 +300,9 @@ class Home(QMainWindow):  # Home extends QMainWindow
             for file_name in file_names:
                 names += file_name.split("/")[-1] + "\n"
                 
-            names += "ছবি সংরক্ষন করার জন্য নিচে সেট নম্বর লিখুন এবং \'সংরক্ষন করুন\' বাটনে ক্লিক করুন।"
+            names += "ছবি সংরক্ষন করার জন্য উপরে সেট নম্বর লিখুন এবং \'সংরক্ষন করুন\' বাটনে ক্লিক করুন।"
             self.home.task_puzzle_image_lbl.setText(names)
-                
+                 
             # copy image files
             for file_name in file_names: 
                 
