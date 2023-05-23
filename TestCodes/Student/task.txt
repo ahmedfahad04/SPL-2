@@ -1,3 +1,0 @@
-Student
-
-1. Check if it is correctly importing the Relative path of the file.
