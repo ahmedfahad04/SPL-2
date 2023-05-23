@@ -28,9 +28,9 @@ class Ui_MainWindow(object):
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.centralwidget.setMinimumSize(QSize(1280, 700))
-        self.gridLayout_11 = QGridLayout(self.centralwidget)
-        self.gridLayout_11.setObjectName(u"gridLayout_11")
-        self.gridLayout_11.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_15 = QHBoxLayout(self.centralwidget)
+        self.horizontalLayout_15.setObjectName(u"horizontalLayout_15")
+        self.horizontalLayout_15.setContentsMargins(0, 0, 0, 0)
         self.stackedWidget = QStackedWidget(self.centralwidget)
         self.stackedWidget.setObjectName(u"stackedWidget")
         self.stackedWidget.setMinimumSize(QSize(1280, 700))
@@ -597,7 +597,9 @@ class Ui_MainWindow(object):
 "background-color: #3D405B;\n"
 "background-color:  rgb(35, 37, 53);\n"
 "}")
-        self.n_proceed_btn.setIcon(icon2)
+        icon4 = QIcon()
+        icon4.addFile(u"C:/Users/Fahad/.designer/Images/forward.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.n_proceed_btn.setIcon(icon4)
         self.n_proceed_btn.setIconSize(QSize(90, 80))
 
         self.gridLayout_6.addWidget(self.n_proceed_btn, 1, 0, 1, 1)
@@ -663,7 +665,7 @@ class Ui_MainWindow(object):
         self.gridLayout_10.setObjectName(u"gridLayout_10")
         self.frame_4 = QFrame(self.puzzle_widget_frame_2)
         self.frame_4.setObjectName(u"frame_4")
-        self.frame_4.setMinimumSize(QSize(624, 190))
+        self.frame_4.setMinimumSize(QSize(624, 193))
         self.frame_4.setStyleSheet(u"border: none;")
         self.frame_4.setFrameShape(QFrame.StyledPanel)
         self.frame_4.setFrameShadow(QFrame.Raised)
@@ -671,7 +673,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_11.setObjectName(u"horizontalLayout_11")
         self.mat_img_lbl_3 = QLabel(self.frame_4)
         self.mat_img_lbl_3.setObjectName(u"mat_img_lbl_3")
-        self.mat_img_lbl_3.setMinimumSize(QSize(231, 171))
+        self.mat_img_lbl_3.setMinimumSize(QSize(239, 171))
         self.mat_img_lbl_3.setStyleSheet(u"border: 2px solid rgb(0, 43, 91);")
 
         self.horizontalLayout_11.addWidget(self.mat_img_lbl_3)
@@ -689,13 +691,15 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_11.addWidget(self.label_9)
 
-        self.mat_txt_lbl_3 = QLabel(self.frame_4)
-        self.mat_txt_lbl_3.setObjectName(u"mat_txt_lbl_3")
-        self.mat_txt_lbl_3.setMinimumSize(QSize(231, 171))
-        self.mat_txt_lbl_3.setStyleSheet(u"border: 2px dotted rgb(0, 43, 91);\n"
+        self.mat_txt_lbl_3_frame = QFrame(self.frame_4)
+        self.mat_txt_lbl_3_frame.setObjectName(u"mat_txt_lbl_3_frame")
+        self.mat_txt_lbl_3_frame.setMinimumSize(QSize(238, 171))
+        self.mat_txt_lbl_3_frame.setStyleSheet(u"border: 2px dotted rgb(0, 43, 91);\n"
 "background-color: rgb(200, 198, 182);")
+        self.mat_txt_lbl_3_frame.setFrameShape(QFrame.StyledPanel)
+        self.mat_txt_lbl_3_frame.setFrameShadow(QFrame.Raised)
 
-        self.horizontalLayout_11.addWidget(self.mat_txt_lbl_3)
+        self.horizontalLayout_11.addWidget(self.mat_txt_lbl_3_frame)
 
 
         self.gridLayout_10.addWidget(self.frame_4, 1, 0, 1, 1)
@@ -712,25 +716,6 @@ class Ui_MainWindow(object):
         self.frame_6.setFrameShadow(QFrame.Raised)
         self.gridLayout_12 = QGridLayout(self.frame_6)
         self.gridLayout_12.setObjectName(u"gridLayout_12")
-        self.mat_option_1_frame = QFrame(self.frame_6)
-        self.mat_option_1_frame.setObjectName(u"mat_option_1_frame")
-        self.mat_option_1_frame.setMinimumSize(QSize(201, 61))
-        self.mat_option_1_frame.setStyleSheet(u"border: 2px dotted rgb(0, 43, 91);\n"
-"background-color: rgb(236, 233, 215);\n"
-"border-radius: 25px;")
-        self.mat_option_1_frame.setFrameShape(QFrame.StyledPanel)
-        self.mat_option_1_frame.setFrameShadow(QFrame.Raised)
-
-        self.gridLayout_12.addWidget(self.mat_option_1_frame, 1, 2, 1, 1)
-
-        self.verticalSpacer_11 = QSpacerItem(20, 18, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.gridLayout_12.addItem(self.verticalSpacer_11, 2, 9, 1, 1)
-
-        self.verticalSpacer_6 = QSpacerItem(20, 18, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.gridLayout_12.addItem(self.verticalSpacer_6, 2, 5, 1, 1)
-
         self.label_18 = QLabel(self.frame_6)
         self.label_18.setObjectName(u"label_18")
         self.label_18.setMinimumSize(QSize(131, 111))
@@ -741,90 +726,108 @@ class Ui_MainWindow(object):
 
         self.gridLayout_12.addWidget(self.label_18, 0, 0, 3, 1)
 
-        self.mat_txt_option_3 = QLabel(self.frame_6)
-        self.mat_txt_option_3.setObjectName(u"mat_txt_option_3")
-        self.mat_txt_option_3.setMinimumSize(QSize(201, 61))
-        font9 = QFont()
-        font9.setPointSize(10)
-        self.mat_txt_option_3.setFont(font9)
-        self.mat_txt_option_3.setCursor(QCursor(Qt.PointingHandCursor))
-        self.mat_txt_option_3.setStyleSheet(u"border: 2px dotted rgb(0, 43, 91);\n"
-"background-color: rgb(236, 233, 215);\n"
-"border-radius: 25px;")
-        self.mat_txt_option_3.setAlignment(Qt.AlignCenter)
+        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.gridLayout_12.addWidget(self.mat_txt_option_3, 1, 7, 1, 1)
-
-        self.mat_txt_option_4 = QLabel(self.frame_6)
-        self.mat_txt_option_4.setObjectName(u"mat_txt_option_4")
-        self.mat_txt_option_4.setMinimumSize(QSize(201, 61))
-        self.mat_txt_option_4.setFont(font9)
-        self.mat_txt_option_4.setCursor(QCursor(Qt.PointingHandCursor))
-        self.mat_txt_option_4.setStyleSheet(u"border: 2px dotted rgb(0, 43, 91);\n"
-"background-color: rgb(236, 233, 215);\n"
-"border-radius: 25px;")
-        self.mat_txt_option_4.setAlignment(Qt.AlignCenter)
-
-        self.gridLayout_12.addWidget(self.mat_txt_option_4, 1, 9, 1, 1)
-
-        self.verticalSpacer_8 = QSpacerItem(20, 18, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.gridLayout_12.addItem(self.verticalSpacer_8, 0, 7, 1, 1)
-
-        self.verticalSpacer_9 = QSpacerItem(20, 18, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.gridLayout_12.addItem(self.verticalSpacer_9, 2, 7, 1, 1)
+        self.gridLayout_12.addItem(self.horizontalSpacer, 0, 1, 1, 1)
 
         self.verticalSpacer_3 = QSpacerItem(20, 18, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
         self.gridLayout_12.addItem(self.verticalSpacer_3, 0, 2, 1, 1)
 
-        self.verticalSpacer_5 = QSpacerItem(20, 18, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.verticalSpacer_7 = QSpacerItem(20, 18, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
-        self.gridLayout_12.addItem(self.verticalSpacer_5, 2, 2, 1, 1)
+        self.gridLayout_12.addItem(self.verticalSpacer_7, 0, 4, 1, 1)
 
-        self.horizontalSpacer_2 = QSpacerItem(78, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.verticalSpacer_8 = QSpacerItem(20, 18, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
-        self.gridLayout_12.addItem(self.horizontalSpacer_2, 1, 3, 1, 1)
-
-        self.mat_txt_option_2 = QLabel(self.frame_6)
-        self.mat_txt_option_2.setObjectName(u"mat_txt_option_2")
-        self.mat_txt_option_2.setMinimumSize(QSize(201, 61))
-        self.mat_txt_option_2.setFont(font9)
-        self.mat_txt_option_2.setCursor(QCursor(Qt.PointingHandCursor))
-        self.mat_txt_option_2.setStyleSheet(u"border: 2px dotted rgb(0, 43, 91);\n"
-"background-color: rgb(236, 233, 215);\n"
-"border-radius: 25px;")
-        self.mat_txt_option_2.setAlignment(Qt.AlignCenter)
-
-        self.gridLayout_12.addWidget(self.mat_txt_option_2, 1, 4, 1, 2)
-
-        self.horizontalSpacer_4 = QSpacerItem(78, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.gridLayout_12.addItem(self.horizontalSpacer_4, 1, 8, 1, 1)
+        self.gridLayout_12.addItem(self.verticalSpacer_8, 0, 7, 1, 1)
 
         self.verticalSpacer_10 = QSpacerItem(20, 18, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
         self.gridLayout_12.addItem(self.verticalSpacer_10, 0, 9, 1, 1)
 
+        self.mat_option_1_frame = QFrame(self.frame_6)
+        self.mat_option_1_frame.setObjectName(u"mat_option_1_frame")
+        self.mat_option_1_frame.setMinimumSize(QSize(201, 61))
+        self.mat_option_1_frame.setCursor(QCursor(Qt.PointingHandCursor))
+        self.mat_option_1_frame.setStyleSheet(u"border: 2px dotted rgb(0, 43, 91);\n"
+"background-color: rgb(236, 233, 215);\n"
+"border-radius: 25px;")
+        self.mat_option_1_frame.setFrameShape(QFrame.StyledPanel)
+        self.mat_option_1_frame.setFrameShadow(QFrame.Raised)
+
+        self.gridLayout_12.addWidget(self.mat_option_1_frame, 1, 2, 1, 1)
+
+        self.horizontalSpacer_2 = QSpacerItem(78, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_12.addItem(self.horizontalSpacer_2, 1, 3, 1, 1)
+
+        self.mat_option_2_frame = QFrame(self.frame_6)
+        self.mat_option_2_frame.setObjectName(u"mat_option_2_frame")
+        self.mat_option_2_frame.setMinimumSize(QSize(201, 61))
+        self.mat_option_2_frame.setCursor(QCursor(Qt.PointingHandCursor))
+        self.mat_option_2_frame.setStyleSheet(u"border: 2px dotted rgb(0, 43, 91);\n"
+"background-color: rgb(236, 233, 215);\n"
+"border-radius: 25px;")
+        self.mat_option_2_frame.setFrameShape(QFrame.StyledPanel)
+        self.mat_option_2_frame.setFrameShadow(QFrame.Raised)
+
+        self.gridLayout_12.addWidget(self.mat_option_2_frame, 1, 4, 1, 2)
+
         self.horizontalSpacer_3 = QSpacerItem(79, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.gridLayout_12.addItem(self.horizontalSpacer_3, 1, 6, 1, 1)
 
-        self.verticalSpacer_7 = QSpacerItem(20, 18, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.mat_option_3_frame = QFrame(self.frame_6)
+        self.mat_option_3_frame.setObjectName(u"mat_option_3_frame")
+        self.mat_option_3_frame.setMinimumSize(QSize(201, 61))
+        self.mat_option_3_frame.setCursor(QCursor(Qt.PointingHandCursor))
+        self.mat_option_3_frame.setStyleSheet(u"border: 2px dotted rgb(0, 43, 91);\n"
+"background-color: rgb(236, 233, 215);\n"
+"border-radius: 25px;")
+        self.mat_option_3_frame.setFrameShape(QFrame.StyledPanel)
+        self.mat_option_3_frame.setFrameShadow(QFrame.Raised)
 
-        self.gridLayout_12.addItem(self.verticalSpacer_7, 0, 4, 1, 1)
+        self.gridLayout_12.addWidget(self.mat_option_3_frame, 1, 7, 1, 1)
 
-        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalSpacer_4 = QSpacerItem(78, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.gridLayout_12.addItem(self.horizontalSpacer, 0, 1, 1, 1)
+        self.gridLayout_12.addItem(self.horizontalSpacer_4, 1, 8, 1, 1)
+
+        self.mat_option_4_frame = QFrame(self.frame_6)
+        self.mat_option_4_frame.setObjectName(u"mat_option_4_frame")
+        self.mat_option_4_frame.setMinimumSize(QSize(201, 61))
+        self.mat_option_4_frame.setCursor(QCursor(Qt.PointingHandCursor))
+        self.mat_option_4_frame.setStyleSheet(u"border: 2px dotted rgb(0, 43, 91);\n"
+"background-color: rgb(236, 233, 215);\n"
+"border-radius: 25px;")
+        self.mat_option_4_frame.setFrameShape(QFrame.StyledPanel)
+        self.mat_option_4_frame.setFrameShadow(QFrame.Raised)
+
+        self.gridLayout_12.addWidget(self.mat_option_4_frame, 1, 9, 1, 1)
+
+        self.verticalSpacer_5 = QSpacerItem(20, 18, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.gridLayout_12.addItem(self.verticalSpacer_5, 2, 2, 1, 1)
+
+        self.verticalSpacer_6 = QSpacerItem(20, 18, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.gridLayout_12.addItem(self.verticalSpacer_6, 2, 5, 1, 1)
+
+        self.verticalSpacer_9 = QSpacerItem(20, 18, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.gridLayout_12.addItem(self.verticalSpacer_9, 2, 7, 1, 1)
+
+        self.verticalSpacer_11 = QSpacerItem(20, 18, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.gridLayout_12.addItem(self.verticalSpacer_11, 2, 9, 1, 1)
 
 
         self.gridLayout_10.addWidget(self.frame_6, 3, 0, 1, 2)
 
         self.frame_5 = QFrame(self.puzzle_widget_frame_2)
         self.frame_5.setObjectName(u"frame_5")
-        self.frame_5.setMinimumSize(QSize(624, 190))
+        self.frame_5.setMinimumSize(QSize(624, 193))
         self.frame_5.setStyleSheet(u"border: none;")
         self.frame_5.setFrameShape(QFrame.StyledPanel)
         self.frame_5.setFrameShadow(QFrame.Raised)
@@ -832,7 +835,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_13.setObjectName(u"horizontalLayout_13")
         self.mat_img_lbl_4 = QLabel(self.frame_5)
         self.mat_img_lbl_4.setObjectName(u"mat_img_lbl_4")
-        self.mat_img_lbl_4.setMinimumSize(QSize(231, 171))
+        self.mat_img_lbl_4.setMinimumSize(QSize(239, 171))
         self.mat_img_lbl_4.setStyleSheet(u"border: 2px solid rgb(0, 43, 91);")
 
         self.horizontalLayout_13.addWidget(self.mat_img_lbl_4)
@@ -848,20 +851,22 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_13.addWidget(self.label_12)
 
-        self.mat_txt_lbl_4 = QLabel(self.frame_5)
-        self.mat_txt_lbl_4.setObjectName(u"mat_txt_lbl_4")
-        self.mat_txt_lbl_4.setMinimumSize(QSize(231, 171))
-        self.mat_txt_lbl_4.setStyleSheet(u"border: 2px dotted rgb(0, 43, 91);\n"
+        self.mat_txt_lbl_4_frame = QFrame(self.frame_5)
+        self.mat_txt_lbl_4_frame.setObjectName(u"mat_txt_lbl_4_frame")
+        self.mat_txt_lbl_4_frame.setMinimumSize(QSize(238, 171))
+        self.mat_txt_lbl_4_frame.setStyleSheet(u"border: 2px dotted rgb(0, 43, 91);\n"
 "background-color: rgb(200, 198, 182);")
+        self.mat_txt_lbl_4_frame.setFrameShape(QFrame.StyledPanel)
+        self.mat_txt_lbl_4_frame.setFrameShadow(QFrame.Raised)
 
-        self.horizontalLayout_13.addWidget(self.mat_txt_lbl_4)
+        self.horizontalLayout_13.addWidget(self.mat_txt_lbl_4_frame)
 
 
         self.gridLayout_10.addWidget(self.frame_5, 1, 1, 1, 1)
 
         self.frame_2 = QFrame(self.puzzle_widget_frame_2)
         self.frame_2.setObjectName(u"frame_2")
-        self.frame_2.setMinimumSize(QSize(624, 190))
+        self.frame_2.setMinimumSize(QSize(624, 193))
         self.frame_2.setStyleSheet(u"border: none;")
         self.frame_2.setFrameShape(QFrame.StyledPanel)
         self.frame_2.setFrameShadow(QFrame.Raised)
@@ -869,7 +874,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_8.setObjectName(u"horizontalLayout_8")
         self.mat_img_lbl_1 = QLabel(self.frame_2)
         self.mat_img_lbl_1.setObjectName(u"mat_img_lbl_1")
-        self.mat_img_lbl_1.setMinimumSize(QSize(231, 171))
+        self.mat_img_lbl_1.setMinimumSize(QSize(239, 171))
         self.mat_img_lbl_1.setStyleSheet(u"border: 2px solid rgb(0, 43, 91);")
 
         self.horizontalLayout_8.addWidget(self.mat_img_lbl_1)
@@ -900,7 +905,7 @@ class Ui_MainWindow(object):
 
         self.frame_3 = QFrame(self.puzzle_widget_frame_2)
         self.frame_3.setObjectName(u"frame_3")
-        self.frame_3.setMinimumSize(QSize(624, 190))
+        self.frame_3.setMinimumSize(QSize(624, 193))
         self.frame_3.setStyleSheet(u"border: none;")
         self.frame_3.setFrameShape(QFrame.StyledPanel)
         self.frame_3.setFrameShadow(QFrame.Raised)
@@ -908,7 +913,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_10.setObjectName(u"horizontalLayout_10")
         self.mat_img_lbl_2 = QLabel(self.frame_3)
         self.mat_img_lbl_2.setObjectName(u"mat_img_lbl_2")
-        self.mat_img_lbl_2.setMinimumSize(QSize(231, 171))
+        self.mat_img_lbl_2.setMinimumSize(QSize(239, 171))
         self.mat_img_lbl_2.setStyleSheet(u"border: 2px solid rgb(0, 43, 91);")
 
         self.horizontalLayout_10.addWidget(self.mat_img_lbl_2)
@@ -924,14 +929,15 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_10.addWidget(self.label_6)
 
-        self.mat_txt_lbl_2 = QLabel(self.frame_3)
-        self.mat_txt_lbl_2.setObjectName(u"mat_txt_lbl_2")
-        self.mat_txt_lbl_2.setMinimumSize(QSize(231, 171))
-        self.mat_txt_lbl_2.setStyleSheet(u"border: 2px dotted rgb(0, 43, 91);\n"
+        self.mat_txt_lbl_2_frame = QFrame(self.frame_3)
+        self.mat_txt_lbl_2_frame.setObjectName(u"mat_txt_lbl_2_frame")
+        self.mat_txt_lbl_2_frame.setMinimumSize(QSize(238, 171))
+        self.mat_txt_lbl_2_frame.setStyleSheet(u"border: 2px dotted rgb(0, 43, 91);\n"
 "background-color: rgb(200, 198, 182);")
-        self.mat_txt_lbl_2.setAlignment(Qt.AlignCenter)
+        self.mat_txt_lbl_2_frame.setFrameShape(QFrame.StyledPanel)
+        self.mat_txt_lbl_2_frame.setFrameShadow(QFrame.Raised)
 
-        self.horizontalLayout_10.addWidget(self.mat_txt_lbl_2)
+        self.horizontalLayout_10.addWidget(self.mat_txt_lbl_2_frame)
 
 
         self.gridLayout_10.addWidget(self.frame_3, 0, 1, 1, 1)
@@ -1014,7 +1020,7 @@ class Ui_MainWindow(object):
         self.label_8.setMinimumSize(QSize(71, 51))
         self.label_8.setMaximumSize(QSize(71, 51))
         self.label_8.setStyleSheet(u"border: none;")
-        self.label_8.setPixmap(QPixmap(u"../Images/right_arrow.png"))
+        self.label_8.setPixmap(QPixmap(u"C:/Users/Fahad/.designer/Images/right_arrow.png"))
         self.label_8.setAlignment(Qt.AlignCenter)
 
         self.horizontalLayout_6.addWidget(self.label_8)
@@ -1032,7 +1038,7 @@ class Ui_MainWindow(object):
         self.label_10.setMinimumSize(QSize(71, 51))
         self.label_10.setMaximumSize(QSize(71, 51))
         self.label_10.setStyleSheet(u"border: none;")
-        self.label_10.setPixmap(QPixmap(u"../Images/right_arrow.png"))
+        self.label_10.setPixmap(QPixmap(u"C:/Users/Fahad/.designer/Images/right_arrow.png"))
         self.label_10.setAlignment(Qt.AlignCenter)
 
         self.horizontalLayout_6.addWidget(self.label_10)
@@ -1051,7 +1057,7 @@ class Ui_MainWindow(object):
         self.label_11.setMinimumSize(QSize(71, 51))
         self.label_11.setMaximumSize(QSize(71, 51))
         self.label_11.setStyleSheet(u"border: none;")
-        self.label_11.setPixmap(QPixmap(u"../Images/right_arrow.png"))
+        self.label_11.setPixmap(QPixmap(u"C:/Users/Fahad/.designer/Images/right_arrow.png"))
         self.label_11.setAlignment(Qt.AlignCenter)
 
         self.horizontalLayout_6.addWidget(self.label_11)
@@ -1154,7 +1160,7 @@ class Ui_MainWindow(object):
 
         self.stackedWidget.addWidget(self.sequence_page)
 
-        self.gridLayout_11.addWidget(self.stackedWidget, 0, 0, 1, 1)
+        self.horizontalLayout_15.addWidget(self.stackedWidget)
 
         MainWindow.setCentralWidget(self.centralwidget)
 
@@ -1199,19 +1205,13 @@ class Ui_MainWindow(object):
         self.lbl_lesson_headline_3.setText(QCoreApplication.translate("MainWindow", u"\u09b6\u09ac\u09cd\u09a6 \u09ae\u09bf\u09b2\u09a8", None))
         self.mat_img_lbl_3.setText("")
         self.label_9.setText("")
-        self.mat_txt_lbl_3.setText("")
         self.label_18.setText("")
-        self.mat_txt_option_3.setText("")
-        self.mat_txt_option_4.setText("")
-        self.mat_txt_option_2.setText("")
         self.mat_img_lbl_4.setText("")
         self.label_12.setText("")
-        self.mat_txt_lbl_4.setText("")
         self.mat_img_lbl_1.setText("")
         self.label_4.setText("")
         self.mat_img_lbl_2.setText("")
         self.label_6.setText("")
-        self.mat_txt_lbl_2.setText("")
         self.lbl_lesson_headline_4.setText(QCoreApplication.translate("MainWindow", u"\u09a7\u09be\u09b0\u09be \u09ae\u09bf\u09b2\u09be\u0993", None))
         self.lbl_lesson_sub_heading_4.setText(QCoreApplication.translate("MainWindow", u"\u09aa\u09be\u09a0 \u09ae\u09c2\u09b2\u09cd\u09af\u09be\u09df\u09a8", None))
         self.seq_lbl_1.setText("")

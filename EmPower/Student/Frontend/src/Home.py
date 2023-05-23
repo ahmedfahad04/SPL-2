@@ -116,6 +116,7 @@ class Home(QMainWindow):  # Home extends QMainWindow
         self.home.mat_img_lbl_3.setScaledContents(True)
         self.home.mat_img_lbl_4.setScaledContents(True)
         
+        
         self.home.mat_img_lbl_1.setPixmap(QPixmap(matching_folder + "/" + folder_images[0]))
         self.home.mat_img_lbl_2.setPixmap(QPixmap(matching_folder + "/" + folder_images[1]))
         self.home.mat_img_lbl_3.setPixmap(QPixmap(matching_folder + "/" + folder_images[2]))
