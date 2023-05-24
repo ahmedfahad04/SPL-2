@@ -286,6 +286,8 @@ class Matching_Window(QWidget):
             
             with open('Performance' + "/matching_results.json", "w+") as json_file:
                 json.dump(self.performance, json_file)
+                
+            self.home_ui.stackedWidget.setCurrentWidget(self.home_ui.celebration_page)
   
     def img_drop_value(self, frame_id):
         

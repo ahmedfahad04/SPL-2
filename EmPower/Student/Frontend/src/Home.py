@@ -44,7 +44,7 @@ class Home(QMainWindow):  # Home extends QMainWindow
         self.home.stackedWidget.setCurrentWidget(self.home.home_page) 
 
         # Start a timer to load the lesson widget after 2 seconds
-        QTimer.singleShot(1000, self.matching_page)
+        QTimer.singleShot(1000, self.lesson_page)
 
     def lesson_page(self):
         
@@ -100,6 +100,7 @@ class Home(QMainWindow):  # Home extends QMainWindow
         # connect buttons
         self.home.c_again.clicked.connect(self.puzzle_page)
         
+        #! need to rethink
         if self.home.stackedWidget.currentWidget() == self.home.puzzle_main:
             self.home.c_next_quiz.clicked.connect(self.matching_page)
         else:

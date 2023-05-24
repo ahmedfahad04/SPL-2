@@ -62,7 +62,7 @@ def show_confirmation_message(title, message):
     msg.setStandardButtons(QMessageBox.StandardButton.Ok | QMessageBox.StandardButton.Cancel)
     msg.exec_()
     
-    if msg.clickedButton() == msg.button(QMessageBox.StandardButton.Yes):
+    if msg.clickedButton() == msg.button(QMessageBox.StandardButton.Ok):
         return True 
     else: 
         return False

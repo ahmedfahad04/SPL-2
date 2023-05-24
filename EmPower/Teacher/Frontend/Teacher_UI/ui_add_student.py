@@ -46,10 +46,22 @@ class Ui_Form(object):
         self.middle_frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.middle_frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.middle_frame.setObjectName("middle_frame")
-        self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.middle_frame)
-        self.verticalLayout_2.setObjectName("verticalLayout_2")
+        self.gridLayout = QtWidgets.QGridLayout(self.middle_frame)
+        self.gridLayout.setObjectName("gridLayout")
+        self.label = QtWidgets.QLabel(self.middle_frame)
+        self.label.setMinimumSize(QtCore.QSize(151, 51))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.label.setFont(font)
+        self.label.setStyleSheet("border: 3px solid rgb(43, 72, 101);\n"
+"border-radius: 10px;\n"
+"background-color:  rgb(43, 72, 101);\n"
+"color: rgb(137, 218, 199)")
+        self.label.setAlignment(QtCore.Qt.AlignCenter)
+        self.label.setObjectName("label")
+        self.gridLayout.addWidget(self.label, 0, 0, 1, 1)
         self.input_id = QtWidgets.QLineEdit(self.middle_frame)
-        self.input_id.setMinimumSize(QtCore.QSize(280, 55))
+        self.input_id.setMinimumSize(QtCore.QSize(330, 55))
         font = QtGui.QFont()
         font.setFamily("Kalpurush")
         font.setPointSize(11)
@@ -62,8 +74,21 @@ class Ui_Form(object):
 "border-radius: 10px;\n"
 "color: black;")
         self.input_id.setText("")
+        self.input_id.setPlaceholderText("")
         self.input_id.setObjectName("input_id")
-        self.verticalLayout_2.addWidget(self.input_id)
+        self.gridLayout.addWidget(self.input_id, 0, 1, 1, 1)
+        self.label_2 = QtWidgets.QLabel(self.middle_frame)
+        self.label_2.setMinimumSize(QtCore.QSize(151, 41))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.label_2.setFont(font)
+        self.label_2.setStyleSheet("border: 3px solid rgb(43, 72, 101);\n"
+"border-radius: 10px;\n"
+"background-color:  rgb(43, 72, 101);\n"
+"color: rgb(137, 218, 199)")
+        self.label_2.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_2.setObjectName("label_2")
+        self.gridLayout.addWidget(self.label_2, 1, 0, 1, 1)
         self.input_name = QtWidgets.QLineEdit(self.middle_frame)
         self.input_name.setMinimumSize(QtCore.QSize(330, 50))
         font = QtGui.QFont()
@@ -78,7 +103,19 @@ class Ui_Form(object):
 "border-radius: 10px;\n"
 "color: black;")
         self.input_name.setObjectName("input_name")
-        self.verticalLayout_2.addWidget(self.input_name)
+        self.gridLayout.addWidget(self.input_name, 1, 1, 1, 1)
+        self.label_3 = QtWidgets.QLabel(self.middle_frame)
+        self.label_3.setMinimumSize(QtCore.QSize(151, 41))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.label_3.setFont(font)
+        self.label_3.setStyleSheet("border: 3px solid rgb(43, 72, 101);\n"
+"border-radius: 10px;\n"
+"background-color:  rgb(43, 72, 101);\n"
+"color: rgb(137, 218, 199)")
+        self.label_3.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_3.setObjectName("label_3")
+        self.gridLayout.addWidget(self.label_3, 2, 0, 1, 1)
         self.input_age = QtWidgets.QLineEdit(self.middle_frame)
         self.input_age.setMinimumSize(QtCore.QSize(330, 50))
         font = QtGui.QFont()
@@ -92,8 +129,21 @@ class Ui_Form(object):
 "padding-left: 15px;\n"
 "border-radius: 10px;\n"
 "color: black;")
+        self.input_age.setPlaceholderText("")
         self.input_age.setObjectName("input_age")
-        self.verticalLayout_2.addWidget(self.input_age)
+        self.gridLayout.addWidget(self.input_age, 2, 1, 1, 1)
+        self.label_4 = QtWidgets.QLabel(self.middle_frame)
+        self.label_4.setMinimumSize(QtCore.QSize(151, 41))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.label_4.setFont(font)
+        self.label_4.setStyleSheet("border: 3px solid rgb(43, 72, 101);\n"
+"border-radius: 10px;\n"
+"background-color:  rgb(43, 72, 101);\n"
+"color: rgb(137, 218, 199)")
+        self.label_4.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_4.setObjectName("label_4")
+        self.gridLayout.addWidget(self.label_4, 3, 0, 1, 1)
         self.input_address = QtWidgets.QLineEdit(self.middle_frame)
         self.input_address.setMinimumSize(QtCore.QSize(330, 50))
         font = QtGui.QFont()
@@ -105,8 +155,21 @@ class Ui_Form(object):
 "padding-left: 15px;\n"
 "border-radius: 10px;\n"
 "color: black;")
+        self.input_address.setPlaceholderText("")
         self.input_address.setObjectName("input_address")
-        self.verticalLayout_2.addWidget(self.input_address)
+        self.gridLayout.addWidget(self.input_address, 3, 1, 1, 1)
+        self.label_5 = QtWidgets.QLabel(self.middle_frame)
+        self.label_5.setMinimumSize(QtCore.QSize(151, 41))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.label_5.setFont(font)
+        self.label_5.setStyleSheet("border: 3px solid rgb(43, 72, 101);\n"
+"border-radius: 10px;\n"
+"background-color:  rgb(43, 72, 101);\n"
+"color: rgb(137, 218, 199)")
+        self.label_5.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_5.setObjectName("label_5")
+        self.gridLayout.addWidget(self.label_5, 4, 0, 1, 1)
         self.input_guardian = QtWidgets.QLineEdit(self.middle_frame)
         self.input_guardian.setMinimumSize(QtCore.QSize(330, 50))
         font = QtGui.QFont()
@@ -118,8 +181,22 @@ class Ui_Form(object):
 "padding-left: 15px;\n"
 "border-radius: 10px;\n"
 "color: black;")
+        self.input_guardian.setPlaceholderText("")
         self.input_guardian.setObjectName("input_guardian")
-        self.verticalLayout_2.addWidget(self.input_guardian)
+        self.gridLayout.addWidget(self.input_guardian, 4, 1, 1, 1)
+        self.label_6 = QtWidgets.QLabel(self.middle_frame)
+        self.label_6.setMinimumSize(QtCore.QSize(151, 41))
+        font = QtGui.QFont()
+        font.setPointSize(8)
+        self.label_6.setFont(font)
+        self.label_6.setStyleSheet("border: 3px solid rgb(43, 72, 101);\n"
+"border-radius: 10px;\n"
+"background-color:  rgb(43, 72, 101);\n"
+"color: rgb(137, 218, 199)")
+        self.label_6.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_6.setWordWrap(False)
+        self.label_6.setObjectName("label_6")
+        self.gridLayout.addWidget(self.label_6, 5, 0, 1, 1)
         self.input_phone = QtWidgets.QLineEdit(self.middle_frame)
         self.input_phone.setMinimumSize(QtCore.QSize(330, 50))
         font = QtGui.QFont()
@@ -131,8 +208,9 @@ class Ui_Form(object):
 "padding-left: 15px;\n"
 "border-radius: 10px;\n"
 "color: black;")
+        self.input_phone.setPlaceholderText("")
         self.input_phone.setObjectName("input_phone")
-        self.verticalLayout_2.addWidget(self.input_phone)
+        self.gridLayout.addWidget(self.input_phone, 5, 1, 1, 1)
         self.btn_submit = QtWidgets.QPushButton(self.middle_frame)
         self.btn_submit.setMinimumSize(QtCore.QSize(100, 50))
         font = QtGui.QFont()
@@ -153,7 +231,7 @@ class Ui_Form(object):
 "}")
         self.btn_submit.setFlat(True)
         self.btn_submit.setObjectName("btn_submit")
-        self.verticalLayout_2.addWidget(self.btn_submit)
+        self.gridLayout.addWidget(self.btn_submit, 6, 0, 1, 2)
         self.verticalLayout.addWidget(self.middle_frame)
 
         self.retranslateUi(Form)
@@ -163,12 +241,13 @@ class Ui_Form(object):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
         self.lbl_heading.setText(_translate("Form", "শিক্ষার্থীর তথ্য প্রদান করুন"))
-        self.input_id.setPlaceholderText(_translate("Form", "শিক্ষার্থীর আইডি"))
-        self.input_name.setPlaceholderText(_translate("Form", "শিক্ষার্থীর নাম "))
-        self.input_age.setPlaceholderText(_translate("Form", "শিক্ষার্থীর বয়স"))
-        self.input_address.setPlaceholderText(_translate("Form", "ঠিকানা"))
-        self.input_guardian.setPlaceholderText(_translate("Form", "অভিভাবকের নাম"))
-        self.input_phone.setPlaceholderText(_translate("Form", "অভিভাবকের মোবাইল নম্বর"))
+        self.label.setText(_translate("Form", "শিক্ষার্থী আইডি"))
+        self.label_2.setText(_translate("Form", "শিক্ষার্থীর নাম "))
+        self.input_name.setPlaceholderText(_translate("Form", " "))
+        self.label_3.setText(_translate("Form", "শিক্ষার্থীর বয়স"))
+        self.label_4.setText(_translate("Form", "ঠিকানা"))
+        self.label_5.setText(_translate("Form", "অভিভাবকের নাম"))
+        self.label_6.setText(_translate("Form", "অভিভাবকের মোবাইল নম্বর"))
         self.btn_submit.setText(_translate("Form", "তথ্য যুক্ত করুন "))
         self.btn_submit.setShortcut(_translate("Form", "Return"))
 

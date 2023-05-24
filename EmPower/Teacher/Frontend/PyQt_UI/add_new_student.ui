@@ -81,12 +81,39 @@ border-radius: 20px;</string>
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
-     <layout class="QVBoxLayout" name="verticalLayout_2">
-      <item>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="0" column="0">
+       <widget class="QLabel" name="label">
+        <property name="minimumSize">
+         <size>
+          <width>151</width>
+          <height>51</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border: 3px solid rgb(43, 72, 101);
+border-radius: 10px;
+background-color:  rgb(43, 72, 101);
+color: rgb(137, 218, 199)</string>
+        </property>
+        <property name="text">
+         <string>শিক্ষার্থী আইডি</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
        <widget class="QLineEdit" name="input_id">
         <property name="minimumSize">
          <size>
-          <width>280</width>
+          <width>330</width>
           <height>55</height>
          </size>
         </property>
@@ -109,11 +136,38 @@ color: black;</string>
          <string/>
         </property>
         <property name="placeholderText">
-         <string>শিক্ষার্থীর আইডি</string>
+         <string/>
         </property>
        </widget>
       </item>
-      <item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_2">
+        <property name="minimumSize">
+         <size>
+          <width>151</width>
+          <height>41</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border: 3px solid rgb(43, 72, 101);
+border-radius: 10px;
+background-color:  rgb(43, 72, 101);
+color: rgb(137, 218, 199)</string>
+        </property>
+        <property name="text">
+         <string>শিক্ষার্থীর নাম </string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
        <widget class="QLineEdit" name="input_name">
         <property name="minimumSize">
          <size>
@@ -137,11 +191,38 @@ border-radius: 10px;
 color: black;</string>
         </property>
         <property name="placeholderText">
-         <string>শিক্ষার্থীর নাম </string>
+         <string> </string>
         </property>
        </widget>
       </item>
-      <item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="label_3">
+        <property name="minimumSize">
+         <size>
+          <width>151</width>
+          <height>41</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border: 3px solid rgb(43, 72, 101);
+border-radius: 10px;
+background-color:  rgb(43, 72, 101);
+color: rgb(137, 218, 199)</string>
+        </property>
+        <property name="text">
+         <string>শিক্ষার্থীর বয়স</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
        <widget class="QLineEdit" name="input_age">
         <property name="minimumSize">
          <size>
@@ -165,11 +246,38 @@ border-radius: 10px;
 color: black;</string>
         </property>
         <property name="placeholderText">
-         <string>শিক্ষার্থীর বয়স</string>
+         <string/>
         </property>
        </widget>
       </item>
-      <item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="label_4">
+        <property name="minimumSize">
+         <size>
+          <width>151</width>
+          <height>41</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border: 3px solid rgb(43, 72, 101);
+border-radius: 10px;
+background-color:  rgb(43, 72, 101);
+color: rgb(137, 218, 199)</string>
+        </property>
+        <property name="text">
+         <string>ঠিকানা</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
        <widget class="QLineEdit" name="input_address">
         <property name="minimumSize">
          <size>
@@ -191,11 +299,38 @@ border-radius: 10px;
 color: black;</string>
         </property>
         <property name="placeholderText">
-         <string>ঠিকানা</string>
+         <string/>
         </property>
        </widget>
       </item>
-      <item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="label_5">
+        <property name="minimumSize">
+         <size>
+          <width>151</width>
+          <height>41</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border: 3px solid rgb(43, 72, 101);
+border-radius: 10px;
+background-color:  rgb(43, 72, 101);
+color: rgb(137, 218, 199)</string>
+        </property>
+        <property name="text">
+         <string>অভিভাবকের নাম</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1">
        <widget class="QLineEdit" name="input_guardian">
         <property name="minimumSize">
          <size>
@@ -217,11 +352,41 @@ border-radius: 10px;
 color: black;</string>
         </property>
         <property name="placeholderText">
-         <string>অভিভাবকের নাম</string>
+         <string/>
         </property>
        </widget>
       </item>
-      <item>
+      <item row="5" column="0">
+       <widget class="QLabel" name="label_6">
+        <property name="minimumSize">
+         <size>
+          <width>151</width>
+          <height>41</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>8</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border: 3px solid rgb(43, 72, 101);
+border-radius: 10px;
+background-color:  rgb(43, 72, 101);
+color: rgb(137, 218, 199)</string>
+        </property>
+        <property name="text">
+         <string>অভিভাবকের মোবাইল নম্বর</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <property name="wordWrap">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="1">
        <widget class="QLineEdit" name="input_phone">
         <property name="minimumSize">
          <size>
@@ -243,11 +408,11 @@ border-radius: 10px;
 color: black;</string>
         </property>
         <property name="placeholderText">
-         <string>অভিভাবকের মোবাইল নম্বর</string>
+         <string/>
         </property>
        </widget>
       </item>
-      <item>
+      <item row="6" column="0" colspan="2">
        <widget class="QPushButton" name="btn_submit">
         <property name="minimumSize">
          <size>

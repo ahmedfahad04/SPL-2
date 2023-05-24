@@ -504,6 +504,5 @@ class Puzzle_Window:
         
         
     def change_page(self):
-        
         self.evaluation_window.stackedWidget.setCurrentWidget(self.evaluation_window.celebration_page)
     

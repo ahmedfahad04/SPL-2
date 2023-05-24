@@ -252,6 +252,8 @@ class Sequence_Window(QWidget):
             
             with open('Performance' + "/sequencing_results.json", "w+") as json_file:
                 json.dump(self.performance, json_file)
+                
+            self.home_ui.stackedWidget.setCurrentWidget(self.home_ui.celebration_page)
        
     def img_drag_value(self, image_names):
         

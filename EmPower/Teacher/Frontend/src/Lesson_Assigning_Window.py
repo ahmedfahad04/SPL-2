@@ -62,7 +62,7 @@ class Lesson_Assigning_Window(QMainWindow):  # Home extends QMainWindow
         # show warning if student name is not selected
         if model.data(index) is None:
             show_warning_message(
-                "সতর্কতা", "শিক্ষার্থী নির্বাচন করে এরপর বাটনে প্রেস করুন")
+                "সতর্কতা", "বাম পাশে অবস্থিত শিক্ষার্থীর তালিকা থেকে শিক্ষার্থী নির্বাচন করে এরপর বাটনে প্রেস করুন")
             return
 
         std_id, std_name = model.data(index).split('. ')
@@ -73,6 +73,8 @@ class Lesson_Assigning_Window(QMainWindow):  # Home extends QMainWindow
         self.form.setupUi(self.custom_widget)
         self.custom_widget.setWindowModality(Qt.ApplicationModal)
         self.custom_widget.show()
+        
+        self.form.lsn_cmb_lesson_list.clear()
 
         # set window icon and title
         self.custom_widget.setWindowIcon(
@@ -90,18 +92,23 @@ class Lesson_Assigning_Window(QMainWindow):  # Home extends QMainWindow
         self.form.lsn_cmb_lesson_list.addItems(data)
 
         # connect the buttons
-        self.form.lsn_btn_assign_lsn_to_std.clicked.connect(
-            self.done_assigning_lesson)
+        self.form.lsn_btn_assign_lsn_to_std.clicked.connect(self.done_assigning_lesson)
 
     def done_assigning_lesson(self):
+        
+         # get data from the form
+        get_lesson_id = self.form.lsn_cmb_lesson_list.currentText()
+        print("ID: ", get_lesson_id)
+        
+        if get_lesson_id == '':
+            show_warning_message("পাঠ নং নির্বাচন", "পাঠ নং নির্বাচন করুন!")
+            return
 
-        warning = show_confirmation_message(
-            "নিশ্চিতকরণ", "আপনি কি নিশ্চিত যে আপনি পাঠ নির্ধারণ করতে চান?")
+        warning = show_confirmation_message("নিশ্চিতকরণ", "আপনি কি নিশ্চিত যে আপনি পাঠ নির্ধারণ করতে চান?")
+        
          
         if warning:
-
-            # get data from the form
-            get_lesson_id = self.form.lsn_cmb_lesson_list.currentText()
+                           
             get_student_id = self.form.lsn_edit_student_id.text()
             get_student_name = self.form.lsn_edit_student_name.text()
             assigning_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -123,3 +130,7 @@ class Lesson_Assigning_Window(QMainWindow):  # Home extends QMainWindow
                 print(col, ' ', data[col])
                 self.lesson_assinging_window.lsn_table_assigning_lessons.setItem(
                     rows, col, QTableWidgetItem(str(data[col])))
+                
+        else:
+            
+            print("Warning false!!")

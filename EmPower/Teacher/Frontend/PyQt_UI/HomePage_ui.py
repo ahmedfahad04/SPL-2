@@ -2165,7 +2165,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(3)
+        self.stackedWidget.setCurrentIndex(1)
         self.std_btn_back_to_home.setDefault(False)
         self.mediaStackWidget.setCurrentIndex(1)
         self.lsn_btn_back_to_home.setDefault(False)

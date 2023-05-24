@@ -117,6 +117,7 @@ class Student_Window(QWidget):  # Home extends QMainWindow
                 custom_form, form, current_row, previous_id))
 
         except Exception as e:
+            show_warning_message("শিক্ষার্থীর তথ্য হালানাগাদকরণ", "শিক্ষার্থীর তথ্য হালনাগাদ করতে প্রথমে তালিকা থেকে একজন শিক্ষার্থী নামে ক্লিক করুন") 
             print("[Error] Student Info table UPDATE Failed - ", e)
             return
 
