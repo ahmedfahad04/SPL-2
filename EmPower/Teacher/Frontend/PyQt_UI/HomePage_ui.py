@@ -2165,12 +2165,12 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(3)
         self.std_btn_back_to_home.setDefault(False)
         self.mediaStackWidget.setCurrentIndex(1)
         self.lsn_btn_back_to_home.setDefault(False)
         self.task_btn_back_to_home.setDefault(False)
-        self.evalstackwidget.setCurrentIndex(2)
+        self.evalstackwidget.setCurrentIndex(0)
         self.lsn_btn_back_to_home_3.setDefault(False)
         self.lsn_btn_back_to_home_4.setDefault(False)
 
@@ -2229,7 +2229,7 @@ class Ui_MainWindow(object):
         self.label_9.setText(QCoreApplication.translate("MainWindow", u"\u09a7\u09be\u0981\u09a7\u09be", None))
         self.task_puzzle_q_set_lbl.setPlaceholderText(QCoreApplication.translate("MainWindow", u"\u09b8\u09c7\u099f \u09a8\u09ae\u09cd\u09ac\u09b0 \u09a6\u09bf\u09a8 (\u09af\u09c7\u09ae\u09a8 set1)", None))
         self.task_puzzle_save_set_btn.setText(QCoreApplication.translate("MainWindow", u"\u09b8\u0982\u09b0\u0995\u09cd\u09b7\u09a8 \u0995\u09b0\u09c1\u09a8", None))
-        self.task_puzzle_image_lbl.setText(QCoreApplication.translate("MainWindow", u"\u09a7\u09be\u0981\u09a7\u09be\u09b0 \u099c\u09a8\u09cd\u09af \u09aa\u09cd\u09b0\u09df\u09cb\u099c\u09a8\u09c0\u09df \u099b\u09ac\u09bf\u09b8\u09ae\u09c2\u09b9 \u09a8\u09bf\u09b0\u09cd\u09ac\u09be\u099a\u09a8 \u0995\u09b0\u09c1\u09a8 (\u098f\u0995\u09be\u09a7\u09bf\u0995 \u099b\u09ac\u09bf \u09a8\u09bf\u09b0\u09cd\u09ac\u09be\u099a\u09a8 \u0995\u09b0\u09a4\u09c7 \u09aa\u09be\u09b0\u09ac\u09c7\u09a8)", None))
+        self.task_puzzle_image_lbl.setText(QCoreApplication.translate("MainWindow", u"\u09a7\u09be\u0981\u09a7\u09be\u09b0 \u099c\u09a8\u09cd\u09af \u09af\u09c7\u0995\u09cb\u09a8 \u098f\u0995\u099f\u09bf \u099b\u09ac\u09bf \u09a8\u09bf\u09b0\u09cd\u09ac\u09be\u099a\u09a8 \u0995\u09b0\u09c1\u09a8", None))
         self.task_puzzle_select_img_btn.setText(QCoreApplication.translate("MainWindow", u"\u099b\u09ac\u09bf \u09a8\u09bf\u09b0\u09cd\u09ac\u09be\u099a\u09a8 \u0995\u09b0\u09c1\u09a8", None))
         self.task_puzzle_show_set_btn.setText(QCoreApplication.translate("MainWindow", u"\u09a4\u09c8\u09b0\u09bf\u0995\u09c3\u09a4 \u09a7\u09be\u0981\u09a7\u09be\u09b0 \u09b8\u09c7\u099f\u0997\u09c1\u09b2\u09cb \u09a6\u09c7\u0996\u09c1\u09a8", None))
         self.task_seq_img_seq_edit.setText("")

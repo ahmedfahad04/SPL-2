@@ -282,6 +282,7 @@ class Matching_Window(QWidget):
             # write total moves, time and date into a json file
             self.performance['moves'] = moves
             self.performance['time'] = round(time_taken,2)
+            self.performance['success_rate'] = round((4/moves)*100,2)
             self.performance['date'] = datetime.datetime.now().strftime("%Y-%m-%d")
             
             with open('Performance' + "/matching_results.json", "w+") as json_file:

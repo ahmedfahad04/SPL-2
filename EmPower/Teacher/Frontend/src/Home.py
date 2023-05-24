@@ -332,7 +332,7 @@ class Home(QMainWindow):  # Home extends QMainWindow
         
         # Open dialog box to select multiple files
         dialog = QFileDialog()
-        dialog.setFileMode(QFileDialog.ExistingFiles)
+        dialog.setFileMode(QFileDialog.ExistingFile)
         dialog.setNameFilter("Image Files (*.png);")
         if dialog.exec_():
             

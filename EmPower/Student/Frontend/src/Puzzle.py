@@ -1,5 +1,8 @@
+import datetime
 import glob
+import json
 import random
+import time
 import cv2
 from PIL import Image, ImageDraw
 
@@ -98,17 +101,20 @@ class PuzzleWidget(QWidget):
         self.totalAttempts = 0
         self.correctAttempts = 0
         self.wrongAttempts = 0
+        self.performance = {}
 
         try:
             self.image_name = image_name.split('.')[0]
         except:
             pass
 
-        # timers to track time elapsed
-        self.timer = QTimer()
-        self.timer.timeout.connect(self.updateTime)
-        self.timeElapsed = 0
-        self.startTimer()
+        # # timers to track time elapsed
+        # self.timer = QTimer()
+        # self.timer.timeout.connect(self.updateTime)
+        # self.timeElapsed = 0
+        # self.startTimer()
+        self.start_time = time.time()
+        self.end_time = 0
 
         self.setAcceptDrops(True)
         self.setMinimumSize(800, 800)
@@ -208,15 +214,24 @@ class PuzzleWidget(QWidget):
                     print("Correct Attempts: ", self.correctAttempts)
                     print("Wrong Attempts: ", self.wrongAttempts)
 
-                    # stop timer
-                    self.stopTimer()
+                    # # stop timer
+                    # self.stopTimer()
+                    self.timeElapsed = time.time() - self.start_time
                     print("Time Elapsed: {} seconds".format(self.timeElapsed))
                     
                     # change to celebration page
                     Puzzle_Window().change_page()
                            
-                    # show_success_message("অভিনন্দন!", "আপনি পাজল সমাধান করেছেন।" )
-                    return
+                   # write total moves, time and date into a json file
+                    self.performance['correct_attempt'] = str(self.correctAttempts)
+                    self.performance['wrong_attempt'] = str(self.wrongAttempts)
+                    self.performance['total_attempt'] = str(self.totalAttempts)
+                    self.performance['success_rate'] = str(round((self.correctAttempts/self.totalAttempts)*100, 2))
+                    self.performance['time'] = round(self.timeElapsed, 2)
+                    self.performance['date'] = datetime.datetime.now().strftime("%Y-%m-%d")
+                    
+                    with open('Performance' + "/puzzle_results.json", "w+") as json_file:
+                        json.dump(self.performance, json_file)
 
             elif location in self.alreadyPlacedLocation:
                 print("Already Placed Location: ", location)

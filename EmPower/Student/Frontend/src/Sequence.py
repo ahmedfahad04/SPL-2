@@ -13,6 +13,7 @@ from Frontend.src.Lesson import Lesson_Window
 from Frontend.src.Puzzle import Puzzle_Window
 
 moves = 0
+
 class DraggableLabel(QLabel):
     
     matchSuccessful = pyqtSignal(str)  # Define a custom signal
@@ -108,8 +109,7 @@ class Sequence_Window(QWidget):
         self.start_time = time.time()
         self.end_time = None
         self.performance = {}
-       
-        
+               
     def load_sequence_file(self):
         
         folder_pattern = "Resources/s_*"  # Pattern to match folders starting with "m_"
@@ -248,6 +248,7 @@ class Sequence_Window(QWidget):
             # write total moves, time and date into a json file
             self.performance['moves'] = moves
             self.performance['time'] = round(time_taken,2)
+            self.performance['success_rate'] = round((4/moves)*100,2)
             self.performance['date'] = datetime.datetime.now().strftime("%Y-%m-%d")
             
             with open('Performance' + "/sequencing_results.json", "w+") as json_file:

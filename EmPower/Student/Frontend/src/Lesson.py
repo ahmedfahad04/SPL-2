@@ -103,14 +103,15 @@ class Lesson_Window(QMainWindow):
             self.qt_image = self.qt_image.scaledToWidth(self.lesson_window.lsn_lbl_image.width(),
                                                         Qt.SmoothTransformation)
             self.lesson_window.lsn_lbl_image.setPixmap(self.qt_image)
-            self.lesson_window.lsn_lbl_image.setFixedSize(self.lesson_window.lsn_lbl_image.width(),
-                                                          self.lesson_window.lsn_lbl_image.width())
+            self.lesson_window.lsn_lbl_image.setScaledContents(True)
+            # self.lesson_window.lsn_lbl_image.setFixedSize(self.lesson_window.lsn_lbl_image.width(),
+            #                                               self.lesson_window.lsn_lbl_image.width())
 
             # audio load
             audio_file_name = (glob.glob(self.module_path + '/audio.*')[0]).split('\\')[-1]
             audio_formate = audio_file_name.split('.')[-1]
 
-            # ! TODO: Renme audio file name to mp3
+            # ! TODO: Rename audio file name to mp3
 
             self.audio_file_path = os.path.join(self.module_path, audio_file_name)
             QSound(self.audio_file_path)
@@ -160,12 +161,26 @@ class Lesson_Window(QMainWindow):
             self.display_lesson()
 
     def load_previous_lesson(self):
+        
+        self.current_module_id -= 1
+        finish = False
 
-        if self.current_module_id > 0:
-            self.current_module_id -= 1
+        # Change module when button pressed
+        # If the module of the current lesson is done, move to the previous lesson
+        if self.current_module_id < 0:
+            self.current_module_id = self.total_modules - 1
+            self.current_lesson_id -= 1
 
-        self.reset_lesson_window()
-        self.display_lesson()
+        # Change lesson when button pressed
+        # If all the lessons are done, finish the lesson sequence
+        if self.current_lesson_id < 0:
+            self.current_lesson_id = self.total_lessons - 1
+            finish = True
+            self.change_window()
+
+        if not finish:
+            self.reset_lesson_window()
+            self.display_lesson()
 
     def quit_music(self):
         if self.music_player is not None:

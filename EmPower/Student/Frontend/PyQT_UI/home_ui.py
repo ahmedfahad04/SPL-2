@@ -597,9 +597,7 @@ class Ui_MainWindow(object):
 "background-color: #3D405B;\n"
 "background-color:  rgb(35, 37, 53);\n"
 "}")
-        icon4 = QIcon()
-        icon4.addFile(u"C:/Users/Fahad/.designer/Images/forward.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.n_proceed_btn.setIcon(icon4)
+        self.n_proceed_btn.setIcon(icon2)
         self.n_proceed_btn.setIconSize(QSize(90, 80))
 
         self.gridLayout_6.addWidget(self.n_proceed_btn, 1, 0, 1, 1)
@@ -1160,8 +1158,8 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(6)
-        self.mediaStackWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(1)
+        self.mediaStackWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)

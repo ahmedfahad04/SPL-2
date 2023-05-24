@@ -48,7 +48,7 @@
        </size>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>3</number>
       </property>
       <widget class="QWidget" name="home_page">
        <property name="minimumSize">
@@ -2324,7 +2324,7 @@ QPushButton::hover:!pressed {
                     <string notr="true"/>
                    </property>
                    <property name="currentIndex">
-                    <number>2</number>
+                    <number>1</number>
                    </property>
                    <widget class="QWidget" name="puzzle_page">
                     <layout class="QGridLayout" name="gridLayout_7">
@@ -2455,7 +2455,7 @@ QPushButton::hover:!pressed {
 border: 2px solid rgb(43, 72, 101);</string>
                           </property>
                           <property name="text">
-                           <string>ধাঁধার জন্য প্রয়োজনীয় ছবিসমূহ নির্বাচন করুন (একাধিক ছবি নির্বাচন করতে পারবেন)</string>
+                           <string>ধাঁধার জন্য যেকোন একটি ছবি নির্বাচন করুন</string>
                           </property>
                           <property name="alignment">
                            <set>Qt::AlignCenter</set>

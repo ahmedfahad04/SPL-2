@@ -2134,7 +2134,7 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         self.stackedWidget.setCurrentIndex(3)
         self.mediaStackWidget.setCurrentIndex(1)
-        self.evalstackwidget.setCurrentIndex(2)
+        self.evalstackwidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -2178,7 +2178,7 @@ class Ui_MainWindow(object):
         self.label_9.setText(_translate("MainWindow", "ধাঁধা"))
         self.task_puzzle_q_set_lbl.setPlaceholderText(_translate("MainWindow", "সেট নম্বর দিন (যেমন set1)"))
         self.task_puzzle_save_set_btn.setText(_translate("MainWindow", "সংরক্ষন করুন"))
-        self.task_puzzle_image_lbl.setText(_translate("MainWindow", "ধাঁধার জন্য প্রয়োজনীয় ছবিসমূহ নির্বাচন করুন (একাধিক ছবি নির্বাচন করতে পারবেন)"))
+        self.task_puzzle_image_lbl.setText(_translate("MainWindow", "ধাঁধার জন্য যেকোন একটি ছবি নির্বাচন করুন"))
         self.task_puzzle_select_img_btn.setText(_translate("MainWindow", "ছবি নির্বাচন করুন"))
         self.task_puzzle_show_set_btn.setText(_translate("MainWindow", "তৈরিকৃত ধাঁধার সেটগুলো দেখুন"))
         self.task_seq_img_seq_edit.setPlaceholderText(_translate("MainWindow", "ক্রমিক নম্বর (যেমনঃ 1/2)"))
