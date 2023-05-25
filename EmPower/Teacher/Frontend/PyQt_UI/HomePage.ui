@@ -5096,6 +5096,9 @@ color: white;</string>
               </item>
               <item row="1" column="0">
                <widget class="QPushButton" name="performance_lesson_btn">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="minimumSize">
                  <size>
                   <width>241</width>
@@ -5132,6 +5135,9 @@ QPushButton::hover:!pressed {
               </item>
               <item row="2" column="0">
                <widget class="QPushButton" name="performance_eval_btn">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="minimumSize">
                  <size>
                   <width>241</width>
@@ -5462,7 +5468,7 @@ QPushButton::hover {
                       <number>0</number>
                      </property>
                      <item>
-                      <widget class="QPushButton" name="pushButton_3">
+                      <widget class="QPushButton" name="p_eval_puzzle_btn">
                        <property name="minimumSize">
                         <size>
                          <width>291</width>
@@ -5497,7 +5503,7 @@ QPushButton::hover {
                       </widget>
                      </item>
                      <item>
-                      <widget class="QPushButton" name="pushButton_4">
+                      <widget class="QPushButton" name="p_eval_seq_btn">
                        <property name="minimumSize">
                         <size>
                          <width>311</width>
@@ -5532,7 +5538,7 @@ QPushButton::hover {
                       </widget>
                      </item>
                      <item>
-                      <widget class="QPushButton" name="pushButton_5">
+                      <widget class="QPushButton" name="p_eval_matching_btn">
                        <property name="minimumSize">
                         <size>
                          <width>290</width>

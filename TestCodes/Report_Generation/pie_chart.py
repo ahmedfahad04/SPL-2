@@ -3,7 +3,6 @@ import matplotlib.pyplot as plt
 from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas, NavigationToolbar2QT as NavigationToolbar
 
-
 class PieChartWidget(QWidget):
     def __init__(self, content_ID, total_attempt):
         super().__init__()
@@ -34,6 +33,8 @@ class PieChartWidget(QWidget):
         # add the canvas to the layout
         layout.addWidget(canvas)
 
+        # save the figure as a PNG image
+        fig.savefig('pie_chart.png', dpi=300)
 
 if __name__ == '__main__':
     # create some data

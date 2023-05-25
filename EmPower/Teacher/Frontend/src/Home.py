@@ -10,6 +10,8 @@
 
 import datetime
 import json
+import random
+from Backend.GraphGenerator.BarChart import BarChart
 from Frontend.Teacher_UI import ui_home_page
 from Frontend.src.Document_Formatter import *
 from Frontend.src.Student_Window import Student_Window
@@ -36,7 +38,7 @@ class Home(QMainWindow):  # Home extends QMainWindow
         self.sequence_details = {}
         self.current_matching_set = []
         self.current_matching_image_count = 0
-
+        
         self.home_page()
                 
     def home_page(self):
@@ -542,6 +544,8 @@ class Home(QMainWindow):  # Home extends QMainWindow
             show_success_message("সেট সংরক্ষণ সম্পন্ন", "{} সেট সংরক্ষণ সম্পন্ন হয়েছে".format(matching_set_name))
             os.startfile('Lessons\Matching_Images\{}'.format(matching_set_name)) #! always use \ for relative path
             self.home.task_matching_set_edit.clear()
+        
+    #! TODO: Will move this method to separate class if we got times
             
     def performance_page(self):
         
@@ -552,14 +556,15 @@ class Home(QMainWindow):  # Home extends QMainWindow
         self.home.performance_lesson_btn.clicked.connect(lambda: self.home.performance_stackwidget.setCurrentWidget(self.home.lesson_stk_widget))
         self.home.performance_eval_btn.clicked.connect(lambda: self.home.performance_stackwidget.setCurrentWidget(self.home.eval_stk_widget))
         self.home.lsn_btn_back_to_home_5.clicked.connect(self.home_page)
-        
-        print("INSIDE PERFORMANCE PAGE")
-        
-    
+        self.home.p_eval_matching_btn.clicked.connect(self.load_matching_graphs)
+            
         # read the json files from Performance folder 
         self.populate_performance_table()
         
+    def load_matching_graphs(self):
         
+        self.home.p_eval_left_graph_lbl.setScaledContents(True)
+        self.home.p_eval_left_graph_lbl.setPixmap(QPixmap('.temp/matching_success_rate_bar_chart.png'))
         
     def populate_performance_table(self):
         
@@ -633,18 +638,22 @@ class Home(QMainWindow):  # Home extends QMainWindow
             std_entry.append(sid+'_'+sname)
         
         for entry in std_entry:
+            print("LEN: ", len(std_entry), "ENTRY: ", random.random())
             self.home.performance_std_id_cmb.addItem(entry)  
                                
         self.home.performance_std_id_cmb.currentIndexChanged.connect(self.load_user_performance_data)
         
     def load_user_performance_data(self, index):
         
+        student_evaluation_details = []
+        student_lesson_details = []
+        self.home.performance_eval_btn.setEnabled(True)
+        self.home.performance_lesson_btn.setEnabled(True)
+        
         # # get details of student from db
-        # print(ead().load_table(std_entry[0].split('_')[0])  )
         student_id = self.home.performance_std_id_cmb.currentText().split('_')[0]
         student_evaluation_details = ead().load_table(student_id)
         student_lesson_details = lpd().load_table(student_id)
-        print(student_evaluation_details)
         
         matching_data = []
         sequence_data = []
@@ -659,13 +668,46 @@ class Home(QMainWindow):  # Home extends QMainWindow
             elif row[2].startswith('p_'):
                 puzzle_data.append(row)
                 
-        print(matching_data)
-        print(sequence_data)
-        print(puzzle_data)
-            
-            
-        # now make graph and chart using student data
+                
+        self.load_lesson_performance_data(student_lesson_details)
         
+        # performance labels and values
+        # matching labels and values
+        matching_labels = []
+        matching_success_rate = []
+        matching_time = []
+        
+        for row in matching_data:
+            matching_labels.append('Set_'+row[2])
+            matching_success_rate.append(row[4])
+            matching_time.append(row[5])
+            
+        # Generate BarChart for matching completion
+        barchart = BarChart(matching_labels, matching_success_rate, "Matching Set", "Success Rate", "matching_success_rate_bar_chart.png", "Matching vs Success Rate")
+        
+    def load_lesson_performance_data(self, student_lesson_details):
+        
+        # lesson labels and values
+        lesson_labels = []
+        lesson_attempts = []
+        lesson_times = []
+        lesson_attempt_file_name = 'lesson_attempt_bar_chart.png'
+        lesson_time_file_name = 'lesson_time_bar_chart.png'
+        for row in student_lesson_details:
+            lesson_labels.append('Lesson_'+str(row[2]))
+            lesson_attempts.append(row[3])
+            lesson_times.append(row[4])
+            
+        # Generate BarChart for lesson completion
+        barchart = BarChart(lesson_labels, lesson_attempts, "", "Attempts", lesson_attempt_file_name, "Lesson vs Attempts")            
+        barchart = BarChart(lesson_labels, lesson_times, "", "Completion Time (seconds)", lesson_time_file_name, "Lesson vs Completion Time (seconds)")         
+    
+        # now make graph and chart using student data
+        self.home.p_lesson_left_graph_lbl.setScaledContents(True)
+        self.home.p_lesson_left_graph_lbl.setPixmap(QPixmap('.temp/'+lesson_attempt_file_name))
+        
+        self.home.p_lesson_right_graph_lbl.setScaledContents(True)
+        self.home.p_lesson_right_graph_lbl.setPixmap(QPixmap('.temp/'+lesson_time_file_name))
         
         
            

@@ -2265,6 +2265,7 @@ class Ui_MainWindow(object):
 
         self.performance_lesson_btn = QPushButton(self.frame_9)
         self.performance_lesson_btn.setObjectName(u"performance_lesson_btn")
+        self.performance_lesson_btn.setEnabled(False)
         self.performance_lesson_btn.setMinimumSize(QSize(241, 61))
         font33 = QFont()
         font33.setPointSize(15)
@@ -2288,6 +2289,7 @@ class Ui_MainWindow(object):
 
         self.performance_eval_btn = QPushButton(self.frame_9)
         self.performance_eval_btn.setObjectName(u"performance_eval_btn")
+        self.performance_eval_btn.setEnabled(False)
         self.performance_eval_btn.setMinimumSize(QSize(241, 61))
         self.performance_eval_btn.setFont(font33)
         self.performance_eval_btn.setCursor(QCursor(Qt.PointingHandCursor))
@@ -2421,12 +2423,12 @@ class Ui_MainWindow(object):
         self.horizontalLayout_17 = QHBoxLayout(self.frame_12)
         self.horizontalLayout_17.setObjectName(u"horizontalLayout_17")
         self.horizontalLayout_17.setContentsMargins(5, 0, 5, 0)
-        self.pushButton_3 = QPushButton(self.frame_12)
-        self.pushButton_3.setObjectName(u"pushButton_3")
-        self.pushButton_3.setMinimumSize(QSize(291, 131))
-        self.pushButton_3.setFont(font33)
-        self.pushButton_3.setCursor(QCursor(Qt.PointingHandCursor))
-        self.pushButton_3.setStyleSheet(u"QPushButton {\n"
+        self.p_eval_puzzle_btn = QPushButton(self.frame_12)
+        self.p_eval_puzzle_btn.setObjectName(u"p_eval_puzzle_btn")
+        self.p_eval_puzzle_btn.setMinimumSize(QSize(291, 131))
+        self.p_eval_puzzle_btn.setFont(font33)
+        self.p_eval_puzzle_btn.setCursor(QCursor(Qt.PointingHandCursor))
+        self.p_eval_puzzle_btn.setStyleSheet(u"QPushButton {\n"
 "background-color: rgb(160, 253, 230);\n"
 "color:  #256D85 ;\n"
 "border-radius: 10px;\n"
@@ -2439,14 +2441,14 @@ class Ui_MainWindow(object):
 "\n"
 "}")
 
-        self.horizontalLayout_17.addWidget(self.pushButton_3)
+        self.horizontalLayout_17.addWidget(self.p_eval_puzzle_btn)
 
-        self.pushButton_4 = QPushButton(self.frame_12)
-        self.pushButton_4.setObjectName(u"pushButton_4")
-        self.pushButton_4.setMinimumSize(QSize(311, 131))
-        self.pushButton_4.setFont(font18)
-        self.pushButton_4.setCursor(QCursor(Qt.PointingHandCursor))
-        self.pushButton_4.setStyleSheet(u"QPushButton {\n"
+        self.p_eval_seq_btn = QPushButton(self.frame_12)
+        self.p_eval_seq_btn.setObjectName(u"p_eval_seq_btn")
+        self.p_eval_seq_btn.setMinimumSize(QSize(311, 131))
+        self.p_eval_seq_btn.setFont(font18)
+        self.p_eval_seq_btn.setCursor(QCursor(Qt.PointingHandCursor))
+        self.p_eval_seq_btn.setStyleSheet(u"QPushButton {\n"
 "background-color: rgb(160, 253, 230);\n"
 "color:  #256D85 ;\n"
 "border-radius: 10px;\n"
@@ -2459,14 +2461,14 @@ class Ui_MainWindow(object):
 "\n"
 "}")
 
-        self.horizontalLayout_17.addWidget(self.pushButton_4)
+        self.horizontalLayout_17.addWidget(self.p_eval_seq_btn)
 
-        self.pushButton_5 = QPushButton(self.frame_12)
-        self.pushButton_5.setObjectName(u"pushButton_5")
-        self.pushButton_5.setMinimumSize(QSize(290, 131))
-        self.pushButton_5.setFont(font32)
-        self.pushButton_5.setCursor(QCursor(Qt.PointingHandCursor))
-        self.pushButton_5.setStyleSheet(u"QPushButton {\n"
+        self.p_eval_matching_btn = QPushButton(self.frame_12)
+        self.p_eval_matching_btn.setObjectName(u"p_eval_matching_btn")
+        self.p_eval_matching_btn.setMinimumSize(QSize(290, 131))
+        self.p_eval_matching_btn.setFont(font32)
+        self.p_eval_matching_btn.setCursor(QCursor(Qt.PointingHandCursor))
+        self.p_eval_matching_btn.setStyleSheet(u"QPushButton {\n"
 "background-color: rgb(160, 253, 230);\n"
 "color:  #256D85 ;\n"
 "border-radius: 10px;\n"
@@ -2479,7 +2481,7 @@ class Ui_MainWindow(object):
 "\n"
 "}")
 
-        self.horizontalLayout_17.addWidget(self.pushButton_5)
+        self.horizontalLayout_17.addWidget(self.p_eval_matching_btn)
 
 
         self.verticalLayout_8.addWidget(self.frame_12)
@@ -2673,9 +2675,9 @@ class Ui_MainWindow(object):
         self.performance_report_btn.setText(QCoreApplication.translate("MainWindow", u"\u09b0\u09bf\u09aa\u09cb\u09b0\u09cd\u099f \u09a4\u09c8\u09b0\u09bf \u0995\u09b0\u09c1\u09a8", None))
         self.p_lesson_left_graph_lbl.setText("")
         self.p_lesson_right_graph_lbl.setText("")
-        self.pushButton_3.setText(QCoreApplication.translate("MainWindow", u"\u09a7\u09be\u0981\u09a7\u09be \u09b8\u0982\u0995\u09cd\u09b0\u09be\u09a8\u09cd\u09a4", None))
-        self.pushButton_4.setText(QCoreApplication.translate("MainWindow", u"\u0995\u09cd\u09b0\u09ae\u09a7\u09be\u09b0\u09be \u09b8\u0982\u0995\u09cd\u09b0\u09be\u09a8\u09cd\u09a4", None))
-        self.pushButton_5.setText(QCoreApplication.translate("MainWindow", u"\u09b6\u09ac\u09cd\u09a6 \u09ae\u09bf\u09b2\u09be\u09a8\u09cb \u09b8\u0982\u0995\u09cd\u09b0\u09be\u09a8\u09cd\u09a4", None))
+        self.p_eval_puzzle_btn.setText(QCoreApplication.translate("MainWindow", u"\u09a7\u09be\u0981\u09a7\u09be \u09b8\u0982\u0995\u09cd\u09b0\u09be\u09a8\u09cd\u09a4", None))
+        self.p_eval_seq_btn.setText(QCoreApplication.translate("MainWindow", u"\u0995\u09cd\u09b0\u09ae\u09a7\u09be\u09b0\u09be \u09b8\u0982\u0995\u09cd\u09b0\u09be\u09a8\u09cd\u09a4", None))
+        self.p_eval_matching_btn.setText(QCoreApplication.translate("MainWindow", u"\u09b6\u09ac\u09cd\u09a6 \u09ae\u09bf\u09b2\u09be\u09a8\u09cb \u09b8\u0982\u0995\u09cd\u09b0\u09be\u09a8\u09cd\u09a4", None))
         self.p_eval_left_graph_lbl.setText("")
         self.p_eval_right_graph_lbl.setText("")
     # retranslateUi

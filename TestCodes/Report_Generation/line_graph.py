@@ -37,6 +37,9 @@ class LineGraphWidget(QWidget):
 
         # add the canvas to the layout
         layout.addWidget(canvas)
+        
+        # save the figure as a PNG image
+        fig.savefig('line_graph.png', dpi=300)
 
 
 if __name__ == '__main__':

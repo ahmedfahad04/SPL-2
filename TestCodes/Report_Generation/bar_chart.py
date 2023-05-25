@@ -5,6 +5,7 @@ from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 
 
 class BarChartWidget(QWidget):
+    
     def __init__(self, content_ID, total_attempt):
         super().__init__()
 
@@ -37,6 +38,9 @@ class BarChartWidget(QWidget):
 
         # add the canvas to the layout
         layout.addWidget(canvas)
+        
+        # save the figure as a PNG image
+        fig.savefig('bar_chart.png', dpi=300)
 
 
 if __name__ == '__main__':
