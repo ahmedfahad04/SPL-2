@@ -5067,17 +5067,28 @@ background-color: rgb(152, 240, 218)</string>
                   </widget>
                  </item>
                  <item>
-                  <widget class="QComboBox" name="comboBox">
+                  <widget class="QComboBox" name="performance_std_id_cmb">
                    <property name="minimumSize">
                     <size>
                      <width>201</width>
                      <height>31</height>
                     </size>
                    </property>
+                   <property name="font">
+                    <font>
+                     <pointsize>10</pointsize>
+                    </font>
+                   </property>
                    <property name="styleSheet">
                     <string notr="true">border: none;
-background-color: rgb(61, 64, 91);</string>
+background-color: rgb(61, 64, 91);
+color: white;</string>
                    </property>
+                   <item>
+                    <property name="text">
+                     <string>সিলেক্ট করুন</string>
+                    </property>
+                   </item>
                   </widget>
                  </item>
                 </layout>

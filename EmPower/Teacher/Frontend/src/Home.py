@@ -555,7 +555,16 @@ class Home(QMainWindow):  # Home extends QMainWindow
         
         print("INSIDE PERFORMANCE PAGE")
         
+    
         # read the json files from Performance folder 
+        self.populate_performance_table()
+        
+        
+        
+    def populate_performance_table(self):
+        
+        student_details = {}
+        
         self.performance_folders = os.listdir('Performance')
         print(self.performance_folders)
         for folder_name in self.performance_folders:
@@ -575,7 +584,7 @@ class Home(QMainWindow):  # Home extends QMainWindow
                             lesson_completion_data['attempt'],
                             lesson_completion_data['time'],                            
                         ]
-                        print(data)
+                        student_details[str(data[0])] = data[1]
                         lpd().add_entry(data)
                         
                 elif 'matching' in json_file:
@@ -590,7 +599,6 @@ class Home(QMainWindow):  # Home extends QMainWindow
                             matching_completion_data['success_rate'],
                             matching_completion_data['time'],                        
                         ]
-                        print(data)
                         ead().add_entry(data)
                 elif 'sequencing' in json_file:
                     with open(f'Performance\{folder_name}\sequencing_results.json', 'r') as f:
@@ -619,8 +627,47 @@ class Home(QMainWindow):  # Home extends QMainWindow
                             puzzle_completion_data['time'],  
                         ]
                         ead().add_entry(data)
-                    
-                    
+         
+        std_entry = []           
+        for sid, sname in student_details.items():
+            std_entry.append(sid+'_'+sname)
+        
+        for entry in std_entry:
+            self.home.performance_std_id_cmb.addItem(entry)  
+                               
+        self.home.performance_std_id_cmb.currentIndexChanged.connect(self.load_user_performance_data)
+        
+    def load_user_performance_data(self, index):
+        
+        # # get details of student from db
+        # print(ead().load_table(std_entry[0].split('_')[0])  )
+        student_id = self.home.performance_std_id_cmb.currentText().split('_')[0]
+        student_evaluation_details = ead().load_table(student_id)
+        student_lesson_details = lpd().load_table(student_id)
+        print(student_evaluation_details)
+        
+        matching_data = []
+        sequence_data = []
+        puzzle_data = []
+        
+        for row in student_evaluation_details:
+            
+            if row[2].startswith('m_'):
+                matching_data.append(row)
+            elif row[2].startswith('s_'):
+                sequence_data.append(row)
+            elif row[2].startswith('p_'):
+                puzzle_data.append(row)
+                
+        print(matching_data)
+        print(sequence_data)
+        print(puzzle_data)
+            
+            
+        # now make graph and chart using student data
+        
+        
+        
            
         
     

@@ -48,9 +48,9 @@ class evaluation_assessment_data(Database_Manager, ABC):
             self.update_entry(data)
             return False
 
-    def load_table(self) -> list:
-
-        self.controller_db_cursor.execute("SELECT * evaluation_assessment_data")
+    def load_table(self, id) -> list:
+        print ('ID: ', id)
+        self.controller_db_cursor.execute("SELECT * from evaluation_assessment_data WHERE Student_ID=?", (id, ))
         return self.controller_db_cursor.fetchall()
 
     def delete_entry(self, Student_ID, Lesson_ID) -> bool:

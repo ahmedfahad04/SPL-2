@@ -46,9 +46,9 @@ class lesson_performance_data(Database_Manager, ABC):
             print("Lesson Table insertion failed!", e)
             return False
 
-    def load_table(self) -> list:
+    def load_table(self, id) -> list:
 
-        self.controller_db_cursor.execute("SELECT * lesson_performance_data")
+        self.controller_db_cursor.execute("SELECT * from lesson_peformance_data WHERE Student_ID=?", (id,))
         return self.controller_db_cursor.fetchall()
 
     def delete_entry(self, Student_ID, Lesson_ID) -> bool:

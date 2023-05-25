@@ -2223,12 +2223,17 @@ class Ui_MainWindow(object):
         self.label_11.setAlignment(QtCore.Qt.AlignCenter)
         self.label_11.setObjectName("label_11")
         self.verticalLayout_7.addWidget(self.label_11)
-        self.comboBox = QtWidgets.QComboBox(self.frame_11)
-        self.comboBox.setMinimumSize(QtCore.QSize(201, 31))
-        self.comboBox.setStyleSheet("border: none;\n"
-"background-color: rgb(61, 64, 91);")
-        self.comboBox.setObjectName("comboBox")
-        self.verticalLayout_7.addWidget(self.comboBox)
+        self.performance_std_id_cmb = QtWidgets.QComboBox(self.frame_11)
+        self.performance_std_id_cmb.setMinimumSize(QtCore.QSize(201, 31))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.performance_std_id_cmb.setFont(font)
+        self.performance_std_id_cmb.setStyleSheet("border: none;\n"
+"background-color: rgb(61, 64, 91);\n"
+"color: white;")
+        self.performance_std_id_cmb.setObjectName("performance_std_id_cmb")
+        self.performance_std_id_cmb.addItem("")
+        self.verticalLayout_7.addWidget(self.performance_std_id_cmb)
         self.gridLayout_23.addWidget(self.frame_11, 0, 0, 1, 1)
         self.performance_lesson_btn = QtWidgets.QPushButton(self.frame_9)
         self.performance_lesson_btn.setMinimumSize(QtCore.QSize(241, 61))
@@ -2565,6 +2570,7 @@ class Ui_MainWindow(object):
         self.lsn_btn_assign_lesson.setText(_translate("MainWindow", "পাঠ প্রদান করুন"))
         self.lsn_lbl_headline_6.setText(_translate("MainWindow", "শিক্ষার্থীর পারফরম্যান্স"))
         self.label_11.setText(_translate("MainWindow", "শিক্ষার্থী নির্বাচন করুন"))
+        self.performance_std_id_cmb.setItemText(0, _translate("MainWindow", "সিলেক্ট করুন"))
         self.performance_lesson_btn.setText(_translate("MainWindow", "পাঠ সংক্রান্ত ডেটা"))
         self.performance_eval_btn.setText(_translate("MainWindow", "মূল্যায়ন সংক্রান্ত ডেটা"))
         self.label_12.setText(_translate("MainWindow", "নির্দেশনাঃ \n"

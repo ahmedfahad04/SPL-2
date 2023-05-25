@@ -2249,13 +2249,16 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_7.addWidget(self.label_11)
 
-        self.comboBox = QComboBox(self.frame_11)
-        self.comboBox.setObjectName(u"comboBox")
-        self.comboBox.setMinimumSize(QSize(201, 31))
-        self.comboBox.setStyleSheet(u"border: none;\n"
-"background-color: rgb(61, 64, 91);")
+        self.performance_std_id_cmb = QComboBox(self.frame_11)
+        self.performance_std_id_cmb.addItem("")
+        self.performance_std_id_cmb.setObjectName(u"performance_std_id_cmb")
+        self.performance_std_id_cmb.setMinimumSize(QSize(201, 31))
+        self.performance_std_id_cmb.setFont(font28)
+        self.performance_std_id_cmb.setStyleSheet(u"border: none;\n"
+"background-color: rgb(61, 64, 91);\n"
+"color: white;")
 
-        self.verticalLayout_7.addWidget(self.comboBox)
+        self.verticalLayout_7.addWidget(self.performance_std_id_cmb)
 
 
         self.gridLayout_23.addWidget(self.frame_11, 0, 0, 1, 1)
@@ -2657,6 +2660,8 @@ class Ui_MainWindow(object):
         self.lsn_btn_back_to_home_5.setText("")
         self.lsn_lbl_headline_6.setText(QCoreApplication.translate("MainWindow", u"\u09b6\u09bf\u0995\u09cd\u09b7\u09be\u09b0\u09cd\u09a5\u09c0\u09b0 \u09aa\u09be\u09b0\u09ab\u09b0\u09ae\u09cd\u09af\u09be\u09a8\u09cd\u09b8", None))
         self.label_11.setText(QCoreApplication.translate("MainWindow", u"\u09b6\u09bf\u0995\u09cd\u09b7\u09be\u09b0\u09cd\u09a5\u09c0 \u09a8\u09bf\u09b0\u09cd\u09ac\u09be\u099a\u09a8 \u0995\u09b0\u09c1\u09a8", None))
+        self.performance_std_id_cmb.setItemText(0, QCoreApplication.translate("MainWindow", u"\u09b8\u09bf\u09b2\u09c7\u0995\u09cd\u099f \u0995\u09b0\u09c1\u09a8", None))
+
         self.performance_lesson_btn.setText(QCoreApplication.translate("MainWindow", u"\u09aa\u09be\u09a0 \u09b8\u0982\u0995\u09cd\u09b0\u09be\u09a8\u09cd\u09a4 \u09a1\u09c7\u099f\u09be", None))
         self.performance_eval_btn.setText(QCoreApplication.translate("MainWindow", u"\u09ae\u09c2\u09b2\u09cd\u09af\u09be\u09df\u09a8 \u09b8\u0982\u0995\u09cd\u09b0\u09be\u09a8\u09cd\u09a4 \u09a1\u09c7\u099f\u09be", None))
         self.label_12.setText(QCoreApplication.translate("MainWindow", u"\u09a8\u09bf\u09b0\u09cd\u09a6\u09c7\u09b6\u09a8\u09be\u0983 \n"
