@@ -566,6 +566,9 @@ class Home(QMainWindow):  # Home extends QMainWindow
         self.home.p_eval_left_graph_lbl.setScaledContents(True)
         self.home.p_eval_left_graph_lbl.setPixmap(QPixmap('.temp/matching_success_rate_bar_chart.png'))
         
+        self.home.p_eval_right_graph_lbl.setScaledContents(True)
+        self.home.p_eval_right_graph_lbl.setPixmap(QPixmap('.temp/matching_time_bar_chart.png'))
+        
     def populate_performance_table(self):
         
         student_details = {}
@@ -678,12 +681,13 @@ class Home(QMainWindow):  # Home extends QMainWindow
         matching_time = []
         
         for row in matching_data:
-            matching_labels.append('Set_'+row[2])
+            matching_labels.append(row[2][2:])
             matching_success_rate.append(row[4])
             matching_time.append(row[5])
             
         # Generate BarChart for matching completion
         barchart = BarChart(matching_labels, matching_success_rate, "Matching Set", "Success Rate", "matching_success_rate_bar_chart.png", "Matching vs Success Rate")
+        barchart2 = BarChart(matching_labels, matching_time, "Matching Set", "Completion Time (seconds)", "matching_time_bar_chart.png", "Matching vs Completion Time (seconds)")
         
     def load_lesson_performance_data(self, student_lesson_details):
         
