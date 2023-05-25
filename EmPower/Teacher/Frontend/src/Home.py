@@ -557,6 +557,8 @@ class Home(QMainWindow):  # Home extends QMainWindow
         self.home.performance_eval_btn.clicked.connect(lambda: self.home.performance_stackwidget.setCurrentWidget(self.home.eval_stk_widget))
         self.home.lsn_btn_back_to_home_5.clicked.connect(self.home_page)
         self.home.p_eval_matching_btn.clicked.connect(self.load_matching_graphs)
+        self.home.p_eval_seq_btn.clicked.connect(self.load_sequence_graphs)
+        self.home.p_eval_puzzle_btn.clicked.connect(self.load_puzzle_graphs) 
             
         # read the json files from Performance folder 
         self.populate_performance_table()
@@ -568,6 +570,22 @@ class Home(QMainWindow):  # Home extends QMainWindow
         
         self.home.p_eval_right_graph_lbl.setScaledContents(True)
         self.home.p_eval_right_graph_lbl.setPixmap(QPixmap('.temp/matching_time_bar_chart.png'))
+        
+    def load_sequence_graphs(self):
+        
+        self.home.p_eval_left_graph_lbl.setScaledContents(True)
+        self.home.p_eval_left_graph_lbl.setPixmap(QPixmap('.temp/sequence_success_rate_bar_chart.png'))
+        
+        self.home.p_eval_right_graph_lbl.setScaledContents(True)
+        self.home.p_eval_right_graph_lbl.setPixmap(QPixmap('.temp/sequence_time_bar_chart.png'))
+      
+    def load_puzzle_graphs(self):
+        
+        self.home.p_eval_left_graph_lbl.setScaledContents(True)
+        self.home.p_eval_left_graph_lbl.setPixmap(QPixmap('.temp/puzzle_success_rate_bar_chart.png'))
+        
+        self.home.p_eval_right_graph_lbl.setScaledContents(True)
+        self.home.p_eval_right_graph_lbl.setPixmap(QPixmap('.temp/puzzle_time_bar_chart.png'))  
         
     def populate_performance_table(self):
         
@@ -670,9 +688,45 @@ class Home(QMainWindow):  # Home extends QMainWindow
                 sequence_data.append(row)
             elif row[2].startswith('p_'):
                 puzzle_data.append(row)
-                
-                
+                        
         self.load_lesson_performance_data(student_lesson_details)
+        self.load_matching_performance_data(matching_data)
+        self.load_sequencing_performance_data(sequence_data)
+        self.load_puzzle_performance_data(puzzle_data)
+        
+    def load_lesson_performance_data(self, puzzle_data):
+        
+        # puzzle labels and valus 
+        puzzle_labels = []
+        puzzle_success_rate = []
+        puzzle_time = []
+        
+        for row in puzzle_data:
+            puzzle_labels.append(row[2][2:])
+            puzzle_success_rate.append(row[4])
+            puzzle_time.append(row[5])
+            
+        # Generate BarChart for puzzle completion
+        barchart = BarChart(puzzle_labels, puzzle_success_rate, "Puzzle Set", "Success Rate", "puzzle_success_rate_bar_chart.png", "Puzzle vs Success Rate")
+        barchart2 = BarChart(puzzle_labels, puzzle_time, "Puzzle Set", "Completion Time (seconds)", "puzzle_time_bar_chart.png", "Puzzle vs Completion Time (seconds)")
+        
+    def load_sequencing_performance_data(self, sequence_data):
+        
+        # sequence labels and values
+        sequence_labels = []
+        sequence_success_rate = []
+        sequence_time = []
+        
+        for row in sequence_data:
+            sequence_labels.append(row[2][2:])
+            sequence_success_rate.append(row[4])
+            sequence_time.append(row[5])
+            
+        # Generate BarChart for sequence completion
+        barchart = BarChart(sequence_labels, sequence_success_rate, "Sequence Set", "Success Rate", "sequence_success_rate_bar_chart.png", "Sequence vs Success Rate")
+        barchart2 = BarChart(sequence_labels, sequence_time, "Sequence Set", "Completion Time (seconds)", "sequence_time_bar_chart.png", "Sequence vs Completion Time (seconds)")
+        
+    def load_matching_performance_data(self, matching_data):
         
         # performance labels and values
         # matching labels and values
