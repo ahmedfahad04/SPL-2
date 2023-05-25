@@ -51,7 +51,7 @@
        <string notr="true">background-color: #F4F1DE;</string>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>4</number>
       </property>
       <widget class="QWidget" name="home_page">
        <property name="minimumSize">
@@ -853,122 +853,10 @@ border: none;</string>
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_4">
            <item>
-            <widget class="QFrame" name="c_left_frame">
-             <property name="minimumSize">
-              <size>
-               <width>348</width>
-               <height>691</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>384</width>
-               <height>691</height>
-              </size>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">border: none;
-</string>
-             </property>
-             <property name="frameShape">
-              <enum>QFrame::StyledPanel</enum>
-             </property>
-             <property name="frameShadow">
-              <enum>QFrame::Raised</enum>
-             </property>
-             <layout class="QVBoxLayout" name="verticalLayout_4">
-              <item>
-               <spacer name="verticalSpacer_4">
-                <property name="orientation">
-                 <enum>Qt::Vertical</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>20</width>
-                  <height>250</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-              <item>
-               <widget class="QLabel" name="c_prev_quiz_lbl">
-                <property name="minimumSize">
-                 <size>
-                  <width>369</width>
-                  <height>350</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>369</width>
-                  <height>16777215</height>
-                 </size>
-                </property>
-                <property name="font">
-                 <font>
-                  <pointsize>30</pointsize>
-                 </font>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true"/>
-                </property>
-                <property name="text">
-                 <string>পুনরায় অংশগ্রহণ করুন </string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignCenter</set>
-                </property>
-                <property name="wordWrap">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QPushButton" name="c_again">
-                <property name="maximumSize">
-                 <size>
-                  <width>359</width>
-                  <height>16777215</height>
-                 </size>
-                </property>
-                <property name="cursor">
-                 <cursorShape>PointingHandCursor</cursorShape>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">QPushButton {
-border: 3px solid #E07A5F;
-border-radius: 20px;
-background-color:  #3D405B;
-}
-
-QPushButton:hover:!pressed {
-background-color: #3D405B;
-background-color:  rgb(42, 44, 63);
-}</string>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-                <property name="icon">
-                 <iconset>
-                  <normaloff>../Images/repeat.png</normaloff>../Images/repeat.png</iconset>
-                </property>
-                <property name="iconSize">
-                 <size>
-                  <width>35</width>
-                  <height>80</height>
-                 </size>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item>
             <widget class="QFrame" name="c_middle_frame">
              <property name="minimumSize">
               <size>
-               <width>482</width>
+               <width>465</width>
                <height>691</height>
               </size>
              </property>
@@ -1037,7 +925,7 @@ background-color:  rgb(42, 44, 63);
             <widget class="QFrame" name="c_right_frame">
              <property name="minimumSize">
               <size>
-               <width>360</width>
+               <width>366</width>
                <height>691</height>
               </size>
              </property>
@@ -1097,7 +985,7 @@ background-color:  rgb(42, 44, 63);
                  <string>পরবর্তী মূল্যায়ন</string>
                 </property>
                 <property name="alignment">
-                 <set>Qt::AlignCenter</set>
+                 <set>Qt::AlignBottom|Qt::AlignHCenter</set>
                 </property>
                </widget>
               </item>
@@ -1136,6 +1024,9 @@ background-color:  rgb(42, 44, 63);
                   <width>90</width>
                   <height>80</height>
                  </size>
+                </property>
+                <property name="shortcut">
+                 <string>Space</string>
                 </property>
                </widget>
               </item>
@@ -1230,7 +1121,7 @@ background-color:  rgb(42, 44, 63);
                  <string notr="true">background-color: none;</string>
                 </property>
                 <property name="text">
-                 <string>অভিনন্দন!!! তুমি পাঠসমূহ সম্পন্ন করেছো</string>
+                 <string>অভিনন্দন!!! </string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>

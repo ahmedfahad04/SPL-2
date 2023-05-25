@@ -221,8 +221,16 @@ class PuzzleWidget(QWidget):
                     
                     # change to celebration page
                     Puzzle_Window().change_page()
-                           
-                   # write total moves, time and date into a json file
+                    
+                    # read the student detaisl json file to fetch the name and id
+                    with open('.student_details.json') as json_file:
+                        data = json.load(json_file)
+                        student_name = data['name']
+                        student_id = data['id']
+                    
+                    # write total moves, time and date into a json file
+                    self.performance['std_name'] = student_name
+                    self.performance['std_id'] = student_id
                     self.performance['correct_attempt'] = str(self.correctAttempts)
                     self.performance['wrong_attempt'] = str(self.wrongAttempts)
                     self.performance['total_attempt'] = str(self.totalAttempts)
@@ -503,6 +511,7 @@ class Puzzle_Window:
                     
         self.evaluation_window = saveUIObject
         self.puzzle_frames = puzzle_frames
+        self.change_new_window = None
 
         #! TODO: Change the image dynamically
         self.puzzle_image = glob.glob('Resources\\Puzzle_Images\\'+'\*.png')[0]
@@ -516,8 +525,10 @@ class Puzzle_Window:
         # Create the main window for the puzzle
         window = MainWindow(self.puzzle_image, self.puzzle_frames, self.evaluation_window)
         window.openImage(self.puzzle_image)
+        return self.change_new_window
         
         
     def change_page(self):
+        
         self.evaluation_window.stackedWidget.setCurrentWidget(self.evaluation_window.celebration_page)
-    
+        self.change_new_window = True

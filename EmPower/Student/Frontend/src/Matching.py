@@ -274,13 +274,22 @@ class Matching_Window(QWidget):
               
             global moves 
             print("ALL MATCHED!, Total Moves: ", moves)
+            QSound.play(r'Frontend\Audio_Track\clap_sound.wav')
             
             self.end_time = time.time()
             time_taken = self.end_time - self.start_time
             print("Total time taken:", round(time_taken,2), "seconds")
             
+            # read the student detaisl json file to fetch the name and id
+            with open('.student_details.json') as json_file:
+                data = json.load(json_file)
+                student_name = data['name']
+                student_id = data['id']
+            
             # write total moves, time and date into a json file
-            self.performance['moves'] = moves
+            self.performance['std_name'] = student_name
+            self.performance['std_id'] = student_id
+            self.performance['attempts'] = moves
             self.performance['time'] = round(time_taken,2)
             self.performance['success_rate'] = round((4/moves)*100,2)
             self.performance['date'] = datetime.datetime.now().strftime("%Y-%m-%d")

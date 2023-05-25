@@ -31,9 +31,9 @@ class Ui_MainWindow(object):
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.centralwidget.setMinimumSize(QSize(1280, 720))
-        self.gridLayout_15 = QGridLayout(self.centralwidget)
-        self.gridLayout_15.setObjectName(u"gridLayout_15")
-        self.gridLayout_15.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_14 = QHBoxLayout(self.centralwidget)
+        self.horizontalLayout_14.setObjectName(u"horizontalLayout_14")
+        self.horizontalLayout_14.setContentsMargins(0, 0, 0, 0)
         self.stackedWidget = QStackedWidget(self.centralwidget)
         self.stackedWidget.setObjectName(u"stackedWidget")
         self.stackedWidget.setMinimumSize(QSize(1280, 720))
@@ -2158,21 +2158,385 @@ class Ui_MainWindow(object):
         self.gridLayout_11.addWidget(self.frame_2, 0, 0, 1, 1)
 
         self.stackedWidget.addWidget(self.lesson_assigning_page)
+        self.performance_page = QWidget()
+        self.performance_page.setObjectName(u"performance_page")
+        self.gridLayout_15 = QGridLayout(self.performance_page)
+        self.gridLayout_15.setSpacing(0)
+        self.gridLayout_15.setObjectName(u"gridLayout_15")
+        self.gridLayout_15.setContentsMargins(0, 0, 0, 0)
+        self.top_frame_7 = QFrame(self.performance_page)
+        self.top_frame_7.setObjectName(u"top_frame_7")
+        self.top_frame_7.setMinimumSize(QSize(1280, 80))
+        self.top_frame_7.setMaximumSize(QSize(16777215, 80))
+        self.top_frame_7.setStyleSheet(u"background-color: #2B4865;")
+        self.top_frame_7.setFrameShape(QFrame.StyledPanel)
+        self.top_frame_7.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_26 = QHBoxLayout(self.top_frame_7)
+        self.horizontalLayout_26.setObjectName(u"horizontalLayout_26")
+        self.horizontalLayout_26.setContentsMargins(0, 0, 0, 0)
+        self.lsn_btn_back_to_home_5 = QPushButton(self.top_frame_7)
+        self.lsn_btn_back_to_home_5.setObjectName(u"lsn_btn_back_to_home_5")
+        sizePolicy.setHeightForWidth(self.lsn_btn_back_to_home_5.sizePolicy().hasHeightForWidth())
+        self.lsn_btn_back_to_home_5.setSizePolicy(sizePolicy)
+        self.lsn_btn_back_to_home_5.setMinimumSize(QSize(0, 60))
+        self.lsn_btn_back_to_home_5.setMaximumSize(QSize(60, 60))
+        self.lsn_btn_back_to_home_5.setBaseSize(QSize(0, 4))
+        self.lsn_btn_back_to_home_5.setFont(font1)
+        self.lsn_btn_back_to_home_5.setCursor(QCursor(Qt.PointingHandCursor))
+        self.lsn_btn_back_to_home_5.setMouseTracking(True)
+        self.lsn_btn_back_to_home_5.setStyleSheet(u"QPushButton {\n"
+"	background-color: #2B4865 #256D85;\n"
+"	border: none;\n"
+"}\n"
+"\n"
+"QPushButton:hover:!pressed\n"
+"{\n"
+"	background-color:  #256D85;\n"
+"	border-radius: 30px;\n"
+"}")
+        self.lsn_btn_back_to_home_5.setIcon(icon5)
+        self.lsn_btn_back_to_home_5.setIconSize(QSize(200, 200))
+        self.lsn_btn_back_to_home_5.setAutoDefault(False)
+        self.lsn_btn_back_to_home_5.setFlat(False)
 
-        self.gridLayout_15.addWidget(self.stackedWidget, 0, 0, 1, 1)
+        self.horizontalLayout_26.addWidget(self.lsn_btn_back_to_home_5)
+
+        self.lsn_lbl_headline_6 = QLabel(self.top_frame_7)
+        self.lsn_lbl_headline_6.setObjectName(u"lsn_lbl_headline_6")
+        self.lsn_lbl_headline_6.setMinimumSize(QSize(1280, 78))
+        self.lsn_lbl_headline_6.setFont(font2)
+        self.lsn_lbl_headline_6.setStyleSheet(u"color: #8FE3CF")
+        self.lsn_lbl_headline_6.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+
+        self.horizontalLayout_26.addWidget(self.lsn_lbl_headline_6)
+
+
+        self.gridLayout_15.addWidget(self.top_frame_7, 0, 0, 1, 1)
+
+        self.mid_frame_6 = QFrame(self.performance_page)
+        self.mid_frame_6.setObjectName(u"mid_frame_6")
+        self.mid_frame_6.setMinimumSize(QSize(1280, 641))
+        self.mid_frame_6.setStyleSheet(u"background-color:rgb(36, 105, 127);")
+        self.mid_frame_6.setFrameShape(QFrame.StyledPanel)
+        self.mid_frame_6.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_15 = QHBoxLayout(self.mid_frame_6)
+        self.horizontalLayout_15.setObjectName(u"horizontalLayout_15")
+        self.frame_9 = QFrame(self.mid_frame_6)
+        self.frame_9.setObjectName(u"frame_9")
+        self.frame_9.setMinimumSize(QSize(281, 617))
+        self.frame_9.setMaximumSize(QSize(288, 617))
+        self.frame_9.setStyleSheet(u"")
+        self.frame_9.setFrameShape(QFrame.StyledPanel)
+        self.frame_9.setFrameShadow(QFrame.Raised)
+        self.gridLayout_23 = QGridLayout(self.frame_9)
+        self.gridLayout_23.setObjectName(u"gridLayout_23")
+        self.frame_11 = QFrame(self.frame_9)
+        self.frame_11.setObjectName(u"frame_11")
+        self.frame_11.setMinimumSize(QSize(260, 111))
+        self.frame_11.setMaximumSize(QSize(241, 111))
+        self.frame_11.setStyleSheet(u"border: 2px dashed rgb(43, 72, 101);\n"
+"background-color: rgb(152, 240, 218)")
+        self.frame_11.setFrameShape(QFrame.StyledPanel)
+        self.frame_11.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_7 = QVBoxLayout(self.frame_11)
+        self.verticalLayout_7.setObjectName(u"verticalLayout_7")
+        self.label_11 = QLabel(self.frame_11)
+        self.label_11.setObjectName(u"label_11")
+        self.label_11.setMinimumSize(QSize(200, 31))
+        self.label_11.setFont(font1)
+        self.label_11.setStyleSheet(u"border: none;")
+        self.label_11.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_7.addWidget(self.label_11)
+
+        self.comboBox = QComboBox(self.frame_11)
+        self.comboBox.setObjectName(u"comboBox")
+        self.comboBox.setMinimumSize(QSize(201, 31))
+        self.comboBox.setStyleSheet(u"border: none;\n"
+"background-color: rgb(61, 64, 91);")
+
+        self.verticalLayout_7.addWidget(self.comboBox)
+
+
+        self.gridLayout_23.addWidget(self.frame_11, 0, 0, 1, 1)
+
+        self.performance_lesson_btn = QPushButton(self.frame_9)
+        self.performance_lesson_btn.setObjectName(u"performance_lesson_btn")
+        self.performance_lesson_btn.setMinimumSize(QSize(241, 61))
+        font33 = QFont()
+        font33.setPointSize(15)
+        self.performance_lesson_btn.setFont(font33)
+        self.performance_lesson_btn.setCursor(QCursor(Qt.PointingHandCursor))
+        self.performance_lesson_btn.setStyleSheet(u"QPushButton {\n"
+"background-color: rgb(160, 253, 230);\n"
+"color:  rgb(0, 43, 91) ;\n"
+"border-radius: 15px;\n"
+"border: 4px solid rgb(43, 72, 101);\n"
+"}\n"
+"\n"
+"QPushButton::hover:!pressed {\n"
+"	\n"
+"	background-color: rgb(143, 227, 207);\n"
+"	color: rgb(0, 43, 91);\n"
+"\n"
+"}")
+
+        self.gridLayout_23.addWidget(self.performance_lesson_btn, 1, 0, 1, 1)
+
+        self.performance_eval_btn = QPushButton(self.frame_9)
+        self.performance_eval_btn.setObjectName(u"performance_eval_btn")
+        self.performance_eval_btn.setMinimumSize(QSize(241, 61))
+        self.performance_eval_btn.setFont(font33)
+        self.performance_eval_btn.setCursor(QCursor(Qt.PointingHandCursor))
+        self.performance_eval_btn.setStyleSheet(u"QPushButton {\n"
+"background-color: rgb(160, 253, 230);\n"
+"color:  rgb(0, 43, 91) ;\n"
+"border-radius: 15px;\n"
+"border: 4px solid rgb(43, 72, 101);\n"
+"}\n"
+"\n"
+"QPushButton::hover:!pressed {\n"
+"	\n"
+"	background-color: rgb(143, 227, 207);\n"
+"	color: rgb(0, 43, 91);\n"
+"\n"
+"}")
+
+        self.gridLayout_23.addWidget(self.performance_eval_btn, 2, 0, 1, 1)
+
+        self.label_12 = QLabel(self.frame_9)
+        self.label_12.setObjectName(u"label_12")
+        self.label_12.setMinimumSize(QSize(261, 261))
+        self.label_12.setFont(font28)
+        self.label_12.setStyleSheet(u"color: rgb(132, 211, 184);\n"
+"background-color: rgb(0, 43, 91);\n"
+"padding: 5px;")
+        self.label_12.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.label_12.setWordWrap(True)
+
+        self.gridLayout_23.addWidget(self.label_12, 3, 0, 1, 1)
+
+        self.performance_report_btn = QPushButton(self.frame_9)
+        self.performance_report_btn.setObjectName(u"performance_report_btn")
+        self.performance_report_btn.setMinimumSize(QSize(260, 60))
+        self.performance_report_btn.setMaximumSize(QSize(250, 60))
+        self.performance_report_btn.setFont(font31)
+        self.performance_report_btn.setCursor(QCursor(Qt.PointingHandCursor))
+        self.performance_report_btn.setStyleSheet(u"QPushButton {\n"
+"background-color: rgb(160, 253, 230);\n"
+"color:  #256D85 ;\n"
+"border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton::hover {\n"
+"	\n"
+"	background-color: rgb(143, 227, 207);\n"
+"	color: #2B4865;\n"
+"\n"
+"}")
+        icon19 = QIcon()
+        icon19.addFile(u"../../../Student/Frontend/Images/report.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.performance_report_btn.setIcon(icon19)
+        self.performance_report_btn.setIconSize(QSize(35, 30))
+
+        self.gridLayout_23.addWidget(self.performance_report_btn, 4, 0, 1, 1)
+
+
+        self.horizontalLayout_15.addWidget(self.frame_9)
+
+        self.frame_10 = QFrame(self.mid_frame_6)
+        self.frame_10.setObjectName(u"frame_10")
+        self.frame_10.setMinimumSize(QSize(961, 617))
+        self.frame_10.setStyleSheet(u"")
+        self.frame_10.setFrameShape(QFrame.StyledPanel)
+        self.frame_10.setFrameShadow(QFrame.Raised)
+        self.gridLayout_24 = QGridLayout(self.frame_10)
+        self.gridLayout_24.setSpacing(2)
+        self.gridLayout_24.setObjectName(u"gridLayout_24")
+        self.gridLayout_24.setContentsMargins(3, 3, 3, 3)
+        self.performance_stackwidget = QStackedWidget(self.frame_10)
+        self.performance_stackwidget.setObjectName(u"performance_stackwidget")
+        self.performance_stackwidget.setStyleSheet(u"border: none;")
+        self.lesson_stk_widget = QWidget()
+        self.lesson_stk_widget.setObjectName(u"lesson_stk_widget")
+        self.lesson_stk_widget.setStyleSheet(u"border: 2px solid rgb(152, 240, 218);")
+        self.gridLayout_25 = QGridLayout(self.lesson_stk_widget)
+        self.gridLayout_25.setObjectName(u"gridLayout_25")
+        self.gridLayout_25.setContentsMargins(0, 0, 0, 0)
+        self.frame_14 = QFrame(self.lesson_stk_widget)
+        self.frame_14.setObjectName(u"frame_14")
+        self.frame_14.setFrameShape(QFrame.StyledPanel)
+        self.frame_14.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_10 = QVBoxLayout(self.frame_14)
+        self.verticalLayout_10.setObjectName(u"verticalLayout_10")
+        self.verticalLayout_10.setContentsMargins(5, 5, 5, 5)
+        self.frame_15 = QFrame(self.frame_14)
+        self.frame_15.setObjectName(u"frame_15")
+        self.frame_15.setMinimumSize(QSize(900, 471))
+        self.frame_15.setStyleSheet(u"border: none;")
+        self.frame_15.setFrameShape(QFrame.StyledPanel)
+        self.frame_15.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_19 = QHBoxLayout(self.frame_15)
+        self.horizontalLayout_19.setObjectName(u"horizontalLayout_19")
+        self.horizontalLayout_19.setContentsMargins(0, 0, 0, 0)
+        self.p_lesson_left_graph_lbl = QLabel(self.frame_15)
+        self.p_lesson_left_graph_lbl.setObjectName(u"p_lesson_left_graph_lbl")
+        self.p_lesson_left_graph_lbl.setMinimumSize(QSize(430, 380))
+        self.p_lesson_left_graph_lbl.setStyleSheet(u"border: 3px solid rgb(43, 72, 101);")
+        self.p_lesson_left_graph_lbl.setAlignment(Qt.AlignCenter)
+
+        self.horizontalLayout_19.addWidget(self.p_lesson_left_graph_lbl)
+
+        self.p_lesson_right_graph_lbl = QLabel(self.frame_15)
+        self.p_lesson_right_graph_lbl.setObjectName(u"p_lesson_right_graph_lbl")
+        self.p_lesson_right_graph_lbl.setMinimumSize(QSize(430, 380))
+        self.p_lesson_right_graph_lbl.setStyleSheet(u"border: 3px solid rgb(43, 72, 101);")
+        self.p_lesson_right_graph_lbl.setAlignment(Qt.AlignCenter)
+
+        self.horizontalLayout_19.addWidget(self.p_lesson_right_graph_lbl)
+
+
+        self.verticalLayout_10.addWidget(self.frame_15)
+
+
+        self.gridLayout_25.addWidget(self.frame_14, 0, 0, 1, 1)
+
+        self.performance_stackwidget.addWidget(self.lesson_stk_widget)
+        self.eval_stk_widget = QWidget()
+        self.eval_stk_widget.setObjectName(u"eval_stk_widget")
+        self.eval_stk_widget.setStyleSheet(u"border: 2px solid rgb(160, 253, 230);")
+        self.verticalLayout_8 = QVBoxLayout(self.eval_stk_widget)
+        self.verticalLayout_8.setObjectName(u"verticalLayout_8")
+        self.verticalLayout_8.setContentsMargins(5, 5, 5, 5)
+        self.frame_12 = QFrame(self.eval_stk_widget)
+        self.frame_12.setObjectName(u"frame_12")
+        self.frame_12.setMinimumSize(QSize(932, 130))
+        self.frame_12.setMaximumSize(QSize(16777215, 144))
+        self.frame_12.setStyleSheet(u"border: none;")
+        self.frame_12.setFrameShape(QFrame.StyledPanel)
+        self.frame_12.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_17 = QHBoxLayout(self.frame_12)
+        self.horizontalLayout_17.setObjectName(u"horizontalLayout_17")
+        self.horizontalLayout_17.setContentsMargins(5, 0, 5, 0)
+        self.pushButton_3 = QPushButton(self.frame_12)
+        self.pushButton_3.setObjectName(u"pushButton_3")
+        self.pushButton_3.setMinimumSize(QSize(291, 131))
+        self.pushButton_3.setFont(font33)
+        self.pushButton_3.setCursor(QCursor(Qt.PointingHandCursor))
+        self.pushButton_3.setStyleSheet(u"QPushButton {\n"
+"background-color: rgb(160, 253, 230);\n"
+"color:  #256D85 ;\n"
+"border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton::hover {\n"
+"	\n"
+"	background-color: rgb(143, 227, 207);\n"
+"	color: #2B4865;\n"
+"\n"
+"}")
+
+        self.horizontalLayout_17.addWidget(self.pushButton_3)
+
+        self.pushButton_4 = QPushButton(self.frame_12)
+        self.pushButton_4.setObjectName(u"pushButton_4")
+        self.pushButton_4.setMinimumSize(QSize(311, 131))
+        self.pushButton_4.setFont(font18)
+        self.pushButton_4.setCursor(QCursor(Qt.PointingHandCursor))
+        self.pushButton_4.setStyleSheet(u"QPushButton {\n"
+"background-color: rgb(160, 253, 230);\n"
+"color:  #256D85 ;\n"
+"border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton::hover {\n"
+"	\n"
+"	background-color: rgb(143, 227, 207);\n"
+"	color: #2B4865;\n"
+"\n"
+"}")
+
+        self.horizontalLayout_17.addWidget(self.pushButton_4)
+
+        self.pushButton_5 = QPushButton(self.frame_12)
+        self.pushButton_5.setObjectName(u"pushButton_5")
+        self.pushButton_5.setMinimumSize(QSize(290, 131))
+        self.pushButton_5.setFont(font32)
+        self.pushButton_5.setCursor(QCursor(Qt.PointingHandCursor))
+        self.pushButton_5.setStyleSheet(u"QPushButton {\n"
+"background-color: rgb(160, 253, 230);\n"
+"color:  #256D85 ;\n"
+"border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton::hover {\n"
+"	\n"
+"	background-color: rgb(143, 227, 207);\n"
+"	color: #2B4865;\n"
+"\n"
+"}")
+
+        self.horizontalLayout_17.addWidget(self.pushButton_5)
+
+
+        self.verticalLayout_8.addWidget(self.frame_12)
+
+        self.frame_13 = QFrame(self.eval_stk_widget)
+        self.frame_13.setObjectName(u"frame_13")
+        self.frame_13.setMinimumSize(QSize(931, 446))
+        self.frame_13.setStyleSheet(u"border: none;")
+        self.frame_13.setFrameShape(QFrame.StyledPanel)
+        self.frame_13.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_18 = QHBoxLayout(self.frame_13)
+        self.horizontalLayout_18.setObjectName(u"horizontalLayout_18")
+        self.horizontalLayout_18.setContentsMargins(5, 0, 5, 0)
+        self.p_eval_left_graph_lbl = QLabel(self.frame_13)
+        self.p_eval_left_graph_lbl.setObjectName(u"p_eval_left_graph_lbl")
+        self.p_eval_left_graph_lbl.setMinimumSize(QSize(450, 400))
+        self.p_eval_left_graph_lbl.setStyleSheet(u"border: 3px solid rgb(43, 72, 101);")
+        self.p_eval_left_graph_lbl.setAlignment(Qt.AlignCenter)
+
+        self.horizontalLayout_18.addWidget(self.p_eval_left_graph_lbl)
+
+        self.p_eval_right_graph_lbl = QLabel(self.frame_13)
+        self.p_eval_right_graph_lbl.setObjectName(u"p_eval_right_graph_lbl")
+        self.p_eval_right_graph_lbl.setMinimumSize(QSize(450, 400))
+        self.p_eval_right_graph_lbl.setStyleSheet(u"border: 3px solid rgb(43, 72, 101);")
+        self.p_eval_right_graph_lbl.setAlignment(Qt.AlignCenter)
+
+        self.horizontalLayout_18.addWidget(self.p_eval_right_graph_lbl)
+
+
+        self.verticalLayout_8.addWidget(self.frame_13)
+
+        self.performance_stackwidget.addWidget(self.eval_stk_widget)
+
+        self.gridLayout_24.addWidget(self.performance_stackwidget, 0, 0, 1, 1)
+
+
+        self.horizontalLayout_15.addWidget(self.frame_10)
+
+
+        self.gridLayout_15.addWidget(self.mid_frame_6, 1, 0, 1, 1)
+
+        self.stackedWidget.addWidget(self.performance_page)
+
+        self.horizontalLayout_14.addWidget(self.stackedWidget)
 
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(3)
+        self.stackedWidget.setCurrentIndex(6)
         self.std_btn_back_to_home.setDefault(False)
         self.mediaStackWidget.setCurrentIndex(1)
         self.lsn_btn_back_to_home.setDefault(False)
         self.task_btn_back_to_home.setDefault(False)
-        self.evalstackwidget.setCurrentIndex(0)
+        self.evalstackwidget.setCurrentIndex(1)
         self.lsn_btn_back_to_home_3.setDefault(False)
         self.lsn_btn_back_to_home_4.setDefault(False)
+        self.lsn_btn_back_to_home_5.setDefault(False)
+        self.performance_stackwidget.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -2290,5 +2654,24 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem11.setText(QCoreApplication.translate("MainWindow", u"\u09aa\u09be\u09a0 \u09aa\u09cd\u09b0\u09a6\u09be\u09a8\u09c7\u09b0 \u09b8\u09ae\u09df\u0995\u09be\u09b2", None));
         self.lsn_lbl_lessons_8.setText(QCoreApplication.translate("MainWindow", u"\u09b6\u09bf\u0995\u09cd\u09b7\u09be\u09b0\u09cd\u09a5\u09c0\u09a6\u09c7\u09b0 \u09a4\u09be\u09b2\u09bf\u0995\u09be", None))
         self.lsn_btn_assign_lesson.setText(QCoreApplication.translate("MainWindow", u"\u09aa\u09be\u09a0 \u09aa\u09cd\u09b0\u09a6\u09be\u09a8 \u0995\u09b0\u09c1\u09a8", None))
+        self.lsn_btn_back_to_home_5.setText("")
+        self.lsn_lbl_headline_6.setText(QCoreApplication.translate("MainWindow", u"\u09b6\u09bf\u0995\u09cd\u09b7\u09be\u09b0\u09cd\u09a5\u09c0\u09b0 \u09aa\u09be\u09b0\u09ab\u09b0\u09ae\u09cd\u09af\u09be\u09a8\u09cd\u09b8", None))
+        self.label_11.setText(QCoreApplication.translate("MainWindow", u"\u09b6\u09bf\u0995\u09cd\u09b7\u09be\u09b0\u09cd\u09a5\u09c0 \u09a8\u09bf\u09b0\u09cd\u09ac\u09be\u099a\u09a8 \u0995\u09b0\u09c1\u09a8", None))
+        self.performance_lesson_btn.setText(QCoreApplication.translate("MainWindow", u"\u09aa\u09be\u09a0 \u09b8\u0982\u0995\u09cd\u09b0\u09be\u09a8\u09cd\u09a4 \u09a1\u09c7\u099f\u09be", None))
+        self.performance_eval_btn.setText(QCoreApplication.translate("MainWindow", u"\u09ae\u09c2\u09b2\u09cd\u09af\u09be\u09df\u09a8 \u09b8\u0982\u0995\u09cd\u09b0\u09be\u09a8\u09cd\u09a4 \u09a1\u09c7\u099f\u09be", None))
+        self.label_12.setText(QCoreApplication.translate("MainWindow", u"\u09a8\u09bf\u09b0\u09cd\u09a6\u09c7\u09b6\u09a8\u09be\u0983 \n"
+"\u09e7\u0964 \u09aa\u09cd\u09b0\u09a5\u09ae\u09c7 \u09b6\u09bf\u0995\u09cd\u09b7\u09be\u09b0\u09cd\u09a5\u09c0 \u09a8\u09bf\u09b0\u09cd\u09ac\u09be\u099a\u09a8 \u0995\u09b0\u09c1\u09a8\n"
+"\u09e8\u0964 \u098f\u09b0\u09aa\u09b0 \u09aa\u09be\u09a0 \u0985\u09a5\u09ac\u09be \u09ae\u09c2\u09b2\u09cd\u09af\u09be\u09df\u09a8 \u09af\u09c7\u0995\u09cb\u09a8 \u098f\u0995\u099f\u09bf \u0985\u09aa\u09b6\u09a8 \u09a8\u09bf\u09b0\u09cd\u09ac\u09be\u099a\u09a8 \u0995\u09b0\u09c1\u09a8 \n"
+"\u09e9\u0964 \u098f\u09b0\u09aa\u09b0 \u09aa\u09be\u09b6\u09c7\u09b0 \u09ac\u0995\u09cd\u09b8\u09c7 \u09a5\u09be\u0995\u09be \u09ac\u09be\u099f\u09a8 \u0997\u09c1\u09b2\u09cb\u09a4\u09c7 \u0995\u09cd\u09b2\u09bf\u0995 \u0995\u09b0\u09c7 \u09a8\u09bf\u09b0\u09cd\u09a7\u09be\u09b0\u09bf\u09a4 \u0997\u09cd\u09b0\u09be\u09ab \u09a6\u09c7\u0996\u09c1\u09a8\n"
+"\u09ea\u0964 \u09b8\u09ae\u09cd\u09aa\u09c2\u09b0\u09cd\u09a3 \u09b0\u09bf\u09aa\u09cb\u09b0\u09cd\u099f \u09a6\u09c7\u0996"
+                        "\u09a4\u09c7 \u099a\u09be\u0987\u09b2\u09c7 \u09a8\u09bf\u099a\u09c7\u09b0 \u09ac\u09be\u099f\u09a8\u09c7 \u0995\u09cd\u09b2\u09bf\u0995 \u0995\u09b0\u09c1\u09a8", None))
+        self.performance_report_btn.setText(QCoreApplication.translate("MainWindow", u"\u09b0\u09bf\u09aa\u09cb\u09b0\u09cd\u099f \u09a4\u09c8\u09b0\u09bf \u0995\u09b0\u09c1\u09a8", None))
+        self.p_lesson_left_graph_lbl.setText("")
+        self.p_lesson_right_graph_lbl.setText("")
+        self.pushButton_3.setText(QCoreApplication.translate("MainWindow", u"\u09a7\u09be\u0981\u09a7\u09be \u09b8\u0982\u0995\u09cd\u09b0\u09be\u09a8\u09cd\u09a4", None))
+        self.pushButton_4.setText(QCoreApplication.translate("MainWindow", u"\u0995\u09cd\u09b0\u09ae\u09a7\u09be\u09b0\u09be \u09b8\u0982\u0995\u09cd\u09b0\u09be\u09a8\u09cd\u09a4", None))
+        self.pushButton_5.setText(QCoreApplication.translate("MainWindow", u"\u09b6\u09ac\u09cd\u09a6 \u09ae\u09bf\u09b2\u09be\u09a8\u09cb \u09b8\u0982\u0995\u09cd\u09b0\u09be\u09a8\u09cd\u09a4", None))
+        self.p_eval_left_graph_lbl.setText("")
+        self.p_eval_right_graph_lbl.setText("")
     # retranslateUi
 

@@ -2,6 +2,7 @@ import glob
 import json
 import os
 import subprocess
+import time
 
 from PyQt5.QtMultimedia import QSound
 from Backend.AudioPlayer import MusicPlayer
@@ -104,8 +105,6 @@ class Lesson_Window(QMainWindow):
                                                         Qt.SmoothTransformation)
             self.lesson_window.lsn_lbl_image.setPixmap(self.qt_image)
             self.lesson_window.lsn_lbl_image.setScaledContents(True)
-            # self.lesson_window.lsn_lbl_image.setFixedSize(self.lesson_window.lsn_lbl_image.width(),
-            #                                               self.lesson_window.lsn_lbl_image.width())
 
             # audio load
             audio_file_name = (glob.glob(self.module_path + '/audio.*')[0]).split('\\')[-1]
@@ -155,6 +154,21 @@ class Lesson_Window(QMainWindow):
             self.current_lesson_id = 0
             finish = True
             self.change_window()
+            
+            # stop the video player
+            if self.video_player:
+                self.video_player.mediaPlayer.stop()
+                self.video_player.close()
+                
+            # update lesson completion time 
+            with open('.current_lesson_log.json', 'r') as f:
+                current_lesson_log = json.load(f)
+                lsn_id = self.load_current_lesson_id()
+                self.current_time = current_lesson_log['lessons'][lsn_id]['time'] 
+                
+                with open('.current_lesson_log.json', 'w') as f:
+                    current_lesson_log['lessons'][lsn_id]['time'] = round(time.time() - self.current_time, 2)
+                    json.dump(current_lesson_log, f)
 
         if finish == False:
             self.reset_lesson_window()
@@ -183,6 +197,7 @@ class Lesson_Window(QMainWindow):
             self.display_lesson()
 
     def quit_music(self):
+        print("QUIT MUSIC")
         if self.music_player is not None:
             if (self.audio_output_device):
                 self.music_player.stop_music()
@@ -193,11 +208,32 @@ class Lesson_Window(QMainWindow):
         self.audio_file_path = None
         self.module_path = None
         self.time_elapsed = 0
+        self.quit_music()
 
     def update_elapsed_time(self):
         print("TIME: ", self.time_elapsed)
         self.time_elapsed += 1
         print("Time elapsed:", self.time_elapsed, "seconds")
+
+    def load_current_lesson_id(self):
+        resource_files = os.listdir("Resources")
+        for file in resource_files:
+            if "পাঠ" in file:
+                
+                lesson_name = str(file)
+                print(lesson_name)
+                
+                # check log file to see if the lesson is already completed
+                with open('.lesson_completion_log.json') as json_file:
+                    data = json.load(json_file)
+                    
+                    if file in data:
+                        print("Lesson already completed")
+                
+                # if not completed then mark it as current lesson 
+                self.current_lesson = file.split('_')[1]
+                
+        return self.current_lesson
 
     def change_window(self):
 

@@ -376,60 +376,9 @@ class Ui_MainWindow(object):
         self.celebration_frame.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_4 = QHBoxLayout(self.celebration_frame)
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
-        self.c_left_frame = QFrame(self.celebration_frame)
-        self.c_left_frame.setObjectName(u"c_left_frame")
-        self.c_left_frame.setMinimumSize(QSize(348, 691))
-        self.c_left_frame.setMaximumSize(QSize(384, 691))
-        self.c_left_frame.setStyleSheet(u"border: none;\n"
-"")
-        self.c_left_frame.setFrameShape(QFrame.StyledPanel)
-        self.c_left_frame.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_4 = QVBoxLayout(self.c_left_frame)
-        self.verticalLayout_4.setObjectName(u"verticalLayout_4")
-        self.verticalSpacer_4 = QSpacerItem(20, 250, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.verticalLayout_4.addItem(self.verticalSpacer_4)
-
-        self.c_prev_quiz_lbl = QLabel(self.c_left_frame)
-        self.c_prev_quiz_lbl.setObjectName(u"c_prev_quiz_lbl")
-        self.c_prev_quiz_lbl.setMinimumSize(QSize(369, 350))
-        self.c_prev_quiz_lbl.setMaximumSize(QSize(369, 16777215))
-        font4 = QFont()
-        font4.setPointSize(30)
-        self.c_prev_quiz_lbl.setFont(font4)
-        self.c_prev_quiz_lbl.setStyleSheet(u"")
-        self.c_prev_quiz_lbl.setAlignment(Qt.AlignCenter)
-        self.c_prev_quiz_lbl.setWordWrap(True)
-
-        self.verticalLayout_4.addWidget(self.c_prev_quiz_lbl)
-
-        self.c_again = QPushButton(self.c_left_frame)
-        self.c_again.setObjectName(u"c_again")
-        self.c_again.setMaximumSize(QSize(359, 16777215))
-        self.c_again.setCursor(QCursor(Qt.PointingHandCursor))
-        self.c_again.setStyleSheet(u"QPushButton {\n"
-"border: 3px solid #E07A5F;\n"
-"border-radius: 20px;\n"
-"background-color:  #3D405B;\n"
-"}\n"
-"\n"
-"QPushButton:hover:!pressed {\n"
-"background-color: #3D405B;\n"
-"background-color:  rgb(42, 44, 63);\n"
-"}")
-        icon3 = QIcon()
-        icon3.addFile(u"../Images/repeat.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.c_again.setIcon(icon3)
-        self.c_again.setIconSize(QSize(35, 80))
-
-        self.verticalLayout_4.addWidget(self.c_again)
-
-
-        self.horizontalLayout_4.addWidget(self.c_left_frame)
-
         self.c_middle_frame = QFrame(self.celebration_frame)
         self.c_middle_frame.setObjectName(u"c_middle_frame")
-        self.c_middle_frame.setMinimumSize(QSize(482, 691))
+        self.c_middle_frame.setMinimumSize(QSize(465, 691))
         self.c_middle_frame.setStyleSheet(u"border: none;\n"
 "")
         self.c_middle_frame.setFrameShape(QFrame.StyledPanel)
@@ -440,10 +389,10 @@ class Ui_MainWindow(object):
         self.c_lable.setObjectName(u"c_lable")
         self.c_lable.setMinimumSize(QSize(434, 194))
         self.c_lable.setMaximumSize(QSize(16777215, 300))
-        font5 = QFont()
-        font5.setFamilies([u"Kalpurush"])
-        font5.setPointSize(61)
-        self.c_lable.setFont(font5)
+        font4 = QFont()
+        font4.setFamilies([u"Kalpurush"])
+        font4.setPointSize(61)
+        self.c_lable.setFont(font4)
         self.c_lable.setStyleSheet(u"background-color: none;")
         self.c_lable.setAlignment(Qt.AlignCenter)
 
@@ -461,7 +410,7 @@ class Ui_MainWindow(object):
 
         self.c_right_frame = QFrame(self.celebration_frame)
         self.c_right_frame.setObjectName(u"c_right_frame")
-        self.c_right_frame.setMinimumSize(QSize(360, 691))
+        self.c_right_frame.setMinimumSize(QSize(366, 691))
         self.c_right_frame.setMaximumSize(QSize(378, 691))
         self.c_right_frame.setStyleSheet(u"border: none;\n"
 "")
@@ -477,9 +426,11 @@ class Ui_MainWindow(object):
         self.c_next_quiz_lbl.setObjectName(u"c_next_quiz_lbl")
         self.c_next_quiz_lbl.setMinimumSize(QSize(369, 350))
         self.c_next_quiz_lbl.setMaximumSize(QSize(369, 16777215))
-        self.c_next_quiz_lbl.setFont(font4)
+        font5 = QFont()
+        font5.setPointSize(30)
+        self.c_next_quiz_lbl.setFont(font5)
         self.c_next_quiz_lbl.setStyleSheet(u"")
-        self.c_next_quiz_lbl.setAlignment(Qt.AlignCenter)
+        self.c_next_quiz_lbl.setAlignment(Qt.AlignBottom|Qt.AlignHCenter)
 
         self.verticalLayout_2.addWidget(self.c_next_quiz_lbl)
 
@@ -1158,7 +1109,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(4)
         self.mediaStackWidget.setCurrentIndex(0)
 
 
@@ -1180,13 +1131,14 @@ class Ui_MainWindow(object):
 #endif // QT_CONFIG(shortcut)
         self.lbl_lesson_headline_2.setText(QCoreApplication.translate("MainWindow", u"\u09a7\u09be\u0981\u09a7\u09be", None))
         self.lbl_lesson_sub_heading_2.setText(QCoreApplication.translate("MainWindow", u"\u09aa\u09be\u09a0 \u09ae\u09c2\u09b2\u09cd\u09af\u09be\u09df\u09a8", None))
-        self.c_prev_quiz_lbl.setText(QCoreApplication.translate("MainWindow", u"\u09aa\u09c1\u09a8\u09b0\u09be\u09df \u0985\u0982\u09b6\u0997\u09cd\u09b0\u09b9\u09a3 \u0995\u09b0\u09c1\u09a8 ", None))
-        self.c_again.setText("")
         self.c_lable.setText(QCoreApplication.translate("MainWindow", u"\u0985\u09ad\u09bf\u09a8\u09a8\u09cd\u09a6\u09a8!!!", None))
         self.c_gif.setText("")
         self.c_next_quiz_lbl.setText(QCoreApplication.translate("MainWindow", u"\u09aa\u09b0\u09ac\u09b0\u09cd\u09a4\u09c0 \u09ae\u09c2\u09b2\u09cd\u09af\u09be\u09df\u09a8", None))
         self.c_next_quiz.setText("")
-        self.n_message.setText(QCoreApplication.translate("MainWindow", u"\u0985\u09ad\u09bf\u09a8\u09a8\u09cd\u09a6\u09a8!!! \u09a4\u09c1\u09ae\u09bf \u09aa\u09be\u09a0\u09b8\u09ae\u09c2\u09b9 \u09b8\u09ae\u09cd\u09aa\u09a8\u09cd\u09a8 \u0995\u09b0\u09c7\u099b\u09cb", None))
+#if QT_CONFIG(shortcut)
+        self.c_next_quiz.setShortcut(QCoreApplication.translate("MainWindow", u"Space", None))
+#endif // QT_CONFIG(shortcut)
+        self.n_message.setText(QCoreApplication.translate("MainWindow", u"\u0985\u09ad\u09bf\u09a8\u09a8\u09cd\u09a6\u09a8!!! ", None))
         self.n_icon.setText("")
         self.n_type_lbl.setText(QCoreApplication.translate("MainWindow", u"\u09a7\u09be\u0981\u09a7\u09be", None))
         self.n_proceed_btn.setText("")

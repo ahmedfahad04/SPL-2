@@ -62,6 +62,7 @@ class Home(QMainWindow):  # Home extends QMainWindow
         self.home.home_btn_lesson.clicked.connect(self.lesson_page)
         self.home.home_btn_quiz.clicked.connect(self.task_page)
         self.home.home_btn_lesson_assigns.clicked.connect(self.lesson_assigning_page)
+        self.home.home_btn_progress.clicked.connect(self.performance_page)
                          
     def student_page(self):
         
@@ -540,8 +541,13 @@ class Home(QMainWindow):  # Home extends QMainWindow
             os.startfile('Lessons\Matching_Images\{}'.format(matching_set_name)) #! always use \ for relative path
             self.home.task_matching_set_edit.clear()
             
-            
+    def performance_page(self):
         
+        self.home.stackedWidget.setCurrentWidget(self.home.performance_page)
+        
+        self.home.performance_lesson_btn.clicked.connect(lambda: self.home.performance_stackwidget.setCurrentWidget(self.home.lesson_stk_widget))
+        self.home.performance_eval_btn.clicked.connect(lambda: self.home.performance_stackwidget.setCurrentWidget(self.home.eval_stk_widget))
+        self.home.lsn_btn_back_to_home_5.clicked.connect(self.home_page)
         
         
     
