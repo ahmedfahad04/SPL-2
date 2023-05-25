@@ -111,19 +111,20 @@ class Matching_Window(QWidget):
         self.end_time = 0
         self.folder_set_name = None
         self.performance = {}
+        self.matching_folder = None
 
     def load_matching_images(self):
 
         folder_pattern = "Resources/m_*"  # Pattern to match folders starting with "m_"
 
         # Get a list of matching folder paths
-        matching_folder = glob.glob(folder_pattern)[0]
-        self.folder_set_name = matching_folder.split("\\")[-1].split("_")[-1]
-        folder_files = os.listdir(matching_folder)
+        self.matching_folder = glob.glob(folder_pattern)[0]
+        self.folder_set_name = self.matching_folder.split("\\")[-1].split("_")[-1]
+        folder_files = os.listdir(self.matching_folder)
         self.images = [file for file in folder_files if file.endswith(".png")]
 
         # read image tags from json file
-        with open(matching_folder + "/image_data.json", "r") as json_file:
+        with open(self.matching_folder + "/image_data.json", "r") as json_file:
             self.image_tag_dict = json.load(json_file)
             
             # ? update the keys of self.image_tag_dict to remove set6/ from the value
@@ -154,7 +155,7 @@ class Matching_Window(QWidget):
         # fill the image labels with images
         
         self.home_ui.mat_img_lbl_1.setPixmap(
-            QPixmap(matching_folder + "/" + self.images[0]).scaled(
+            QPixmap(self.matching_folder + "/" + self.images[0]).scaled(
                 self.home_ui.mat_img_lbl_1.size(), 
                 Qt.AspectRatioMode.KeepAspectRatio,
                 Qt.TransformationMode.SmoothTransformation
@@ -162,7 +163,7 @@ class Matching_Window(QWidget):
         )
         
         self.home_ui.mat_img_lbl_2.setPixmap(
-            QPixmap(matching_folder + "/" + self.images[1]).scaled(
+            QPixmap(self.matching_folder + "/" + self.images[1]).scaled(
                 self.home_ui.mat_img_lbl_1.size(), 
                 Qt.AspectRatioMode.KeepAspectRatio,
                 Qt.TransformationMode.SmoothTransformation
@@ -170,7 +171,7 @@ class Matching_Window(QWidget):
         )
         
         self.home_ui.mat_img_lbl_3.setPixmap(
-            QPixmap(matching_folder + "/" + self.images[2]).scaled(
+            QPixmap(self.matching_folder + "/" + self.images[2]).scaled(
                 self.home_ui.mat_img_lbl_1.size(), 
                 Qt.AspectRatioMode.KeepAspectRatio,
                 Qt.TransformationMode.SmoothTransformation
@@ -178,7 +179,7 @@ class Matching_Window(QWidget):
         )
         
         self.home_ui.mat_img_lbl_4.setPixmap(
-            QPixmap(matching_folder + "/" + self.images[3]).scaled(
+            QPixmap(self.matching_folder + "/" + self.images[3]).scaled(
                 self.home_ui.mat_img_lbl_1.size(), 
                 Qt.AspectRatioMode.KeepAspectRatio,
                 Qt.TransformationMode.SmoothTransformation
@@ -292,7 +293,7 @@ class Matching_Window(QWidget):
             # write total moves, time and date into a json file
             self.performance['std_name'] = student_name
             self.performance['std_id'] = student_id
-            self.performance['set_name'] = self.folder_set_name
+            self.performance['set_name'] = self.matching_folder
             self.performance['attempts'] = moves+1
             self.performance['time'] = round(time_taken,2)
             success_rate = round((4/moves)*100,2)

@@ -20,6 +20,8 @@ from Frontend.src.Lesson_Assigning_Window import Lesson_Assigning_Window
 from Backend.Database.module_db import module_data as md
 from Backend.Database.lesson_db import lesson_data as ld
 from Backend.Database.student_db import student_data as sd
+from Backend.Database.lesson_performance_db import lesson_performance_data as lpd
+from Backend.Database.evaluation_assessment_db import evaluation_assessment_data as ead
 from Backend.ScreenShot.ImageCapture import ImageCaptureWidget
 import os
 import shutil
@@ -543,11 +545,82 @@ class Home(QMainWindow):  # Home extends QMainWindow
             
     def performance_page(self):
         
+        # navigate the window
         self.home.stackedWidget.setCurrentWidget(self.home.performance_page)
         
+        # connecting buttons
         self.home.performance_lesson_btn.clicked.connect(lambda: self.home.performance_stackwidget.setCurrentWidget(self.home.lesson_stk_widget))
         self.home.performance_eval_btn.clicked.connect(lambda: self.home.performance_stackwidget.setCurrentWidget(self.home.eval_stk_widget))
         self.home.lsn_btn_back_to_home_5.clicked.connect(self.home_page)
         
+        print("INSIDE PERFORMANCE PAGE")
+        
+        # read the json files from Performance folder 
+        self.performance_folders = os.listdir('Performance')
+        print(self.performance_folders)
+        for folder_name in self.performance_folders:
+            
+            folder_files = os.listdir('Performance/{}'.format(folder_name))
+            
+            # read the json files
+            for json_file in folder_files:
+                
+                if 'lesson' in json_file:
+                    with open(f'Performance\{folder_name}\.lesson_completion_log.json', 'r') as f:
+                        lesson_completion_data = json.load(f)
+                        data = [
+                            lesson_completion_data['std_id'],
+                            lesson_completion_data['std_name'],
+                            lesson_completion_data['lesson_id'],
+                            lesson_completion_data['attempt'],
+                            lesson_completion_data['time'],                            
+                        ]
+                        print(data)
+                        lpd().add_entry(data)
+                        
+                elif 'matching' in json_file:
+                    with open(f'Performance\{folder_name}\matching_results.json', 'r') as f:
+                        matching_completion_data = json.load(f)
+                        
+                        data = [
+                            matching_completion_data['std_id'],
+                            matching_completion_data['std_name'],
+                            matching_completion_data['set_name'],
+                            matching_completion_data['attempts'],
+                            matching_completion_data['success_rate'],
+                            matching_completion_data['time'],                        
+                        ]
+                        print(data)
+                        ead().add_entry(data)
+                elif 'sequencing' in json_file:
+                    with open(f'Performance\{folder_name}\sequencing_results.json', 'r') as f:
+                        sequencing_completion_data = json.load(f)
+                        
+                        data = [
+                            sequencing_completion_data['std_id'],
+                            sequencing_completion_data['std_name'],
+                            sequencing_completion_data['set_name'],
+                            sequencing_completion_data['attempts'],
+                            sequencing_completion_data['success_rate'],
+                            sequencing_completion_data['time'],  
+                        ]
+                        ead().add_entry(data)
+                        
+                elif 'puzzle' in json_file:
+                    with open(f'Performance\{folder_name}\puzzle_results.json', 'r') as f:
+                        puzzle_completion_data = json.load(f)
+                        
+                        data = [
+                            puzzle_completion_data['std_id'],
+                            puzzle_completion_data['std_name'],
+                            puzzle_completion_data['set_name'],
+                            puzzle_completion_data['total_attempt'],
+                            puzzle_completion_data['success_rate'],
+                            puzzle_completion_data['time'],  
+                        ]
+                        ead().add_entry(data)
+                    
+                    
+           
         
     

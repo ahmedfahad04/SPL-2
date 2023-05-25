@@ -223,8 +223,7 @@ class PuzzleWidget(QWidget):
                     Puzzle_Window().change_page()
                     
                     # Get a list of matching folder paths
-                    matching_folder = glob.glob("Resources/p_*")[0]
-                    folder_set_name = matching_folder.split("\\")[-1].split("_")[-1]
+                    folder_set_name = glob.glob("Resources/p_*")[0]
                     
                     # read the student detaisl json file to fetch the name and id
                     with open('.student_details.json') as json_file:

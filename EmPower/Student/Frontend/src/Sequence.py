@@ -256,7 +256,7 @@ class Sequence_Window(QWidget):
             # write total moves, time and date into a json file
             self.performance['std_name'] = student_name
             self.performance['std_id'] = student_id
-            self.performance['set_name'] = self.folder_set_name
+            self.performance['set_name'] = self.matching_folder
             self.performance['attempts'] = moves
             self.performance['time'] = round(time_taken,2)
             self.performance['success_rate'] = round((4/moves)*100,2)

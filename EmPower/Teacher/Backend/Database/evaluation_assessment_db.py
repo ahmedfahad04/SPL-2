@@ -23,11 +23,10 @@ class evaluation_assessment_data(Database_Manager, ABC):
             )''')
 
             self.controller_db.commit()
-            print("[CREATE] LESSON Assigning Table created successfully!")
+            print("[CREATE] Evaluation Assessment Data Table created successfully!")
             return True
 
         except:
-
             return False
 
     def add_entry(self, data) -> bool:
@@ -39,11 +38,14 @@ class evaluation_assessment_data(Database_Manager, ABC):
                 "VALUES (?, ?, ?, ?, ?, ?)", tuple(data))
 
             self.controller_db.commit()
-            print("[INSERT] Data inserted into LESSON Assiging Table successfully!")
+            print("[INSERT] Data inserted into Evaluation Assessment Data Table successfully!")
             return True
 
         except:
-
+            
+            data.append(data[0])
+            data.append(data[2])
+            self.update_entry(data)
             return False
 
     def load_table(self) -> list:
@@ -62,7 +64,7 @@ class evaluation_assessment_data(Database_Manager, ABC):
             return True
 
         except:
-            print("Lesson Table deletion failed!")
+            print("Evaluation Assessment Data deletion failed!")
             return False
 
     def update_entry(self, data) -> bool:
@@ -71,8 +73,7 @@ class evaluation_assessment_data(Database_Manager, ABC):
 
             print("GOT the query...")
 
-            query = "UPDATE evaluation_assessment_data Set Student_ID=?, Student_Name=?, Lesson_ID=?, Attempt=?, Completion_Time=?, Date=? Where " \
-                    "Student_ID=?, Lesson_ID=?;"
+            query = "UPDATE evaluation_assessment_data SET Student_ID = ?, Student_Name = ?, Task_ID = ?, Attempt = ?, Success_Rate = ?, Completion_Time = ? WHERE Student_ID = ? AND Task_ID = ?;"
 
             self.controller_db_cursor.execute(query, tuple(data))
             self.controller_db.commit()

@@ -37,5 +37,5 @@ class SplashScreen(QSplashScreen):
 
     def progress(self):
         for i in range(100):
-            time.sleep(0.025)
+            time.sleep(0.0125)
             self.progressBar.setValue(i)

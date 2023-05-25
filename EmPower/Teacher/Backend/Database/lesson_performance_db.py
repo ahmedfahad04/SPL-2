@@ -15,14 +15,14 @@ class lesson_performance_data(Database_Manager, ABC):
             (
             Student_ID INT NOT NULL,
             Student_Name VARCHAR(255),
-            Lesson_ID INT NOT NULL,
+            Lesson_ID VARCHAR(255) NOT NULL,
             Attempt INT Number NULL,
-            Completion_Time Number NOT NULL,
+            Completion_Time VARCHAR(255) NOT NULL,
             UNIQUE (Student_ID, Lesson_ID)
             )''')
 
             self.controller_db.commit()
-            print("[CREATE] LESSON Assigning Table created successfully!")
+            print("[CREATE] lesson_peformance_data Table created successfully!")
             return True
 
         except:
@@ -34,15 +34,16 @@ class lesson_performance_data(Database_Manager, ABC):
 
         try:
             self.controller_db_cursor.execute(
-                "INSERT INTO lesson_performance_data (Student_ID, Student_Name, Lesson_ID, Attempt, Completion_Time)"
+                "INSERT INTO lesson_peformance_data (Student_ID, Student_Name, Lesson_ID, Attempt, Completion_Time)"
                 "VALUES (?, ?, ?, ?, ?)", tuple(data))
 
             self.controller_db.commit()
-            print("[INSERT] Data inserted into LESSON Assiging Table successfully!")
+            print("[INSERT] Data inserted into lesson_peformance_data Table successfully!")
             return True
 
-        except:
+        except Exception as e:
 
+            print("Lesson Table insertion failed!", e)
             return False
 
     def load_table(self) -> list:
