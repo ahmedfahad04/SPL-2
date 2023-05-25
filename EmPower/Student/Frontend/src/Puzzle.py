@@ -222,6 +222,10 @@ class PuzzleWidget(QWidget):
                     # change to celebration page
                     Puzzle_Window().change_page()
                     
+                    # Get a list of matching folder paths
+                    matching_folder = glob.glob("Resources/p_*")[0]
+                    folder_set_name = matching_folder.split("\\")[-1].split("_")[-1]
+                    
                     # read the student detaisl json file to fetch the name and id
                     with open('.student_details.json') as json_file:
                         data = json.load(json_file)
@@ -231,6 +235,7 @@ class PuzzleWidget(QWidget):
                     # write total moves, time and date into a json file
                     self.performance['std_name'] = student_name
                     self.performance['std_id'] = student_id
+                    self.performance['set_name'] = folder_set_name
                     self.performance['correct_attempt'] = str(self.correctAttempts)
                     self.performance['wrong_attempt'] = str(self.wrongAttempts)
                     self.performance['total_attempt'] = str(self.totalAttempts)
@@ -514,7 +519,9 @@ class Puzzle_Window:
         self.change_new_window = None
 
         #! TODO: Change the image dynamically
-        self.puzzle_image = glob.glob('Resources\\Puzzle_Images\\'+'\*.png')[0]
+        
+        folder_pattern = "Resources/p_*/*.png"  # Pattern to match folders starting with "m_"
+        self.puzzle_image = glob.glob(folder_pattern)[0]
 
     def launch_puzzle(self):
 

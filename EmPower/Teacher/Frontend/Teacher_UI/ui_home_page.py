@@ -2235,6 +2235,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setPointSize(15)
         self.performance_lesson_btn.setFont(font)
+        self.performance_lesson_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.performance_lesson_btn.setStyleSheet("QPushButton {\n"
 "background-color: rgb(160, 253, 230);\n"
 "color:  rgb(0, 43, 91) ;\n"
@@ -2255,6 +2256,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setPointSize(15)
         self.performance_eval_btn.setFont(font)
+        self.performance_eval_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.performance_eval_btn.setStyleSheet("QPushButton {\n"
 "background-color: rgb(160, 253, 230);\n"
 "color:  rgb(0, 43, 91) ;\n"
@@ -2288,6 +2290,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setPointSize(12)
         self.performance_report_btn.setFont(font)
+        self.performance_report_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.performance_report_btn.setStyleSheet("QPushButton {\n"
 "background-color: rgb(160, 253, 230);\n"
 "color:  #256D85 ;\n"
@@ -2380,6 +2383,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setPointSize(15)
         self.pushButton_3.setFont(font)
+        self.pushButton_3.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pushButton_3.setStyleSheet("QPushButton {\n"
 "background-color: rgb(160, 253, 230);\n"
 "color:  #256D85 ;\n"
@@ -2399,6 +2403,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setPointSize(14)
         self.pushButton_4.setFont(font)
+        self.pushButton_4.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pushButton_4.setStyleSheet("QPushButton {\n"
 "background-color: rgb(160, 253, 230);\n"
 "color:  #256D85 ;\n"
@@ -2418,6 +2423,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setPointSize(13)
         self.pushButton_5.setFont(font)
+        self.pushButton_5.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pushButton_5.setStyleSheet("QPushButton {\n"
 "background-color: rgb(160, 253, 230);\n"
 "color:  #256D85 ;\n"

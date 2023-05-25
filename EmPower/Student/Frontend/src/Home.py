@@ -1,6 +1,7 @@
 import glob
 import json
 import os
+import shutil
 import time
 
 from PyQt5.QtMultimedia import QSound
@@ -239,6 +240,20 @@ class Home(QMainWindow):  # Home extends QMainWindow
                 json.dump(self.lesson_completion_data, outfile)
                 outfile.write('\n')
 
+    
+            # create a folder with student id and name
+            performance_folder_name = str(student_id)+'_'+student_name+'_Lesson_'+str(self.current_lesson_id)
+            os.path.exists(performance_folder_name) or os.makedirs(performance_folder_name)
+            
+            # copy all the files from the current lesson folder to the new folder
+            shutil.copy2('.lesson_completion_log.json',performance_folder_name)
+            shutil.copy2('Performance\matching_results.json',performance_folder_name)
+            shutil.copy2('Performance\puzzle_results.json',performance_folder_name)
+            shutil.copy2('Performance\sequencing_results.json',performance_folder_name)
+            
+            
+            
+            
     def closeEvent(self, event):
         # For example, you can show a message box asking the user if they really want to quit the application
         reply = QMessageBox.question(self, 'সফটওয়্যার বন্ধ করুন', 'আপনি কি সফটওয়্যারটি বন্ধ করতে চান?', QMessageBox.Yes | QMessageBox.No, QMessageBox.No)

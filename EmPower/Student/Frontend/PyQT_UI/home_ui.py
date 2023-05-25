@@ -395,6 +395,7 @@ class Ui_MainWindow(object):
         self.c_lable.setFont(font4)
         self.c_lable.setStyleSheet(u"background-color: none;")
         self.c_lable.setAlignment(Qt.AlignCenter)
+        self.c_lable.setWordWrap(True)
 
         self.verticalLayout.addWidget(self.c_lable)
 
@@ -1109,7 +1110,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(4)
+        self.stackedWidget.setCurrentIndex(3)
         self.mediaStackWidget.setCurrentIndex(0)
 
 
@@ -1142,9 +1143,6 @@ class Ui_MainWindow(object):
         self.n_icon.setText("")
         self.n_type_lbl.setText(QCoreApplication.translate("MainWindow", u"\u09a7\u09be\u0981\u09a7\u09be", None))
         self.n_proceed_btn.setText("")
-#if QT_CONFIG(shortcut)
-        self.n_proceed_btn.setShortcut(QCoreApplication.translate("MainWindow", u"Space", None))
-#endif // QT_CONFIG(shortcut)
         self.lbl_lesson_sub_heading_3.setText(QCoreApplication.translate("MainWindow", u"\u09aa\u09be\u09a0 \u09ae\u09c2\u09b2\u09cd\u09af\u09be\u09df\u09a8", None))
         self.lbl_lesson_headline_3.setText(QCoreApplication.translate("MainWindow", u"\u09b6\u09ac\u09cd\u09a6 \u09ae\u09bf\u09b2\u09a8", None))
         self.mat_img_lbl_3.setText("")

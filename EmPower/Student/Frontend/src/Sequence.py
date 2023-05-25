@@ -108,6 +108,7 @@ class Sequence_Window(QWidget):
         self.correct_matches = 0
         self.start_time = time.time()
         self.end_time = None
+        self.folder_set_name = None
         self.performance = {}
                
     def load_sequence_file(self):
@@ -116,7 +117,7 @@ class Sequence_Window(QWidget):
 
         # Get a list of matching folder paths
         self.matching_folder = glob.glob(folder_pattern)[0]
-        folder_set_name = self.matching_folder.split("\\")[-1].split("_")[-1]
+        self.folder_set_name = self.matching_folder.split("\\")[-1].split("_")[-1]
         folder_files = os.listdir(self.matching_folder)
         
         # read images from folder and remove the initial two words (eg. 1_, 2_) from the file name
@@ -128,7 +129,7 @@ class Sequence_Window(QWidget):
             self.image_seq_dict = json.load(json_file)
             
             # ? update the keys of self.image_seq_dict to remove set6/ from the value
-            self.image_seq_dict = {key: value.replace("{}/".format(folder_set_name), "") for key, value in self.image_seq_dict.items()}
+            self.image_seq_dict = {key: value.replace("{}/".format(self.folder_set_name), "") for key, value in self.image_seq_dict.items()}
             print("DICT: ", self.image_seq_dict)
 
             # include only those values that are images
@@ -255,6 +256,7 @@ class Sequence_Window(QWidget):
             # write total moves, time and date into a json file
             self.performance['std_name'] = student_name
             self.performance['std_id'] = student_id
+            self.performance['set_name'] = self.folder_set_name
             self.performance['attempts'] = moves
             self.performance['time'] = round(time_taken,2)
             self.performance['success_rate'] = round((4/moves)*100,2)

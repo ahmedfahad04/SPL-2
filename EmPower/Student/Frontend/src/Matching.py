@@ -109,6 +109,7 @@ class Matching_Window(QWidget):
         self.correct_matches = 0
         self.start_time = time.time()
         self.end_time = 0
+        self.folder_set_name = None
         self.performance = {}
 
     def load_matching_images(self):
@@ -117,7 +118,7 @@ class Matching_Window(QWidget):
 
         # Get a list of matching folder paths
         matching_folder = glob.glob(folder_pattern)[0]
-        folder_set_name = matching_folder.split("\\")[-1].split("_")[-1]
+        self.folder_set_name = matching_folder.split("\\")[-1].split("_")[-1]
         folder_files = os.listdir(matching_folder)
         self.images = [file for file in folder_files if file.endswith(".png")]
 
@@ -126,7 +127,7 @@ class Matching_Window(QWidget):
             self.image_tag_dict = json.load(json_file)
             
             # ? update the keys of self.image_tag_dict to remove set6/ from the value
-            self.image_tag_dict = {key.replace("{}/".format(folder_set_name), ""): value for key, value in self.image_tag_dict.items()}
+            self.image_tag_dict = {key.replace("{}/".format(self.folder_set_name), ""): value for key, value in self.image_tag_dict.items()}
             print("DICT: ", self.image_tag_dict)
 
             # include only those values that are images
@@ -190,6 +191,7 @@ class Matching_Window(QWidget):
         random.shuffle(self.image_tags)
         random.shuffle(self.images)
         
+        
         # list of option_frames 
         option_frames = [
             self.home_ui.mat_option_1_frame,
@@ -197,6 +199,7 @@ class Matching_Window(QWidget):
             self.home_ui.mat_option_3_frame,
             self.home_ui.mat_option_4_frame
         ]
+        
         
         self.set_option_label(self.home_ui.mat_option_1_frame, self.image_tags[0])
         self.set_option_label(self.home_ui.mat_option_2_frame, self.image_tags[1])
@@ -289,13 +292,19 @@ class Matching_Window(QWidget):
             # write total moves, time and date into a json file
             self.performance['std_name'] = student_name
             self.performance['std_id'] = student_id
-            self.performance['attempts'] = moves
+            self.performance['set_name'] = self.folder_set_name
+            self.performance['attempts'] = moves+1
             self.performance['time'] = round(time_taken,2)
-            self.performance['success_rate'] = round((4/moves)*100,2)
+            success_rate = round((4/moves)*100,2)
+            if success_rate > 100:
+                success_rate = 100
+            self.performance['success_rate'] = success_rate
             self.performance['date'] = datetime.datetime.now().strftime("%Y-%m-%d")
             
             with open('Performance' + "/matching_results.json", "w+") as json_file:
                 json.dump(self.performance, json_file)
+                
+                
                 
             self.home_ui.stackedWidget.setCurrentWidget(self.home_ui.celebration_page)
   

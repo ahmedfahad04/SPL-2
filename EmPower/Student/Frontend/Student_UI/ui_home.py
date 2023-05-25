@@ -357,6 +357,7 @@ class Ui_MainWindow(object):
         self.c_lable.setFont(font)
         self.c_lable.setStyleSheet("background-color: none;")
         self.c_lable.setAlignment(QtCore.Qt.AlignCenter)
+        self.c_lable.setWordWrap(True)
         self.c_lable.setObjectName("c_lable")
         self.verticalLayout.addWidget(self.c_lable)
         self.c_gif = QtWidgets.QLabel(self.c_middle_frame)
@@ -970,7 +971,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
-        self.stackedWidget.setCurrentIndex(4)
+        self.stackedWidget.setCurrentIndex(3)
         self.mediaStackWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
@@ -989,7 +990,6 @@ class Ui_MainWindow(object):
         self.c_next_quiz.setShortcut(_translate("MainWindow", "Space"))
         self.n_message.setText(_translate("MainWindow", "অভিনন্দন!!! "))
         self.n_type_lbl.setText(_translate("MainWindow", "ধাঁধা"))
-        self.n_proceed_btn.setShortcut(_translate("MainWindow", "Space"))
         self.lbl_lesson_sub_heading_3.setText(_translate("MainWindow", "পাঠ মূল্যায়ন"))
         self.lbl_lesson_headline_3.setText(_translate("MainWindow", "শব্দ মিলন"))
         self.lbl_lesson_headline_4.setText(_translate("MainWindow", "ধারা মিলাও"))
