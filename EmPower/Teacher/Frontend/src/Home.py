@@ -40,6 +40,7 @@ class Home(QMainWindow):  # Home extends QMainWindow
         self.current_matching_image_count = 0
         
         self.home_page()
+        self.populate_performance_table()
                 
     def home_page(self):
         
@@ -561,7 +562,10 @@ class Home(QMainWindow):  # Home extends QMainWindow
         self.home.p_eval_puzzle_btn.clicked.connect(self.load_puzzle_graphs) 
             
         # read the json files from Performance folder 
-        self.populate_performance_table()
+        # self.populate_performance_table()
+        
+        # Disable the first option
+        self.home.performance_std_id_cmb.model().item(0).setEnabled(False)
         
     def load_matching_graphs(self):
         
@@ -626,6 +630,7 @@ class Home(QMainWindow):  # Home extends QMainWindow
                             matching_completion_data['time'],                        
                         ]
                         ead().add_entry(data)
+                
                 elif 'sequencing' in json_file:
                     with open(f'Performance\{folder_name}\sequencing_results.json', 'r') as f:
                         sequencing_completion_data = json.load(f)
@@ -658,14 +663,22 @@ class Home(QMainWindow):  # Home extends QMainWindow
         for sid, sname in student_details.items():
             std_entry.append(sid+'_'+sname)
         
+        # add data to combobox
         for entry in std_entry:
-            print("LEN: ", len(std_entry), "ENTRY: ", random.random())
             self.home.performance_std_id_cmb.addItem(entry)  
-                               
+                                           
         self.home.performance_std_id_cmb.currentIndexChanged.connect(self.load_user_performance_data)
         
     def load_user_performance_data(self, index):
         
+        # if exisits then we need to delete it first as we need new table for 
+        # each newly selected student
+        if os.path.exists('.temp'):
+            shutil.rmtree('.temp')
+            
+        os.mkdir('.temp')
+        
+        # data for specific student selected in the combobox
         student_evaluation_details = []
         student_lesson_details = []
         self.home.performance_eval_btn.setEnabled(True)
@@ -694,7 +707,7 @@ class Home(QMainWindow):  # Home extends QMainWindow
         self.load_sequencing_performance_data(sequence_data)
         self.load_puzzle_performance_data(puzzle_data)
         
-    def load_lesson_performance_data(self, puzzle_data):
+    def load_puzzle_performance_data(self, puzzle_data):
         
         # puzzle labels and valus 
         puzzle_labels = []

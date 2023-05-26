@@ -2,6 +2,11 @@ from fpdf import FPDF
 import datetime
 
 class UnicodePDF(FPDF):
+    
+    def __init__(self, student_details):
+        
+        self.student_details = student_details
+    
     def header(self):
         self.image("footer.PNG", 0, 0, self.w + 2)
 
@@ -112,37 +117,43 @@ class UnicodePDF(FPDF):
         # Add a line for signature
         self.line(self.l_margin,  self.get_y(),  self.w - 100,  self.get_y())
 
-def create_report(filename="student_report_card.pdf"):
-    pdf = UnicodePDF()  # A4 (210 by 297 mm)
+    def create_report(self, filename="student_report_card.pdf"):
+        pdf = UnicodePDF()  # A4 (210 by 297 mm)
 
-    ''' First Page '''
-    pdf.add_page()
-    pdf.image("banner.PNG", 0, 0, pdf.w)
+        ''' First Page '''
+        pdf.add_page()
+        pdf.image("banner.PNG", 0, 0, pdf.w)
 
-    pdf.student_details("Asif", "1217", "Abdul Karim", "017xxxxxxxx", "Kodomtoli,Dahaka-1100")
-    pdf.report_details()
-    pdf.signature_section()
+        pdf.student_details(
+            self.student_details[0], 
+            self.student_details[1], 
+            self.student_details[2], 
+            self.student_details[3], 
+            self.student_details[4]
+        )
+        pdf.report_details()
+        pdf.signature_section()
 
-    ''' Second Page '''
-    pdf.add_page()
+        ''' Second Page '''
+        pdf.add_page()
 
-    pdf.image("school_logo.png", 5, 20, pdf.w / 2 - 10)
-    pdf.image("school_logo.png", pdf.w / 2, 20, pdf.w / 2 - 10)
+        pdf.image("school_logo.png", 5, 20, pdf.w / 2 - 10)
+        pdf.image("school_logo.png", pdf.w / 2, 20, pdf.w / 2 - 10)
 
-    pdf.image("school_logo.png", 5, 110, pdf.w / 2 - 10)
-    pdf.image("school_logo.png", pdf.w / 2, 110, pdf.w / 2 - 10)
+        pdf.image("school_logo.png", 5, 110, pdf.w / 2 - 10)
+        pdf.image("school_logo.png", pdf.w / 2, 110, pdf.w / 2 - 10)
 
-    pdf.image("school_logo.png", 5, 200, pdf.w / 2 - 10)
-    pdf.image("school_logo.png", pdf.w / 2, 200, pdf.w / 2 - 10)
-    
-    pdf.add_page()
-    
-    pdf.image("school_logo.png", 5, 20, pdf.w / 2 - 10)
-    pdf.image("school_logo.png", pdf.w / 2, 20, pdf.w / 2 - 10)
-
-
-    pdf.output(filename)
+        pdf.image("school_logo.png", 5, 200, pdf.w / 2 - 10)
+        pdf.image("school_logo.png", pdf.w / 2, 200, pdf.w / 2 - 10)
+        
+        pdf.add_page()
+        
+        pdf.image("school_logo.png", 5, 20, pdf.w / 2 - 10)
+        pdf.image("school_logo.png", pdf.w / 2, 20, pdf.w / 2 - 10)
 
 
-if __name__ == '__main__':
-    create_report()
+        pdf.output(filename)
+
+
+# if __name__ == '__main__':
+#     create_report()
