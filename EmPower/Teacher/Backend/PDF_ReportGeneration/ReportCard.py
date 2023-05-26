@@ -1,23 +1,26 @@
 from fpdf import FPDF
 import datetime
 
-class UnicodePDF(FPDF):
+class Report_Card_Generator(FPDF):
     
-    def __init__(self, student_details):
+    def __init__(self, student_details=None, report_card_name=None):
+        super().__init__()
         
-        self.student_details = student_details
+        print("student_details: ", student_details)
+        self.student_data = student_details
+        self.report_card_name = report_card_name
     
     def header(self):
-        self.image("footer.PNG", 0, 0, self.w + 2)
+        self.image(r"Backend\PDF_ReportGeneration\footer.PNG", 0, 0, self.w + 2)
 
     def footer(self):
-        self.image("footer.PNG", 0, self.h - 5, self.w + 2)
+        self.image(r"Backend\PDF_ReportGeneration\footer.PNG", 0, self.h - 5, self.w + 2)
 
         temp_y = -50
         while temp_y != -350:
             self.set_y(temp_y)
-            self.image('leftBorder.PNG', x=0, y=self.get_y(), w=8)
-            self.image('rightBorder.PNG', x=self.w - 8, y=self.get_y(), w=8)
+            self.image(r'Backend\PDF_ReportGeneration\leftBorder.PNG', x=0, y=self.get_y(), w=8)
+            self.image(r'Backend\PDF_ReportGeneration\rightBorder.PNG', x=self.w - 8, y=self.get_y(), w=8)
             temp_y = temp_y - 50
 
         self.set_y(-15)
@@ -117,43 +120,49 @@ class UnicodePDF(FPDF):
         # Add a line for signature
         self.line(self.l_margin,  self.get_y(),  self.w - 100,  self.get_y())
 
-    def create_report(self, filename="student_report_card.pdf"):
-        pdf = UnicodePDF()  # A4 (210 by 297 mm)
-
+    def create_report(self, filename="student_report_card.self"):
+        
         ''' First Page '''
-        pdf.add_page()
-        pdf.image("banner.PNG", 0, 0, pdf.w)
-
-        pdf.student_details(
-            self.student_details[0], 
-            self.student_details[1], 
-            self.student_details[2], 
-            self.student_details[3], 
-            self.student_details[4]
+        self.add_page()
+        self.image(r"Backend\PDF_ReportGeneration\banner.PNG", 0, 0, self.w)
+        
+        std_id = str(self.student_data[0])
+        name = self.student_data[1]
+        address = self.student_data[3]
+        guardian_name = self.student_data[4]
+        phone = self.student_data[5]
+       
+        self.student_details(
+            name,
+            std_id, 
+            address,
+            guardian_name,
+            phone
         )
-        pdf.report_details()
-        pdf.signature_section()
+        
+        self.report_details()
+        self.signature_section()
 
         ''' Second Page '''
-        pdf.add_page()
+        self.add_page()
 
-        pdf.image("school_logo.png", 5, 20, pdf.w / 2 - 10)
-        pdf.image("school_logo.png", pdf.w / 2, 20, pdf.w / 2 - 10)
+        self.image(".temp\matching_success_rate_bar_chart.png", 5, 20, self.w / 2 - 10)
+        self.image(".temp\matching_time_bar_chart.png", self.w / 2, 20, self.w / 2 - 10)
 
-        pdf.image("school_logo.png", 5, 110, pdf.w / 2 - 10)
-        pdf.image("school_logo.png", pdf.w / 2, 110, pdf.w / 2 - 10)
+        self.image(".temp\puzzle_success_rate_bar_chart.png", 5, 110, self.w / 2 - 10)
+        self.image(".temp\puzzle_time_bar_chart.png", self.w / 2, 110, self.w / 2 - 10)
 
-        pdf.image("school_logo.png", 5, 200, pdf.w / 2 - 10)
-        pdf.image("school_logo.png", pdf.w / 2, 200, pdf.w / 2 - 10)
+        self.image(".temp\sequence_success_rate_bar_chart.png", 5, 200, self.w / 2 - 10)
+        self.image(".temp\sequence_time_bar_chart.png", self.w / 2, 200, self.w / 2 - 10)
         
-        pdf.add_page()
+        self.add_page()
         
-        pdf.image("school_logo.png", 5, 20, pdf.w / 2 - 10)
-        pdf.image("school_logo.png", pdf.w / 2, 20, pdf.w / 2 - 10)
+        self.image(".temp\lesson_attempt_bar_chart.png", 5, 20, self.w / 2 - 10)
+        self.image(".temp\lesson_time_bar_chart.png", self.w / 2, 20, self.w / 2 - 10)
 
 
-        pdf.output(filename)
-
+        self.output('Reports/'+self.report_card_name)
+        print("Report Card Created Successfully")
 
 # if __name__ == '__main__':
 #     create_report()

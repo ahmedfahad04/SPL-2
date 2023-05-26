@@ -25,6 +25,7 @@ from Backend.Database.student_db import student_data as sd
 from Backend.Database.lesson_performance_db import lesson_performance_data as lpd
 from Backend.Database.evaluation_assessment_db import evaluation_assessment_data as ead
 from Backend.ScreenShot.ImageCapture import ImageCaptureWidget
+from Backend.PDF_ReportGeneration.ReportCard import Report_Card_Generator
 import os
 import shutil
 
@@ -557,6 +558,7 @@ class Home(QMainWindow):  # Home extends QMainWindow
         self.home.performance_lesson_btn.clicked.connect(lambda: self.home.performance_stackwidget.setCurrentWidget(self.home.lesson_stk_widget))
         self.home.performance_eval_btn.clicked.connect(lambda: self.home.performance_stackwidget.setCurrentWidget(self.home.eval_stk_widget))
         self.home.lsn_btn_back_to_home_5.clicked.connect(self.home_page)
+        self.home.performance_report_btn.clicked.connect(self.load_performance_report)
         self.home.p_eval_matching_btn.clicked.connect(self.load_matching_graphs)
         self.home.p_eval_seq_btn.clicked.connect(self.load_sequence_graphs)
         self.home.p_eval_puzzle_btn.clicked.connect(self.load_puzzle_graphs) 
@@ -780,7 +782,36 @@ class Home(QMainWindow):  # Home extends QMainWindow
         self.home.p_lesson_right_graph_lbl.setScaledContents(True)
         self.home.p_lesson_right_graph_lbl.setPixmap(QPixmap('.temp/'+lesson_time_file_name))
         
+    def load_performance_report(self):
         
+        print("load performance report", self.home.performance_std_id_cmb.currentText())
+        
+        # check if the student is selected properly
+        if self.home.performance_std_id_cmb.currentText() == "সিলেক্ট করুন":
+            show_warning_message("শিক্ষার্থী নির্বাচন করা হয়নি", "শিক্ষার্থী নির্বাচন করে পারফর্মেন্স রিপোর্ট দেখুন") 
+            
+        # get student details from db
+        std_id = self.home.performance_std_id_cmb.currentText().split('_')[0]
+        student_data = sd().load_table(std_id)[0]
+       
+        # convert tuple to list 
+        student_data = list(student_data)
+        
+        # pass the data to the report generator
+        try:
+            report_card_name = str(student_data[0])+ '_' + student_data[1] + '_report_card.pdf'
+            reportCard = Report_Card_Generator(student_data, report_card_name)
+            show_confirmation_message("অপেক্ষা করুন!", "পারফর্মেন্স রিপোর্ট তৈরি হচ্ছে")  
+            reportCard.create_report()
+            
+        except Exception as e:
+            print(e)
+            
+        # open Report folder 
+        os.startfile('Reports')
+        
+        
+         
            
         
     
