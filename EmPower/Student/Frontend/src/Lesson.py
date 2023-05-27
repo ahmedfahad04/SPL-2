@@ -160,6 +160,10 @@ class Lesson_Window(QMainWindow):
                 self.video_player.mediaPlayer.stop()
                 self.video_player.close()
                 
+            # stop audio player
+            self.quit_music()
+                
+                
             # update lesson completion time 
             with open('.current_lesson_log.json', 'r') as f:
                 current_lesson_log = json.load(f)

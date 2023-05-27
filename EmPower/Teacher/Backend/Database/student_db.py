@@ -42,10 +42,15 @@ class student_data(Database_Manager, ABC):
 
             return False
 
-    def load_table(self, id) -> list:
+    def load_table(self) -> list:
 
-        self.controller_db_cursor.execute("SELECT * FROM student_info WHERE Std_ID = ?", (id, ))
+        self.controller_db_cursor.execute("SELECT * FROM student_info")
         return self.controller_db_cursor.fetchall()
+    
+    def get_data_with_id(self, id) -> list:
+            
+            self.controller_db_cursor.execute("SELECT * FROM student_info WHERE Std_ID = ?", (id, ))
+            return self.controller_db_cursor.fetchall()
 
     def delete_entry(self, student_id) -> bool:
 

@@ -33,6 +33,8 @@ class Lesson_Window(QMainWindow):  # Home extends QMainWindow
         self.lesson_elements = ld().load_table()
         self.current_category = None
         self.category_lesson_mappings = dict()
+        self.lesson_window.lsn_cmb_lessons.clear()
+
 
         # dictionary
         self.categories = {
@@ -60,6 +62,7 @@ class Lesson_Window(QMainWindow):  # Home extends QMainWindow
         self.form.setupUi(custom_form)
         # custom_form.setWindowModality(Qt.ApplicationModal)
         custom_form.show()
+        
 
         # set window icon and title
         custom_form.setWindowIcon(
@@ -315,6 +318,7 @@ class Lesson_Window(QMainWindow):  # Home extends QMainWindow
                 self.lesson_window.lsn_cmb_lessons.addItem(str(value))
                 print(value)
         except KeyError as e:
+            show_confirmation_message("লেসন যুক্ত হয়নি", "এখনো কোন লেসন এই ক্যাটাগরিতে যুক্ত করা হয়নি")
             print(f"No lessons found for categoryc-> {e}")
 
         # self.lesson_window.lsn_cmb_lessons.addItem("পাঠ নির্বাচন করুন")

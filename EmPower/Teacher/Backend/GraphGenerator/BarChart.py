@@ -38,7 +38,7 @@ class BarChart:
         ax.tick_params(axis='y', labelrotation=0, labelsize=10, colors='white')
 
         # Adjust the y-axis limit to provide some padding at the top
-        ax.set_ylim(top=max(self.values) * 1.3)
+        # ax.set_ylim(top=max(self.values) * 2)
 
         # Add the values as text labels on top of each bar
         for bar in bars:

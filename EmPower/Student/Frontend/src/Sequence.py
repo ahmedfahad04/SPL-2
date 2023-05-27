@@ -132,12 +132,13 @@ class Sequence_Window(QWidget):
             self.image_seq_dict = {key: value.replace("{}/".format(self.folder_set_name), "") for key, value in self.image_seq_dict.items()}
             print("DICT: ", self.image_seq_dict)
 
-            # include only those values that are images
+            #! include only those values that are images
             self.image_seq_dict = {key: value for key, value in self.image_seq_dict.items() if value in self.images}
 
             # fill the image tags
             self.image_tags = list(self.image_seq_dict.values()) 
             
+        print("SEQ: ", self.image_seq_dict)
         all_option_frames = [
             self.home_ui.seq_img_frame_lbl_1,
             self.home_ui.seq_img_frame_lbl_2,
@@ -221,6 +222,7 @@ class Sequence_Window(QWidget):
         self.correct_matches += 1
         
         # get image name
+        print("SEQ: ", self.image_seq_dict)
         matched_image_name = self.image_seq_dict[matched_image_id]
         print("Matched image name: ", matched_image_name)
         print("ID: ", matched_image_id)

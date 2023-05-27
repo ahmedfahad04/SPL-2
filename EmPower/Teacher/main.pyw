@@ -23,7 +23,7 @@ if __name__ == '__main__':
     splash.progress()
 
     window = Home()
-    # window.showMaximized()
+    window.showMaximized()
     window.show()
 
     splash.finish(window)

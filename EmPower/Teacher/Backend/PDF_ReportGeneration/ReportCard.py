@@ -11,9 +11,11 @@ class Report_Card_Generator(FPDF):
         self.report_card_name = report_card_name
     
     def header(self):
+        print("Entering Header!")
         self.image(r"Backend\PDF_ReportGeneration\footer.PNG", 0, 0, self.w + 2)
 
     def footer(self):
+        print("Entering Footer!")
         self.image(r"Backend\PDF_ReportGeneration\footer.PNG", 0, self.h - 5, self.w + 2)
 
         temp_y = -50
@@ -28,6 +30,8 @@ class Report_Card_Generator(FPDF):
         self.cell(0, 10, f"Created on: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}", 0, 0, 'R')
 
     def student_details(self, name, student_id, guardian_name, phone, address):
+        
+        print("Processissng Student Details!")
         self.ln(100)
         self.set_font('Arial', 'B', 16)
 
@@ -72,6 +76,8 @@ class Report_Card_Generator(FPDF):
         self.ln(10)
 
     def report_details(self):
+        
+        print("Processing Report Details!")
         self.ln(20)
         self.set_font('Arial', 'B', 16)
 
@@ -107,6 +113,8 @@ class Report_Card_Generator(FPDF):
         self.ln(10)
 
     def signature_section(self):
+        
+        print("Processing Signature Section!")
         self.ln(20)
         # Signature Section
         self.set_font('Arial', 'B', 12)
@@ -121,6 +129,8 @@ class Report_Card_Generator(FPDF):
         self.line(self.l_margin,  self.get_y(),  self.w - 100,  self.get_y())
 
     def create_report(self, filename="student_report_card.self"):
+        
+        print("Creating Report Card!")
         
         ''' First Page '''
         self.add_page()
@@ -159,7 +169,6 @@ class Report_Card_Generator(FPDF):
         
         self.image(".temp\lesson_attempt_bar_chart.png", 5, 20, self.w / 2 - 10)
         self.image(".temp\lesson_time_bar_chart.png", self.w / 2, 20, self.w / 2 - 10)
-
 
         self.output('Reports/'+self.report_card_name)
         print("Report Card Created Successfully")

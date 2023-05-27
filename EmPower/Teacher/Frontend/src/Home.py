@@ -42,6 +42,8 @@ class Home(QMainWindow):  # Home extends QMainWindow
         
         self.home_page()
         self.populate_performance_table()
+        
+        # buttons
                 
     def home_page(self):
         
@@ -114,8 +116,7 @@ class Home(QMainWindow):  # Home extends QMainWindow
         # Navigate between windows
         self.home.mediaStackWidget.setCurrentWidget(self.home.image_page)
         self.home.stackedWidget.setCurrentWidget(self.home.lesson_page)
-        
-                
+                        
         # Connecting Lesson window buttons
         self.home.lsn_btn_add_lessons.clicked.connect(self.lesson_window.create_lesson)
         self.home.lsn_cmb_category.currentIndexChanged.connect(self.lesson_window.on_category_changed)
@@ -132,7 +133,7 @@ class Home(QMainWindow):  # Home extends QMainWindow
         self.home.stackedWidget.setCurrentWidget(self.home.task_page)
         self.home.evalstackwidget.setCurrentWidget(self.home.matching_page)
         self.home.task_btn_back_to_home.clicked.connect(self.home_page)
-        self.matching_page()
+        # self.matching_page()
         
         # Connecting Task window buttons
         # !need to move on Task Window Page
@@ -260,15 +261,15 @@ class Home(QMainWindow):  # Home extends QMainWindow
         
         # save image to log file as json
         image_description = self.home.task_seq_img_desc_edit.text()
-        image_sequence = self.home.task_seq_img_seq_edit.text()
-        image_set = self.home.task_seq_set_lbl.text()
+        # image_sequence = self.home.task_seq_img_seq_edit.text()
+        image_set = 's_' + self.home.task_seq_set_lbl.text()
         current_saved_image_path = self.image_capture_window.current_saved_file
         
         # convert all spaces with _
         image_description = image_description.replace(" ", "_")
         
         # check if any filed is empty 
-        if image_description == "" or image_sequence == "" or image_set == "":
+        if image_description == "" or image_set == "":
             show_warning_message("ফিল্ড অসম্পূর্ণ", "সব ফিল্ড পূরণ করুন")
             return
                 
@@ -281,15 +282,15 @@ class Home(QMainWindow):  # Home extends QMainWindow
             return
             
         # check if given serial is already exists in set 
-        existing_files = os.listdir('Lessons/Sequence_Images/{}'.format(image_set))
-        for file in existing_files:
-            if image_sequence in file:
-                show_warning_message("ভুল সিকোয়েন্স", "{} এই সিকোয়েন্স ইতিমধ্যে ব্যবহৃত হয়েছে".format(image_sequence))
-                return 
+        # existing_files = os.listdir('Lessons/Sequence_Images/{}'.format(image_set))
+        # for file in existing_files:
+        #     if image_sequence in file:
+        #         show_warning_message("ভুল সিকোয়েন্স", "{} এই সিকোয়েন্স ইতিমধ্যে ব্যবহৃত হয়েছে".format(image_sequence))
+        #         return 
             
         # check if 4 image is selected or not
         if self.sequence_image_count >= 3:
-            shutil.move(current_saved_image_path, 'Lessons/Sequence_Images/{}/{}_{}.png'.format(image_set, image_sequence, image_description))
+            shutil.move(current_saved_image_path, 'Lessons/Sequence_Images/{}/{}_{}.png'.format(image_set, self.sequence_image_count+1, image_description))
             show_confirmation_message("সম্পূর্ণ হয়েছে", "{} সেটের ৪ টি ছবি নির্বাচন করা হয়েছে, নতুন ছবি অন্য সেটে যোগ করতে পারেন".format(image_set))
             
             # reset all fields
@@ -297,11 +298,10 @@ class Home(QMainWindow):  # Home extends QMainWindow
             self.home.task_seq_img_seq_edit.clear()
             self.home.task_seq_set_lbl.clear()
             self.home.task_seq_img_view_lbl.clear()
-            self.sequence_image_count = 0
             
             # save data to json
             image_name = '{}/{}.png'.format(image_set,image_description)
-            self.sequence_details[image_sequence] = image_name
+            self.sequence_details[self.sequence_image_count+1] = image_name[2:]
             self.sequence_details['creation_date'] = datetime.datetime.now().strftime("%d/%m/%Y")    
             self.sequence_details['creation_time'] = datetime.datetime.now().strftime("%H:%M:%S")
             self.sequence_details['topic'] = self.home.task_seq_set_lbl.text()
@@ -310,6 +310,7 @@ class Home(QMainWindow):  # Home extends QMainWindow
                 json.dump(self.sequence_details, json_file)
             
             self.sequence_details = {}
+            self.sequence_image_count = 0
             
         else: 
             
@@ -317,12 +318,12 @@ class Home(QMainWindow):  # Home extends QMainWindow
             self.sequence_image_count += 1
             
             # save images to specific set 
-            shutil.move(current_saved_image_path, 'Lessons/Sequence_Images/{}/{}_{}.png'.format(image_set, image_sequence, image_description))
+            shutil.move(current_saved_image_path, 'Lessons/Sequence_Images/{}/{}_{}.png'.format(image_set, self.sequence_image_count, image_description))
             show_warning_message("ছবি নির্বাচন শেষ হয়নি", "আরো {} ছবি নির্বাচন করতে হবে".format(4 - self.sequence_image_count))
             
             # save data to json 
             image_name = '{}/{}.png'.format(image_set,image_description)
-            self.sequence_details[image_sequence] = image_name
+            self.sequence_details[self.sequence_image_count] = image_name[2:]
     
     #! TODO: Will move this method to separate class if we got times
     def puzzle_page(self):
@@ -379,10 +380,12 @@ class Home(QMainWindow):  # Home extends QMainWindow
             pass 
 
     def save_puzzle_set(self):
+        
+        puzzle_set = 'p_' + self.home.task_puzzle_q_set_lbl.text()
                 
         # rename folder Temp
-        if os.path.exists('Lessons/Puzzle_Images/{}'.format(self.home.task_puzzle_q_set_lbl.text())) == False:
-            os.rename('Lessons/Puzzle_Images/.temp', 'Lessons/Puzzle_Images/{}'.format(self.home.task_puzzle_q_set_lbl.text()))
+        if os.path.exists('Lessons/Puzzle_Images/{}'.format(puzzle_set)) == False:
+            os.rename('Lessons/Puzzle_Images/.temp', 'Lessons/Puzzle_Images/{}'.format(puzzle_set))
             self.home.task_puzzle_image_lbl.setText("ছবি {} ফোল্ডারে সংরক্ষণ করা হয়েছে।{} নতুন ফোল্ডারে সংরক্ষণের জন্য পুনরায় ছবি নির্বাচন করুন".format(self.home.task_puzzle_q_set_lbl.text(), '\n'))	
             
             self.home.task_puzzle_q_set_lbl.clear()
@@ -395,6 +398,8 @@ class Home(QMainWindow):  # Home extends QMainWindow
         
         # open lesson folder  
         os.startfile('Lessons\Puzzle_Images') 
+        
+    #! TODO: Will move this method to separate class if we got times
         
     def matching_process(self, frame_name):
         
@@ -476,7 +481,7 @@ class Home(QMainWindow):  # Home extends QMainWindow
                     return False
                 
         # create a new folder according to set name provided
-        matching_set_name = self.home.task_matching_set_edit.text()
+        matching_set_name = 'm_' + self.home.task_matching_set_edit.text()
         
         # check if set name is provided
         if matching_set_name == "":
@@ -543,7 +548,7 @@ class Home(QMainWindow):  # Home extends QMainWindow
             show_warning_message("পর্যাপ্ত ছবি নেই", "সেটে ৪টি ছবি থাকতে হবে")
             shutil.rmtree('Lessons/Matching_Images/{}'.format(matching_set_name))
         else:
-            show_success_message("সেট সংরক্ষণ সম্পন্ন", "{} সেট সংরক্ষণ সম্পন্ন হয়েছে".format(matching_set_name))
+            show_success_message("সেট সংরক্ষণ সম্পন্ন", "{} সেট সংরক্ষণ সম্পন্ন হয়েছে".format(matching_set_name.split('_')[-1]))
             os.startfile('Lessons\Matching_Images\{}'.format(matching_set_name)) #! always use \ for relative path
             self.home.task_matching_set_edit.clear()
         
@@ -791,8 +796,11 @@ class Home(QMainWindow):  # Home extends QMainWindow
             show_warning_message("শিক্ষার্থী নির্বাচন করা হয়নি", "শিক্ষার্থী নির্বাচন করে পারফর্মেন্স রিপোর্ট দেখুন") 
             
         # get student details from db
-        std_id = self.home.performance_std_id_cmb.currentText().split('_')[0]
-        student_data = sd().load_table(std_id)[0]
+        try:
+            std_id = self.home.performance_std_id_cmb.currentText().split('_')[0]
+            student_data = sd().get_data_with_id(std_id)[0]
+        except Exception as e:
+            print(e)    
        
         # convert tuple to list 
         student_data = list(student_data)
