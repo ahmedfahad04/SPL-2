@@ -569,7 +569,7 @@ class Home(QMainWindow):  # Home extends QMainWindow
     
     def create_mcq_set(self):
         
-        set_no = self.home.task_mcq_set_no_edit.toPlainText()
+        set_no = 'q_'+self.home.task_mcq_set_no_edit.toPlainText()
         
         # if set name is not provided
         if self.home.task_mcq_set_no_edit.toPlainText() == "":
@@ -624,7 +624,7 @@ class Home(QMainWindow):  # Home extends QMainWindow
             return False
         
         # get the set name
-        set_no = self.home.task_mcq_set_no_edit.toPlainText()
+        set_no = 'q_'+self.home.task_mcq_set_no_edit.toPlainText()
         
         # copy image after json is writen  
         # for i in range(1, self.total_mcq_questions+1):  
@@ -662,7 +662,7 @@ class Home(QMainWindow):  # Home extends QMainWindow
         img_path = QFileDialog.getOpenFileName(self, "ছবি নির্বাচন করুন", "", "Image Files (*.png *.jpg *.jpeg)")[0]
         if img_path != '':
             self.current_mcq_image_path = img_path
-            shutil.copy2(img_path, f"Lessons/MCQ_Questions/{self.home.task_mcq_set_no_edit.toPlainText()}//q_{self.total_mcq_questions}.png")
+            shutil.copy2(img_path, f"Lessons/MCQ_Questions/{'q_'+self.home.task_mcq_set_no_edit.toPlainText()}//q_{self.total_mcq_questions}.png")
             self.home.task_mcq_img_lbl.setText(img_path.split("/")[-1])
         else:
             self.current_mcq_image_path = ''

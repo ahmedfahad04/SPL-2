@@ -9,6 +9,7 @@ from Backend.AudioPlayer import MusicPlayer
 from Frontend.Student_UI import ui_home
 from Frontend.src.Document_Formatter import *
 from Frontend.src.Lesson import Lesson_Window
+from Frontend.src.MCQ import MCQ_Window
 from Frontend.src.Matching import Matching_Window
 from Frontend.src.Puzzle import Puzzle_Window
 from Frontend.src.Sequence import Sequence_Window
@@ -21,10 +22,13 @@ class Home(QMainWindow):  # Home extends QMainWindow
         self.lesson_window = None
         self.music_player = None 
         self.home = None 
-        self.current_window = None
+        self.current_window = 'MCQ'
         self.current_lesson_id = None
         self.start_time = time.time()
         self.lesson_completion_data = {}
+        # self.current_mcq_question = 1
+        # self.mcq_data = {}
+        # self.total_mcq_questions = 0
         
         #! TODO: Handle student id and name
         
@@ -177,6 +181,168 @@ class Home(QMainWindow):  # Home extends QMainWindow
         self.sequence_window.load_sequence_file()  
         self.celebration_page() # need to modify a bit
         
+    def mcq_page(self):
+        
+        print("MCQ Page")
+        self.current_window = 'MCQ'
+                
+        # navigate to mcq page
+        self.home.stackedWidget.setCurrentWidget(self.home.mcq_page)
+        
+        # make object of mcq window
+        #! not loading the MCQ Page
+        
+        self.mcq_window = MCQ_Window(self.home)
+        self.mcq_window.load_mcq_question()
+        self.celebration_page()
+        
+        # # connecting buttons
+        # self.home.btn_mcq_option_1.clicked.connect(lambda: self.check_answer(self.home.btn_mcq_option_1))
+        # self.home.btn_mcq_option_2.clicked.connect(lambda: self.check_answer(self.home.btn_mcq_option_2))
+        # self.home.btn_mcq_option_3.clicked.connect(lambda: self.check_answer(self.home.btn_mcq_option_3))
+        # self.home.btn_mcq_option_4.clicked.connect(lambda: self.check_answer(self.home.btn_mcq_option_4))
+        
+        # # read contents
+        # folder_pattern = "Resources/q_*"  # Pattern to match folders starting with "m_"
+
+        # # Get a list of matching folder paths
+        # self.matching_folder = glob.glob(folder_pattern)[0]
+        # self.folder_set_name = self.matching_folder.split("\\")[-1][2:]
+
+        # # read the json
+        # with open(r'Resources/q_'+self.folder_set_name+'/questions.json', 'r') as f:
+        #     self.mcq_data = json.load(f)
+        #     self.total_mcq_questions = len(self.mcq_data)
+            
+        # self.load_mcq_question()
+        
+    # def load_mcq_question(self):
+        
+    #     # reset button state
+    #     self.reset_mcq_button_states()
+               
+    #     # set the question
+    #     self.home.lbl_mcq_question.setText(self.mcq_data[str(self.current_mcq_question)]["question"])
+    #     self.home.btn_mcq_option_1.setText(self.mcq_data[str(self.current_mcq_question)]["option_1"])        
+    #     self.home.btn_mcq_option_2.setText(self.mcq_data[str(self.current_mcq_question)]["option_2"])        
+    #     self.home.btn_mcq_option_3.setText(self.mcq_data[str(self.current_mcq_question)]["option_3"])        
+    #     self.home.btn_mcq_option_4.setText(self.mcq_data[str(self.current_mcq_question)]["option_4"])   
+        
+    #     # set the image if available
+    #     files = os.listdir(r'Resources/q_'+self.folder_set_name)
+        
+    #     for content in files:
+            
+    #         img_id = ''
+    #         if '_' in content:
+    #             img_id = content.split('_')[1].split('.')[0]
+            
+    #             print("ID: ", img_id)	
+            
+    #         if str(self.current_mcq_question) == img_id:
+    #             print("Image: ", 'Resources/q_'+self.folder_set_name+'/'+content)
+    #             self.home.lbl_mcq_image.setScaledContents(True)
+    #             self.home.lbl_mcq_image.setPixmap(QPixmap(r'Resources/q_'+self.folder_set_name+'/'+content))	
+    #             break 
+      
+    # def reset_mcq_button_states(self):
+        
+    #     self.home.btn_mcq_option_1.setEnabled(True)
+    #     self.home.btn_mcq_option_2.setEnabled(True)
+    #     self.home.btn_mcq_option_3.setEnabled(True)
+    #     self.home.btn_mcq_option_4.setEnabled(True)
+        
+    #     self.home.btn_mcq_option_1.setStyleSheet(
+    #         '''
+    #         QPushButton {
+    #             border: 3px solid #E07A5F;
+    #             background-color:#3D405B;
+    #             border-radius: 20px;
+    #             color: rgb(255, 170, 127);
+    #             }
+
+    #             QPushButton:hover:!pressed {
+    #             background-color: #E07A5F;
+    #             color: #F4F1DE;
+    #             border: 3px solid #3D405B;
+    #         }
+    #         '''
+    #     )  
+        
+    #     self.home.btn_mcq_option_2.setStyleSheet(
+    #         '''
+    #         QPushButton {
+    #             border: 3px solid #E07A5F;
+    #             background-color:#3D405B;
+    #             border-radius: 20px;
+    #             color: rgb(255, 170, 127);
+    #             }
+
+    #             QPushButton:hover:!pressed {
+    #             background-color: #E07A5F;
+    #             color: #F4F1DE;
+    #             border: 3px solid #3D405B;
+    #         }
+    #         '''
+    #     )  
+        
+    #     self.home.btn_mcq_option_3.setStyleSheet(
+    #         '''
+    #         QPushButton {
+    #             border: 3px solid #E07A5F;
+    #             background-color:#3D405B;
+    #             border-radius: 20px;
+    #             color: rgb(255, 170, 127);
+    #             }
+
+    #             QPushButton:hover:!pressed {
+    #             background-color: #E07A5F;
+    #             color: #F4F1DE;
+    #             border: 3px solid #3D405B;
+    #         }
+    #         '''
+    #     )  
+        
+    #     self.home.btn_mcq_option_4.setStyleSheet(
+    #         '''
+    #         QPushButton {
+    #             border: 3px solid #E07A5F;
+    #             background-color:#3D405B;
+    #             border-radius: 20px;
+    #             color: rgb(255, 170, 127);
+    #             }
+
+    #             QPushButton:hover:!pressed {
+    #             background-color: #E07A5F;
+    #             color: #F4F1DE;
+    #             border: 3px solid #3D405B;
+    #         }
+    #         '''
+    #     )      
+        
+    # def check_answer(self, button_object):
+        
+    #     correct_answer = self.mcq_data[str(self.current_mcq_question)]["correct_answer"]
+        
+    #     if correct_answer == button_object.text():
+    #         button_object.setStyleSheet("background-color: green; border: 2px dashed black; border-radius: 10px;")
+    #         self.disable_mcq_buttons()
+    #         self.current_mcq_question += 1
+    #         if self.current_mcq_question > self.total_mcq_questions:
+    #             print("All Questions Completed")
+    #             self.celebration_page()
+    #         else:
+    #             QTimer.singleShot(2000, lambda: self.load_mcq_question())
+    #     else:
+    #         button_object.setStyleSheet("background-color: red; border: 2px dashed black; border-radius: 10px;")
+
+    # def disable_mcq_buttons(self):
+        
+    #     self.home.btn_mcq_option_1.setEnabled(False)
+    #     self.home.btn_mcq_option_2.setEnabled(False)
+    #     self.home.btn_mcq_option_3.setEnabled(False)
+    #     self.home.btn_mcq_option_4.setEnabled(False)
+           
     def celebration_page(self):
         
         #! TODO: Mute Unmute Sound
@@ -196,6 +362,9 @@ class Home(QMainWindow):  # Home extends QMainWindow
         
         # navigate celebration page
         if self.current_window == "Lesson":
+            self.home.c_next_quiz.clicked.connect(self.mcq_page)
+            
+        if self.current_window == 'MCQ':
             self.home.c_next_quiz.clicked.connect(self.puzzle_page)
             
         elif self.current_window == "puzzle":
@@ -250,10 +419,7 @@ class Home(QMainWindow):  # Home extends QMainWindow
             shutil.copy2('Performance\matching_results.json',performance_folder_name)
             shutil.copy2('Performance\puzzle_results.json',performance_folder_name)
             shutil.copy2('Performance\sequencing_results.json',performance_folder_name)
-            
-            
-            
-            
+                  
     def closeEvent(self, event):
         # For example, you can show a message box asking the user if they really want to quit the application
         reply = QMessageBox.question(self, 'সফটওয়্যার বন্ধ করুন', 'আপনি কি সফটওয়্যারটি বন্ধ করতে চান?', QMessageBox.Yes | QMessageBox.No, QMessageBox.No)

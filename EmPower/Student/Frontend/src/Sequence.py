@@ -117,7 +117,7 @@ class Sequence_Window(QWidget):
 
         # Get a list of matching folder paths
         self.matching_folder = glob.glob(folder_pattern)[0]
-        self.folder_set_name = self.matching_folder.split("\\")[-1].split("_")[-1]
+        self.folder_set_name = self.matching_folder.split("\\")[-1][2:]
         folder_files = os.listdir(self.matching_folder)
         
         # read images from folder and remove the initial two words (eg. 1_, 2_) from the file name
