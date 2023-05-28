@@ -696,6 +696,9 @@ class Ui_MainWindow(object):
         self.mat_option_1_frame = QFrame(self.frame_6)
         self.mat_option_1_frame.setObjectName(u"mat_option_1_frame")
         self.mat_option_1_frame.setMinimumSize(QSize(201, 61))
+        font9 = QFont()
+        font9.setPointSize(10)
+        self.mat_option_1_frame.setFont(font9)
         self.mat_option_1_frame.setCursor(QCursor(Qt.PointingHandCursor))
         self.mat_option_1_frame.setStyleSheet(u"border: 2px dotted rgb(0, 43, 91);\n"
 "background-color: rgb(236, 233, 215);\n"
@@ -712,6 +715,7 @@ class Ui_MainWindow(object):
         self.mat_option_2_frame = QFrame(self.frame_6)
         self.mat_option_2_frame.setObjectName(u"mat_option_2_frame")
         self.mat_option_2_frame.setMinimumSize(QSize(201, 61))
+        self.mat_option_2_frame.setFont(font9)
         self.mat_option_2_frame.setCursor(QCursor(Qt.PointingHandCursor))
         self.mat_option_2_frame.setStyleSheet(u"border: 2px dotted rgb(0, 43, 91);\n"
 "background-color: rgb(236, 233, 215);\n"
@@ -728,6 +732,7 @@ class Ui_MainWindow(object):
         self.mat_option_3_frame = QFrame(self.frame_6)
         self.mat_option_3_frame.setObjectName(u"mat_option_3_frame")
         self.mat_option_3_frame.setMinimumSize(QSize(201, 61))
+        self.mat_option_3_frame.setFont(font9)
         self.mat_option_3_frame.setCursor(QCursor(Qt.PointingHandCursor))
         self.mat_option_3_frame.setStyleSheet(u"border: 2px dotted rgb(0, 43, 91);\n"
 "background-color: rgb(236, 233, 215);\n"
@@ -744,6 +749,7 @@ class Ui_MainWindow(object):
         self.mat_option_4_frame = QFrame(self.frame_6)
         self.mat_option_4_frame.setObjectName(u"mat_option_4_frame")
         self.mat_option_4_frame.setMinimumSize(QSize(201, 61))
+        self.mat_option_4_frame.setFont(font9)
         self.mat_option_4_frame.setCursor(QCursor(Qt.PointingHandCursor))
         self.mat_option_4_frame.setStyleSheet(u"border: 2px dotted rgb(0, 43, 91);\n"
 "background-color: rgb(236, 233, 215);\n"
@@ -1221,9 +1227,9 @@ class Ui_MainWindow(object):
         self.lbl_mcq_question = QLabel(self.frame_17)
         self.lbl_mcq_question.setObjectName(u"lbl_mcq_question")
         self.lbl_mcq_question.setMinimumSize(QSize(461, 101))
-        font9 = QFont()
-        font9.setPointSize(13)
-        self.lbl_mcq_question.setFont(font9)
+        font10 = QFont()
+        font10.setPointSize(13)
+        self.lbl_mcq_question.setFont(font10)
         self.lbl_mcq_question.setStyleSheet(u"border: 2px solid rgb(61, 64, 91);")
         self.lbl_mcq_question.setAlignment(Qt.AlignCenter)
 
@@ -1249,9 +1255,9 @@ class Ui_MainWindow(object):
         self.label_7.setObjectName(u"label_7")
         self.label_7.setMinimumSize(QSize(30, 50))
         self.label_7.setMaximumSize(QSize(110, 16777215))
-        font10 = QFont()
-        font10.setPointSize(20)
-        self.label_7.setFont(font10)
+        font11 = QFont()
+        font11.setPointSize(20)
+        self.label_7.setFont(font11)
         self.label_7.setStyleSheet(u"background-color: rgb(224, 122, 95);\n"
 "color: #000;\n"
 "border-radius: 51px;")
@@ -1262,9 +1268,9 @@ class Ui_MainWindow(object):
         self.btn_mcq_option_1 = QPushButton(self.frame_12)
         self.btn_mcq_option_1.setObjectName(u"btn_mcq_option_1")
         self.btn_mcq_option_1.setMinimumSize(QSize(335, 90))
-        font11 = QFont()
-        font11.setPointSize(15)
-        self.btn_mcq_option_1.setFont(font11)
+        font12 = QFont()
+        font12.setPointSize(15)
+        self.btn_mcq_option_1.setFont(font12)
         self.btn_mcq_option_1.setStyleSheet(u"QPushButton {\n"
 "border: 3px solid #E07A5F;\n"
 "background-color:#3D405B;\n"
@@ -1298,7 +1304,7 @@ class Ui_MainWindow(object):
         self.label_13.setObjectName(u"label_13")
         self.label_13.setMinimumSize(QSize(110, 109))
         self.label_13.setMaximumSize(QSize(110, 16777215))
-        self.label_13.setFont(font10)
+        self.label_13.setFont(font11)
         self.label_13.setStyleSheet(u"background-color: rgb(224, 122, 95);\n"
 "color: #000;\n"
 "border-radius: 51px;")
@@ -1309,7 +1315,7 @@ class Ui_MainWindow(object):
         self.btn_mcq_option_2 = QPushButton(self.frame_13)
         self.btn_mcq_option_2.setObjectName(u"btn_mcq_option_2")
         self.btn_mcq_option_2.setMinimumSize(QSize(335, 90))
-        self.btn_mcq_option_2.setFont(font11)
+        self.btn_mcq_option_2.setFont(font12)
         self.btn_mcq_option_2.setStyleSheet(u"QPushButton {\n"
 "border: 3px solid #E07A5F;\n"
 "background-color:#3D405B;\n"
@@ -1338,7 +1344,7 @@ class Ui_MainWindow(object):
         self.label_14.setObjectName(u"label_14")
         self.label_14.setMinimumSize(QSize(70, 70))
         self.label_14.setMaximumSize(QSize(110, 16777215))
-        self.label_14.setFont(font10)
+        self.label_14.setFont(font11)
         self.label_14.setStyleSheet(u"background-color: rgb(224, 122, 95);\n"
 "color: #000;\n"
 "border-radius: 51px;")
@@ -1349,7 +1355,7 @@ class Ui_MainWindow(object):
         self.btn_mcq_option_3 = QPushButton(self.frame_14)
         self.btn_mcq_option_3.setObjectName(u"btn_mcq_option_3")
         self.btn_mcq_option_3.setMinimumSize(QSize(335, 90))
-        self.btn_mcq_option_3.setFont(font11)
+        self.btn_mcq_option_3.setFont(font12)
         self.btn_mcq_option_3.setStyleSheet(u"QPushButton {\n"
 "border: 3px solid #E07A5F;\n"
 "background-color:#3D405B;\n"
@@ -1379,7 +1385,7 @@ class Ui_MainWindow(object):
         self.label_15.setObjectName(u"label_15")
         self.label_15.setMinimumSize(QSize(70, 70))
         self.label_15.setMaximumSize(QSize(110, 16777215))
-        self.label_15.setFont(font10)
+        self.label_15.setFont(font11)
         self.label_15.setStyleSheet(u"background-color: rgb(224, 122, 95);\n"
 "color: #000;\n"
 "border-radius: 51px;")
@@ -1390,7 +1396,7 @@ class Ui_MainWindow(object):
         self.btn_mcq_option_4 = QPushButton(self.frame_15)
         self.btn_mcq_option_4.setObjectName(u"btn_mcq_option_4")
         self.btn_mcq_option_4.setMinimumSize(QSize(335, 90))
-        self.btn_mcq_option_4.setFont(font11)
+        self.btn_mcq_option_4.setFont(font12)
         self.btn_mcq_option_4.setStyleSheet(u"QPushButton {\n"
 "border: 3px solid #E07A5F;\n"
 "background-color:#3D405B;\n"
@@ -1453,12 +1459,15 @@ class Ui_MainWindow(object):
         self.c_next_quiz_lbl.setText(QCoreApplication.translate("MainWindow", u"\u09aa\u09b0\u09ac\u09b0\u09cd\u09a4\u09c0 \u09ae\u09c2\u09b2\u09cd\u09af\u09be\u09df\u09a8", None))
         self.c_next_quiz.setText("")
 #if QT_CONFIG(shortcut)
-        self.c_next_quiz.setShortcut(QCoreApplication.translate("MainWindow", u"Space", None))
+        self.c_next_quiz.setShortcut(QCoreApplication.translate("MainWindow", u"Right", None))
 #endif // QT_CONFIG(shortcut)
         self.n_message.setText(QCoreApplication.translate("MainWindow", u"\u0985\u09ad\u09bf\u09a8\u09a8\u09cd\u09a6\u09a8!!! ", None))
         self.n_icon.setText("")
-        self.n_type_lbl.setText(QCoreApplication.translate("MainWindow", u"\u09a7\u09be\u0981\u09a7\u09be", None))
+        self.n_type_lbl.setText("")
         self.n_proceed_btn.setText("")
+#if QT_CONFIG(shortcut)
+        self.n_proceed_btn.setShortcut(QCoreApplication.translate("MainWindow", u"Right", None))
+#endif // QT_CONFIG(shortcut)
         self.lbl_lesson_sub_heading_3.setText(QCoreApplication.translate("MainWindow", u"\u09aa\u09be\u09a0 \u09ae\u09c2\u09b2\u09cd\u09af\u09be\u09df\u09a8", None))
         self.lbl_lesson_headline_3.setText(QCoreApplication.translate("MainWindow", u"\u09b6\u09ac\u09cd\u09a6 \u09ae\u09bf\u09b2\u09a8", None))
         self.mat_img_lbl_3.setText("")
@@ -1481,9 +1490,6 @@ class Ui_MainWindow(object):
         self.lbl_mcq_subheading.setText(QCoreApplication.translate("MainWindow", u"\u09b8\u09c7\u099f \u09e7", None))
         self.btn_prev_mcq.setText("")
         self.btn_next_mcq.setText("")
-#if QT_CONFIG(shortcut)
-        self.btn_next_mcq.setShortcut(QCoreApplication.translate("MainWindow", u"Space", None))
-#endif // QT_CONFIG(shortcut)
         self.lbl_mcq_image.setText("")
         self.lbl_mcq_question.setText(QCoreApplication.translate("MainWindow", u"\u09aa\u09cd\u09b0\u09b6\u09cd\u09a8", None))
         self.label_7.setText(QCoreApplication.translate("MainWindow", u"\u0995", None))

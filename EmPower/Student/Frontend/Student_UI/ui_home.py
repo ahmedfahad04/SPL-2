@@ -474,6 +474,7 @@ class Ui_MainWindow(object):
         font.setPointSize(55)
         self.n_type_lbl.setFont(font)
         self.n_type_lbl.setStyleSheet("border: 3px solid rgb(61, 64, 91);")
+        self.n_type_lbl.setText("")
         self.n_type_lbl.setAlignment(QtCore.Qt.AlignCenter)
         self.n_type_lbl.setObjectName("n_type_lbl")
         self.gridLayout_6.addWidget(self.n_type_lbl, 0, 0, 1, 1)
@@ -621,6 +622,9 @@ class Ui_MainWindow(object):
         self.gridLayout_12.addItem(spacerItem5, 0, 9, 1, 1)
         self.mat_option_1_frame = QtWidgets.QFrame(self.frame_6)
         self.mat_option_1_frame.setMinimumSize(QtCore.QSize(201, 61))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.mat_option_1_frame.setFont(font)
         self.mat_option_1_frame.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.mat_option_1_frame.setStyleSheet("border: 2px dotted rgb(0, 43, 91);\n"
 "background-color: rgb(236, 233, 215);\n"
@@ -633,6 +637,9 @@ class Ui_MainWindow(object):
         self.gridLayout_12.addItem(spacerItem6, 1, 3, 1, 1)
         self.mat_option_2_frame = QtWidgets.QFrame(self.frame_6)
         self.mat_option_2_frame.setMinimumSize(QtCore.QSize(201, 61))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.mat_option_2_frame.setFont(font)
         self.mat_option_2_frame.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.mat_option_2_frame.setStyleSheet("border: 2px dotted rgb(0, 43, 91);\n"
 "background-color: rgb(236, 233, 215);\n"
@@ -645,6 +652,9 @@ class Ui_MainWindow(object):
         self.gridLayout_12.addItem(spacerItem7, 1, 6, 1, 1)
         self.mat_option_3_frame = QtWidgets.QFrame(self.frame_6)
         self.mat_option_3_frame.setMinimumSize(QtCore.QSize(201, 61))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.mat_option_3_frame.setFont(font)
         self.mat_option_3_frame.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.mat_option_3_frame.setStyleSheet("border: 2px dotted rgb(0, 43, 91);\n"
 "background-color: rgb(236, 233, 215);\n"
@@ -657,6 +667,9 @@ class Ui_MainWindow(object):
         self.gridLayout_12.addItem(spacerItem8, 1, 8, 1, 1)
         self.mat_option_4_frame = QtWidgets.QFrame(self.frame_6)
         self.mat_option_4_frame.setMinimumSize(QtCore.QSize(201, 61))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.mat_option_4_frame.setFont(font)
         self.mat_option_4_frame.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.mat_option_4_frame.setStyleSheet("border: 2px dotted rgb(0, 43, 91);\n"
 "background-color: rgb(236, 233, 215);\n"
@@ -1283,16 +1296,15 @@ class Ui_MainWindow(object):
         self.lbl_lesson_sub_heading_2.setText(_translate("MainWindow", "পাঠ মূল্যায়ন"))
         self.c_lable.setText(_translate("MainWindow", "অভিনন্দন!!!"))
         self.c_next_quiz_lbl.setText(_translate("MainWindow", "পরবর্তী মূল্যায়ন"))
-        self.c_next_quiz.setShortcut(_translate("MainWindow", "Space"))
+        self.c_next_quiz.setShortcut(_translate("MainWindow", "Right"))
         self.n_message.setText(_translate("MainWindow", "অভিনন্দন!!! "))
-        self.n_type_lbl.setText(_translate("MainWindow", "ধাঁধা"))
+        self.n_proceed_btn.setShortcut(_translate("MainWindow", "Right"))
         self.lbl_lesson_sub_heading_3.setText(_translate("MainWindow", "পাঠ মূল্যায়ন"))
         self.lbl_lesson_headline_3.setText(_translate("MainWindow", "শব্দ মিলন"))
         self.lbl_lesson_headline_4.setText(_translate("MainWindow", "ধারা মিলাও"))
         self.lbl_lesson_sub_heading_4.setText(_translate("MainWindow", "পাঠ মূল্যায়ন"))
         self.lbl_mcq_heading.setText(_translate("MainWindow", "বহুনির্বচনী"))
         self.lbl_mcq_subheading.setText(_translate("MainWindow", "সেট ১"))
-        self.btn_next_mcq.setShortcut(_translate("MainWindow", "Space"))
         self.lbl_mcq_question.setText(_translate("MainWindow", "প্রশ্ন"))
         self.label_7.setText(_translate("MainWindow", "ক"))
         self.btn_mcq_option_1.setText(_translate("MainWindow", "অপশন ১"))

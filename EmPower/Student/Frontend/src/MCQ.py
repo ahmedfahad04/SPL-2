@@ -1,9 +1,13 @@
+import datetime
 import glob
 import json
+from math import ceil
 import os
+import time
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
+from PyQt5.QtMultimedia import QSound
 
 
 class MCQ_Window(QWidget):
@@ -16,6 +20,10 @@ class MCQ_Window(QWidget):
         self.current_mcq_question = 1
         self.mcq_data = {}
         self.total_mcq_questions = 0
+        self.start_time = time.time()
+        self.attempts = 0
+        self.performance = {}
+        self.avg_attempts = 0
         
         # connecting buttons
         self.home_ui.btn_mcq_option_1.clicked.connect(lambda: self.check_answer(self.home_ui.btn_mcq_option_1))
@@ -30,8 +38,7 @@ class MCQ_Window(QWidget):
         
         print("CUR: ", self.current_mcq_question)
         print("TOTAL: ", self.total_mcq_questions)
-        
-        
+                
         # read contents
         folder_pattern = "Resources/q_*"  # Pattern to match folders starting with "m_"
 
@@ -148,19 +155,29 @@ class MCQ_Window(QWidget):
             
     def check_answer(self, button_object):
         
+        self.attempts += 1
         correct_answer = self.mcq_data[str(self.current_mcq_question)]["correct_answer"]
         
         if correct_answer == button_object.text():
-            print("Correct Answer", correct_answer, 'Type: ', type(correct_answer)	)
-            print("Button Text", button_object.text(), 'Type: ', type(button_object.text()))
+            
+            QSound.play(r'Frontend\Audio_Track\correct_answer.wav')
             button_object.setStyleSheet("background-color: green; border: 2px dashed black; border-radius: 10px;")
             self.disable_mcq_buttons()
             self.current_mcq_question += 1
+            QSound.play("Frontend/Audio_Track/correct_answer.wav")
+
+            # mcq question done and load next assessment
             if self.current_mcq_question > self.total_mcq_questions:
+                                
                 print("All Questions Completed")
+                time.sleep(1)
+                QSound.play("Frontend/Audio_Track/clap_sound.wav")
+                self.write_to_json()                   
+                self.home_ui.stackedWidget.setCurrentWidget(self.home_ui.celebration_page) 
             else:
                 QTimer.singleShot(2000, lambda: self.load_mcq_question())
         else:
+            QSound.play("Frontend/Audio_Track/mistake_sound.wav")
             button_object.setStyleSheet("background-color: red; border: 2px dashed black; border-radius: 10px;")
 
     def disable_mcq_buttons(self):
@@ -170,3 +187,23 @@ class MCQ_Window(QWidget):
         self.home_ui.btn_mcq_option_3.setEnabled(False)
         self.home_ui.btn_mcq_option_4.setEnabled(False)
            
+    def write_to_json(self):
+        
+        # read the student detaisl json file to fetch the name and id
+        with open('.student_details.json') as json_file:
+            data = json.load(json_file)
+            student_name = data['name']
+            student_id = data['id']
+        
+        # write to json file
+        # write total moves, time and date into a json file
+        self.performance['std_name'] = student_name
+        self.performance['std_id'] = student_id
+        self.performance['set_name'] = self.matching_folder.split('/')[-1]
+        self.performance['attempts'] = self.attempts
+        self.performance['time'] = round(time.time() - self.start_time,2)
+        self.performance['success_rate'] = ceil((self.attempts / self.total_mcq_questions))
+        self.performance['date'] = datetime.datetime.now().strftime("%Y-%m-%d")
+        
+        with open('Performance' + "/mcq_results.json", "w+") as json_file:
+            json.dump(self.performance, json_file)
