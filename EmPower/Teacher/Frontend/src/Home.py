@@ -39,6 +39,8 @@ class Home(QMainWindow):  # Home extends QMainWindow
         self.sequence_details = {}
         self.current_matching_set = []
         self.current_matching_image_count = 0
+        self.mcq_questions = {}
+        self.total_mcq_questions = 1
         
         self.home_page()
         self.populate_performance_table()
@@ -71,7 +73,7 @@ class Home(QMainWindow):  # Home extends QMainWindow
         self.home.home_btn_quiz.clicked.connect(self.task_page)
         self.home.home_btn_lesson_assigns.clicked.connect(self.lesson_assigning_page)
         self.home.home_btn_progress.clicked.connect(self.performance_page)
-                         
+                                     
     def student_page(self):
         
         # create table for student info
@@ -140,6 +142,7 @@ class Home(QMainWindow):  # Home extends QMainWindow
         self.home.task_btn_matching.clicked.connect(self.matching_page)
         self.home.task_btn_sequence.clicked.connect(self.sequence_page)
         self.home.task_btn_puzzle.clicked.connect(self.puzzle_page)
+        self.home.task_btn_mcq.clicked.connect(self.mcq_page)
         self.home.task_puzzle_select_img_btn.clicked.connect(self.select_puzzle_image)
         self.home.task_puzzle_save_set_btn.clicked.connect(self.save_puzzle_set)
         self.home.task_puzzle_show_set_btn.clicked.connect(self.show_puzzle_set)
@@ -551,7 +554,164 @@ class Home(QMainWindow):  # Home extends QMainWindow
             show_success_message("সেট সংরক্ষণ সম্পন্ন", "{} সেট সংরক্ষণ সম্পন্ন হয়েছে".format(matching_set_name.split('_')[-1]))
             os.startfile('Lessons\Matching_Images\{}'.format(matching_set_name)) #! always use \ for relative path
             self.home.task_matching_set_edit.clear()
+      
+    #! TODO: Will move this method to separate class if we got times
         
+    def mcq_page(self):
+        
+        self.home.evalstackwidget.setCurrentWidget(self.home.mcq_page)  
+    
+        # connect the buttons
+        self.home.task_mcq_new_set_btn.clicked.connect(self.create_mcq_set)
+        self.home.task_mcq_finish_set_btn.clicked.connect(self.finish_mcq_set)
+        self.home.task_mcq_next_ques_btn.clicked.connect(self.next_mcq_question)
+        self.home.task_mcq_upload_img_btn.clicked.connect(self.upload_mcq_image)
+    
+    def create_mcq_set(self):
+        
+        set_no = 'q_'+self.home.task_mcq_set_no_edit.toPlainText()
+        
+        # if set name is not provided
+        if self.home.task_mcq_set_no_edit.toPlainText() == "":
+            show_confirmation_message("সেট নম্বর অনুপস্থিত", "সেট নম্বর প্রদান করুন এবং 'নতুন প্রশ্ন সেট বাটনে ক্লিক করুন।") 
+            return False
+        
+        # make a subfolder inside the mcq_questions folder
+        if os.path.exists(f"Lessons/MCQ_Questions/{set_no}"):
+            sets = os.listdir('Lessons/MCQ_Questions')
+            show_warning_message("সেট নাম পুনরায় লিখুন", "এই নামে একটি সেট আগে থেকেই রয়েছে। বর্তমানে বিদ্যমান সেটগুলো হল : {}".format(sets))
+            return False
+        else:
+            os.mkdir(f"Lessons/MCQ_Questions/{set_no}")
+            
+        # basic instruction
+        show_confirmation_message("প্রশ্ন সেট তৈরি", "এখন প্রশ্ন এবং সম্ভাব্য উত্তরসমূহ প্রদান করুন। নতুন প্রশ্ন তৈরির করতে 'পরবর্তী প্রশ্ন' বাটনে ক্লিক করুন।")
+        
+        ques_no = str(self.total_mcq_questions)
+                   
+        # make folders to save questions
+        os.path.exists("Lessons/MCQ_Questions") or os.mkdir("Lessons/MCQ_Questions")
+        
+        # enable all edit boxes
+        self.home.task_mcq_set_no_edit.setEnabled(True)
+        self.home.task_mcq_finish_set_btn.setEnabled(True)
+        self.home.task_mcq_next_ques_btn.setEnabled(True)
+        self.home.task_mcq_question_edit.setEnabled(True)
+        self.home.task_mcq_option_1_edit.setEnabled(True)
+        self.home.task_mcq_option_2_edit.setEnabled(True)
+        self.home.task_mcq_option_3_edit.setEnabled(True)
+        self.home.task_mcq_option_4_edit.setEnabled(True)
+        self.home.task_mcq_correct_option_edit.setEnabled(True)
+        self.home.task_mcq_upload_img_btn.setEnabled(True)
+        
+        self.mcq_questions[ques_no] = {
+            "question": '',
+            "option_1": '',
+            "option_2": '',
+            "option_3": '',
+            "option_4": '',
+            "correct_answer": '',
+            "image":''
+        }
+               
+    def finish_mcq_set(self):
+        
+        # enable button
+        self.home.task_mcq_finish_set_btn.setEnabled(True)
+        
+        if self.mcq_questions == {}:
+            show_warning_message("কোন প্রশ্ন নেই", "কোন প্রশ্ন নেই যার উত্তর সংরক্ষণ করা যাবে")
+            return False
+        
+        # get the set name
+        set_no = 'q_'+self.home.task_mcq_set_no_edit.toPlainText()
+        
+        # copy image after json is writen  
+        # for i in range(1, self.total_mcq_questions+1):  
+        #     if self.mcq_questions[str(i)]["image"]:
+        #         shutil.copy2(self.mcq_questions[str(i)]["image"], f"Lessons/MCQ_Questions/{self.home.task_mcq_set_no_edit.toPlainText()}//q_{i}.png")
+        
+        # load the last question    
+        self.next_mcq_question()
+        
+                    
+        # save the questions to json
+        with open(f"Lessons/MCQ_Questions/{set_no}/questions.json", "w") as f: 
+            json.dump(self.mcq_questions, f)
+           
+        # reset the mcq_questions dict
+        self.mcq_questions = {}
+        self.total_mcq_questions = 1
+        
+        # show message
+        show_confirmation_message("সেট সংরক্ষণ সম্পন্ন", f"MCQ {set_no} সেট সংরক্ষণ সম্পন্ন হয়েছে। নতুন প্রশ্ন সেট তৈরির জন্য 'প্রশ্ন সেট তৈরি' বাটনে ক্লিক করুন।")
+        
+        # disable buttons
+        self.home.task_mcq_finish_set_btn.setEnabled(False)
+        self.home.task_mcq_next_ques_btn.setEnabled(False)
+        self.home.task_mcq_upload_img_btn.setEnabled(False)
+        self.home.task_mcq_question_edit.setEnabled(False)
+        self.home.task_mcq_option_1_edit.setEnabled(False)
+        self.home.task_mcq_option_2_edit.setEnabled(False)
+        self.home.task_mcq_option_3_edit.setEnabled(False)
+        self.home.task_mcq_option_4_edit.setEnabled(False)
+        self.home.task_mcq_correct_option_edit.setEnabled(False)
+                        
+    def upload_mcq_image(self):
+        # Open dialog to select an image
+        img_path = QFileDialog.getOpenFileName(self, "ছবি নির্বাচন করুন", "", "Image Files (*.png *.jpg *.jpeg)")[0]
+        if img_path != '':
+            self.current_mcq_image_path = img_path
+            shutil.copy2(img_path, f"Lessons/MCQ_Questions/{'q_'+self.home.task_mcq_set_no_edit.toPlainText()}//q_{self.total_mcq_questions}.png")
+            self.home.task_mcq_img_lbl.setText(img_path.split("/")[-1])
+        else:
+            self.current_mcq_image_path = ''
+            self.home.task_mcq_img_lbl.setText('')
+
+    def next_mcq_question(self):
+        
+        print(self.mcq_questions)	
+        
+        # Read all the questions and options from the edit boxes
+        question = self.home.task_mcq_question_edit.toPlainText()
+        option_1 = self.home.task_mcq_option_1_edit.toPlainText()
+        option_2 = self.home.task_mcq_option_2_edit.toPlainText()
+        option_3 = self.home.task_mcq_option_3_edit.toPlainText()
+        option_4 = self.home.task_mcq_option_4_edit.toPlainText()
+        correct_answer = self.home.task_mcq_correct_option_edit.toPlainText()
+
+        # Check if any of the edit boxes are empty
+        if question == "" or option_1 == "" or option_2 == "" or option_3 == "" or option_4 == "" or correct_answer == "":
+            show_warning_message("প্রশ্ন সম্পন্ন করুন", "সকল অপশনসমূহ প্রদান করুন")
+            return
+
+        # Store the current question and options in the dictionary
+        self.mcq_questions[str(self.total_mcq_questions)] = {
+            "question": question,
+            "option_1": option_1,
+            "option_2": option_2,
+            "option_3": option_3,
+            "option_4": option_4,
+            "correct_answer": correct_answer,
+            # "image": self.current_mcq_image_path
+        }
+
+        # Clear all the edit boxes
+        self.home.task_mcq_question_edit.clear()
+        self.home.task_mcq_option_1_edit.clear()
+        self.home.task_mcq_option_2_edit.clear()
+        self.home.task_mcq_option_3_edit.clear()
+        self.home.task_mcq_option_4_edit.clear()
+        self.home.task_mcq_correct_option_edit.clear()
+        self.home.task_mcq_img_lbl.setText('')
+
+        # Increment the total questions
+        self.total_mcq_questions += 1
+        self.current_mcq_image_path = ''
+
+    
+    
+    
     #! TODO: Will move this method to separate class if we got times
             
     def performance_page(self):

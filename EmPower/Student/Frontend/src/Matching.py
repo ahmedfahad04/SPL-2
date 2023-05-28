@@ -119,7 +119,7 @@ class Matching_Window(QWidget):
 
         # Get a list of matching folder paths
         self.matching_folder = glob.glob(folder_pattern)[0]
-        self.folder_set_name = self.matching_folder.split("\\")[-1].split("_")[-1]
+        self.folder_set_name = self.matching_folder.split("\\")[-1][2:]
         folder_files = os.listdir(self.matching_folder)
         self.images = [file for file in folder_files if file.endswith(".png")]
 
