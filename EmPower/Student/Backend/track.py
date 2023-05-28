@@ -24,6 +24,11 @@ class FaceTracker(QThread):
 
         #time dict
         self.lesson_time = defaultdict(dict)
+        
+        #lesson_contents
+        self.lesson_contents = None
+
+
 
     def run(self):
 
@@ -41,7 +46,6 @@ class FaceTracker(QThread):
             # Read a frame from the video capture
             ret, frame = self.cap.read()
             
-
             if not ret:
                 print("Failed to read a frame from video capture.")
                 break
@@ -81,13 +85,13 @@ class FaceTracker(QThread):
 
             # check for lesson change
             if self.new_lesson_id != self.old_lesson_id:
-                print("lesson_id changed")
+                print("lesson_id changed===============================")
                 self.save_time()
                 self.old_lesson_id = self.new_lesson_id
 
             # check for module change
             if self.new_module_id != self.old_module_id:
-                print("module_id changed")
+                print("module_id changed===============================")
                 self.save_time()
                 self.old_module_id = self.new_module_id
 
@@ -100,7 +104,6 @@ class FaceTracker(QThread):
         cv2.destroyAllWindows()
         self.finished.emit()
 
-
     def save_time(self):
         # Calculate the final screen time if the screen is still on at the end
         if self.screen_on:
@@ -109,7 +112,7 @@ class FaceTracker(QThread):
             screen_time = end_time - self.start_time
             self.total_screen_time += screen_time
 
-        self.lesson_time[self.old_lesson_id][self.old_module_id] = self.total_screen_time
+        self.lesson_time[str(self.old_lesson_id)][str(self.old_module_id)] = self.total_screen_time
         self.total_screen_time = datetime.timedelta(0)
 
     def stop(self):
@@ -129,20 +132,48 @@ class FaceTracker(QThread):
         self.old_module_id = 0
         self.new_module_id = 0
 
-
+    def add_lesson_contents(self, lsn_cont):
+        self.lesson_contents = lsn_cont
+        print("tracker: ", self.lesson_contents)
+        
+    # Convert timedelta to seconds
+    def convert_timedelta_to_seconds(self, td):
+        return td.total_seconds()
+    
     def save_data_to_json(self):
-        # Convert timedelta to seconds
-        def convert_timedelta_to_seconds(td):
-            return td.total_seconds()
+        
 
         # Create a new dictionary with modified values
         new_dictionary = {}
+        print("TIMEEEEEEEEEEEEEEEE: ", self.lesson_time)
         for lesson_id, lesson_data in self.lesson_time.items():
             new_dictionary[f"lesson {lesson_id}"] = {
-                f"module {module_id+1}": convert_timedelta_to_seconds(td)
-                for module_id, td in lesson_data.items()
+                f"module {module_id}": self.convert_timedelta_to_seconds(td) for module_id, td in lesson_data.items()
             }
 
+        # # Write the dictionary to a JSON file
+        # with open('surveillance_log.json', 'w') as file:
+        #     json.dump(new_dictionary, file, indent=4) 
+            
+        
+        # save new
+        two_d_list = []
+
+        for lesson_value in new_dictionary.values():
+            lesson_row = list(lesson_value.values())
+            two_d_list.append(lesson_row)
+        
+        i = 0
+        for row in self.lesson_contents:
+            j = 0
+            for col in self.lesson_contents[row]:
+                value = two_d_list[i][j]
+                j = j  =1
+                self.lesson_contents[row][col] = value
+
+            i = i +1
+        print(self.lesson_contents)
+        
         # Write the dictionary to a JSON file
         with open('surveillance_log.json', 'w') as file:
-            json.dump(new_dictionary, file, indent=4)
+            json.dump(self.lesson_contents, file, indent=4) 

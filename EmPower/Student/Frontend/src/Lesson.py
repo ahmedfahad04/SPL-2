@@ -43,28 +43,47 @@ class Lesson_Window(QMainWindow):
         self.video_player = None
         self.music_player = None
         self.time_elapsed = 0
-
-        # switch lesson in every 10 seconds
-        # self.timer = QTimer()
-        # self.timer.timeout.connect(self.load_next_lesson)
-        # self.timer.start(10000)  # rotate every 10 seconds
-
-        # # start the timer to count the elapsed time
-        # self.elapsed_timer = QTimer()
-        # self.elapsed_timer.timeout.connect(self.update_elapsed_time)
-        # self.elapsed_timer.start(1000)  # update every 1 second
+        self.lesson_contents = {}
+        
+        self.load_lesson_content()
 
         #/ ****** face tracker code  ***** /
         # face_tracker
         self.face_tracker = face_tracker
         self.face_tracker.face_tracker_initialize(self.current_lesson_id)
+        self.face_tracker.add_lesson_contents(self.lesson_contents)
         self.face_tracker.start()
         #/ ** ** ** face tracker code ** ** * /
         
         # method
         self.display_lesson()
+        
+    def load_lesson_content(self):
+        
+        for lesson in self.lesson_list:
+            
+            
+            modules = os.listdir(os.path.join('Resources', lesson))
+            lesson = lesson.split('_')[1]
+            
+            module_dict = {}
+            for module in modules:
+                
+                module_id = module.split('_')[3]
+                module_name = module.split('_')[1]
+                module_name = module_name.split('_')[0]
+                module_data = module_name + '_' + module_id
+                print("ID: ",module_id, "NAME:", module_name) #! need to change the key
+                
+                module_dict[str(module_data)] = 0.0
+            
+            self.lesson_contents[str(lesson)] = module_dict
+        
+        print(self.lesson_contents)
 
     def display_lesson(self):
+        
+        
         # / ****** face tracker code  ***** /
         # change the lesson id in face track thread
         self.face_tracker.set_lesson_id(self.current_lesson_id, self.current_module_id)
@@ -83,6 +102,7 @@ class Lesson_Window(QMainWindow):
         module_name = filter_data(self.module_path.split('\\')[-1])
         print("LESSONID :", self.current_lesson_id)
         print("MODULEID :", self.current_module_id)
+        # print("TIME: ", self.face_tracker.)
 
         # read audio/video file path
         self.visual_file_content = glob.glob(self.module_path + '/media.*')[0]
@@ -166,6 +186,7 @@ class Lesson_Window(QMainWindow):
         if self.current_lesson_id >= self.total_lessons:
             self.current_lesson_id = 0
             finish = True
+            
             # save thread time
             self.face_tracker.save_time()
             self.change_window()
@@ -177,8 +198,7 @@ class Lesson_Window(QMainWindow):
                 
             # stop audio player
             self.quit_music()
-                
-                
+                    
             # update lesson completion time 
             with open('Lesson_log\.current_lesson_log.json', 'r') as f:
                 current_lesson_log = json.load(f)
@@ -189,7 +209,7 @@ class Lesson_Window(QMainWindow):
                     current_lesson_log['lessons'][lsn_id]['time'] = round(time.time() - self.current_time, 2)
                     json.dump(current_lesson_log, f)
 
-        if finish == False:
+        if not finish:
             self.reset_lesson_window()
             self.display_lesson()
 

@@ -72,6 +72,7 @@ class Home(QMainWindow):  # Home extends QMainWindow
         self.current_window = "Lesson"
         
         # load & set up the LESSON page
+        
         # / ****** face tracker code  ***** /
         #add the tracking thread
         self.face_tracker = FaceTracker()
@@ -286,6 +287,7 @@ class Home(QMainWindow):  # Home extends QMainWindow
             shutil.copy2('Performance\matching_results.json',performance_folder_name)
             shutil.copy2('Performance\puzzle_results.json',performance_folder_name)
             shutil.copy2('Performance\sequencing_results.json',performance_folder_name)
+            shutil.move('surveillance_log.json', performance_folder_name)
                   
     def closeEvent(self, event):
         # For example, you can show a message box asking the user if they really want to quit the application

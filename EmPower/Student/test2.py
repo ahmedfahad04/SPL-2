@@ -34,5 +34,16 @@
 
 #     app.exec()
 
-import time 
-print(time.time())
+# import time 
+# print(time.time())
+
+import os
+
+
+x = [folder for folder in os.listdir('Resources') if folder.startswith('পাঠ')]
+y = [f.split('_')[1] for f in x]
+# for f in x:
+#     y.append(f.split('_')[1])
+    
+print("LIST: ",x)
+print("ID: ", y)
