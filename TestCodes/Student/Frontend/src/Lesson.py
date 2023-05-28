@@ -2,6 +2,7 @@ import glob
 import json
 import os
 import subprocess
+import time
 
 from PyQt5.QtMultimedia import QSound
 from Backend.AudioPlayer import MusicPlayer
@@ -9,18 +10,16 @@ from Backend.VideoPlayer import Window
 from Frontend.src.Document_Formatter import *
 from PyQt5.QtWidgets import QMainWindow
 import shutil
-from Backend.track import FaceTracker
-import threading
 
+from Backend.track import FaceTracker
 # from pydub import AudioSegment
 
 class Lesson_Window(QMainWindow):
 
-    def __init__(self, ui_object):
+    def __init__(self, ui_object, face_tracker):
         super(QMainWindow, self).__init__()
 
         # window
-        self.threadController = None
         self.lesson_window = ui_object
 
         self.categories = {
@@ -44,9 +43,6 @@ class Lesson_Window(QMainWindow):
         self.music_player = None
         self.time_elapsed = 0
 
-        # tracking obj
-        self.tracker = None
-
         # switch lesson in every 10 seconds
         # self.timer = QTimer()
         # self.timer.timeout.connect(self.load_next_lesson)
@@ -57,15 +53,24 @@ class Lesson_Window(QMainWindow):
         # self.elapsed_timer.timeout.connect(self.update_elapsed_time)
         # self.elapsed_timer.start(1000)  # update every 1 second
 
+        #/ ****** face tracker code  ***** /
+        # face_tracker
+        self.face_tracker = face_tracker
+        self.face_tracker.face_tracker_initialize(self.current_lesson_id)
+        self.face_tracker.start()
+        #/ ** ** ** face tracker code ** ** * /
+
         # method
         self.display_lesson()
 
-    def display_lesson(self):
 
-        ##### face tracking code Starts #####
-        self.tracker = FaceTracker(self.current_lesson_id)
-        self.tracker.start()
-        ##### face tracking code Ends #####
+
+    def display_lesson(self):
+        # / ****** face tracker code  ***** /
+        # change the lesson id in face track thread
+        self.face_tracker.set_lesson_id(self.current_lesson_id, self.current_module_id)
+        # / ****** face tracker code  ***** /
+
 
         # read the file path and the folders
         self.folder_path = self.lesson_list[self.current_lesson_id]
@@ -113,14 +118,13 @@ class Lesson_Window(QMainWindow):
             self.qt_image = self.qt_image.scaledToWidth(self.lesson_window.lsn_lbl_image.width(),
                                                         Qt.SmoothTransformation)
             self.lesson_window.lsn_lbl_image.setPixmap(self.qt_image)
-            self.lesson_window.lsn_lbl_image.setFixedSize(self.lesson_window.lsn_lbl_image.width(),
-                                                          self.lesson_window.lsn_lbl_image.width())
+            self.lesson_window.lsn_lbl_image.setScaledContents(True)
 
             # audio load
             audio_file_name = (glob.glob(self.module_path + '/audio.*')[0]).split('\\')[-1]
             audio_formate = audio_file_name.split('.')[-1]
 
-            # ! TODO: Renme audio file name to mp3
+            # ! TODO: Rename audio file name to mp3
 
             self.audio_file_path = os.path.join(self.module_path, audio_file_name)
             QSound(self.audio_file_path)
@@ -163,30 +167,62 @@ class Lesson_Window(QMainWindow):
         if self.current_lesson_id >= self.total_lessons:
             self.current_lesson_id = 0
             finish = True
+            # save thread time
+            self.face_tracker.save_time()
             self.change_window()
+            
+            # stop the video player
+            if self.video_player:
+                self.video_player.mediaPlayer.stop()
+                self.video_player.close()
+                
+            # stop audio player
+            self.quit_music()
+                
+                
+            # update lesson completion time 
+            with open('.current_lesson_log.json', 'r') as f:
+                current_lesson_log = json.load(f)
+                lsn_id = self.load_current_lesson_id()
+                self.current_time = current_lesson_log['lessons'][lsn_id]['time'] 
+                
+                with open('.current_lesson_log.json', 'w') as f:
+                    current_lesson_log['lessons'][lsn_id]['time'] = round(time.time() - self.current_time, 2)
+                    json.dump(current_lesson_log, f)
 
         if finish == False:
-            ##### face tracking code Starts #####
-            # To stop the tracking:
-            self.tracker.get_total_time()
-            self.quit_face_tracking()
-            ##### face tracking code Ends #####
             self.reset_lesson_window()
             self.display_lesson()
 
-    def load_previous_lesson(self):
 
-        if self.current_module_id > 0:
-            self.current_module_id -= 1
-            ##### face tracking code Starts #####
-            # To stop the tracking:
-            self.tracker.get_total_time()
-            self.quit_face_tracking()
-            ##### face tracking code Ends #####
-        self.reset_lesson_window()
-        self.display_lesson()
+
+
+    def load_previous_lesson(self):
+        
+        self.current_module_id -= 1
+        finish = False
+
+        # Change module when button pressed
+        # If the module of the current lesson is done, move to the previous lesson
+        if self.current_module_id < 0:
+            self.current_module_id = self.total_modules - 1
+            self.current_lesson_id -= 1
+
+
+        # Change lesson when button pressed
+        # If all the lessons are done, finish the lesson sequence
+        if self.current_lesson_id < 0:
+            self.current_lesson_id = self.total_lessons - 1
+            finish = True
+            self.change_window()
+
+        if not finish:
+            self.reset_lesson_window()
+            self.display_lesson()
+
 
     def quit_music(self):
+        print("QUIT MUSIC")
         if self.music_player is not None:
             if (self.audio_output_device):
                 self.music_player.stop_music()
@@ -197,17 +233,36 @@ class Lesson_Window(QMainWindow):
         self.audio_file_path = None
         self.module_path = None
         self.time_elapsed = 0
+        self.quit_music()
 
     def update_elapsed_time(self):
         print("TIME: ", self.time_elapsed)
         self.time_elapsed += 1
         print("Time elapsed:", self.time_elapsed, "seconds")
 
-    def change_window(self):
-        self.quit_music()
-        self.quit_face_tracking()
-        self.lesson_window.stackedWidget.setCurrentWidget(self.lesson_window.navigation_page)
+    def load_current_lesson_id(self):
+        resource_files = os.listdir("Resources")
+        for file in resource_files:
+            if "পাঠ" in file:
+                
+                lesson_name = str(file)
+                print(lesson_name)
+                
+                # check log file to see if the lesson is already completed
+                with open('.lesson_completion_log.json') as json_file:
+                    data = json.load(json_file)
+                    
+                    if file in data:
+                        print("Lesson already completed")
+                
+                # if not completed then mark it as current lesson 
+                self.current_lesson = file.split('_')[1]
+                
+        return self.current_lesson
 
-    def quit_face_tracking(self):
-        self.tracker.stop()
-        self.tracker.quit()
+    def change_window(self):
+        # / ****** face tracker code  ***** /
+        # stop the face track thread
+        self.face_tracker.stop()
+        # / ****** face tracker code  ***** /
+        self.lesson_window.stackedWidget.setCurrentWidget(self.lesson_window.navigation_page) 

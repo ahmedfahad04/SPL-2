@@ -1,9 +1,9 @@
-
-
+import datetime
 import glob
+import json
 import random
+import time
 import cv2
-import os
 from PIL import Image, ImageDraw
 
 from PyQt5.QtMultimedia import QSound
@@ -101,21 +101,24 @@ class PuzzleWidget(QWidget):
         self.totalAttempts = 0
         self.correctAttempts = 0
         self.wrongAttempts = 0
+        self.performance = {}
 
         try:
             self.image_name = image_name.split('.')[0]
         except:
             pass
 
-        # timers to track time elapsed
-        self.timer = QTimer()
-        self.timer.timeout.connect(self.updateTime)
-        self.timeElapsed = 0
-        self.startTimer()
+        # # timers to track time elapsed
+        # self.timer = QTimer()
+        # self.timer.timeout.connect(self.updateTime)
+        # self.timeElapsed = 0
+        # self.startTimer()
+        self.start_time = time.time()
+        self.end_time = 0
 
         self.setAcceptDrops(True)
-        self.setMinimumSize(700, 700)
-        self.setMaximumSize(700, 700)
+        self.setMinimumSize(800, 800)
+        self.setMaximumSize(800, 800)
 
     def clear(self):
         self.pieceLocations = []
@@ -211,15 +214,36 @@ class PuzzleWidget(QWidget):
                     print("Correct Attempts: ", self.correctAttempts)
                     print("Wrong Attempts: ", self.wrongAttempts)
 
-                    # stop timer
-                    self.stopTimer()
+                    # # stop timer
+                    # self.stopTimer()
+                    self.timeElapsed = time.time() - self.start_time
                     print("Time Elapsed: {} seconds".format(self.timeElapsed))
                     
                     # change to celebration page
                     Puzzle_Window().change_page()
-                           
-                    # show_success_message("অভিনন্দন!", "আপনি পাজল সমাধান করেছেন।" )
-                    return
+                    
+                    # Get a list of matching folder paths
+                    folder_set_name = glob.glob("Resources/p_*")[0]
+                    
+                    # read the student detaisl json file to fetch the name and id
+                    with open('.student_details.json') as json_file:
+                        data = json.load(json_file)
+                        student_name = data['name']
+                        student_id = data['id']
+                    
+                    # write total moves, time and date into a json file
+                    self.performance['std_name'] = student_name
+                    self.performance['std_id'] = student_id
+                    self.performance['set_name'] = folder_set_name
+                    self.performance['correct_attempt'] = str(self.correctAttempts)
+                    self.performance['wrong_attempt'] = str(self.wrongAttempts)
+                    self.performance['total_attempt'] = str(self.totalAttempts)
+                    self.performance['success_rate'] = str(round((self.correctAttempts/self.totalAttempts)*100, 2))
+                    self.performance['time'] = round(self.timeElapsed, 2)
+                    self.performance['date'] = datetime.datetime.now().strftime("%Y-%m-%d")
+                    
+                    with open('Performance' + "/puzzle_results.json", "w+") as json_file:
+                        json.dump(self.performance, json_file)
 
             elif location in self.alreadyPlacedLocation:
                 print("Already Placed Location: ", location)
@@ -477,9 +501,7 @@ class MainWindow:
 
         self.piece_frame_layout.addWidget(self.piecesList)
         self.widget_frame_layout.addWidget(self.puzzleWidget)
-        
-    
-
+       
 
 class Puzzle_Window:
 
@@ -493,9 +515,12 @@ class Puzzle_Window:
                     
         self.evaluation_window = saveUIObject
         self.puzzle_frames = puzzle_frames
+        self.change_new_window = None
 
         #! TODO: Change the image dynamically
-        self.puzzle_image = glob.glob('Resources\\Puzzle_Images\\'+'\*.png')[0]
+        
+        folder_pattern = "Resources/p_*/*.png"  # Pattern to match folders starting with "m_"
+        self.puzzle_image = glob.glob(folder_pattern)[0]
 
     def launch_puzzle(self):
 
@@ -506,11 +531,10 @@ class Puzzle_Window:
         # Create the main window for the puzzle
         window = MainWindow(self.puzzle_image, self.puzzle_frames, self.evaluation_window)
         window.openImage(self.puzzle_image)
+        return self.change_new_window
         
         
     def change_page(self):
         
         self.evaluation_window.stackedWidget.setCurrentWidget(self.evaluation_window.celebration_page)
-        
-    
-        
+        self.change_new_window = True

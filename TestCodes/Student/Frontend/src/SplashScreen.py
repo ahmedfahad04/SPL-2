@@ -11,7 +11,7 @@ class SplashScreen(QSplashScreen):
         loadUi("Frontend/PyQT_UI/splash.ui", self)
         self.setWindowFlag(Qt.FramelessWindowHint)
         # Center the splash screen window on the screen using style commands
-        self.setWindowOpacity(0.9)
+        self.setWindowOpacity(1)
         self.setStyleSheet('''
            QSplashScreen {
                background-color: rgba(255,228,196, 0.8);
@@ -37,6 +37,6 @@ class SplashScreen(QSplashScreen):
         ''')
 
     def progress(self):
-        for i in range(50):
-            time.sleep(0.05)
+        for i in range(100):
+            time.sleep(0.0125)
             self.progressBar.setValue(i)
