@@ -28,8 +28,6 @@ class FaceTracker(QThread):
         #lesson_contents
         self.lesson_contents = None
 
-
-
     def run(self):
 
         # Set up video capture from default webcam
