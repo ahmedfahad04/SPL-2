@@ -1,11 +1,8 @@
-import glob
 import json
 import os
 import shutil
 import time
 
-from PyQt5.QtMultimedia import QSound
-from Backend.AudioPlayer import MusicPlayer
 from Frontend.Student_UI import ui_home
 from Frontend.src.Document_Formatter import *
 from Frontend.src.Lesson import Lesson_Window
@@ -260,8 +257,7 @@ class Home(QMainWindow):  # Home extends QMainWindow
             shutil.copy2('Performance\matching_results.json',performance_folder_name)
             shutil.copy2('Performance\puzzle_results.json',performance_folder_name)
             shutil.copy2('Performance\sequencing_results.json',performance_folder_name)
-            
-            
+                       
             
             
     def closeEvent(self, event):

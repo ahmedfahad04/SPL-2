@@ -226,7 +226,7 @@ class PuzzleWidget(QWidget):
                     folder_set_name = glob.glob("Resources/p_*")[0]
                     
                     # read the student detaisl json file to fetch the name and id
-                    with open('.student_details.json') as json_file:
+                    with open('Student_Info\.student_details.json') as json_file:
                         data = json.load(json_file)
                         student_name = data['name']
                         student_id = data['id']

@@ -190,7 +190,7 @@ class MCQ_Window(QWidget):
     def write_to_json(self):
         
         # read the student detaisl json file to fetch the name and id
-        with open('.student_details.json') as json_file:
+        with open('Student_Info\.student_details.json') as json_file:
             data = json.load(json_file)
             student_name = data['name']
             student_id = data['id']

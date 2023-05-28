@@ -14,11 +14,15 @@ from Frontend.src.Matching import Matching_Window
 from Frontend.src.Puzzle import Puzzle_Window
 from Frontend.src.Sequence import Sequence_Window
 
+from Backend.track import FaceTracker
+
+
 class Home(QMainWindow):  # Home extends QMainWindow
 
     def __init__(self):
         
         super(QMainWindow, self).__init__()
+        self.face_tracker = None
         self.lesson_window = None
         self.music_player = None 
         self.home = None 
@@ -26,6 +30,12 @@ class Home(QMainWindow):  # Home extends QMainWindow
         self.current_lesson_id = None
         self.start_time = time.time()
         self.lesson_completion_data = {}
+        
+        # file paths
+        self.lesson_completion_file_location = 'Lesson_log\.lesson_completion_log.json'
+        
+        # create studentinfo folder
+        os.path.exists('Student_Info') or os.makedirs('Student_Info')
         
         #! TODO: Handle student id and name
         
@@ -62,7 +72,11 @@ class Home(QMainWindow):  # Home extends QMainWindow
         self.current_window = "Lesson"
         
         # load & set up the LESSON page
-        self.lesson_window = Lesson_Window(self.home)
+        # / ****** face tracker code  ***** /
+        #add the tracking thread
+        self.face_tracker = FaceTracker()
+        self.lesson_window = Lesson_Window(self.home, self.face_tracker)
+        # / ****** face tracker code  ***** /
         self.home.stackedWidget.setCurrentWidget(self.home.lesson_page)
         
         # load current lesson name from Resource folder
@@ -84,13 +98,13 @@ class Home(QMainWindow):  # Home extends QMainWindow
                 print(lesson_name)
                 
                 #  Check if the log file exists
-                if not os.path.exists('.lesson_completion_log.json'):
+                if not os.path.exists(self.lesson_completion_file_location):
                     # Create an empty log file
-                    with open('.lesson_completion_log.json', 'w') as outfile:
+                    with open(self.lesson_completion_file_location, 'w') as outfile:
                         json.dump({}, outfile)
                         
                 # check log file to see if the lesson is already completed
-                with open('.lesson_completion_log.json') as json_file:
+                with open(self.lesson_completion_file_location) as json_file:
                     data = json.load(json_file)
                     
                     if file in data:
@@ -100,8 +114,8 @@ class Home(QMainWindow):  # Home extends QMainWindow
                 self.current_lesson_id = file.split("_")[1]
         
     def config_current_lesson_status(self):
-        
-        current_lesson_log_file = '.current_lesson_log.json'
+                
+        current_lesson_log_file = 'Lesson_log\.current_lesson_log.json'
 
         # Check if the log file exists
         if not os.path.exists(current_lesson_log_file):
@@ -213,6 +227,9 @@ class Home(QMainWindow):  # Home extends QMainWindow
         # navigate celebration page
         if self.current_window == "Lesson":
             self.home.c_next_quiz.clicked.connect(self.mcq_page)
+            # / ****** face tracker code  ***** /
+            self.face_tracker.stop()
+            # / ****** face tracker code  ***** /
             
         if self.current_window == 'MCQ':
             self.home.c_next_quiz.clicked.connect(self.puzzle_page)
@@ -233,12 +250,12 @@ class Home(QMainWindow):  # Home extends QMainWindow
             
             
             # read the student detaisl json file to fetch the name and id
-            with open('.student_details.json') as json_file:
+            with open('Student_Info\.student_details.json') as json_file:
                 data = json.load(json_file)
                 student_name = data['name']
                 student_id = data['id']
                 
-            with open('.current_lesson_log.json') as json_file:
+            with open('Lesson_log\.current_lesson_log.json') as json_file:
                 data = json.load(json_file)
                 lsn_attempt = data['lessons'][self.current_lesson_id]['attempt']
                 lsn_time = data['lessons'][self.current_lesson_id]['time']
@@ -254,8 +271,8 @@ class Home(QMainWindow):  # Home extends QMainWindow
             self.lesson_completion_data['attempt'] = lsn_attempt
             self.lesson_completion_data['time'] = lsn_time
             
-            # write the data into .lesson_completion_log.json file
-            with open('.lesson_completion_log.json', 'w') as outfile:
+            # write the data into self.lesson_completion_file_location file
+            with open(self.lesson_completion_file_location, 'w') as outfile:
                 json.dump(self.lesson_completion_data, outfile)
                 outfile.write('\n')
 
@@ -265,7 +282,7 @@ class Home(QMainWindow):  # Home extends QMainWindow
             os.path.exists(performance_folder_name) or os.makedirs(performance_folder_name)
             
             # copy all the files from the current lesson folder to the new folder
-            shutil.copy2('.lesson_completion_log.json',performance_folder_name)
+            shutil.copy2(self.lesson_completion_file_location,performance_folder_name)
             shutil.copy2('Performance\matching_results.json',performance_folder_name)
             shutil.copy2('Performance\puzzle_results.json',performance_folder_name)
             shutil.copy2('Performance\sequencing_results.json',performance_folder_name)
@@ -277,6 +294,9 @@ class Home(QMainWindow):  # Home extends QMainWindow
         if reply == QMessageBox.Yes:
             if self.lesson_window is not None:
                 self.lesson_window.quit_music()
+                # / ****** face tracker code  ***** /
+                self.face_tracker.stop()
+                # / ****** face tracker code  ***** /
             event.accept()
         else:
             event.ignore()

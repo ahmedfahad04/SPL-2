@@ -11,12 +11,13 @@ from Frontend.src.Document_Formatter import *
 from PyQt5.QtWidgets import QMainWindow
 import shutil
 
+from Backend.track import FaceTracker
 
 # from pydub import AudioSegment
 
 class Lesson_Window(QMainWindow):
 
-    def __init__(self, ui_object):
+    def __init__(self, ui_object, face_tracker):
         super(QMainWindow, self).__init__()
 
         # window
@@ -53,10 +54,22 @@ class Lesson_Window(QMainWindow):
         # self.elapsed_timer.timeout.connect(self.update_elapsed_time)
         # self.elapsed_timer.start(1000)  # update every 1 second
 
+        #/ ****** face tracker code  ***** /
+        # face_tracker
+        self.face_tracker = face_tracker
+        self.face_tracker.face_tracker_initialize(self.current_lesson_id)
+        self.face_tracker.start()
+        #/ ** ** ** face tracker code ** ** * /
+        
         # method
         self.display_lesson()
 
     def display_lesson(self):
+        # / ****** face tracker code  ***** /
+        # change the lesson id in face track thread
+        self.face_tracker.set_lesson_id(self.current_lesson_id, self.current_module_id)
+        # / ****** face tracker code  ***** /
+
 
         # read the file path and the folders
         self.folder_path = self.lesson_list[self.current_lesson_id]
@@ -153,6 +166,8 @@ class Lesson_Window(QMainWindow):
         if self.current_lesson_id >= self.total_lessons:
             self.current_lesson_id = 0
             finish = True
+            # save thread time
+            self.face_tracker.save_time()
             self.change_window()
             
             # stop the video player
@@ -165,12 +180,12 @@ class Lesson_Window(QMainWindow):
                 
                 
             # update lesson completion time 
-            with open('.current_lesson_log.json', 'r') as f:
+            with open('Lesson_log\.current_lesson_log.json', 'r') as f:
                 current_lesson_log = json.load(f)
                 lsn_id = self.load_current_lesson_id()
                 self.current_time = current_lesson_log['lessons'][lsn_id]['time'] 
                 
-                with open('.current_lesson_log.json', 'w') as f:
+                with open('Lesson_log\.current_lesson_log.json', 'w') as f:
                     current_lesson_log['lessons'][lsn_id]['time'] = round(time.time() - self.current_time, 2)
                     json.dump(current_lesson_log, f)
 
@@ -228,7 +243,7 @@ class Lesson_Window(QMainWindow):
                 print(lesson_name)
                 
                 # check log file to see if the lesson is already completed
-                with open('.lesson_completion_log.json') as json_file:
+                with open('Lesson_log\.lesson_completion_log.json') as json_file:
                     data = json.load(json_file)
                     
                     if file in data:
@@ -240,5 +255,9 @@ class Lesson_Window(QMainWindow):
         return self.current_lesson
 
     def change_window(self):
+        # / ****** face tracker code  ***** /
+        # stop the face track thread
+        self.face_tracker.stop()
+        # / ****** face tracker code  ***** /
 
         self.lesson_window.stackedWidget.setCurrentWidget(self.lesson_window.navigation_page) 
