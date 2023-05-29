@@ -16,6 +16,10 @@ class lesson_assiging_data(Database_Manager, ABC):
             Student_ID INT NOT NULL,
             Student_Name VARCHAR(255),
             Lesson_ID INT NOT NULL,
+            MCQ_ID Varchar(255),
+            Sequence_ID VarChar(255),
+            Matching_ID VarChar(255),
+            Puzzle_ID VarChar(255),
             Date DATETIME NOT NULL,
             UNIQUE (Student_ID, Student_Name, Lesson_ID, Date)
             )''')
@@ -33,8 +37,8 @@ class lesson_assiging_data(Database_Manager, ABC):
 
         try:
             self.controller_db_cursor.execute(
-                "INSERT INTO lesson_assiging_data (Student_ID, Student_Name, Lesson_ID, Date)"
-                "VALUES (?, ?, ?, ?)", tuple(data))
+                "INSERT INTO lesson_assiging_data (Student_ID, Student_Name, Lesson_ID, MCQ_ID, Sequence_ID, Matching_ID, Puzzle_ID, Date)"
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?)", tuple(data))
 
             self.controller_db.commit()
             print("[INSERT] Data inserted into LESSON Assiging Table successfully!")

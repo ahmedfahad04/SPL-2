@@ -167,6 +167,9 @@ class Report_Card_Generator(FPDF):
         
         self.add_page()
         
+        self.image(".temp\mcq_success_rate_bar_chart.png", 5, 200, self.w / 2 - 10)
+        self.image(".temp\mcq_time_bar_chart.png", self.w / 2, 200, self.w / 2 - 10)
+        
         self.image(".temp\lesson_attempt_bar_chart.png", 5, 20, self.w / 2 - 10)
         self.image(".temp\lesson_time_bar_chart.png", self.w / 2, 20, self.w / 2 - 10)
 

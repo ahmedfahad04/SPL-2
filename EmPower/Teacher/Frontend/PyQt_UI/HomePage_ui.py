@@ -2504,8 +2504,8 @@ class Ui_MainWindow(object):
         self.gridLayout_10.addWidget(self.lsn_lbl_lessons_6, 0, 1, 1, 1)
 
         self.lsn_table_assigning_lessons = QTableWidget(self.mid_frame_5)
-        if (self.lsn_table_assigning_lessons.columnCount() < 4):
-            self.lsn_table_assigning_lessons.setColumnCount(4)
+        if (self.lsn_table_assigning_lessons.columnCount() < 8):
+            self.lsn_table_assigning_lessons.setColumnCount(8)
         font31 = QFont()
         font31.setPointSize(12)
         font31.setBold(False)
@@ -2529,6 +2529,22 @@ class Ui_MainWindow(object):
         __qtablewidgetitem11.setTextAlignment(Qt.AlignCenter);
         __qtablewidgetitem11.setFont(font26);
         self.lsn_table_assigning_lessons.setHorizontalHeaderItem(3, __qtablewidgetitem11)
+        __qtablewidgetitem12 = QTableWidgetItem()
+        __qtablewidgetitem12.setTextAlignment(Qt.AlignCenter);
+        __qtablewidgetitem12.setFont(font26);
+        self.lsn_table_assigning_lessons.setHorizontalHeaderItem(4, __qtablewidgetitem12)
+        __qtablewidgetitem13 = QTableWidgetItem()
+        __qtablewidgetitem13.setTextAlignment(Qt.AlignCenter);
+        __qtablewidgetitem13.setFont(font26);
+        self.lsn_table_assigning_lessons.setHorizontalHeaderItem(5, __qtablewidgetitem13)
+        __qtablewidgetitem14 = QTableWidgetItem()
+        __qtablewidgetitem14.setTextAlignment(Qt.AlignCenter);
+        __qtablewidgetitem14.setFont(font26);
+        self.lsn_table_assigning_lessons.setHorizontalHeaderItem(6, __qtablewidgetitem14)
+        __qtablewidgetitem15 = QTableWidgetItem()
+        __qtablewidgetitem15.setTextAlignment(Qt.AlignCenter);
+        __qtablewidgetitem15.setFont(font26);
+        self.lsn_table_assigning_lessons.setHorizontalHeaderItem(7, __qtablewidgetitem15)
         self.lsn_table_assigning_lessons.setObjectName(u"lsn_table_assigning_lessons")
         self.lsn_table_assigning_lessons.setMinimumSize(QSize(830, 511))
         self.lsn_table_assigning_lessons.setFont(font26)
@@ -3078,7 +3094,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(6)
+        self.stackedWidget.setCurrentIndex(5)
         self.std_btn_back_to_home.setDefault(False)
         self.mediaStackWidget.setCurrentIndex(0)
         self.lsn_btn_back_to_home.setDefault(False)
@@ -3087,7 +3103,7 @@ class Ui_MainWindow(object):
         self.lsn_btn_back_to_home_3.setDefault(False)
         self.lsn_btn_back_to_home_4.setDefault(False)
         self.lsn_btn_back_to_home_5.setDefault(False)
-        self.performance_stackwidget.setCurrentIndex(1)
+        self.performance_stackwidget.setCurrentIndex(2)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -3251,7 +3267,15 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem10 = self.lsn_table_assigning_lessons.horizontalHeaderItem(2)
         ___qtablewidgetitem10.setText(QCoreApplication.translate("MainWindow", u"\u09aa\u09be\u09a0 \u09a8\u0982  ", None));
         ___qtablewidgetitem11 = self.lsn_table_assigning_lessons.horizontalHeaderItem(3)
-        ___qtablewidgetitem11.setText(QCoreApplication.translate("MainWindow", u"\u09aa\u09be\u09a0 \u09aa\u09cd\u09b0\u09a6\u09be\u09a8\u09c7\u09b0 \u09b8\u09ae\u09df\u0995\u09be\u09b2", None));
+        ___qtablewidgetitem11.setText(QCoreApplication.translate("MainWindow", u"\u09ac\u09b9\u09c1\u09a8\u09bf\u09b0\u09cd\u09ac\u099a\u09a8\u09bf \u09b8\u09c7\u099f", None));
+        ___qtablewidgetitem12 = self.lsn_table_assigning_lessons.horizontalHeaderItem(4)
+        ___qtablewidgetitem12.setText(QCoreApplication.translate("MainWindow", u"\u09a7\u09be\u09a7\u09be\u09b0 \u09b8\u09c7\u099f", None));
+        ___qtablewidgetitem13 = self.lsn_table_assigning_lessons.horizontalHeaderItem(5)
+        ___qtablewidgetitem13.setText(QCoreApplication.translate("MainWindow", u"\u09a7\u09be\u09b0\u09be\u09b0 \u09b8\u09c7\u099f ", None));
+        ___qtablewidgetitem14 = self.lsn_table_assigning_lessons.horizontalHeaderItem(6)
+        ___qtablewidgetitem14.setText(QCoreApplication.translate("MainWindow", u"\u09b6\u09ac\u09cd\u09a6 \u09ae\u09bf\u09b2\u09be\u09a8\u09cb'\u09b0 \u09b8\u09c7\u099f", None));
+        ___qtablewidgetitem15 = self.lsn_table_assigning_lessons.horizontalHeaderItem(7)
+        ___qtablewidgetitem15.setText(QCoreApplication.translate("MainWindow", u"\u09aa\u09be\u09a0 \u09aa\u09cd\u09b0\u09a6\u09be\u09a8\u09c7\u09b0 \u09b8\u09ae\u09df\u0995\u09be\u09b2", None));
         self.lsn_lbl_lessons_8.setText(QCoreApplication.translate("MainWindow", u"\u09b6\u09bf\u0995\u09cd\u09b7\u09be\u09b0\u09cd\u09a5\u09c0\u09a6\u09c7\u09b0 \u09a4\u09be\u09b2\u09bf\u0995\u09be", None))
         self.lsn_btn_assign_lesson.setText(QCoreApplication.translate("MainWindow", u"\u09aa\u09be\u09a0 \u09aa\u09cd\u09b0\u09a6\u09be\u09a8 \u0995\u09b0\u09c1\u09a8", None))
         self.lsn_btn_back_to_home_5.setText("")

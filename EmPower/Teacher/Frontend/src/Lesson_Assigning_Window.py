@@ -1,3 +1,5 @@
+import os
+import shutil
 from Frontend.src.Document_Formatter import *
 from Backend.Database.lesson_db import lesson_data as ld
 from Backend.Database.lesson_assigning_db import lesson_assiging_data as lad
@@ -88,26 +90,76 @@ class Lesson_Assigning_Window(QMainWindow):  # Home extends QMainWindow
         # set the student name and id in the form
         self.form.lsn_edit_student_id.setText(std_id)
         self.form.lsn_edit_student_name.setText(std_name)
+        
+        # disable first option
+        self.form.lsn_cmb_mcq_list.model().item(0).setEnabled(False)
+        self.form.lsn_cmb_sequence_list.model().item(0).setEnabled(False)
+        self.form.lsn_cmb_matching_list.model().item(0).setEnabled(False)
+        self.form.lsn_cmb_puzzle_list.model().item(0).setEnabled(False)
+        
 
         # get lesson data from table
         lesson_details = ld().load_table()
         print("Detials: ", lesson_details)
         data = [str(x[1]).split('/')[-1] for x in lesson_details]
         self.form.lsn_cmb_lesson_list.addItems(data)
+        
+        # get Matching id
+        matching_folder = 'Lessons\Matching_Images'
+        matching_folder_files = os.listdir(matching_folder)
+        matching_folder_names = [x[2:] for x in matching_folder_files]
+        print("Matching Folder Files: ", matching_folder_names)
+        self.form.lsn_cmb_matching_list.addItems(matching_folder_names)
+        
+        # get MCQ id
+        mcq_folder = 'Lessons\MCQ_Questions'
+        mcq_folder_files = os.listdir(mcq_folder)
+        mcq_folder_names = [x[2:] for x in mcq_folder_files]
+        print("MCQ Folder Files: ", mcq_folder_names)
+        self.form.lsn_cmb_mcq_list.addItems(mcq_folder_names)
+        
+        # get Puzzle id
+        puzzle_folder = 'Lessons\Puzzle_Images'
+        puzzle_folder_files = os.listdir(puzzle_folder)
+        puzzle_folder_names = [x[2:] for x in puzzle_folder_files]
+        print("Puzzle Folder Files: ", puzzle_folder_names)
+        self.form.lsn_cmb_puzzle_list.addItems(puzzle_folder_names)
+        
+        # get Sequence Id
+        sequence_folder = 'Lessons\Sequence_Images'
+        sequence_folder_files = os.listdir(sequence_folder)
+        sequence_folder_names = [x[2:] for x in sequence_folder_files]
+        print("Sequence Folder Files: ", sequence_folder_names)
+        self.form.lsn_cmb_sequence_list.addItems(sequence_folder_names)
+        
 
         # connect the buttons
         self.form.lsn_btn_assign_lsn_to_std.clicked.connect(self.done_assigning_lesson)
 
     def done_assigning_lesson(self):
         
-         # get data from the form
+        # get data from the form
         get_lesson_id = self.form.lsn_cmb_lesson_list.currentText()
         print("ID: ", get_lesson_id)
+        
+        get_mcq_id = self.form.lsn_cmb_mcq_list.currentText()
+        print("MCQ ID: ", get_mcq_id)
+        
+        get_sequence_id = self.form.lsn_cmb_sequence_list.currentText()
+        print("Sequence ID: ", get_sequence_id)
+        
+        get_matching_id = self.form.lsn_cmb_matching_list.currentText()
+        print("Matching ID: ", get_matching_id)
+        
+        get_puzzle_id = self.form.lsn_cmb_puzzle_list.currentText()
+        print("Puzzle ID: ", get_puzzle_id)
+        
         
         if get_lesson_id == '':
             show_warning_message("পাঠ নং নির্বাচন", "পাঠ নং নির্বাচন করুন!")
             return
 
+        
         warning = show_confirmation_message("নিশ্চিতকরণ", "আপনি কি নিশ্চিত যে আপনি পাঠ নির্ধারণ করতে চান?")
         
          
@@ -116,13 +168,14 @@ class Lesson_Assigning_Window(QMainWindow):  # Home extends QMainWindow
             get_student_id = self.form.lsn_edit_student_id.text()
             get_student_name = self.form.lsn_edit_student_name.text()
             assigning_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-            data = [get_student_id, get_student_name, get_lesson_id, assigning_time]
+            data = [get_student_id, get_student_name, get_lesson_id, get_mcq_id, get_sequence_id, get_matching_id, get_puzzle_id, assigning_time]
             
             # insert data into the table
             lad().add_entry(data)
             
             # hide the form
             self.custom_widget.hide()
+            
             # get the details of lesson assigning table
             rows = self.lesson_assinging_window.lsn_table_assigning_lessons.rowCount()
             columns = self.lesson_assinging_window.lsn_table_assigning_lessons.columnCount()
@@ -135,6 +188,36 @@ class Lesson_Assigning_Window(QMainWindow):  # Home extends QMainWindow
                 self.lesson_assinging_window.lsn_table_assigning_lessons.setItem(
                     rows, col, QTableWidgetItem(str(data[col])))
                 
+                       
+           # Copy the selected folders to the content folder
+            copy_folder_name = 'Student_Content\\' + get_student_id + '_' + get_lesson_id
+
+                       
+            lesson_folder = r'Lessons\\পাঠসমূহ\\' + get_lesson_id
+            mcq_folder = r'Lessons\MCQ_Questions\q_' + get_mcq_id
+            puzzle_folder = r'Lessons\Puzzle_Images\p_' + get_puzzle_id
+            sequence_folder = r'Lessons\\Sequence_Images\\s_' + get_sequence_id
+            matching_folder = r'Lessons\\Matching_Images\\m_' + get_matching_id
+            
+            # Create the 'Student_Content' folder if it doesn't exist
+            os.makedirs('Student_Content', exist_ok=True)
+
+            # Remove the existing destination folder if it exists
+            if os.path.exists(copy_folder_name):
+                shutil.rmtree(copy_folder_name)
+
+            # Copy the lesson folder
+            lesson_folder = r'Lessons\\পাঠসমূহ\\' + get_lesson_id
+            shutil.copytree(lesson_folder, copy_folder_name+'\\'+get_lesson_id)
+
+            # Copy the other folders
+            shutil.copytree(mcq_folder, copy_folder_name + '\\q_' + get_mcq_id)
+            shutil.copytree(puzzle_folder, copy_folder_name + '\\p_' + get_puzzle_id)
+            shutil.copytree(sequence_folder, copy_folder_name + '\\s_' + get_sequence_id)
+            shutil.copytree(matching_folder, copy_folder_name + '\\m_' + get_matching_id)
+            
+            os.startfile('Student_Content')
+            
         else:
             
             print("Warning false!!")
