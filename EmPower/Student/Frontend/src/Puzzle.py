@@ -198,7 +198,7 @@ class PuzzleWidget(QWidget):
                 self.inPlace += 1
 
                 # play music when a piece is placed successfully
-                QSound.play(r'Frontend\Audio_Track\small_clap_sound.wav')
+                QSound.play(r'Frontend\Audio_Track\correct_answer.wav')
 
                 # count attemtps
                 self.correctAttempts += 1
@@ -224,6 +224,7 @@ class PuzzleWidget(QWidget):
                     
                     # Get a list of matching folder paths
                     folder_set_name = glob.glob("Resources/p_*")[0]
+                    print("SET: ", folder_set_name.split('\\')[1])
                     
                     # read the student detaisl json file to fetch the name and id
                     with open('Student_Info\.student_details.json') as json_file:
@@ -234,7 +235,7 @@ class PuzzleWidget(QWidget):
                     # write total moves, time and date into a json file
                     self.performance['std_name'] = student_name
                     self.performance['std_id'] = student_id
-                    self.performance['set_name'] = folder_set_name
+                    self.performance['set_name'] = folder_set_name.split('\\')[1]
                     self.performance['correct_attempt'] = str(self.correctAttempts)
                     self.performance['wrong_attempt'] = str(self.wrongAttempts)
                     self.performance['total_attempt'] = str(self.totalAttempts)
@@ -519,7 +520,7 @@ class Puzzle_Window:
 
         #! TODO: Change the image dynamically
         
-        folder_pattern = "Resources/p_*/*.png"  # Pattern to match folders starting with "m_"
+        folder_pattern = "Resources/p_*/*.*"  # Pattern to match folders starting with "m_"
         self.puzzle_image = glob.glob(folder_pattern)[0]
 
     def launch_puzzle(self):

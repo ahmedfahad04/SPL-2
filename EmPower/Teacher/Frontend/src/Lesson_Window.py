@@ -1,7 +1,7 @@
 from Frontend.Teacher_UI import ui_add_lesson, ui_sound_recorder
 from Backend.VideoPlayer.video_player import Window
 from Frontend.src.Document_Formatter import *
-from Backend.Database.module_db import module_data as ld
+from Backend.Database.module_db import module_data as md
 from Backend.MediaRecorder import audioRecorder
 from PyQt5.QtCore import QTimer, QTime, Qt
 import os
@@ -30,11 +30,15 @@ class Lesson_Window(QMainWindow):  # Home extends QMainWindow
         self.audio_location = None
         self.folder_name = None
         self.content = None
-        self.lesson_elements = ld().load_table()
+        self.lesson_elements = md().load_table('*')
         self.current_category = None
         self.category_lesson_mappings = dict()
         self.lesson_window.lsn_cmb_lessons.clear()
-
+        self.lesson_window.lsn_cmb_category.setCurrentIndex(0)
+        self.lesson_window.lsn_lbl_lesson_image.clear()
+        
+        # disable the first option of lsb_cmb_category
+        self.lesson_window.lsn_cmb_category.setItemData(0, 0, Qt.UserRole - 1)
 
         # dictionary
         self.categories = {
@@ -49,7 +53,7 @@ class Lesson_Window(QMainWindow):  # Home extends QMainWindow
 
         self.audioFormat = ['mp3', 'wav', 'ogg', 'wma', 'aac', 'flac', 'm4a']
 
-        self.load_lessons()
+        # self.load_lessons()
 
     def create_lesson(self):
 
@@ -276,11 +280,14 @@ class Lesson_Window(QMainWindow):  # Home extends QMainWindow
         # Show warning while adding duplicate data
         data = [self.category_id, self.lesson_id,
                 self.lesson_topic, self.folder_location]
-        ld().add_entry(data)
+        md().add_entry(data)
         
         show_success_message("সফলতা!!", "পাঠ সংরক্ষণ করা হয়েছে, এখন স্ক্রিনের নিচে থাকা রিলোড বাটনে ক্লিক করুন")
         
         self.lesson_window.lsn_cmb_lessons.clear()
+        # self.lesson_window.lsn_lbl_lesson_image.clear()
+        # self.lesson_window.lsn_lbl_lesson_topic.clear()
+        # self.lesson_window.lsn_cmb_category.setCurrentIndex(0)
         
         childObj.hide()
 
@@ -311,33 +318,31 @@ class Lesson_Window(QMainWindow):  # Home extends QMainWindow
         self.current_category = str(index)
         print("Current Category: ", self.current_category)
 
-        self.lesson_window.lsn_cmb_lessons.clear()
-
-        try:
-            for value in self.category_lesson_mappings[index]:
-                self.lesson_window.lsn_cmb_lessons.addItem(str(value))
-                print(value)
-        except KeyError as e:
+        self.lesson_elements = md().load_table(index)
+        print("Lesson Elements: ", self.lesson_elements)
+        
+        if len(self.lesson_elements) > 0:
+            self.lesson_window.lsn_cmb_lessons.clear()
+            for value in self.lesson_elements:
+                lsn_id = value[1]
+                self.lesson_window.lsn_cmb_lessons.addItem(str(lsn_id))
+                print("LSN: "+str(lsn_id))
+        elif index > 0:
             show_confirmation_message("লেসন যুক্ত হয়নি", "এখনো কোন লেসন এই ক্যাটাগরিতে যুক্ত করা হয়নি")
-            print(f"No lessons found for categoryc-> {e}")
-
-        # self.lesson_window.lsn_cmb_lessons.addItem("পাঠ নির্বাচন করুন")
-        # self.lesson_window.lsn_cmb_lessons.setCurrentIndex(0)
-
-    def on_lesson_changed(self, index):
-
+            print(f"No lessons found for categoryc-> {self.current_category}")
+      
+    def on_lesson_changed(self, index):       
+        
         current_lesson = self.lesson_window.lsn_cmb_lessons.itemText(index)
-        print("Current Lesson: ", current_lesson)
+        print("Current Lesson--: ", current_lesson)
 
         # add the lessons to the lesson window
         for element in self.lesson_elements:
 
-            print(element)
-
             # extract the content
             cat_id, db_lesson, lsn_topic, media_loc = element
 
-            print(db_lesson, 'Type: ', type(db_lesson))
+            print(cat_id, db_lesson, lsn_topic, 'Type: ', type(db_lesson))
 
             if current_lesson == str(db_lesson) and self.current_category == str(cat_id):
 
@@ -379,13 +384,17 @@ class Lesson_Window(QMainWindow):  # Home extends QMainWindow
 
         current_category = str(index)
         print("Current Category: ", current_category)
+        
+        self.lesson_elements = md().load_table(index)
+        
+        if len(self.lesson_elements) > 0:
 
-        try:
-            category_wise_lesson = len(self.category_lesson_mappings[index])
-
+            # category_wise_lesson = len(self.category_lesson_mappings[index])
+            category_wise_lesson = len(self.lesson_elements)
             self.form.lbl_lsn_cat_status.setText(
                 f"এই ক্যাটেগরি তে মোট পাঠ সংখ্যা: {category_wise_lesson}, নতুন পাঠ {category_wise_lesson+1} থেকে শুরু করুন ")
 
-        except:
+        else:
             self.form.lbl_lsn_cat_status.setText(
                 f"এই ক্যাটেগরি এখনো কোন পাঠ নেই, নতুন পাঠ 1 থেকে শুরু করুন")
+

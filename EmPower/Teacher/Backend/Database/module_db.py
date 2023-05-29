@@ -45,9 +45,9 @@ class module_data(Database_Manager, ABC):
 
             return False
 
-    def load_table(self) -> list:
+    def load_table(self, content_id) -> list:
 
-        self.controller_db_cursor.execute("SELECT * FROM module_data")
+        self.controller_db_cursor.execute("SELECT * FROM module_data WHERE Content_Type=?", (content_id,))
         return self.controller_db_cursor.fetchall()
 
     def delete_entry(self, Content_Type, Content_ID) -> bool:

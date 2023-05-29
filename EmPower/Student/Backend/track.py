@@ -166,7 +166,7 @@ class FaceTracker(QThread):
             j = 0
             for col in self.lesson_contents[row]:
                 value = two_d_list[i][j]
-                j = j  =1
+                j = j + 1
                 self.lesson_contents[row][col] = value
 
             i = i +1

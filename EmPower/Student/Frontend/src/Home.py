@@ -58,7 +58,11 @@ class Home(QMainWindow):  # Home extends QMainWindow
         os.path.exists('Performance') or os.makedirs('Performance')
         
         # connect buttons
-        self.home.n_proceed_btn.clicked.connect(self.mcq_page)
+        self.home.n_proceed_btn.clicked.connect(self.puzzle_page)
+        movie = QMovie(r"Frontend\Images\how_to_puzzle.gif")
+        self.home.n_type_lbl.setScaledContents(True)
+        self.home.n_type_lbl.setMovie(movie)
+        movie.start()
 
         # Navigate between pages
         self.home.stackedWidget.setCurrentWidget(self.home.home_page)
@@ -227,21 +231,23 @@ class Home(QMainWindow):  # Home extends QMainWindow
         
         # navigate celebration page
         if self.current_window == "Lesson":
-            self.home.c_next_quiz.clicked.connect(self.mcq_page)
+            
+            self.home.c_next_quiz.clicked.connect(self.puzzle_page)
             # / ****** face tracker code  ***** /
             self.face_tracker.stop()
             # / ****** face tracker code  ***** /
             
-        if self.current_window == 'MCQ':
-            self.home.c_next_quiz.clicked.connect(self.puzzle_page)
+        if self.current_window == 'puzzle':
+            self.home.c_next_quiz.clicked.connect(self.mcq_page)
             
-        elif self.current_window == "puzzle":
+        elif self.current_window == "MCQ":
             self.home.c_next_quiz.clicked.connect(self.matching_page)
             
         elif self.current_window == "matching":
             self.home.c_next_quiz.clicked.connect(self.sequencing_page)
             
         elif self.current_window == "sequencing":
+            
             self.home.c_lable.setText("অভিনন্দন! তুমি এই পাঠ টি শেষ করেছো।")
             self.layout().removeWidget(self.home.c_right_frame)
             self.home.c_right_frame.deleteLater()
@@ -280,14 +286,18 @@ class Home(QMainWindow):  # Home extends QMainWindow
     
             # create a folder with student id and name
             performance_folder_name = str(student_id)+'_'+student_name+'_Lesson_'+str(self.current_lesson_id)
-            os.path.exists(performance_folder_name) or os.makedirs(performance_folder_name)
+            if os.path.exists(performance_folder_name):
+                shutil.rmtree(performance_folder_name)
+            
+            os.makedirs(performance_folder_name)
             
             # copy all the files from the current lesson folder to the new folder
             shutil.copy2(self.lesson_completion_file_location,performance_folder_name)
             shutil.copy2('Performance\matching_results.json',performance_folder_name)
             shutil.copy2('Performance\puzzle_results.json',performance_folder_name)
             shutil.copy2('Performance\sequencing_results.json',performance_folder_name)
-            shutil.move('surveillance_log.json', performance_folder_name)
+            shutil.copy2('Performance\mcq_results.json',performance_folder_name)
+            shutil.copy2('surveillance_log.json', performance_folder_name)
                   
     def closeEvent(self, event):
         # For example, you can show a message box asking the user if they really want to quit the application

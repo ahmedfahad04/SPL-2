@@ -14,8 +14,8 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
-        Form.resize(659, 809)
-        Form.setMinimumSize(QtCore.QSize(542, 710))
+        Form.resize(656, 809)
+        Form.setMinimumSize(QtCore.QSize(656, 809))
         Form.setMaximumSize(QtCore.QSize(670, 809))
         self.gridLayout_2 = QtWidgets.QGridLayout(Form)
         self.gridLayout_2.setContentsMargins(0, 0, 0, 0)

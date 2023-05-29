@@ -9,6 +9,9 @@ class Student_Window(QWidget):  # Home extends QMainWindow
         super(QWidget, self).__init__()
 
         self.std_window = ui_object
+        
+        # table property
+        self.std_window.std_tableWidget.setEditTriggers(QAbstractItemView.NoEditTriggers)
 
     # ==> Helper functions: Add a new row into the table
     def add_new_row(self):

@@ -77,19 +77,19 @@ class DroppableLabel(QLabel):
             dragged_image_id = dragged_image_name.split("_")[0]
 
             if self.images_labels == dragged_image_id and image_data is not None:
-                QSound.play("Frontend/Audio_Track/small_clap_sound.wav")
+                QSound.play("Frontend\Audio_Track\correct_answer.wav")
                 self.setStyleSheet("background-color: green; border: 5px solid green;")
                 self.pixmap = image_data.scaled(self.size(), QtCore.Qt.AspectRatioMode.KeepAspectRatio)  # Set the pixmap
                 self.setPixmap(self.pixmap)
                 self.matchSuccessful.emit(dragged_image_name)
                 global moves
                 moves += 1
-                print("Moves: ", moves)
+                print("Moves(R): ", moves)
             else:
                 QSound.play("Frontend/Audio_Track/mistake_sound.wav")
                 self.setStyleSheet("background-color: red; border: none;")
                 moves += 1
-                print("Moves: ", moves)
+                print("Moves (W): ", moves)
                 event.ignore()
         else:
             event.ignore()
@@ -241,7 +241,7 @@ class Sequence_Window(QWidget):
                 break
             
         if self.correct_matches == 4:
-            print("All matches successful")
+            print("All matches successful, TOTAL MOVES: ", moves)
             QSound.play(r'Frontend\Audio_Track\clap_sound.wav')
             
             # All boxes are filled
@@ -254,14 +254,19 @@ class Sequence_Window(QWidget):
                 data = json.load(json_file)
                 student_name = data['name']
                 student_id = data['id']
+                
+            
             
             # write total moves, time and date into a json file
             self.performance['std_name'] = student_name
             self.performance['std_id'] = student_id
-            self.performance['set_name'] = self.matching_folder
+            self.performance['set_name'] = self.matching_folder.split('\\')[1]
             self.performance['attempts'] = moves
             self.performance['time'] = round(time_taken,2)
-            self.performance['success_rate'] = round((4/moves)*100,2)
+            success_rate = round((4/moves)*100,2)
+            if success_rate > 100:
+                success_rate = 100
+            self.performance['success_rate'] = success_rate
             self.performance['date'] = datetime.datetime.now().strftime("%Y-%m-%d")
             
             with open('Performance' + "/sequencing_results.json", "w+") as json_file:

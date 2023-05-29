@@ -1,5 +1,0 @@
-{
-    "1": {"question": "sample2", "option_1": "d", "option_2": "d", "option_3": "e", "option_4": "ed", "correct_answer": "de"}, 
-    "2": {"question": "workplan", "option_1": "w", "option_2": "w", "option_3": "d", "option_4": "p", "correct_answer": "wmn"}, 
-    "3": {"question": "test", "option_1": "tt", "option_2": "www", "option_3": "dfs", "option_4": "dw", "correct_answer": "dw"}
-}

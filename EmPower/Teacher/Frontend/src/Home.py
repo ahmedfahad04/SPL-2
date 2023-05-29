@@ -11,7 +11,9 @@
 import datetime
 import json
 import random
+import re
 from Backend.GraphGenerator.BarChart import BarChart
+from Backend.GraphGenerator.PieChart import PieChart
 from Frontend.Teacher_UI import ui_home_page
 from Frontend.src.Document_Formatter import *
 from Frontend.src.Student_Window import Student_Window
@@ -26,6 +28,7 @@ from Backend.Database.lesson_performance_db import lesson_performance_data as lp
 from Backend.Database.evaluation_assessment_db import evaluation_assessment_data as ead
 from Backend.ScreenShot.ImageCapture import ImageCaptureWidget
 from Backend.PDF_ReportGeneration.ReportCard import Report_Card_Generator
+from Backend.Database.surveillance_db import surveillance_data as svd
 import os
 import shutil
 
@@ -192,6 +195,7 @@ class Home(QMainWindow):  # Home extends QMainWindow
         
         # additional permission for that window widgets
         self.home.lsn_module_table_widget.setDragEnabled(True)
+        self.home.lsn_module_table_widget.setEditTriggers(QAbstractItemView.NoEditTriggers)
         self.home.lsn_module_table_widget.setDragDropMode(QAbstractItemView.DragOnly)        
         self.home.lsn_new_module_list_view.setAcceptDrops(True)
         self.home.lsn_new_module_list_view.setModel(QStandardItemModel(0, 1))
@@ -344,7 +348,7 @@ class Home(QMainWindow):  # Home extends QMainWindow
         # Open dialog box to select multiple files
         dialog = QFileDialog()
         dialog.setFileMode(QFileDialog.ExistingFile)
-        dialog.setNameFilter("Image Files (*.png);")
+        dialog.setNameFilter("Image Files (*.png *.jpg *.jpeg);")
         if dialog.exec_():
             
             file_names = dialog.selectedFiles()
@@ -419,7 +423,7 @@ class Home(QMainWindow):  # Home extends QMainWindow
         dialog.setFileMode(QFileDialog.ExistingFile)
         
         # accepts png, jpg, jpged files
-        dialog.setNameFilter("Image Files (*.png);")
+        dialog.setNameFilter("Image Files (*.png *.jpg *.jpeg);")
         
         if dialog.exec_() == QFileDialog.Accepted:
             
@@ -708,9 +712,7 @@ class Home(QMainWindow):  # Home extends QMainWindow
         # Increment the total questions
         self.total_mcq_questions += 1
         self.current_mcq_image_path = ''
-
-    
-    
+   
     
     #! TODO: Will move this method to separate class if we got times
             
@@ -721,12 +723,15 @@ class Home(QMainWindow):  # Home extends QMainWindow
         
         # connecting buttons
         self.home.performance_lesson_btn.clicked.connect(lambda: self.home.performance_stackwidget.setCurrentWidget(self.home.lesson_stk_widget))
+        self.home.performance_module_btn.clicked.connect(lambda: self.home.performance_stackwidget.setCurrentWidget(self.home.module_stk_widget))
         self.home.performance_eval_btn.clicked.connect(lambda: self.home.performance_stackwidget.setCurrentWidget(self.home.eval_stk_widget))
+       
         self.home.lsn_btn_back_to_home_5.clicked.connect(self.home_page)
         self.home.performance_report_btn.clicked.connect(self.load_performance_report)
         self.home.p_eval_matching_btn.clicked.connect(self.load_matching_graphs)
         self.home.p_eval_seq_btn.clicked.connect(self.load_sequence_graphs)
         self.home.p_eval_puzzle_btn.clicked.connect(self.load_puzzle_graphs) 
+        self.home.p_eval_mcq_btn.clicked.connect(self.load_mcq_graphs)
             
         # read the json files from Performance folder 
         # self.populate_performance_table()
@@ -758,12 +763,23 @@ class Home(QMainWindow):  # Home extends QMainWindow
         self.home.p_eval_right_graph_lbl.setScaledContents(True)
         self.home.p_eval_right_graph_lbl.setPixmap(QPixmap('.temp/puzzle_time_bar_chart.png'))  
         
+    def load_mcq_graphs(self):
+        
+        self.home.p_eval_left_graph_lbl.setScaledContents(True)
+        self.home.p_eval_left_graph_lbl.setPixmap(QPixmap('.temp/mcq_success_rate_bar_chart.png'))
+        
+        self.home.p_eval_right_graph_lbl.setScaledContents(True)
+        self.home.p_eval_right_graph_lbl.setPixmap(QPixmap('.temp/mcq_time_bar_chart.png'))
+        
     def populate_performance_table(self):
         
         student_details = {}
+        std_name = ''
+        std_id = ''
         
         self.performance_folders = os.listdir('Performance')
         print(self.performance_folders)
+        
         for folder_name in self.performance_folders:
             
             folder_files = os.listdir('Performance/{}'.format(folder_name))
@@ -782,6 +798,8 @@ class Home(QMainWindow):  # Home extends QMainWindow
                             lesson_completion_data['time'],                            
                         ]
                         student_details[str(data[0])] = data[1]
+                        std_name = data[1]
+                        std_id = data[0]
                         lpd().add_entry(data)
                         
                 elif 'matching' in json_file:
@@ -825,10 +843,42 @@ class Home(QMainWindow):  # Home extends QMainWindow
                             puzzle_completion_data['time'],  
                         ]
                         ead().add_entry(data)
-         
+                  
+                elif 'mcq' in json_file:
+                    
+                    with open(f'Performance\{folder_name}\mcq_results.json', 'r') as f:
+                        puzzle_completion_data = json.load(f)
+                        
+                        data = [
+                            puzzle_completion_data['std_id'],
+                            puzzle_completion_data['std_name'],
+                            puzzle_completion_data['set_name'],
+                            puzzle_completion_data['attempts'],
+                            puzzle_completion_data['success_rate'],
+                            puzzle_completion_data['time'],  
+                        ]
+                        ead().add_entry(data)
+                
+                else:
+                    
+                    with open(f'Performance\{folder_name}\surveillance_log.json', 'r') as f:
+                        surveillance_data = json.load(f)
+                        
+                        # Iterate over the dictionary items
+                        for lesson_id, module_data in surveillance_data.items():
+                            # Iterate over the module data items
+                            for module_id, completion_time in module_data.items():
+                                # Execute an SQL INSERT statement to add the data into the table
+                                data = (std_id, std_name, lesson_id, module_id, completion_time)
+                                svd().add_entry(data)
+                                
+                    print("Surveillance data added to database")
+                                            
         std_entry = []           
         for sid, sname in student_details.items():
             std_entry.append(sid+'_'+sname)
+            
+        print(std_entry)
         
         # add data to combobox
         for entry in std_entry:
@@ -855,10 +905,13 @@ class Home(QMainWindow):  # Home extends QMainWindow
         student_id = self.home.performance_std_id_cmb.currentText().split('_')[0]
         student_evaluation_details = ead().load_table(student_id)
         student_lesson_details = lpd().load_table(student_id)
+        student_surveillance_details = svd().load_table(student_id)
         
         matching_data = []
         sequence_data = []
         puzzle_data = []
+        mcq_data = []
+        surveillance_data = []
         
         for row in student_evaluation_details:
             
@@ -868,11 +921,20 @@ class Home(QMainWindow):  # Home extends QMainWindow
                 sequence_data.append(row)
             elif row[2].startswith('p_'):
                 puzzle_data.append(row)
-                        
+            elif row[2].startswith('q_'):
+                mcq_data.append(row)
+                
+        for row in student_surveillance_details:
+            surveillance_data.append(row)
+                      
+        print(surveillance_data)
+                  
         self.load_lesson_performance_data(student_lesson_details)
         self.load_matching_performance_data(matching_data)
         self.load_sequencing_performance_data(sequence_data)
         self.load_puzzle_performance_data(puzzle_data)
+        self.load_mcq_performance_data(mcq_data)
+        self.load_surveillance_performance_data(surveillance_data)
         
     def load_puzzle_performance_data(self, puzzle_data):
         
@@ -890,6 +952,56 @@ class Home(QMainWindow):  # Home extends QMainWindow
         barchart = BarChart(puzzle_labels, puzzle_success_rate, "Puzzle Set", "Success Rate", "puzzle_success_rate_bar_chart.png", "Puzzle vs Success Rate")
         barchart2 = BarChart(puzzle_labels, puzzle_time, "Puzzle Set", "Completion Time (seconds)", "puzzle_time_bar_chart.png", "Puzzle vs Completion Time (seconds)")
         
+    def load_mcq_performance_data(self, mcq_data):
+        
+        # mcq labels and valus
+        mcq_labels = []
+        mcq_success_rate = []
+        mcq_time = []
+        
+        for row in mcq_data:
+            mcq_labels.append(row[2][2:])
+            mcq_success_rate.append(row[4])
+            mcq_time.append(row[5])
+            
+        # Generate BarChart for mcq completion
+        barchart = BarChart(mcq_labels, mcq_success_rate, "MCQ Set", "Success Rate", "mcq_success_rate_bar_chart.png", "MCQ vs Success Rate")
+        barchart2 = BarChart(mcq_labels, mcq_time, "MCQ Set", "Completion Time (seconds)", "mcq_time_bar_chart.png", "MCQ vs Completion Time (seconds)")
+        
+    def load_surveillance_performance_data(self, sur_data):
+        
+        # get the lesson names of which surveillance data are available
+        unique_lessons = set(item[2] for item in sur_data)
+        lesson_ids = list(unique_lessons)
+        module_ids = [item[3] for item in sur_data]
+        times = [float(item[4]) for item in sur_data]
+        
+        updated_data = []
+        for item in sur_data:
+            module_name = re.sub(r'^শিখন\(|\)$', '', item[3])
+            m_type = module_name.split('_')
+            m_id = m_type[1]
+            m_name = m_type[0].strip(')') + '_' + m_id
+            updated_data.append(m_name)
+       
+        
+        # fill up lesson id table
+        self.home.p_lesson_id_cmb.addItems(lesson_ids)
+        
+        data = [updated_data, times]
+        self.home.p_lesson_id_cmb.currentIndexChanged.connect(lambda: self.generate_pie_chart(data))
+        
+    def generate_pie_chart(self, data):
+        
+        # get selected value
+        selected_lesson_id = self.home.p_lesson_id_cmb.currentText()
+        print(selected_lesson_id)
+        
+        PieChart(data[0], data[1], "module_completion_time_pie_chart.png", f"Time Spent on Modules of Lesson {selected_lesson_id}")
+        
+        self.home.p_module_graph_lbl.setScaledContents(True)
+        self.home.p_module_graph_lbl.setPixmap(QPixmap(".temp\module_completion_time_pie_chart.png"))
+     
     def load_sequencing_performance_data(self, sequence_data):
         
         # sequence labels and values
@@ -979,7 +1091,3 @@ class Home(QMainWindow):  # Home extends QMainWindow
         os.startfile('Reports')
         
         
-         
-           
-        
-    

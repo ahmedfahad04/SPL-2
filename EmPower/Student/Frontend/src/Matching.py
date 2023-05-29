@@ -79,7 +79,7 @@ class DroppableLabel(QLabel):
             
             if self.images_labels == text and text != " ":
                 self.setStyleSheet("background-color: green; border: none;")
-                QSound.play("Frontend\Audio_Track\small_clap_sound.wav")
+                QSound.play("Frontend\Audio_Track\correct_answer.wav")
                 self.matchSuccessful.emit(text)
                 self.already_matched = True
                 global moves 
@@ -121,7 +121,10 @@ class Matching_Window(QWidget):
         self.matching_folder = glob.glob(folder_pattern)[0]
         self.folder_set_name = self.matching_folder.split("\\")[-1][2:]
         folder_files = os.listdir(self.matching_folder)
-        self.images = [file for file in folder_files if file.endswith(".png")]
+        
+        # select image that ends with .png/.jpg/.jpeg
+        
+        self.images = [file for file in folder_files if file.endswith((".png", ".jpg", ".jpeg"))]
 
         # read image tags from json file
         with open(self.matching_folder + "/image_data.json", "r") as json_file:
@@ -132,7 +135,7 @@ class Matching_Window(QWidget):
             print("DICT: ", self.image_tag_dict)
 
             # include only those values that are images
-            self.image_tag_dict = {key: value for key, value in self.image_tag_dict.items() if key in self.images}
+            self.image_tag_dict = {key[2:]: value for key, value in self.image_tag_dict.items() if key[2:] in self.images}
 
             # fill the image tags
             self.image_tags = list(self.image_tag_dict.values())
@@ -200,8 +203,7 @@ class Matching_Window(QWidget):
             self.home_ui.mat_option_3_frame,
             self.home_ui.mat_option_4_frame
         ]
-        
-        
+                
         self.set_option_label(self.home_ui.mat_option_1_frame, self.image_tags[0])
         self.set_option_label(self.home_ui.mat_option_2_frame, self.image_tags[1])
         self.set_option_label(self.home_ui.mat_option_3_frame, self.image_tags[2])
@@ -293,12 +295,14 @@ class Matching_Window(QWidget):
             # write total moves, time and date into a json file
             self.performance['std_name'] = student_name
             self.performance['std_id'] = student_id
-            self.performance['set_name'] = self.matching_folder
-            self.performance['attempts'] = moves+1
+            self.performance['set_name'] = self.matching_folder.split('\\')[-1]
+            self.performance['attempts'] = moves
             self.performance['time'] = round(time_taken,2)
+            
             success_rate = round((4/moves)*100,2)
             if success_rate > 100:
                 success_rate = 100
+                
             self.performance['success_rate'] = success_rate
             self.performance['date'] = datetime.datetime.now().strftime("%Y-%m-%d")
             

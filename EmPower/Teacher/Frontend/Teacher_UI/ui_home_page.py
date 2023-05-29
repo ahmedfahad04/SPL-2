@@ -19,9 +19,9 @@ class Ui_MainWindow(object):
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setMinimumSize(QtCore.QSize(1280, 720))
         self.centralwidget.setObjectName("centralwidget")
-        self.horizontalLayout_14 = QtWidgets.QHBoxLayout(self.centralwidget)
-        self.horizontalLayout_14.setContentsMargins(0, 0, 0, 0)
-        self.horizontalLayout_14.setObjectName("horizontalLayout_14")
+        self.gridLayout_30 = QtWidgets.QGridLayout(self.centralwidget)
+        self.gridLayout_30.setContentsMargins(0, 0, 0, 0)
+        self.gridLayout_30.setObjectName("gridLayout_30")
         self.stackedWidget = QtWidgets.QStackedWidget(self.centralwidget)
         self.stackedWidget.setMinimumSize(QtCore.QSize(1280, 720))
         self.stackedWidget.setObjectName("stackedWidget")
@@ -2652,8 +2652,8 @@ class Ui_MainWindow(object):
         self.frame_9.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_9.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_9.setObjectName("frame_9")
-        self.gridLayout_23 = QtWidgets.QGridLayout(self.frame_9)
-        self.gridLayout_23.setObjectName("gridLayout_23")
+        self.verticalLayout_11 = QtWidgets.QVBoxLayout(self.frame_9)
+        self.verticalLayout_11.setObjectName("verticalLayout_11")
         self.frame_11 = QtWidgets.QFrame(self.frame_9)
         self.frame_11.setMinimumSize(QtCore.QSize(260, 111))
         self.frame_11.setMaximumSize(QtCore.QSize(241, 111))
@@ -2684,14 +2684,12 @@ class Ui_MainWindow(object):
         self.performance_std_id_cmb.setObjectName("performance_std_id_cmb")
         self.performance_std_id_cmb.addItem("")
         self.verticalLayout_7.addWidget(self.performance_std_id_cmb)
-        self.gridLayout_23.addWidget(self.frame_11, 0, 0, 1, 1)
+        self.verticalLayout_11.addWidget(self.frame_11)
         self.performance_lesson_btn = QtWidgets.QPushButton(self.frame_9)
-        self.performance_lesson_btn.setEnabled(False)
-        self.performance_lesson_btn.setMinimumSize(QtCore.QSize(241, 61))
+        self.performance_lesson_btn.setMinimumSize(QtCore.QSize(200, 40))
         font = QtGui.QFont()
-        font.setPointSize(15)
+        font.setPointSize(10)
         self.performance_lesson_btn.setFont(font)
-        self.performance_lesson_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.performance_lesson_btn.setStyleSheet("QPushButton {\n"
 "background-color: rgb(160, 253, 230);\n"
 "color:  rgb(0, 43, 91) ;\n"
@@ -2706,14 +2704,32 @@ class Ui_MainWindow(object):
 "\n"
 "}")
         self.performance_lesson_btn.setObjectName("performance_lesson_btn")
-        self.gridLayout_23.addWidget(self.performance_lesson_btn, 1, 0, 1, 1)
-        self.performance_eval_btn = QtWidgets.QPushButton(self.frame_9)
-        self.performance_eval_btn.setEnabled(False)
-        self.performance_eval_btn.setMinimumSize(QtCore.QSize(241, 61))
+        self.verticalLayout_11.addWidget(self.performance_lesson_btn)
+        self.performance_module_btn = QtWidgets.QPushButton(self.frame_9)
+        self.performance_module_btn.setMinimumSize(QtCore.QSize(200, 40))
         font = QtGui.QFont()
-        font.setPointSize(15)
+        font.setPointSize(10)
+        self.performance_module_btn.setFont(font)
+        self.performance_module_btn.setStyleSheet("QPushButton {\n"
+"background-color: rgb(160, 253, 230);\n"
+"color:  rgb(0, 43, 91) ;\n"
+"border-radius: 15px;\n"
+"border: 4px solid rgb(43, 72, 101);\n"
+"}\n"
+"\n"
+"QPushButton::hover:!pressed {\n"
+"    \n"
+"    background-color: rgb(143, 227, 207);\n"
+"    color: rgb(0, 43, 91);\n"
+"\n"
+"}")
+        self.performance_module_btn.setObjectName("performance_module_btn")
+        self.verticalLayout_11.addWidget(self.performance_module_btn)
+        self.performance_eval_btn = QtWidgets.QPushButton(self.frame_9)
+        self.performance_eval_btn.setMinimumSize(QtCore.QSize(200, 40))
+        font = QtGui.QFont()
+        font.setPointSize(10)
         self.performance_eval_btn.setFont(font)
-        self.performance_eval_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.performance_eval_btn.setStyleSheet("QPushButton {\n"
 "background-color: rgb(160, 253, 230);\n"
 "color:  rgb(0, 43, 91) ;\n"
@@ -2728,7 +2744,7 @@ class Ui_MainWindow(object):
 "\n"
 "}")
         self.performance_eval_btn.setObjectName("performance_eval_btn")
-        self.gridLayout_23.addWidget(self.performance_eval_btn, 2, 0, 1, 1)
+        self.verticalLayout_11.addWidget(self.performance_eval_btn)
         self.label_12 = QtWidgets.QLabel(self.frame_9)
         self.label_12.setMinimumSize(QtCore.QSize(261, 261))
         font = QtGui.QFont()
@@ -2740,7 +2756,7 @@ class Ui_MainWindow(object):
         self.label_12.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignTop)
         self.label_12.setWordWrap(True)
         self.label_12.setObjectName("label_12")
-        self.gridLayout_23.addWidget(self.label_12, 3, 0, 1, 1)
+        self.verticalLayout_11.addWidget(self.label_12)
         self.performance_report_btn = QtWidgets.QPushButton(self.frame_9)
         self.performance_report_btn.setMinimumSize(QtCore.QSize(260, 60))
         self.performance_report_btn.setMaximumSize(QtCore.QSize(250, 60))
@@ -2765,7 +2781,7 @@ class Ui_MainWindow(object):
         self.performance_report_btn.setIcon(icon21)
         self.performance_report_btn.setIconSize(QtCore.QSize(35, 30))
         self.performance_report_btn.setObjectName("performance_report_btn")
-        self.gridLayout_23.addWidget(self.performance_report_btn, 4, 0, 1, 1)
+        self.verticalLayout_11.addWidget(self.performance_report_btn)
         self.horizontalLayout_15.addWidget(self.frame_9)
         self.frame_10 = QtWidgets.QFrame(self.mid_frame_6)
         self.frame_10.setMinimumSize(QtCore.QSize(961, 617))
@@ -2819,6 +2835,45 @@ class Ui_MainWindow(object):
         self.verticalLayout_10.addWidget(self.frame_15)
         self.gridLayout_25.addWidget(self.frame_14, 0, 0, 1, 1)
         self.performance_stackwidget.addWidget(self.lesson_stk_widget)
+        self.module_stk_widget = QtWidgets.QWidget()
+        self.module_stk_widget.setStyleSheet("border: 2px solid rgb(160, 253, 230);")
+        self.module_stk_widget.setObjectName("module_stk_widget")
+        self.gridLayout_31 = QtWidgets.QGridLayout(self.module_stk_widget)
+        self.gridLayout_31.setContentsMargins(0, 0, 0, 0)
+        self.gridLayout_31.setObjectName("gridLayout_31")
+        spacerItem34 = QtWidgets.QSpacerItem(20, 7, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.gridLayout_31.addItem(spacerItem34, 0, 2, 1, 1)
+        spacerItem35 = QtWidgets.QSpacerItem(332, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_31.addItem(spacerItem35, 1, 0, 1, 2)
+        self.p_lesson_id_cmb = QtWidgets.QComboBox(self.module_stk_widget)
+        self.p_lesson_id_cmb.setMinimumSize(QtCore.QSize(256, 50))
+        font = QtGui.QFont()
+        font.setPointSize(13)
+        self.p_lesson_id_cmb.setFont(font)
+        self.p_lesson_id_cmb.setStyleSheet("border: none;\n"
+"background-color: rgb(61, 64, 91);\n"
+"color: white;")
+        self.p_lesson_id_cmb.setObjectName("p_lesson_id_cmb")
+        self.p_lesson_id_cmb.addItem("")
+        self.gridLayout_31.addWidget(self.p_lesson_id_cmb, 1, 2, 1, 1)
+        spacerItem36 = QtWidgets.QSpacerItem(352, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_31.addItem(spacerItem36, 1, 3, 1, 2)
+        spacerItem37 = QtWidgets.QSpacerItem(20, 18, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.gridLayout_31.addItem(spacerItem37, 2, 2, 1, 1)
+        self.p_module_graph_lbl = QtWidgets.QLabel(self.module_stk_widget)
+        self.p_module_graph_lbl.setMinimumSize(QtCore.QSize(500, 500))
+        self.p_module_graph_lbl.setStyleSheet("border: 3px solid rgb(43, 72, 101);")
+        self.p_module_graph_lbl.setText("")
+        self.p_module_graph_lbl.setAlignment(QtCore.Qt.AlignCenter)
+        self.p_module_graph_lbl.setObjectName("p_module_graph_lbl")
+        self.gridLayout_31.addWidget(self.p_module_graph_lbl, 3, 1, 2, 3)
+        spacerItem38 = QtWidgets.QSpacerItem(230, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_31.addItem(spacerItem38, 3, 4, 1, 1)
+        spacerItem39 = QtWidgets.QSpacerItem(210, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_31.addItem(spacerItem39, 4, 0, 1, 1)
+        spacerItem40 = QtWidgets.QSpacerItem(20, 47, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.gridLayout_31.addItem(spacerItem40, 5, 2, 1, 1)
+        self.performance_stackwidget.addWidget(self.module_stk_widget)
         self.eval_stk_widget = QtWidgets.QWidget()
         self.eval_stk_widget.setStyleSheet("border: 2px solid rgb(160, 253, 230);")
         self.eval_stk_widget.setObjectName("eval_stk_widget")
@@ -2832,11 +2887,10 @@ class Ui_MainWindow(object):
         self.frame_12.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_12.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_12.setObjectName("frame_12")
-        self.horizontalLayout_17 = QtWidgets.QHBoxLayout(self.frame_12)
-        self.horizontalLayout_17.setContentsMargins(5, 0, 5, 0)
-        self.horizontalLayout_17.setObjectName("horizontalLayout_17")
+        self.horizontalLayout_14 = QtWidgets.QHBoxLayout(self.frame_12)
+        self.horizontalLayout_14.setObjectName("horizontalLayout_14")
         self.p_eval_puzzle_btn = QtWidgets.QPushButton(self.frame_12)
-        self.p_eval_puzzle_btn.setMinimumSize(QtCore.QSize(291, 131))
+        self.p_eval_puzzle_btn.setMinimumSize(QtCore.QSize(239, 65))
         font = QtGui.QFont()
         font.setPointSize(15)
         self.p_eval_puzzle_btn.setFont(font)
@@ -2854,9 +2908,9 @@ class Ui_MainWindow(object):
 "\n"
 "}")
         self.p_eval_puzzle_btn.setObjectName("p_eval_puzzle_btn")
-        self.horizontalLayout_17.addWidget(self.p_eval_puzzle_btn)
+        self.horizontalLayout_14.addWidget(self.p_eval_puzzle_btn)
         self.p_eval_seq_btn = QtWidgets.QPushButton(self.frame_12)
-        self.p_eval_seq_btn.setMinimumSize(QtCore.QSize(311, 131))
+        self.p_eval_seq_btn.setMinimumSize(QtCore.QSize(0, 65))
         font = QtGui.QFont()
         font.setPointSize(14)
         self.p_eval_seq_btn.setFont(font)
@@ -2874,9 +2928,9 @@ class Ui_MainWindow(object):
 "\n"
 "}")
         self.p_eval_seq_btn.setObjectName("p_eval_seq_btn")
-        self.horizontalLayout_17.addWidget(self.p_eval_seq_btn)
+        self.horizontalLayout_14.addWidget(self.p_eval_seq_btn)
         self.p_eval_matching_btn = QtWidgets.QPushButton(self.frame_12)
-        self.p_eval_matching_btn.setMinimumSize(QtCore.QSize(290, 131))
+        self.p_eval_matching_btn.setMinimumSize(QtCore.QSize(0, 65))
         font = QtGui.QFont()
         font.setPointSize(13)
         self.p_eval_matching_btn.setFont(font)
@@ -2894,7 +2948,27 @@ class Ui_MainWindow(object):
 "\n"
 "}")
         self.p_eval_matching_btn.setObjectName("p_eval_matching_btn")
-        self.horizontalLayout_17.addWidget(self.p_eval_matching_btn)
+        self.horizontalLayout_14.addWidget(self.p_eval_matching_btn)
+        self.p_eval_mcq_btn = QtWidgets.QPushButton(self.frame_12)
+        self.p_eval_mcq_btn.setMinimumSize(QtCore.QSize(0, 65))
+        font = QtGui.QFont()
+        font.setPointSize(13)
+        self.p_eval_mcq_btn.setFont(font)
+        self.p_eval_mcq_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.p_eval_mcq_btn.setStyleSheet("QPushButton {\n"
+"background-color: rgb(160, 253, 230);\n"
+"color:  #256D85 ;\n"
+"border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton::hover {\n"
+"    \n"
+"    background-color: rgb(143, 227, 207);\n"
+"    color: #2B4865;\n"
+"\n"
+"}")
+        self.p_eval_mcq_btn.setObjectName("p_eval_mcq_btn")
+        self.horizontalLayout_14.addWidget(self.p_eval_mcq_btn)
         self.verticalLayout_8.addWidget(self.frame_12)
         self.frame_13 = QtWidgets.QFrame(self.eval_stk_widget)
         self.frame_13.setMinimumSize(QtCore.QSize(931, 446))
@@ -2925,12 +2999,12 @@ class Ui_MainWindow(object):
         self.horizontalLayout_15.addWidget(self.frame_10)
         self.gridLayout_15.addWidget(self.mid_frame_6, 1, 0, 1, 1)
         self.stackedWidget.addWidget(self.performance_page)
-        self.horizontalLayout_14.addWidget(self.stackedWidget)
+        self.gridLayout_30.addWidget(self.stackedWidget, 0, 0, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
-        self.stackedWidget.setCurrentIndex(3)
-        self.mediaStackWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(6)
+        self.mediaStackWidget.setCurrentIndex(0)
         self.evalstackwidget.setCurrentIndex(3)
         self.performance_stackwidget.setCurrentIndex(1)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -3072,6 +3146,7 @@ class Ui_MainWindow(object):
         self.label_11.setText(_translate("MainWindow", "শিক্ষার্থী নির্বাচন করুন"))
         self.performance_std_id_cmb.setItemText(0, _translate("MainWindow", "সিলেক্ট করুন"))
         self.performance_lesson_btn.setText(_translate("MainWindow", "পাঠ সংক্রান্ত ডেটা"))
+        self.performance_module_btn.setText(_translate("MainWindow", "মডিউল সংক্রান্ত ডেটা"))
         self.performance_eval_btn.setText(_translate("MainWindow", "মূল্যায়ন সংক্রান্ত ডেটা"))
         self.label_12.setText(_translate("MainWindow", "নির্দেশনাঃ \n"
 "১। প্রথমে শিক্ষার্থী নির্বাচন করুন\n"
@@ -3079,9 +3154,11 @@ class Ui_MainWindow(object):
 "৩। এরপর পাশের বক্সে থাকা বাটন গুলোতে ক্লিক করে নির্ধারিত গ্রাফ দেখুন\n"
 "৪। সম্পূর্ণ রিপোর্ট দেখতে চাইলে নিচের বাটনে ক্লিক করুন"))
         self.performance_report_btn.setText(_translate("MainWindow", "রিপোর্ট তৈরি করুন"))
+        self.p_lesson_id_cmb.setItemText(0, _translate("MainWindow", "পাঠ নির্বাচন করুন"))
         self.p_eval_puzzle_btn.setText(_translate("MainWindow", "ধাঁধা সংক্রান্ত"))
         self.p_eval_seq_btn.setText(_translate("MainWindow", "ক্রমধারা সংক্রান্ত"))
         self.p_eval_matching_btn.setText(_translate("MainWindow", "শব্দ মিলানো সংক্রান্ত"))
+        self.p_eval_mcq_btn.setText(_translate("MainWindow", "বহুনির্বচনী সংক্রান্ত"))
 
 
 if __name__ == "__main__":

@@ -51,7 +51,7 @@
        <string notr="true">background-color: #F4F1DE;</string>
       </property>
       <property name="currentIndex">
-       <number>7</number>
+       <number>5</number>
       </property>
       <widget class="QWidget" name="home_page">
        <property name="minimumSize">
@@ -1327,36 +1327,6 @@ color: #3D405B; </string>
            <property name="spacing">
             <number>0</number>
            </property>
-           <item row="1" column="0">
-            <widget class="QLabel" name="lbl_lesson_sub_heading_3">
-             <property name="minimumSize">
-              <size>
-               <width>1189</width>
-               <height>30</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <family>Kalpurush</family>
-               <pointsize>12</pointsize>
-               <weight>50</weight>
-               <italic>false</italic>
-               <bold>false</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color: rgb(0, 0, 0);
-padding-left: 5px;
-font: 12pt &quot;Kalpurush&quot;;</string>
-             </property>
-             <property name="text">
-              <string>পাঠ মূল্যায়ন</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
            <item row="0" column="0">
             <widget class="QLabel" name="lbl_lesson_headline_3">
              <property name="minimumSize">
@@ -1389,6 +1359,36 @@ font: 26pt &quot;Kalpurush&quot;;</string>
              </property>
             </widget>
            </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="lbl_lesson_sub_heading_3">
+             <property name="minimumSize">
+              <size>
+               <width>1189</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>Kalpurush</family>
+               <pointsize>12</pointsize>
+               <weight>50</weight>
+               <italic>false</italic>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(0, 0, 0);
+padding-left: 5px;
+font: 12pt &quot;Kalpurush&quot;;</string>
+             </property>
+             <property name="text">
+              <string>পাঠ মূল্যায়ন</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
           </layout>
          </widget>
         </item>
@@ -1411,7 +1411,7 @@ border: 2px solid rgb(0, 43, 91);</string>
            <enum>QFrame::Raised</enum>
           </property>
           <layout class="QGridLayout" name="gridLayout_10">
-           <item row="1" column="0">
+           <item row="2" column="0">
             <widget class="QFrame" name="frame_4">
              <property name="minimumSize">
               <size>
@@ -1501,7 +1501,277 @@ background-color: rgb(200, 198, 182);</string>
              </layout>
             </widget>
            </item>
-           <item row="2" column="0" colspan="2">
+           <item row="2" column="1">
+            <widget class="QFrame" name="frame_5">
+             <property name="minimumSize">
+              <size>
+               <width>624</width>
+               <height>193</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">border: none;</string>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_13">
+              <item>
+               <widget class="QLabel" name="mat_img_lbl_4">
+                <property name="minimumSize">
+                 <size>
+                  <width>239</width>
+                  <height>171</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">border: 2px solid rgb(0, 43, 91);</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_12">
+                <property name="minimumSize">
+                 <size>
+                  <width>111</width>
+                  <height>41</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>105</width>
+                  <height>171</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>8</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">border: none;</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="pixmap">
+                 <pixmap>../Images/connect_1.png</pixmap>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QFrame" name="mat_txt_lbl_4_frame">
+                <property name="minimumSize">
+                 <size>
+                  <width>238</width>
+                  <height>171</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">border: 3px dashed rgb(0, 43, 91);
+background-color: rgb(200, 198, 182);</string>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QFrame" name="frame_2">
+             <property name="minimumSize">
+              <size>
+               <width>624</width>
+               <height>193</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">border: none;</string>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_8">
+              <item>
+               <widget class="QLabel" name="mat_img_lbl_1">
+                <property name="minimumSize">
+                 <size>
+                  <width>239</width>
+                  <height>171</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">border: 2px solid rgb(0, 43, 91);</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_4">
+                <property name="minimumSize">
+                 <size>
+                  <width>111</width>
+                  <height>41</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>105</width>
+                  <height>171</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>8</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">border: none;</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="pixmap">
+                 <pixmap>../Images/connect_1.png</pixmap>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QFrame" name="mat_txt_lbl_1_frame">
+                <property name="minimumSize">
+                 <size>
+                  <width>238</width>
+                  <height>171</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">border: 3px dashed rgb(0, 43, 91);
+background-color: rgb(200, 198, 182);</string>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QFrame" name="frame_3">
+             <property name="minimumSize">
+              <size>
+               <width>624</width>
+               <height>193</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">border: none;</string>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_10">
+              <item>
+               <widget class="QLabel" name="mat_img_lbl_2">
+                <property name="minimumSize">
+                 <size>
+                  <width>239</width>
+                  <height>171</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">border: 2px solid rgb(0, 43, 91);</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_6">
+                <property name="minimumSize">
+                 <size>
+                  <width>111</width>
+                  <height>41</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>105</width>
+                  <height>171</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>8</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">border: none;</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="pixmap">
+                 <pixmap>../Images/connect_1.png</pixmap>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QFrame" name="mat_txt_lbl_2_frame">
+                <property name="minimumSize">
+                 <size>
+                  <width>238</width>
+                  <height>171</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">border: 3px dashed rgb(0, 43, 91);
+background-color: rgb(200, 198, 182);</string>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="0" column="0" colspan="2">
             <widget class="QFrame" name="frame_6">
              <property name="minimumSize">
               <size>
@@ -1630,8 +1900,9 @@ background-color: rgb(255, 252, 232);</string>
                  <cursorShape>PointingHandCursor</cursorShape>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">border: 2px dotted rgb(0, 43, 91);
-background-color: rgb(236, 233, 215);
+                 <string notr="true">border: 2px solid rgb(224, 122, 95) ;
+background-color: rgb(61, 64, 91);
+color: white;
 border-radius: 25px;</string>
                 </property>
                 <property name="frameShape">
@@ -1672,8 +1943,9 @@ border-radius: 25px;</string>
                  <cursorShape>PointingHandCursor</cursorShape>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">border: 2px dotted rgb(0, 43, 91);
-background-color: rgb(236, 233, 215);
+                 <string notr="true">border: 2px solid rgb(224, 122, 95) ;
+background-color: rgb(61, 64, 91);
+color: white;
 border-radius: 25px;</string>
                 </property>
                 <property name="frameShape">
@@ -1714,8 +1986,9 @@ border-radius: 25px;</string>
                  <cursorShape>PointingHandCursor</cursorShape>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">border: 2px dotted rgb(0, 43, 91);
-background-color: rgb(236, 233, 215);
+                 <string notr="true">border: 2px solid rgb(224, 122, 95) ;
+background-color: rgb(61, 64, 91);
+color: white;
 border-radius: 25px;</string>
                 </property>
                 <property name="frameShape">
@@ -1756,8 +2029,9 @@ border-radius: 25px;</string>
                  <cursorShape>PointingHandCursor</cursorShape>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">border: 2px dotted rgb(0, 43, 91);
-background-color: rgb(236, 233, 215);
+                 <string notr="true">border: 2px solid rgb(224, 122, 95) ;
+background-color: rgb(61, 64, 91);
+color: white;
 border-radius: 25px;</string>
                 </property>
                 <property name="frameShape">
@@ -1819,276 +2093,6 @@ border-radius: 25px;</string>
                  </size>
                 </property>
                </spacer>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item row="1" column="1">
-            <widget class="QFrame" name="frame_5">
-             <property name="minimumSize">
-              <size>
-               <width>624</width>
-               <height>193</height>
-              </size>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">border: none;</string>
-             </property>
-             <property name="frameShape">
-              <enum>QFrame::StyledPanel</enum>
-             </property>
-             <property name="frameShadow">
-              <enum>QFrame::Raised</enum>
-             </property>
-             <layout class="QHBoxLayout" name="horizontalLayout_13">
-              <item>
-               <widget class="QLabel" name="mat_img_lbl_4">
-                <property name="minimumSize">
-                 <size>
-                  <width>239</width>
-                  <height>171</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">border: 2px solid rgb(0, 43, 91);</string>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QLabel" name="label_12">
-                <property name="minimumSize">
-                 <size>
-                  <width>111</width>
-                  <height>41</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>105</width>
-                  <height>171</height>
-                 </size>
-                </property>
-                <property name="font">
-                 <font>
-                  <pointsize>8</pointsize>
-                 </font>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">border: none;</string>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-                <property name="pixmap">
-                 <pixmap>../Images/connect_1.png</pixmap>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignCenter</set>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QFrame" name="mat_txt_lbl_4_frame">
-                <property name="minimumSize">
-                 <size>
-                  <width>238</width>
-                  <height>171</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">border: 3px dashed rgb(0, 43, 91);
-background-color: rgb(200, 198, 182);</string>
-                </property>
-                <property name="frameShape">
-                 <enum>QFrame::StyledPanel</enum>
-                </property>
-                <property name="frameShadow">
-                 <enum>QFrame::Raised</enum>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item row="0" column="0">
-            <widget class="QFrame" name="frame_2">
-             <property name="minimumSize">
-              <size>
-               <width>624</width>
-               <height>193</height>
-              </size>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">border: none;</string>
-             </property>
-             <property name="frameShape">
-              <enum>QFrame::StyledPanel</enum>
-             </property>
-             <property name="frameShadow">
-              <enum>QFrame::Raised</enum>
-             </property>
-             <layout class="QHBoxLayout" name="horizontalLayout_8">
-              <item>
-               <widget class="QLabel" name="mat_img_lbl_1">
-                <property name="minimumSize">
-                 <size>
-                  <width>239</width>
-                  <height>171</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">border: 2px solid rgb(0, 43, 91);</string>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QLabel" name="label_4">
-                <property name="minimumSize">
-                 <size>
-                  <width>111</width>
-                  <height>41</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>105</width>
-                  <height>171</height>
-                 </size>
-                </property>
-                <property name="font">
-                 <font>
-                  <pointsize>8</pointsize>
-                 </font>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">border: none;</string>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-                <property name="pixmap">
-                 <pixmap>../Images/connect_1.png</pixmap>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignCenter</set>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QFrame" name="mat_txt_lbl_1_frame">
-                <property name="minimumSize">
-                 <size>
-                  <width>238</width>
-                  <height>171</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">border: 3px dashed rgb(0, 43, 91);
-background-color: rgb(200, 198, 182);</string>
-                </property>
-                <property name="frameShape">
-                 <enum>QFrame::StyledPanel</enum>
-                </property>
-                <property name="frameShadow">
-                 <enum>QFrame::Raised</enum>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item row="0" column="1">
-            <widget class="QFrame" name="frame_3">
-             <property name="minimumSize">
-              <size>
-               <width>624</width>
-               <height>193</height>
-              </size>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">border: none;</string>
-             </property>
-             <property name="frameShape">
-              <enum>QFrame::StyledPanel</enum>
-             </property>
-             <property name="frameShadow">
-              <enum>QFrame::Raised</enum>
-             </property>
-             <layout class="QHBoxLayout" name="horizontalLayout_10">
-              <item>
-               <widget class="QLabel" name="mat_img_lbl_2">
-                <property name="minimumSize">
-                 <size>
-                  <width>239</width>
-                  <height>171</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">border: 2px solid rgb(0, 43, 91);</string>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QLabel" name="label_6">
-                <property name="minimumSize">
-                 <size>
-                  <width>111</width>
-                  <height>41</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>105</width>
-                  <height>171</height>
-                 </size>
-                </property>
-                <property name="font">
-                 <font>
-                  <pointsize>8</pointsize>
-                 </font>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">border: none;</string>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-                <property name="pixmap">
-                 <pixmap>../Images/connect_1.png</pixmap>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignCenter</set>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QFrame" name="mat_txt_lbl_2_frame">
-                <property name="minimumSize">
-                 <size>
-                  <width>238</width>
-                  <height>171</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">border: 3px dashed rgb(0, 43, 91);
-background-color: rgb(200, 198, 182);</string>
-                </property>
-                <property name="frameShape">
-                 <enum>QFrame::StyledPanel</enum>
-                </property>
-                <property name="frameShadow">
-                 <enum>QFrame::Raised</enum>
-                </property>
-               </widget>
               </item>
              </layout>
             </widget>
@@ -2400,7 +2404,7 @@ background-color: rgb(200, 198, 182);</string>
              </layout>
             </widget>
            </item>
-           <item row="1" column="0">
+           <item row="1" column="0" colspan="2">
             <widget class="QFrame" name="frame_9">
              <property name="minimumSize">
               <size>
@@ -2418,25 +2422,6 @@ background-color: rgb(200, 198, 182);</string>
               <enum>QFrame::Raised</enum>
              </property>
              <layout class="QVBoxLayout" name="verticalLayout_9">
-              <item>
-               <widget class="QLabel" name="seq_hint_lbl">
-                <property name="minimumSize">
-                 <size>
-                  <width>891</width>
-                  <height>101</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">background-color: rgb(234, 231, 213);</string>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignCenter</set>
-                </property>
-               </widget>
-              </item>
               <item>
                <widget class="QFrame" name="frame_10">
                 <property name="minimumSize">
@@ -2515,34 +2500,6 @@ background-color: rgb(200, 198, 182);</string>
                </widget>
               </item>
              </layout>
-            </widget>
-           </item>
-           <item row="1" column="1">
-            <widget class="QLabel" name="label_17">
-             <property name="minimumSize">
-              <size>
-               <width>324</width>
-               <height>351</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>324</width>
-               <height>353</height>
-              </size>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">border: none;</string>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="pixmap">
-              <pixmap>../Images/sequence_1.png</pixmap>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
             </widget>
            </item>
           </layout>
@@ -2812,6 +2769,35 @@ border: 2px solid rgb(0, 43, 91);</string>
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout_10">
                  <item>
+                  <widget class="QLabel" name="lbl_mcq_question">
+                   <property name="minimumSize">
+                    <size>
+                     <width>461</width>
+                     <height>101</height>
+                    </size>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <family>Kalpurush</family>
+                     <pointsize>15</pointsize>
+                     <weight>50</weight>
+                     <bold>false</bold>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">border: 2px solid rgb(61, 64, 91);
+background-color: #3D405B;
+color: white;</string>
+                   </property>
+                   <property name="text">
+                    <string>প্রশ্ন</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignCenter</set>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
                   <widget class="QLabel" name="lbl_mcq_image">
                    <property name="minimumSize">
                     <size>
@@ -2827,30 +2813,6 @@ border: 2px solid rgb(0, 43, 91);</string>
                    </property>
                    <property name="pixmap">
                     <pixmap>../Images/gallery2.png</pixmap>
-                   </property>
-                   <property name="alignment">
-                    <set>Qt::AlignCenter</set>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLabel" name="lbl_mcq_question">
-                   <property name="minimumSize">
-                    <size>
-                     <width>461</width>
-                     <height>101</height>
-                    </size>
-                   </property>
-                   <property name="font">
-                    <font>
-                     <pointsize>13</pointsize>
-                    </font>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">border: 2px solid rgb(61, 64, 91);</string>
-                   </property>
-                   <property name="text">
-                    <string>প্রশ্ন</string>
                    </property>
                    <property name="alignment">
                     <set>Qt::AlignCenter</set>
@@ -2923,6 +2885,7 @@ border-radius: 51px;</string>
                       </property>
                       <property name="font">
                        <font>
+                        <family>Kalpurush</family>
                         <pointsize>15</pointsize>
                        </font>
                       </property>
@@ -3004,6 +2967,7 @@ border-radius: 51px;</string>
                       </property>
                       <property name="font">
                        <font>
+                        <family>Kalpurush</family>
                         <pointsize>15</pointsize>
                        </font>
                       </property>
@@ -3080,6 +3044,7 @@ border-radius: 51px;</string>
                       </property>
                       <property name="font">
                        <font>
+                        <family>Kalpurush</family>
                         <pointsize>15</pointsize>
                        </font>
                       </property>
@@ -3159,6 +3124,7 @@ border-radius: 51px;</string>
                       </property>
                       <property name="font">
                        <font>
+                        <family>Kalpurush</family>
                         <pointsize>15</pointsize>
                        </font>
                       </property>

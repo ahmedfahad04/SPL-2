@@ -17,6 +17,10 @@ class Lesson_Assigning_Window(QMainWindow):  # Home extends QMainWindow
         self.table_data = None
         self.rows = None
         self.columns = None
+        
+        # table property
+        self.lesson_assinging_window.lsn_table_assigning_lessons.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        
 
         self.populate_student_list()
         self.populate_lesson_assigning_table()
