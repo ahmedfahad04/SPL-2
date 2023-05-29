@@ -39,7 +39,43 @@ class Home(QMainWindow):  # Home extends QMainWindow
         
         #! TODO: Handle student id and name
         
+        self.manage_content()
         self.home_page()
+        
+    def manage_content(self):
+
+
+        parent_folder = '.'
+        resources_folder = 'Resources'
+        target_folder = ''
+
+        # Iterate through the directories in the parent folder
+        for folder_name in os.listdir(parent_folder):
+            folder_path = os.path.join(parent_folder, folder_name)
+            
+            # Check if the folder name starts with "11"
+            if folder_name.startswith("11") and os.path.isdir(folder_path):
+                
+                # Remove the subfolders of the resources folder
+                shutil.rmtree(resources_folder)
+                target_folder = folder_name
+                
+                # Recreate the resources folder
+                os.mkdir(resources_folder)
+                
+                # Copy the subfolders of the target folder to the resources folder
+                target_subfolders = os.listdir(folder_path)
+                
+                for subfolder_name in target_subfolders:
+                    subfolder_path = os.path.join(folder_path, subfolder_name)
+                    if os.path.isdir(subfolder_path):
+                        shutil.copytree(subfolder_path, os.path.join(resources_folder, subfolder_name))
+
+
+        shutil.rmtree(target_folder)
+
+        print("DONE: Manage Content", target_folder)
+             
         
     def home_page(self):
         
