@@ -161,17 +161,21 @@ class FaceTracker(QThread):
             lesson_row = list(lesson_value.values())
             two_d_list.append(lesson_row)
         
-        i = 0
-        for row in self.lesson_contents:
-            j = 0
-            for col in self.lesson_contents[row]:
-                value = two_d_list[i][j]
-                j = j + 1
-                self.lesson_contents[row][col] = value
+        try: 
+            i = 0
+            for row in self.lesson_contents:
+                j = 0
+                for col in self.lesson_contents[row]:
+                    value = two_d_list[i][j]
+                    j = j + 1
+                    self.lesson_contents[row][col] = value
 
-            i = i +1
-        print(self.lesson_contents)
-        
-        # Write the dictionary to a JSON file
-        with open('surveillance_log.json', 'w') as file:
-            json.dump(self.lesson_contents, file, indent=4) 
+                i = i +1
+            print(self.lesson_contents)
+            
+            # Write the dictionary to a JSON file
+            with open('surveillance_log.json', 'w') as file:
+                json.dump(self.lesson_contents, file, indent=4) 
+                
+        except Exception as e:
+            print("Tracking off. No lesson contents found.", e)

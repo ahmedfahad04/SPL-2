@@ -44,17 +44,23 @@ class Home(QMainWindow):  # Home extends QMainWindow
         
     def manage_content(self):
 
-
         parent_folder = '.'
         resources_folder = 'Resources'
         target_folder = ''
+        std_roll = ''
+        flag = False 
+        
+        #get student roll number
+        with open ('Student_Info\.student_details.json') as f:
+            data = json.load(f)
+            std_roll = data['id']
 
         # Iterate through the directories in the parent folder
         for folder_name in os.listdir(parent_folder):
             folder_path = os.path.join(parent_folder, folder_name)
             
             # Check if the folder name starts with "11"
-            if folder_name.startswith("11") and os.path.isdir(folder_path):
+            if folder_name.startswith(str(std_roll)) and os.path.isdir(folder_path) and 'পাঠ' in folder_name:
                 
                 # Remove the subfolders of the resources folder
                 shutil.rmtree(resources_folder)
@@ -71,12 +77,14 @@ class Home(QMainWindow):  # Home extends QMainWindow
                     if os.path.isdir(subfolder_path):
                         shutil.copytree(subfolder_path, os.path.join(resources_folder, subfolder_name))
 
-
-        shutil.rmtree(target_folder)
-
-        print("DONE: Manage Content", target_folder)
-             
-        
+                flag = True
+                
+        if flag: 
+            shutil.rmtree(target_folder)
+            print("DONE: Manage Content", target_folder)
+        else: 
+            print("Existing folder loaded...")
+                     
     def home_page(self):
         
         print("Home Page")
@@ -318,10 +326,12 @@ class Home(QMainWindow):  # Home extends QMainWindow
             with open(self.lesson_completion_file_location, 'w') as outfile:
                 json.dump(self.lesson_completion_data, outfile)
                 outfile.write('\n')
-
+                
+            # make output folder
+            os.path.exists('Output') or os.makedirs('Output')
     
             # create a folder with student id and name
-            performance_folder_name = str(student_id)+'_'+student_name+'_Lesson_'+str(self.current_lesson_id)
+            performance_folder_name = 'Output/' + str(student_id)+'_'+student_name+'_Lesson_'+str(self.current_lesson_id)
             if os.path.exists(performance_folder_name):
                 shutil.rmtree(performance_folder_name)
             
