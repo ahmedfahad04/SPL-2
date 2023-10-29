@@ -15,8 +15,7 @@ class Database_Manager:
             print("Database folder created successfully!")
 
         # create database for student info
-        self.controller_db, self.controller_db_cursor = self.__create_new_database(
-        self.db_name)
+        self.controller_db, self.controller_db_cursor = self.__create_new_database(self.db_name)
 
         if os.path.exists('Backend/Database/{}'.format(self.db_name)):
             print("Student database found!")
