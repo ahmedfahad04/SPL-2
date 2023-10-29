@@ -1,2 +1,2 @@
-pygame==2.5.1
-opencv-python==4.8.0
+pygame
+opencv-python
