@@ -6,3 +6,5 @@
 
 # ignore all .idea files
 .idea/
+
+Backend/Database/__pycache__/*
