@@ -54,6 +54,9 @@ class Home(QMainWindow):  # Home extends QMainWindow
 
         # buttons
 
+    # def encode_dir_name(name):
+    #     return name.encode('utf-8').decode('utf-8')
+
     def home_page(self):
 
         # load & set up the HOME page
@@ -307,7 +310,8 @@ class Home(QMainWindow):  # Home extends QMainWindow
             return
 
         # make a directory mentioned in image_set
-        if not os.path.exists('Lessons/Sequence_Images/{}'.format(image_set)) and not image_set in existing_folders:
+        # Make a directory mentioned in image_set
+        if not os.path.exists('Lessons/Sequence_Images/{}'.format(image_set)):
             os.mkdir('Lessons/Sequence_Images/{}'.format(image_set))
 
         elif image_set in existing_folders and self.sequence_image_count == 0:
@@ -631,16 +635,15 @@ class Home(QMainWindow):  # Home extends QMainWindow
 
         # if set name is not provided
         if self.home.task_mcq_set_no_edit.toPlainText() == "":
-            show_confirmation_message(
-                "সেট নম্বর অনুপস্থিত", "সেট নম্বর প্রদান করুন এবং 'নতুন প্রশ্ন সেট বাটনে ক্লিক করুন।")
-            return False
+            show_confirmation_message("সেট নম্বর অনুপস্থিত", "সেট নম্বর প্রদান করুন এবং 'নতুন প্রশ্ন সেট বাটনে ক্লিক করুন।")
+            return 
 
         # make a subfolder inside the mcq_questions folder
         if os.path.exists(f"Lessons/MCQ_Questions/{set_no}"):
             sets = os.listdir('Lessons/MCQ_Questions')
             show_warning_message(
                 "সেট নাম পুনরায় লিখুন", "এই নামে একটি সেট আগে থেকেই রয়েছে। বর্তমানে বিদ্যমান সেটগুলো হল : {}".format(sets))
-            return False
+            return
         else:
             os.mkdir(f"Lessons/MCQ_Questions/{set_no}")
 
@@ -937,15 +940,26 @@ class Home(QMainWindow):  # Home extends QMainWindow
 
                     with open(f'Performance\{folder_name}\surveillance_log.json', 'r') as f:
                         surveillance_data = json.load(f)
+                        
+                        print("DATA: >> ", surveillance_data)
 
-                        # Iterate over the dictionary items
-                        for lesson_id, module_data in surveillance_data.items():
-                            # Iterate over the module data items
-                            for module_id, completion_time in module_data.items():
-                                # Execute an SQL INSERT statement to add the data into the table
-                                data = (std_id, std_name, lesson_id,
-                                        module_id, completion_time)
-                                svd().add_entry(data)
+                        # # Iterate over the dictionary items
+                        # for lesson_id, module_data in surveillance_data.items():
+                        #     # Iterate over the module data items
+                            
+                        #     for module_id, completion_time in module_data.items():
+                        #         # Execute an SQL INSERT statement to add the data into the table
+                        #         data = (std_id, std_name, lesson_id,
+                        #                 module_id, completion_time)
+                        #         svd().add_entry(data)
+                        
+                        lesson_id = surveillance_data['lesson_id']
+                        module_dict = surveillance_data['module_wise_time'][0]
+                        for key, value in module_dict.items():
+                            module_id = key
+                            completion_time = value
+                            data = (std_id, std_name, lesson_id, module_id, completion_time)
+                            svd().add_entry(data)
 
                     print("Surveillance data added to database")
 

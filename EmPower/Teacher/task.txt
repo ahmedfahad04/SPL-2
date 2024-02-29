@@ -1,1 +1,2 @@
 1. rename the puzzle, sequence, matching folder's name 
+2. before deleting the student, show warning box

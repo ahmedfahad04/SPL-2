@@ -1,14 +1,16 @@
-from Frontend.Teacher_UI import ui_add_lesson, ui_sound_recorder
-from Backend.VideoPlayer.video_player import Window
-from Frontend.src.Document_Formatter import *
-from Backend.Database.module_db import module_data as md
-from Backend.MediaRecorder import audioRecorder
-from PyQt5.QtCore import QTimer, QTime, Qt
-import os
-import shutil
+import datetime
 import glob
 import json
-import datetime
+import os
+import shutil
+
+from PyQt5.QtCore import Qt, QTime, QTimer
+
+from Backend.Database.module_db import module_data as md
+from Backend.MediaRecorder import audioRecorder
+from Backend.VideoPlayer.video_player import Window
+from Frontend.src.Document_Formatter import *
+from Frontend.Teacher_UI import ui_add_lesson, ui_sound_recorder
 
 
 class Lesson_Window(QMainWindow):  # Home extends QMainWindow
@@ -353,8 +355,11 @@ class Lesson_Window(QMainWindow):  # Home extends QMainWindow
                 self.lesson_window.lsn_lbl_lesson_topic.setText(lsn_topic)
 
                 print("Media Location: ", media_loc)
-                media_loc = glob.glob(media_loc+'/media.*')[0]
-                file_extension = media_loc.split('.')[-1]
+                try:
+                    media_loc = glob.glob(media_loc+'/media.*')[0]
+                    file_extension = media_loc.split('.')[-1]
+                except:
+                    pass
 
                 if file_extension in self.videoFormat:
 
